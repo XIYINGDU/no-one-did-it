@@ -1,18 +1,20 @@
 # No One Did It
 
+![No One Did It — full wraparound cover](book/design/cover-wraparound.webp)
+
 This repository holds the source of *No One Did It: Responsibility Laundering, from the Scapegoat to the Algorithm* (Xiaolai Books, first edition, 2026; eBook ISBN 978-1-80826-002-5, paperback ISBN 978-1-80826-003-2) — the published manuscript, the 292-card source ledger that backs every cited claim, the 13-agent AI crew that helped build it, and the discipline that holds them together.
 
 Three audiences are in mind.
 
 ## If you read the book
 
-The chapter prose, the references, and the primary-document cards behind every cited claim live here. The 13 chapters are in [`book/chapters-v6/`](book/chapters-v6/); start at [`book/evidence/source-ledger/cards/`](book/evidence/source-ledger/cards/) to verify a quote or browse the documents behind a case. This repository holds the **source**, not the packaged editions: the Kindle eBook and the paperback are sold on Amazon (link below). Both editions build from the same v6 source — see [Build the editions](#build-the-editions) to regenerate the EPUB and print PDFs yourself.
+The chapter prose, the references, and the primary-document cards behind every cited claim live here. The 13 chapters are in [`book/chapters-v6/`](book/chapters-v6/); start at [`book/evidence/source-ledger/cards/`](book/evidence/source-ledger/cards/) to verify a quote or browse the documents behind a case. This repository holds the **source**, not the packaged editions: the Kindle eBook is sold on [Amazon](https://www.amazon.com/dp/B0H3GDDL6H). Both editions build from the same v6 source — see [Build the editions](#build-the-editions) to regenerate the EPUB and print PDFs yourself.
 
 ## If you have not read the book yet
 
 The argument in one paragraph: *Civilization did not stop sacrificing substitutes when it stopped sacrificing goats. It moved the altar — from the temple to the org chart, from the org chart to the legal entity, from the legal entity to the algorithm — and at each move the part where someone announces "this one will carry it for us" went further underground. The book names the move — responsibility laundering — and hands the reader an eight-question diagnostic and four recognizable shapes that walk it back to a name.*
 
-The book opens with the preface ([`book/front-matter/preface.md`](book/front-matter/preface.md)). The KDP listing is at [link added on publication]. The author's note on motive, use, and how the book was built is at [`book/back-matter/note-from-the-author.md`](book/back-matter/note-from-the-author.md).
+The book opens with the preface ([`book/front-matter/preface.md`](book/front-matter/preface.md)). The Kindle edition is on [Amazon](https://www.amazon.com/dp/B0H3GDDL6H). The author's note on motive, use, and how the book was built is at [`book/back-matter/note-from-the-author.md`](book/back-matter/note-from-the-author.md).
 
 ## If you want to build a book this way
 
