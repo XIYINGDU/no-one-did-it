@@ -1,0 +1,178 @@
+/* kdp.css — KDP-safe reflowable stylesheet for the Kindle/EPUB 3 edition.
+ * Governed by .claude/rules/16-kdp-epub.md. Relative units only (em/%);
+ * no px/pt on type or spacing; no `position:`; single column; body L/R margins 0.
+ * Kindle's renderer is not a full browser — keep this minimal and let the
+ * reader's font/size settings win. */
+
+/* ---- Body: defaults; do not force font-family, size, or color ---- */
+body {
+  margin: 0;            /* body L/R margins must be 0 (rule 16) */
+  padding: 0;
+  line-height: 1.4;
+  widows: 2;
+  orphans: 2;
+}
+
+/* ---- Paragraphs: indent to distinguish; no double-spacing ---- */
+p {
+  margin: 0;
+  text-indent: 1.2em;   /* <= 4em per rule 16 */
+}
+/* first paragraph after a heading or break: no indent */
+h1 + p, h2 + p, h3 + p, hr + p,
+p.noindent, .first-para {
+  text-indent: 0;
+}
+
+/* ---- Headings: explicit text-align (avoid justified word-gaps) ---- */
+/* Headings: declare margin LONGHAND per level — a shorthand `margin: 0 ...`
+ * here would zero the per-level margin-top below and re-cramp h2/h3/h4. */
+h1, h2, h3, h4 {
+  text-align: left;
+  line-height: 1.2;
+}
+h1 {                    /* chapter / part / section openers */
+  font-size: 1.6em;
+  page-break-before: always;   /* break before each top-level section */
+  break-before: page;
+  margin: 1em 0 0.6em 0;
+}
+h2 { font-size: 1.3em; margin: 2em 0 0.5em 0; page-break-after: avoid; break-after: avoid; }
+h3 { font-size: 1.1em; margin: 1.5em 0 0.4em 0; page-break-after: avoid; break-after: avoid; }
+h4 { font-size: 1.0em; font-weight: 600; margin: 1em 0 0.3em 0; page-break-after: avoid; break-after: avoid; }
+/* Chapter-opener: the first heading right after the chapter title shouldn't double up. */
+.chapter-opener + h2 { margin-top: 1em; }
+
+/* ---- Drop cap on the first letter of each chapter's opening paragraph ----
+ * The mark_chapter_openers.lua filter wraps the first prose paragraph after
+ * each `# Chapter N — Title` heading in `<div class="chapter-opener">`.
+ * Float (not position) is KDP-safe per Amazon Kindle Publishing Guidelines.
+ * Relative units only per rule 16. */
+.chapter-opener > p::first-letter {
+  font-size: 3.4em;
+  font-weight: 600;
+  line-height: 0.85;
+  float: left;
+  margin: 0.05em 0.12em 0 0;
+  padding: 0;
+}
+.chapter-opener > p { text-indent: 0; }
+
+/* ---- Epigraphs / blockquotes ---- */
+blockquote {
+  margin: 1em 6%;       /* L/R in % so it scales with font size */
+  font-style: italic;
+}
+blockquote p { text-indent: 0; margin: 0 0 0.4em 0; }
+
+/* ---- Images: block, centered, scale to viewport ---- */
+img {
+  max-width: 100%;
+  height: auto;         /* height only on images, never text */
+  display: block;
+  margin: 1em auto;
+}
+/* part-divider / full-width plate */
+.divider img, img.plate { max-width: 100%; }
+/* part divider: the H1 above already forces the page break; center the plate */
+.divider { text-align: center; margin: 0; }
+
+/* Pandoc wraps any image-only paragraph in <figure><figcaption>; for the
+ * part-divider plates the figcaption duplicates the H1 above. Hide caption;
+ * <img alt> remains for accessibility. */
+.divider figure { margin: 0; }
+.divider figcaption { display: none; }
+
+/* Figure embeds: per-chapter diagram images (the 12-figure program). Image is
+ * pre-rotated CCW so it reads on a portrait page when the device is turned
+ * clockwise; CSS just centers and scales. Caption (figcaption from alt text)
+ * stays visible — it carries the diagnostic the figure makes legible. */
+.figure-embed {
+  text-align: center;
+  margin: 1.5em 0;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+.figure-embed figure { margin: 0; }
+.figure-embed img { max-width: 100%; height: auto; margin: 0 auto; }
+.figure-embed figcaption {
+  display: block;
+  font-style: italic;
+  font-size: 0.9em;
+  line-height: 1.3;
+  margin: 0.4em 6% 0 6%;
+  text-align: left;
+}
+
+/* part-divider H1: nav anchor + audio cue, but visually quiet because the
+ * Dossier plate below carries the part title in art. Renders as a small
+ * letter-spaced eyebrow above the tagline + plate. */
+h1.part-heading {
+  font-size: 0.85em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  text-align: center;
+  margin: 1.2em 0 0.6em 0;
+  line-height: 1.4;
+}
+
+/* part-divider tagline: a short declarative line between the H1 and the plate */
+.part-tagline {
+  text-align: center;
+  font-style: italic;
+  margin: 1.5em 8% 1.2em 8%;
+  font-size: 1.05em;
+  line-height: 1.4;
+}
+.part-tagline p { text-indent: 0; }
+
+/* ---- Copyright page: small, left, its own page ---- */
+.copyright-page {
+  page-break-before: always;
+  break-before: page;
+  font-size: 0.9em;
+  text-align: left;
+}
+.copyright-page p { text-indent: 0; margin: 0 0 0.6em 0; }
+
+/* ---- Dedication / book epigraph: centered, its own page ---- */
+.dedication, .book-epigraph {
+  page-break-before: always;
+  break-before: page;
+  margin: 2em 6%;
+  text-align: center;
+  font-style: italic;
+}
+.dedication p, .book-epigraph p { text-indent: 0; }
+
+/* ---- Footnotes (EPUB 3 popups): keep aside out of the reading flow ---- */
+/* Kindle shows aside[epub|type=footnote] as a pop-up; this is a graceful
+ * fallback for readers that render it inline. */
+aside { font-size: 0.9em; }
+.footnote-ref, sup { line-height: 0; }
+
+/* ---- Horizontal rule / scene break ---- */
+hr {
+  border: 0;
+  text-align: center;
+  margin: 1.2em 0;
+}
+
+/* ---- Lists ---- */
+ul, ol { margin: 0.6em 0 0.6em 1.4em; padding: 0; }
+li { margin: 0.2em 0; }
+
+/* ---- Selected Bibliography: hanging-indent-ish, no first-line indent ----
+ * Left-align (ragged right): long citations + URLs justify into rivers. */
+section[epub|type~="bibliography"] p,
+.bibliography p { text-indent: 0; margin: 0 0 0.5em 0; text-align: left; }
+
+/* ---- Back cover: final full-page image (Dossier) ---- */
+.backcover {
+  page-break-before: always;
+  break-before: page;
+  text-align: center;
+  margin: 0;
+}
+.backcover img { max-width: 100%; height: auto; margin: 0 auto; }

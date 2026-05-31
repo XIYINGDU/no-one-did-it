@@ -1,0 +1,431 @@
+# Sidecar: chapter 8 [CITE:] anchors → research card ids
+# Built 2026-05-26 to satisfy the research-card pipeline coverage requirement for ch-08.
+# Chapter 8 ("War Is the Perfect Laundry") covers the Iraq WMD anchor case plus four layer
+# callbacks (Abu Ghraib, MH17, Blackwater, Ukrainian children). The chapter's [CITE:] anchors
+# in prose body resolve to 31 unique cards (some new to ch-08, five reused from ch-11/12).
+#
+# Validator note: the [CITE:] regex captures up to the first ']'; anchors that contain a
+# bracketed citation get truncated at the validator level. The full descriptive anchor_text
+# below contains the truncated capture as a substring, which the validator's substring-match
+# logic accepts in either direction.
+
+# Refreshed by scripts/refresh_sidecar_anchors.py — anchor_text now
+# carries the card slug (matching the rule-13 [CITE: <slug>] form in
+# chapter prose). The original human-readable citation moved to the
+# `description` field on each anchor. PyYAML round-trip preserves the
+# leading comment block above but may have dropped any mid-file inline
+# comments; recover from git history if needed.
+
+chapter_id: 10-war-is-the-perfect-laundry
+anchors:
+- anchor_text: un-spv-4701-powell-iraq-presentation-2003
+  card_ids:
+  - un-spv-4701-powell-iraq-presentation-2003
+  description: UN S/PV.4701, 5 Feb 2003
+  line_in_chapter: 25
+  notes: Accusation scene; Powell vial demonstration at UN Security Council 4701st meeting.
+- anchor_text: robb-silberman-wmd-commission-report-2005
+  card_ids:
+  - robb-silberman-wmd-commission-report-2005
+  description: Robb-Silberman Report, 31 Mar 2005, Ch. 1
+  line_in_chapter: 27
+  notes: Accusation scene; Curveball / BND debriefing chain identified by the Commission. Same card as line-59 anchor.
+- anchor_text: ssci-phase-i-iraq-prewar-intelligence-2004
+  card_ids:
+  - ssci-phase-i-iraq-prewar-intelligence-2004
+  description: SSCI Phase I, 7 Jul 2004, Conclusion 1
+  line_in_chapter: 27
+  notes: Accusation scene; INR aluminum-tubes dissent footnote. Same card as line-61 and line-157 anchors.
+- anchor_text: dod-ig-osp-report-07-intel-04-2007
+  card_ids:
+  - dod-ig-osp-report-07-intel-04-2007
+  description: DoD IG Report No. 07-INTEL-04, 9 Feb 2007
+  line_in_chapter: 27
+  notes: Accusation scene; OSP alternative-intelligence channel finding. Same card as line-65 and line-157 anchors.
+- anchor_text: wilkerson-frontline-cnn-public-statements-2006-2007
+  card_ids:
+  - wilkerson-frontline-cnn-public-statements-2006-2007
+  description: Wilkerson, PBS Frontline "The Dark Side," 20 Jun 2006; CNN "Late Edition," 19 Aug 2007
+  line_in_chapter: 29
+  notes: Accusation scene; Wilkerson account of speech drafting. Same card as line-61 and line-133 anchors.
+- anchor_text: iraq-survey-group-duelfer-report-2004
+  card_ids:
+  - iraq-survey-group-duelfer-report-2004
+  description: Iraq Survey Group, Comprehensive Report (Duelfer Report), 30 Sep 2004
+  line_in_chapter: 33
+  notes: Accusation scene; ISG no-stockpiles finding. Same card as line-47 and line-157 anchors.
+- anchor_text: bush-wwics-remarks-iraq-intelligence-2005-12-14
+  card_ids:
+  - bush-wwics-remarks-iraq-intelligence-2005-12-14
+  description: Bush, remarks at Woodrow Wilson Center, 14 Dec 2005; White House transcript
+  line_in_chapter: 39
+  notes: Beat-2 official story; Bush 'intelligence turned out to be wrong' verbatim.
+- anchor_text: executive-order-13328-2004
+  card_ids:
+  - executive-order-13328-2004
+  description: E.O. 13328, 6 Feb 2004
+  line_in_chapter: 45
+  notes: Beat-2 official story; EO 13328 chartering Robb-Silberman with policy-use carve-out. Same card as line-189 anchor.
+- anchor_text: nie-2002-16hc-iraq-wmd-declassified-2003
+  card_ids:
+  - nie-2002-16hc-iraq-wmd-declassified-2003
+  description: NIE 2002-16HC, declassified 18 Jul 2003, Key Judgments
+  line_in_chapter: 47
+  notes: Beat-2 official story; October 2002 NIE 'high confidence' assertion. Same card as line-67 anchor.
+- anchor_text: iraq-survey-group-duelfer-report-2004
+  card_ids:
+  - iraq-survey-group-duelfer-report-2004
+  description: Duelfer Report, 30 Sep 2004
+  line_in_chapter: 47
+  notes: Beat-2 official story; ISG falsification of stockpile claim. Same card as line-33 and line-157 anchors.
+- anchor_text: iaea-elbaradei-niger-forgeries-unsc-2003-03-07
+  card_ids:
+  - iaea-elbaradei-niger-forgeries-unsc-2003-03-07
+  description: IAEA Director General, statement to UN Security Council, 7 Mar 2003
+  line_in_chapter: 47
+  notes: Beat-2 official story; ElBaradei Niger forgeries declaration verbatim.
+- anchor_text: ssci-phase-ii-iraq-postwar-findings-2006-2007
+  card_ids:
+  - ssci-phase-ii-iraq-postwar-findings-2006-2007
+  description: SSCI Phase II, 25 May 2007
+  line_in_chapter: 47
+  notes: Beat-2 official story; SSCI Phase II public-statements gap on Iraq-al-Qaeda ties. Same card as line-65 and line-157 anchors.
+- anchor_text: woodward-plan-of-attack-2004; tenet-at-the-center-of-the-storm-2007
+  card_ids:
+  - woodward-plan-of-attack-2004
+  - tenet-at-the-center-of-the-storm-2007
+  description: Woodward, *Plan of Attack*, 2004, p. 249; Tenet, *At the Center of the Storm*, 2007
+  line_in_chapter: 59
+  notes: Beat-3 hidden architecture; 'slam dunk' attribution sourced through Woodward and contested in Tenet's memoir. Two-card anchor.
+- anchor_text: al-janabi-curveball-guardian-interview-2011-02-15
+  card_ids:
+  - al-janabi-curveball-guardian-interview-2011-02-15
+  description: al-Janabi, interview with The Guardian, 15 Feb 2011
+  line_in_chapter: 59
+  notes: Beat-3 hidden architecture; Curveball self-identification. Same card as line-133 and line-157 anchors.
+- anchor_text: robb-silberman-wmd-commission-report-2005
+  card_ids:
+  - robb-silberman-wmd-commission-report-2005
+  description: Robb-Silberman Report, 31 Mar 2005
+  line_in_chapter: 59
+  notes: Beat-3 hidden architecture; tradecraft critique naming line analysts. Same card as line-27 anchor.
+- anchor_text: bumiller-nyt-whig-2002-09-07
+  card_ids:
+  - bumiller-nyt-whig-2002-09-07
+  description: 'Bumiller, "Traces of Terror: The Strategy," NYT, 7 Sep 2002'
+  line_in_chapter: 61
+  notes: 'Beat-3 hidden architecture; first published reporting on WHIG existence. Same card as line-119 anchor. Title corrected 2026-05-27 from ''Threats and Responses: The Strategy'' to ''Traces of Terror: The Strategy'' per owner-verified NYT source.'
+- anchor_text: ssci-phase-i-iraq-prewar-intelligence-2004
+  card_ids:
+  - ssci-phase-i-iraq-prewar-intelligence-2004
+  description: SSCI Phase I, 7 Jul 2004
+  line_in_chapter: 61
+  notes: Beat-3 hidden architecture; three-week NIE production timeline. Same card as line-27 and line-157 anchors.
+- anchor_text: wilkerson-frontline-cnn-public-statements-2006-2007
+  card_ids:
+  - wilkerson-frontline-cnn-public-statements-2006-2007
+  description: Wilkerson, PBS Frontline, 20 Jun 2006
+  line_in_chapter: 61
+  notes: Beat-3 hidden architecture; Wilkerson account of OVP/NSC pressure on speech text. Same card as line-29 and line-133 anchors.
+- anchor_text: unscr-1441-iraq-2002
+  card_ids:
+  - unscr-1441-iraq-2002
+  description: UNSCR 1441
+  line_in_chapter: 63
+  notes: Beat-3 hidden architecture; UN Security Council Resolution 1441.
+- anchor_text: pl-107-243-aumf-iraq-2002
+  card_ids:
+  - pl-107-243-aumf-iraq-2002
+  description: P.L. 107-243
+  line_in_chapter: 63
+  notes: Beat-3 hidden architecture; AUMF Against Iraq.
+- anchor_text: white-house-tenet-medal-of-freedom-2004-12-14
+  card_ids:
+  - white-house-tenet-medal-of-freedom-2004-12-14
+  description: White House announcement, 14 Dec 2004
+  line_in_chapter: 63
+  notes: Beat-3 hidden architecture; Presidential Medal of Freedom to Tenet.
+- anchor_text: ssci-phase-ii-iraq-postwar-findings-2006-2007
+  card_ids:
+  - ssci-phase-ii-iraq-postwar-findings-2006-2007
+  description: SSCI Phase II, 25 May 2007
+  line_in_chapter: 65
+  notes: Beat-3 hidden architecture; SSCI Phase II public-statements gap finding. Same card as line-47 and line-157 anchors.
+- anchor_text: dod-ig-osp-report-07-intel-04-2007
+  card_ids:
+  - dod-ig-osp-report-07-intel-04-2007
+  description: DoD IG Report No. 07-INTEL-04, 9 Feb 2007
+  line_in_chapter: 65
+  notes: Beat-3 hidden architecture; DoD IG OSP report verbatim 'did not provide' + 'inappropriate'. Same card as line-27 and line-157 anchors.
+- anchor_text: drumheller-on-the-brink-curveball-2006; tenet-at-the-center-of-the-storm-2007
+  card_ids:
+  - drumheller-on-the-brink-curveball-2006
+  - tenet-at-the-center-of-the-storm-2007
+  description: Drumheller, *On the Brink*, 2006; 60 Minutes, 23 Apr 2006; Tenet, *At the Center of the Storm*, 2007
+  line_in_chapter: 65
+  notes: Beat-3 hidden architecture; Drumheller-route Curveball warning + Tenet contestation. Two-card anchor; Tenet card same as line-59 anchor.
+- anchor_text: chilcot-iraq-inquiry-report-2016
+  card_ids:
+  - chilcot-iraq-inquiry-report-2016
+  description: Chilcot Report, Executive Summary, ¶¶ 498–530
+  line_in_chapter: 65
+  notes: Beat-3 hidden architecture; Chilcot findings on September Dossier certainty. Same card as line-143, line-151, line-157, and line-187 anchors.
+- anchor_text: nie-2002-16hc-iraq-wmd-declassified-2003
+  card_ids:
+  - nie-2002-16hc-iraq-wmd-declassified-2003
+  description: NIE 2002-16HC, declassified version
+  line_in_chapter: 67
+  notes: Beat-3 hidden architecture; INR and DOE dissents in declassified NIE footnotes. Same card as line-47 anchor.
+- anchor_text: blix-unmovic-unsc-briefings-jan-mar-2003
+  card_ids:
+  - blix-unmovic-unsc-briefings-jan-mar-2003
+  description: Blix, UN Security Council briefings, 27 Jan 2003; 14 Feb 2003; 7 Mar 2003
+  line_in_chapter: 67
+  notes: Beat-3 hidden architecture; UNMOVIC briefings finding cooperation increasing and no stockpiles located.
+- anchor_text: knight-ridder-iraq-prewar-coverage-2002-2003
+  card_ids:
+  - knight-ridder-iraq-prewar-coverage-2002-2003
+  description: Knight-Ridder Washington Bureau, 2002–2003 coverage
+  line_in_chapter: 69
+  notes: Beat-3 hidden architecture; Knight-Ridder dissenting prewar coverage. Same card as line-131 anchor.
+- anchor_text: iraq-civilian-casualty-counts-iraq-body-count-lancet-ifhs
+  card_ids:
+  - iraq-civilian-casualty-counts-iraq-body-count-lancet-ifhs
+  description: Iraq Body Count database, methodology at iraqbodycount.org
+  line_in_chapter: 71
+  notes: Beat-3 hidden architecture; IBC documented-deaths floor. Same card as line-71 (Roberts) and line-71 (IFHS) anchors.
+- anchor_text: iraq-civilian-casualty-counts-iraq-body-count-lancet-ifhs
+  card_ids:
+  - iraq-civilian-casualty-counts-iraq-body-count-lancet-ifhs
+  description: Roberts et al., *The Lancet*, 11 Oct 2006
+  line_in_chapter: 71
+  notes: Beat-3 hidden architecture; Lancet 2006 household survey estimate. Same combined card.
+- anchor_text: iraq-civilian-casualty-counts-iraq-body-count-lancet-ifhs
+  card_ids:
+  - iraq-civilian-casualty-counts-iraq-body-count-lancet-ifhs
+  description: IFHS, *NEJM*, 31 Jan 2008
+  line_in_chapter: 71
+  notes: Beat-3 hidden architecture; IFHS NEJM 2008 estimate. Same combined card.
+- anchor_text: us-dod-iraq-military-casualty-figures
+  card_ids:
+  - us-dod-iraq-military-casualty-figures
+  description: US Department of Defense casualty figures
+  line_in_chapter: 71
+  notes: Beat-3 hidden architecture; US military deaths in Iraq.
+- anchor_text: uk-mod-iraq-military-casualty-figures
+  card_ids:
+  - uk-mod-iraq-military-casualty-figures
+  description: UK Ministry of Defence
+  line_in_chapter: 71
+  notes: Beat-3 hidden architecture; UK military deaths in Iraq.
+- anchor_text: unhcr-iraq-displacement-2007
+  card_ids:
+  - unhcr-iraq-displacement-2007
+  description: UNHCR
+  line_in_chapter: 71
+  notes: Beat-3 hidden architecture; Iraqi displacement / refugee figures.
+- anchor_text: abu-ghraib-courts-martial-and-karpinski-demotion-2004-2005
+  card_ids:
+  - abu-ghraib-courts-martial-and-karpinski-demotion-2004-2005
+  description: court-martial records, US Army; Karpinski demotion order, May 2005
+  line_in_chapter: 89
+  notes: Chain-of-command callback (Abu Ghraib); per-soldier court-martial dispositions + Karpinski demotion.
+- anchor_text: sasc-detainee-treatment-report-2008-11-20
+  card_ids:
+  - sasc-detainee-treatment-report-2008-11-20
+  description: Senate Armed Services Committee, "Inquiry into the Treatment of Detainees in U.S. Custody," 20 Nov 2008
+  line_in_chapter: 89
+  notes: Chain-of-command callback (Abu Ghraib); Rumsfeld 2 Dec 2002 approval, 16 Apr 2003 expansion, Sanchez 14 Sep 2003 authorisation.
+- anchor_text: taguba-schlesinger-fay-jones-reports-2004; sasc-detainee-treatment-report-2008-11-20
+  card_ids:
+  - taguba-schlesinger-fay-jones-reports-2004
+  - sasc-detainee-treatment-report-2008-11-20
+  description: Taguba Report, Mar 2004; Schlesinger Report, Aug 2004; Fay-Jones Report, Aug 2004; SASC Report, 20 Nov 2008
+  line_in_chapter: 91
+  notes: Chain-of-command callback (Abu Ghraib); four DoD inquiry reports; the three 2004 reports in one combined card, plus SASC. Two-card anchor.
+- anchor_text: mh17-jit-findings-2016-2023
+  card_ids:
+  - mh17-jit-findings-2016-2023
+  description: JIT findings, multiple presentations 2016–2022
+  line_in_chapter: 95
+  notes: Proxy-layer callback (MH17); JIT launcher-traceability and 53rd Brigade attribution.
+- anchor_text: hague-district-court-schiphol-mh17-judgment-2022-11-17
+  card_ids:
+  - hague-district-court-schiphol-mh17-judgment-2022-11-17
+  description: The Hague District Court at Schiphol, judgment of 17 Nov 2022
+  line_in_chapter: 95
+  notes: Proxy-layer callback (MH17); three in-absentia convictions.
+- anchor_text: putin-press-remarks-mh17-2014-07-21
+  card_ids:
+  - putin-press-remarks-mh17-2014-07-21
+  description: Putin remarks, 21 Jul 2014
+  line_in_chapter: 95
+  notes: Proxy-layer callback (MH17); Putin public denial of Russian state involvement.
+- anchor_text: mh17-jit-findings-2016-2023
+  card_ids:
+  - mh17-jit-findings-2016-2023
+  description: JIT press conference, 8 Feb 2023
+  line_in_chapter: 95
+  notes: Proxy-layer callback (MH17); 'strong indications' personal-approval formulation. Same card as line-95 JIT anchor.
+- anchor_text: blackwater-nisour-square-doj-indictment-and-state-dept-record
+  card_ids:
+  - blackwater-nisour-square-doj-indictment-and-state-dept-record
+  description: US Department of Justice indictment; State Department reports on the incident
+  line_in_chapter: 101
+  notes: Contractor-shell callback (Blackwater); DOJ indictment + State Dept incident reports.
+- anchor_text: blackwater-us-v-slatten-slough-2014-convictions
+  card_ids:
+  - blackwater-us-v-slatten-slough-2014-convictions
+  description: '*United States v. Slatten*, US District Court for the District of Columbia, 2014; *United States v. Slough et al.*'
+  line_in_chapter: 101
+  notes: Contractor-shell callback (Blackwater); federal-court convictions of the four guards.
+- anchor_text: trump-blackwater-pardons-2020-12-22
+  card_ids:
+  - trump-blackwater-pardons-2020-12-22
+  description: White House proclamation, 22 Dec 2020
+  line_in_chapter: 101
+  notes: Contractor-shell callback (Blackwater); Trump pardons reversing the 2014 convictions.
+- anchor_text: cpa-order-17-revised-2004-06-27
+  card_ids:
+  - cpa-order-17-revised-2004-06-27
+  description: CPA Order 17 (Revised), 27 Jun 2004
+  line_in_chapter: 101
+  notes: Contractor-shell callback (Blackwater); contractor immunity from Iraqi jurisdiction.
+- anchor_text: prince-public-statements-doj-pacer-search-2026
+  card_ids:
+  - prince-public-statements-doj-pacer-search-2026
+  description: Prince public statements; public-record search of DOJ and federal-court filings
+  line_in_chapter: 103
+  notes: Contractor-shell callback (Blackwater); Erik Prince absence-of-charge as of mid-2026.
+- anchor_text: russian-decrees-330-585-ukrainian-children-2022
+  card_ids:
+  - russian-decrees-330-585-ukrainian-children-2022
+  description: Decree No. 330, 30 May 2022; Decree No. 585, 11 Jul 2022
+  line_in_chapter: 107
+  notes: Civilian-invisibility callback (Ukrainian children); Russian accelerated-citizenship decrees.
+- anchor_text: putin-lvova-belova-public-defence-of-transfers-2022-2023
+  card_ids:
+  - putin-lvova-belova-public-defence-of-transfers-2022-2023
+  description: public statements via TASS and state broadcasts, 2022–2023
+  line_in_chapter: 107
+  notes: Civilian-invisibility callback (Ukrainian children); Putin + Lvova-Belova public defence of transfers.
+- anchor_text: icc-arrest-warrants-putin-lvova-belova-2023-03-17
+  card_ids:
+  - icc-arrest-warrants-putin-lvova-belova-2023-03-17
+  description: ICC Pre-Trial Chamber II, arrest warrants of 17 Mar 2023
+  line_in_chapter: 107
+  notes: Civilian-invisibility callback (Ukrainian children); ICC arrest warrants for Putin and Lvova-Belova.
+- anchor_text: bumiller-nyt-whig-2002-09-07
+  card_ids:
+  - bumiller-nyt-whig-2002-09-07
+  description: NYT, 7 Sep 2002, on WHIG existence
+  line_in_chapter: 119
+  notes: Beat-5 record hardens; WHIG existence reference. Same card as line-61 anchor.
+- anchor_text: olc-levin-withdrawal-memo-2004-12-30
+  card_ids:
+  - olc-levin-withdrawal-memo-2004-12-30
+  description: OLC withdrawal memo, 30 Dec 2004
+  line_in_chapter: 121
+  notes: Beat-5 record hardens; Levin OLC withdrawal of the Bybee memo; supports the record-hardening discussion of the Abu Ghraib chain.
+- anchor_text: knight-ridder-iraq-prewar-coverage-2002-2003
+  card_ids:
+  - knight-ridder-iraq-prewar-coverage-2002-2003
+  description: Knight-Ridder Washington Bureau, 2002–2003
+  line_in_chapter: 131
+  notes: Beat-6 goat resists; Knight-Ridder dissenting prewar coverage marginalisation. Same card as line-69 anchor.
+- anchor_text: wilkerson-frontline-cnn-public-statements-2006-2007
+  card_ids:
+  - wilkerson-frontline-cnn-public-statements-2006-2007
+  description: Wilkerson, PBS Frontline, 20 Jun 2006; CNN, 19 Aug 2007
+  line_in_chapter: 133
+  notes: Beat-6 goat resists; Wilkerson post-war public dissent. Same card as line-29 and line-61 anchors.
+- anchor_text: drumheller-on-the-brink-curveball-2006
+  card_ids:
+  - drumheller-on-the-brink-curveball-2006
+  description: Drumheller, 60 Minutes, 23 Apr 2006; *On the Brink*, 2006
+  line_in_chapter: 133
+  notes: Beat-6 goat resists; Drumheller Curveball-warning account. Same card as line-65 anchor.
+- anchor_text: downing-street-memo-2002-07-23-published-2005-05-01
+  card_ids:
+  - downing-street-memo-2002-07-23-published-2005-05-01
+  description: Downing Street Memo, 23 Jul 2002, published *The Sunday Times*, 1 May 2005
+  line_in_chapter: 133
+  notes: Beat-6 goat resists; Dearlove 'fixed around the policy' line in the Rycroft minute.
+- anchor_text: al-janabi-curveball-guardian-interview-2011-02-15
+  card_ids:
+  - al-janabi-curveball-guardian-interview-2011-02-15
+  description: al-Janabi, *The Guardian*, 15 Feb 2011
+  line_in_chapter: 133
+  notes: Beat-6 goat resists; Curveball self-identification. Same card as line-59 and line-157 anchors.
+- anchor_text: fbi-piro-saddam-interviews-2004-declassified-2009
+  card_ids:
+  - fbi-piro-saddam-interviews-2004-declassified-2009
+  description: FBI interrogation reports, Piro interviews 2004, declassified Jul 2009
+  line_in_chapter: 139
+  notes: Beat-6 steelman; Saddam deterrence-against-Iran ambiguity strategy.
+- anchor_text: chilcot-iraq-inquiry-report-2016
+  card_ids:
+  - chilcot-iraq-inquiry-report-2016
+  description: Chilcot Report, Executive Summary, ¶ 510
+  line_in_chapter: 143
+  notes: Beat-6 steelman; Chilcot JIC certainty-not-justified finding. Same card as line-65, line-151, line-157, and line-187 anchors.
+- anchor_text: chilcot-iraq-inquiry-report-2016
+  card_ids:
+  - chilcot-iraq-inquiry-report-2016
+  description: Chilcot Report, Executive Summary, ¶¶ 875–876
+  line_in_chapter: 151
+  notes: Beat-6 steelman; Chilcot legal-basis 'far from satisfactory' finding. Same card.
+- anchor_text: iraq-survey-group-duelfer-report-2004
+  card_ids:
+  - iraq-survey-group-duelfer-report-2004
+  description: Duelfer Report, 30 Sep 2004
+  line_in_chapter: 157
+  notes: Beat-7 alibi weakens; ISG no-stockpiles finding. Same card as line-33 and line-47 anchors.
+- anchor_text: ssci-phase-i-iraq-prewar-intelligence-2004
+  card_ids:
+  - ssci-phase-i-iraq-prewar-intelligence-2004
+  description: SSCI Phase I, 7 Jul 2004, Conclusion 1
+  line_in_chapter: 157
+  notes: Beat-7 alibi weakens; SSCI Phase I 'either overstated' Conclusion 1 verbatim. Same card as line-27 and line-61 anchors.
+- anchor_text: robb-silberman-wmd-commission-report-2005
+  card_ids:
+  - robb-silberman-wmd-commission-report-2005
+  description: Robb-Silberman Report, Ch. 1, 31 Mar 2005
+  line_in_chapter: 157
+  notes: Beat-7 alibi weakens; Robb-Silberman Curveball-as-fabricator finding. Same card as line-27 and line-59 anchors.
+- anchor_text: ssci-phase-ii-iraq-postwar-findings-2006-2007
+  card_ids:
+  - ssci-phase-ii-iraq-postwar-findings-2006-2007
+  description: SSCI Phase II, 8 Sep 2006 and 25 May 2007
+  line_in_chapter: 157
+  notes: Beat-7 alibi weakens; SSCI Phase II two components. Same card as line-47 and line-65 anchors.
+- anchor_text: dod-ig-osp-report-07-intel-04-2007
+  card_ids:
+  - dod-ig-osp-report-07-intel-04-2007
+  description: DoD IG Report No. 07-INTEL-04, 9 Feb 2007
+  line_in_chapter: 157
+  notes: Beat-7 alibi weakens; DoD IG OSP report completion date. Same card as line-27 and line-65 anchors.
+- anchor_text: al-janabi-curveball-guardian-interview-2011-02-15
+  card_ids:
+  - al-janabi-curveball-guardian-interview-2011-02-15
+  description: al-Janabi, *The Guardian*, 15 Feb 2011
+  line_in_chapter: 157
+  notes: Beat-7 alibi weakens; Curveball self-identification. Same card as line-59 and line-133 anchors.
+- anchor_text: chilcot-iraq-inquiry-report-2016
+  card_ids:
+  - chilcot-iraq-inquiry-report-2016
+  description: Chilcot Report, Executive Summary, ¶¶ 499, 510, 875–876
+  line_in_chapter: 157
+  notes: Beat-7 alibi weakens; Chilcot three operative paragraph pin cites. Same card as line-65, line-143, line-151, and line-187 anchors.
+- anchor_text: chilcot-iraq-inquiry-report-2016
+  card_ids:
+  - chilcot-iraq-inquiry-report-2016
+  description: Blair to Bush, 28 Jul 2002, declassified through the Iraq Inquiry
+  line_in_chapter: 187
+  notes: Beat-9 the escape (Chilcot); Blair 'I will be with you, whatever' minute declassified through the Inquiry. Same card as line-65, line-143, line-151, and line-157 anchors.
+- anchor_text: executive-order-13328-2004
+  card_ids:
+  - executive-order-13328-2004
+  description: E.O. 13328, 6 Feb 2004
+  line_in_chapter: 189
+  notes: Beat-9 the escape (Chilcot); EO 13328 policy-use carve-out contrasted with Chilcot charter breadth. Same card as line-45 anchor.

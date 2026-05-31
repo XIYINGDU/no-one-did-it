@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>No One Did It — Dossier Edition</title>
+<link rel="stylesheet" href="/vendor/fonts.css" />
+<link rel="stylesheet" href="dossier.css" />
+<style>
+  html,body{ margin:0; background:#26241f; }
+</style>
+</head>
+<body>
+<!-- roughen filters -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <filter id="d-rough" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.016 0.022" numOctaves="3" seed="5" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="4" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="d-rough2" x="-8%" y="-8%" width="116%" height="116%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.011 0.015" numOctaves="3" seed="11" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="6" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="d-grunge">
+      <feTurbulence type="fractalNoise" baseFrequency="0.16" numOctaves="2" seed="7" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -0.7 1.06" result="m"/>
+      <feComposite in="SourceGraphic" in2="m" operator="in"/>
+    </filter>
+  </defs>
+</svg>
+
+<div id="root"></div>
+
+<script src="/vendor/react.development.js"></script>
+<script src="/vendor/react-dom.development.js"></script>
+<script src="/vendor/babel.min.js"></script>
+<script src="/omelette-shim.js"></script>
+<script src="image-slot.js"></script>
+<script type="text/babel" src="design-canvas.jsx"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="dossier-front.jsx"></script>
+<script type="text/babel" src="dossier-back.jsx"></script>
+<script type="text/babel" src="dossier-chapters.jsx"></script>
+<script type="text/babel">
+const D = window.Dossier;
+const W = 600, H = 925;
+
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "paper": "Newsprint"
+}/*EDITMODE-END*/;
+
+function App() {
+  const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
+  React.useEffect(() => {
+    document.documentElement.classList.toggle("news", t.paper === "Newsprint");
+  }, [t.paper]);
+  return (
+    <React.Fragment>
+    <DesignCanvas>
+      <DCSection id="front" title="Front Cover Concepts" subtitle="Three directions on the dossier system">
+        <DCArtboard id="f-case" label="A · The Case File" width={W} height={H}><D.FrontCaseFile /></DCArtboard>
+        <DCArtboard id="f-def" label="B · The Defendant" width={W} height={H}><D.FrontDefendant /></DCArtboard>
+        <DCArtboard id="f-wall" label="C · The Evidence Wall" width={W} height={H}><D.FrontEvidenceWall /></DCArtboard>
+      </DCSection>
+
+      <DCSection id="wrap" title="Full Wraparound (Concept A)" subtitle="Back · spine · front — print spread">
+        <DCArtboard id="wrap-1" label="Wraparound" width={1200} height={H}><D.Wraparound /></DCArtboard>
+      </DCSection>
+
+      <DCSection id="wrap-print" title="Print Wraparound (442-page spec)" subtitle="Defendant front · Wraparound spine · Findings back — print spread">
+        <DCArtboard id="wrap-print-1" label="Print Wraparound" width={1308} height={H}><D.WraparoundPrint /></DCArtboard>
+      </DCSection>
+
+      <DCSection id="back" title="Back Cover Concepts" subtitle="Case summary · evidence inventory · findings">
+        <DCArtboard id="b-sum" label="Case Summary" width={W} height={H}><D.BackSummary /></DCArtboard>
+        <DCArtboard id="b-inv" label="Evidence Inventory" width={W} height={H}><D.BackInventory /></DCArtboard>
+        <DCArtboard id="b-find" label="Findings (wraparound style)" width={W} height={H}><D.BackFindings /></DCArtboard>
+      </DCSection>
+
+      <DCSection id="parts" title="Part Covers" subtitle="The four parts of the case">
+        {D.PARTS.map(p => (
+          <DCArtboard key={p.n} id={"part-" + p.n} label={"Part " + p.n + " · " + p.title} width={W} height={H}>
+            <D.PartCover p={p} />
+          </DCArtboard>
+        ))}
+      </DCSection>
+
+      <DCSection id="chapters" title="Chapter Covers (13)" subtitle="Each chapter an exhibit, anchored to its case">
+        {D.CHAPTERS.map(c => (
+          <DCArtboard key={c.n} id={"ch-" + c.n} label={String(c.n).padStart(2,"0") + " · " + c.t} width={W} height={H}>
+            <D.ChapterCard c={c} />
+          </DCArtboard>
+        ))}
+      </DCSection>
+
+      <DCSection id="extras" title="Cast & Style" subtitle="Recurring characters and the design system">
+        <DCArtboard id="cast" label="Dramatis Personae" width={W} height={H}><D.CastCard /></DCArtboard>
+        <DCArtboard id="style" label="Style & Details" width={W} height={H}><D.StyleStrip /></DCArtboard>
+      </DCSection>
+    </DesignCanvas>
+
+    <TweaksPanel>
+      <TweakSection label="Paper" />
+      <TweakRadio label="Tone" value={t.paper}
+        options={["Manila", "Newsprint"]}
+        onChange={(v) => setTweak("paper", v)} />
+    </TweaksPanel>
+    </React.Fragment>
+  );
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body>
+</html>

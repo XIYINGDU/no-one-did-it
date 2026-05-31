@@ -1,0 +1,82 @@
+/* Responsibility-laundering figures — shared design system, re-skinned to the
+   DOSSIER palette: oxblood = visible blame, walnut = where responsibility sits,
+   on newsprint, Spectral + Courier Prime. Tweak here; all 12 figures update. */
+@import url("../../../../pipelines/design-studio/vendor/fonts.css");
+:root{
+  --paper:#f4f2ec; --ink:#2c2418; --muted:#5d5340; --rule:#d9cdb4; --rowalt:#f6f2e8;
+  --blame:#9c3226; --blame-bg:#f1e3dd; --blame-edge:#e3cabf; --blame-ink:#7f3a2e;
+  --chain:#6e4e34; --chain-bg:#ebe3d3; --chain-edge:#d3c5a6; --chain-ink:#4f3724;
+  --serif:'Spectral',Georgia,serif;
+  --mono:'Courier Prime','Courier New',monospace;
+  --sans:'Spectral',Georgia,serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+/* Page background transparent — figures blend with the reader's page colour
+ * (white in PDF, user-set in Kindle). Element backgrounds (.rowalt,
+ * .blame-box, .chain-rows, .inst, .bearer, .rolechip) preserved. */
+html,body{background:transparent}
+body{font-family:var(--serif);color:var(--ink);padding:44px;-webkit-font-smoothing:antialiased;position:relative}
+.card{position:relative;z-index:1}
+.card{display:inline-block}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:700}
+h1{font-family:var(--serif);font-size:38px;line-height:1.08;margin:10px 0 6px;font-weight:600}
+.dek{font-size:18px;color:var(--muted);margin-bottom:28px;line-height:1.4;max-width:1000px}
+.foot{font-size:12px;color:var(--muted);margin-top:24px;line-height:1.5;border-top:1px solid var(--rule);padding-top:12px;max-width:1120px}
+.recognition{font-family:var(--serif);font-style:italic;font-size:20px;line-height:1.45;margin-top:26px;border-left:3px solid var(--chain);padding-left:18px;max-width:1040px}
+.blame-cell{color:var(--blame)} .resp-cell{color:var(--chain)} .ex{font-style:italic}
+
+/* tables & matrices */
+table{border-collapse:collapse}
+thead th{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:700;text-align:left;padding:0 15px 10px;border-bottom:2px solid var(--ink);vertical-align:bottom}
+tbody td{text-align:left;vertical-align:top;padding:14px 15px;border-bottom:1px solid var(--rule);font-size:13.5px;line-height:1.42}
+tbody tr:nth-child(even){background:var(--rowalt)}
+.cat{font-family:var(--serif);font-size:18px;font-weight:600;line-height:1.15}
+.rowhead{font-weight:700;color:var(--chain);font-size:12.5px;letter-spacing:.04em}
+.tag{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:9px;vertical-align:baseline}
+.t1{background:#9c3226}.t2{background:#6e4e34}.t3{background:#29271f}.t4{background:#5d5340}.t5{background:#7f2a20}
+
+/* chain map (two-column contrast) */
+.chain{display:grid;grid-template-columns:286px 1fr;gap:30px;align-items:start}
+.col-label{font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;margin-bottom:11px}
+.blame .col-label{color:var(--blame)} .chain-col .col-label,.resp .col-label{color:var(--chain)}
+.blame-box{background:var(--blame-bg);border:1px solid var(--blame-edge);border-top:4px solid var(--blame);border-radius:9px;padding:22px}
+.blame-box .who{font-family:var(--serif);font-size:22px;line-height:1.22;margin-bottom:10px}
+.blame-box .note{font-size:13.5px;color:var(--blame-ink);line-height:1.45}
+.arrowtext{margin-top:18px;font-family:var(--serif);font-style:italic;font-size:17px;color:var(--muted);line-height:1.4}
+.chain-rows{border:1px solid var(--rule);border-top:4px solid var(--chain);border-radius:9px;overflow:hidden}
+.row{display:grid;grid-template-columns:150px 1fr;gap:18px;padding:14px 20px;border-bottom:1px solid var(--rule)}
+.row:last-child{border-bottom:none} .row:nth-child(even){background:var(--rowalt)}
+.dim{font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;color:var(--chain);padding-top:3px}
+.val{font-size:15px;line-height:1.46}
+
+/* ladder (vertical climb; bottom rung = visible blame) */
+.ladder{display:flex;flex-direction:column-reverse;border-left:3px solid var(--chain);margin-left:10px;max-width:880px}
+.rung{position:relative;padding:15px 0 15px 28px}
+.rung::before{content:"";position:absolute;left:-8px;top:19px;width:13px;height:13px;border-radius:50%;background:var(--chain)}
+.rung.bottom::before{background:var(--blame)}
+.floor-label{font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;color:var(--chain)}
+.rung.bottom .floor-label{color:var(--blame)}
+.floor-val{font-size:15.5px;line-height:1.4;margin-top:3px}
+
+/* schematic (one institution → many roles → one cost-bearer) */
+.schematic{display:flex;flex-direction:column;align-items:center}
+.inst{background:var(--chain-bg);border:1px solid var(--chain-edge);border-top:4px solid var(--chain);border-radius:9px;padding:18px 26px;text-align:center;max-width:780px}
+.inst .who{font-family:var(--serif);font-size:23px;font-weight:600}
+.inst .sub{font-size:13px;color:var(--muted);margin-top:4px}
+.roles{display:flex;flex-wrap:wrap;justify-content:center;gap:11px;max-width:900px;margin:18px 0}
+.rolechip{background:#fff;border:1px solid var(--chain-edge);border-left:3px solid var(--chain);border-radius:6px;padding:11px 14px;font-size:13px;line-height:1.34;width:266px}
+.rolechip b{display:block;color:var(--chain);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px}
+.downarrow{font-size:24px;color:var(--muted);line-height:1;margin:2px 0}
+.bearer{background:var(--blame-bg);border:1px solid var(--blame-edge);border-top:4px solid var(--blame);border-radius:9px;padding:18px 26px;text-align:center;max-width:780px}
+.bearer .who{font-family:var(--serif);font-size:21px;font-weight:600}
+.bearer .note{font-size:13.5px;color:var(--blame-ink);margin-top:6px;line-height:1.4}
+
+/* two-track contradiction timeline */
+.tl-head{display:grid;grid-template-columns:150px 1fr 1fr;gap:22px;margin-bottom:2px;padding:0 0 8px}
+.tl-head div{font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;font-weight:700}
+.tl-head .h-frame{color:var(--blame)} .tl-head .h-rec{color:var(--chain)}
+.tlrow{display:grid;grid-template-columns:150px 1fr 1fr;gap:22px;border-top:1px solid var(--rule);padding:14px 0}
+.tlrow:nth-child(even){background:var(--rowalt)}
+.tldate{font-size:12px;font-weight:700;color:var(--muted)}
+.tlcell{font-size:13.5px;line-height:1.44}
+.tlcell.frame{color:var(--blame-ink)} .tlcell.rec{color:var(--chain-ink)}

@@ -1,0 +1,2 @@
+- [Chapter 3 production model](project_chapter3_diagnostic_model.md) — chapter-3 is the diagnostic-installation chapter; case files must explicitly map all six chain dimensions because they ARE the chapter's structural spine.
+- [Case-file template canon](project_case_file_template.md) — the case-card-template.md fields plus the Bhopal precedent (full block of Crisis through Book function inside a fenced text block, with frontmatter status/case_type/evidence_grade/owner/handoff).

@@ -1,0 +1,74 @@
+# LICENSE
+
+This repository is dual-licensed. Two licenses cover different parts of the tree.
+
+## Directory-to-license mapping
+
+| Directory / files | License |
+|---|---|
+| **Prose** — `book/chapters-v6/`, `book/front-matter/`, `book/back-matter/`, and any edition built from them (the assembled manuscript, the EPUB, the print interior/cover PDFs) | **CC BY-NC 4.0** (see §1 below) |
+| **Apparatus** — everything else: `.claude/`, `scripts/`, `pipelines/`, `tests/`, `process/`, `book/evidence/source-ledger/`, `book/evidence/diagrams/`, `book/registries/`, `book/design/`, `dev-docs/`, `AGENTS.md`, `README.md`, `RELEASE-PREP.md`, configuration files | **MIT** (see §2 below) |
+
+When in doubt about a specific file, the rule is:
+- **Prose** = anything a reader reads as the book itself (chapter narrative, front matter, back matter, the compiled manuscript and exported artifacts).
+- **Apparatus** = everything else (the toolchain, the research evidence, the production scripts, the rules and agents that produced the book, the developer documentation).
+
+---
+
+## §1 — CC BY-NC 4.0 (Creative Commons Attribution-NonCommercial 4.0 International)
+
+Copyright © 2026 Xiaolai Li.
+
+The prose of *No One Did It: Responsibility Laundering, from the Scapegoat to the Algorithm* is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0).
+
+You are free to:
+
+- **Share** — copy and redistribute the material in any medium or format
+- **Adapt** — remix, transform, and build upon the material
+
+Under the following terms:
+
+- **Attribution** — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
+- **NonCommercial** — You may not use the material for commercial purposes.
+- **No additional restrictions** — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
+
+Fair use, fair dealing, and similar rights for review, criticism, scholarship, and education are not affected by this license.
+
+**Full license text:** <https://creativecommons.org/licenses/by-nc/4.0/legalcode>
+**Human-readable summary:** <https://creativecommons.org/licenses/by-nc/4.0/>
+
+The print and ebook editions sold via Amazon KDP (ISBNs 978-1-80826-002-5 and 978-1-80826-003-2) are distributed under separate commercial terms; this open-source license governs the source repository and its derivatives only.
+
+---
+
+## §2 — MIT License (apparatus)
+
+Copyright © 2026 Xiaolai Li.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+---
+
+## Third-party content
+
+The repository quotes third-party copyrighted material under fair use / fair dealing for review, criticism, and scholarship:
+
+- Court filings, government inquiry reports, and other primary public-record documents — public domain in their jurisdiction of origin or available under government-document licensing.
+- Excerpts from journalistic and scholarly sources — quoted at fair-use length with full attribution per Chicago Manual of Style Notes-Bibliography 17th edition citation discipline.
+- Translations from non-English primary sources — author's translations unless otherwise attributed.
+
+The font files at `pipelines/print/fonts/` (EB Garamond, JetBrains Mono) carry their own SIL Open Font License terms in their respective `OFL.txt` files; the MIT license above does not override those.
+
+---
+
+## Authorship and attribution suggestion
+
+For citation purposes, the recommended attribution form is:
+
+> Li, Xiaolai. *No One Did It: Responsibility Laundering, from the Scapegoat to the Algorithm*. Source repository, 2026. <https://github.com/xiaolai/responsibility-laundering>
+
+For derivative works using the apparatus (MIT) to build other books, attribution to the apparatus is appreciated but not required; attribution for prose excerpts (CC BY-NC) is required.

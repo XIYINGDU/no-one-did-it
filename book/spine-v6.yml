@@ -1,0 +1,99 @@
+# EPUB reading-order manifest — No One Did It (v6 canonical)
+#
+# THE single source of truth for what the book is and in what order it reads.
+# pipelines/epub/assemble_v6_manuscript.py reads this file and emits
+# dist/manuscript-v6.md in exactly this order; pipelines/epub/build_kdp_epub.py
+# turns that manuscript into the KDP EPUB (rule 16). Edit the order here, not in
+# the assembler.
+#
+# Reading order produced:
+#   cover (build: --epub-cover-image)
+#   → auto title page (pandoc, from book/design/epub/metadata.yml: title · subtitle · author)
+#   → auto contents (pandoc --toc)
+#   → front_matter (copyright · [dedication] · [epigraph] · preface · note-on-cases)
+#   → parts (each: divider plate + its chapters)
+#   → back_matter (Notes · Selected Bibliography)
+#   → back cover (build: append_back_cover, book/design/epub/back-cover.jpg)
+
+version: 6
+canonical_text: book/chapters-v6        # the source of truth for chapter prose
+manuscript_out: dist/manuscript-v6.md
+
+# Pandoc renders the title page from metadata.yml (title/subtitle/creator); we do
+# not author a separate title-page file (avoids a duplicate title page).
+title_page: auto
+
+# Front matter, in order. `optional: true` entries are omitted when their file is
+# missing or its body (after front-matter + HTML comments) is empty — so an
+# unfilled dedication / epigraph never ships a placeholder page.
+front_matter:
+  - file: book/front-matter/copyright.md
+  - file: book/front-matter/dedication.md
+    optional: true
+  - file: book/front-matter/book-epigraph.md
+    optional: true
+  - file: book/front-matter/preface.md
+  - file: book/back-matter/note-on-cases.md   # authored as front matter ("before the first chapter")
+
+# The four parts. Each divider becomes its own EPUB section: an H1 part heading
+# (nav entry + audio) followed by the Dossier part-divider plate (alt text).
+parts:
+  - id: I
+    title: The Mechanism
+    tagline: "Four shapes. Eight questions. One instrument."
+    divider_image: book/design/covers/part-1.png
+    chapters:
+      - slug: 01-the-altar-moves
+      - slug: 02-the-four-goats
+      - slug: 03-who-could-have-stopped-it
+  - id: II
+    title: The Patterns
+    tagline: "Pattern, not period. The mechanism is the villain."
+    divider_image: book/design/covers/part-2.png
+    chapters:
+      - slug: 04-the-proxy-and-the-sponsor
+      - slug: 05-the-guilty-goat
+      - slug: 06-the-pretext
+      - slug: 07-the-record-is-the-battlefield
+  - id: III
+    title: The Stress Tests
+    tagline: "Modern complexity is the design. The diagnostic still works."
+    divider_image: book/design/covers/part-3.png
+    chapters:
+      - slug: 08-when-power-calls-itself-the-goat
+      - slug: 09-the-model-did-it
+      - slug: 10-war-is-the-perfect-laundry
+  - id: IV
+    title: The Anti-Laundering Rules
+    tagline: "Three rules to carry. The diagnostic, made portable."
+    divider_image: book/design/covers/part-4.png
+    chapters:
+      - slug: 11-make-responsibility-follow-control
+      - slug: 12-keep-the-record
+      - slug: 13-a-readers-field-guide
+
+# Back matter, in order. references.md carries the visible per-chapter References
+# (flip-to-back: superscripts in chapter prose link here); bibliography.md is
+# the Selected Bibliography; note-on-sources-and-method explains how the cases
+# were chosen, graded, and live-content handled; cases-at-a-glance is the
+# alphabetical case lookup; cases-timeline is the chronological view of the
+# same cases; acronyms-and-institutions is the legal/administrative shorthand;
+# about-the-author is xaiolai's bio (optional: skipped until filled);
+# note-from-the-author is the first-person author note (motive + use +
+# AI-apparatus disclosure), placed last so the reader earns the right to ask
+# "why and how" only after reading the book.
+back_matter:
+  - file: book/back-matter/references.md
+  - file: book/back-matter/bibliography.md
+  - file: book/back-matter/note-on-sources-and-method.md
+  - file: book/back-matter/cases-at-a-glance.md
+  - file: book/back-matter/cases-timeline.md
+  - file: book/back-matter/acronyms-and-institutions.md
+  - file: book/back-matter/about-the-author.md
+    optional: true
+  - file: book/back-matter/note-from-the-author.md
+    optional: true
+
+# Final full-page plate. Appended by build_kdp_epub.append_back_cover (not the
+# assembler) so the tested build path is unchanged; declared here for completeness.
+back_cover: book/design/epub/back-cover.jpg

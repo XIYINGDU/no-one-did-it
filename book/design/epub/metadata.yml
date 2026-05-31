@@ -1,0 +1,36 @@
+---
+# Pandoc EPUB 3 metadata for the Kindle/KDP edition of *No One Did It*.
+# Governed by .claude/rules/16-kdp-epub.md. Title/subtitle are verbatim from the
+# v5 source of truth (book/cover-copy.md, book/toc.yml). pipelines/epub/build_kdp_epub.py
+# fails loud if any field VALUE still carries a placeholder (the literal "TODO"),
+# so these stay filled for a shippable build.
+title:
+- type: main
+  text: No One Did It
+- type: subtitle
+  text: "Responsibility Laundering, from the Scapegoat to the Algorithm"
+creator:
+- role: author
+  text: "Xiaolai Li"                 # publication author/byline
+language: en-US
+publisher: "XIAOLAI BOOKS"           # imprint / self-publish label
+date: "2026"
+rights: "© 2026 Xiaolai Li. All rights reserved."
+# Identifier: the assigned ISBN-13 (KDP also mints an ASIN at upload). Keep this
+# fixed so every re-build carries the same package identifier.
+identifier:
+- scheme: ISBN
+  text: "978-1-80826-002-5"          # ISBN-13, check digit verified
+description: |
+  Civilization did not stop sacrificing substitutes; it changed the altar. *No One
+  Did It* is a forensic account of responsibility laundering — the recurring method
+  by which power keeps control or benefit while moving blame onto a weaker bearer, a
+  proxy, a machine, a market, a committee, a legal form, or a record — traced from the
+  ancient scapegoat rite through war, corporate disaster, and AI.
+subject:
+- Political Science / Political Economy
+- Social Science / Power & Accountability
+- Technology & Engineering / Social Aspects (AI)
+# Cover is supplied at build time via --epub-cover-image (book/design/epub/cover.jpg);
+# do not also declare an HTML cover page (rule 16: duplication / conversion failure).
+...

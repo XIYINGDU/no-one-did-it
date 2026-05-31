@@ -1,0 +1,72 @@
+# Sidecar: chapter 10 [CITE:] anchors → research card ids
+# Full coverage of chapter 10 anchors as of 2026-05-26 (Wave 5 backfill complete).
+# Pilot pass (2026-05-26 AM): 2 of 9 anchors (LMArena policy statement; Authors Alliance fairness hearing).
+# Full backfill (2026-05-26): remaining 7 anchor instances mapped to 6 new cards
+# (the Altman X post and the Al-Dahle X post each anchor at two chapter locations).
+# Chicago migration sweep (2026-05-27): all 10 [CITE:] brackets converted to slug
+# form per rule 13. The expanded Altman/Al-Dahle apparatus (handle + URL + Wayback)
+# previously inline at L45/L47/L99/L113 now lives in the source-ledger cards (Layer 3).
+# Wang preservation order at L67 carries `— pending-stephen-lock` suffix pending
+# date-mismatch resolution.
+
+# Refreshed by scripts/refresh_sidecar_anchors.py — anchor_text now
+# carries the card slug (matching the rule-13 [CITE: <slug>] form in
+# chapter prose). The original human-readable citation moved to the
+# `description` field on each anchor. PyYAML round-trip preserves the
+# leading comment block above but may have dropped any mid-file inline
+# comments; recover from git history if needed.
+
+chapter_id: 09-the-model-did-it
+anchors:
+- anchor_text: openai-gpt4o-sycophancy-postmortem-2025-04-29
+  card_ids:
+  - openai-gpt4o-sycophancy-postmortem-2025-04-29
+  description: openai-gpt4o-sycophancy-postmortem-2025-04-29 — pending-stephen-lock
+  line_in_chapter: 27
+  notes: Deployment-layer primary corporate document. Post-mortem uses grammar of system agency throughout ('the model skewed'; 'we focused too much on short-term feedback'). Wayback snapshot capture pending to lock byte-exact source text.
+- anchor_text: altman-x-sycophancy-2025-04-27
+  card_ids:
+  - altman-x-sycophancy-2025-04-27
+  line_in_chapter: 45
+  notes: 'First chapter anchor for Altman''s X post (the pre-post-mortem CEO framing of the issue at the personality level: ''too sycophant-y and annoying''). Verbatim text locked across three corroborating secondary sources; Wayback snapshot capture pending. Bracket reduced from full Chicago-form apparatus to slug per rule 13 (2026-05-27 sweep).'
+- anchor_text: al-dahle-x-llama4-test-sets-2025-04-07
+  card_ids:
+  - al-dahle-x-llama4-test-sets-2025-04-07
+  line_in_chapter: 47
+  notes: 'First chapter anchor for Al-Dahle''s X post (Meta GenAI executive denial of test-set training: ''simply not true and we would never do that''). Verbatim text locked across five corroborating secondary sources; Wayback snapshot capture pending. Bracket reduced from full Chicago-form apparatus to slug per rule 13 (2026-05-27 sweep).'
+- anchor_text: agents-md-core-diagnostic
+  card_ids:
+  - agents-md-core-diagnostic
+  line_in_chapter: 53
+  notes: Self-referential anchor — chapter cites the book's canonical eight-question diagnostic recorded at AGENTS.md project root. Archival-document source type; in-tree archive_path; physical-archive access constraint.
+- anchor_text: wang-order-chatgpt-log-preservation-2025-05-13
+  card_ids:
+  - wang-order-chatgpt-log-preservation-2025-05-13
+  description: wang-order-chatgpt-log-preservation-2025-05-13 — pending-stephen-lock
+  line_in_chapter: 67
+  notes: 'FLAG — prior chapter CITE marker dated the Wang preservation order to ''Nov 14 2024''; the public record supports a 13 May 2025 Wang preservation order (Document 551 in Case 1:23-cv-11195, S.D.N.Y.) with a later 14 November 2025 production-order milestone. The 14/15 November 2024 date in the record is the date News Plaintiffs became aware OpenAI was not preserving relevant logs (awareness event, not court order). Card dispute.status=contested operationally; chapter prose at L67 names the November 2025 discovery order (Layer-1 in-prose date stands) while bracket now carries `— pending-stephen-lock` suffix pending Stephen verification of exact text and full date-sequence resolution. Handoff: wayne-narrative-lead → stephen-fact-check-director → jerry-crew-chief.'
+- anchor_text: altman-x-sycophancy-2025-04-27
+  card_ids:
+  - altman-x-sycophancy-2025-04-27
+  line_in_chapter: 99
+  notes: Second chapter anchor for the same Altman X post (chapter line 99, in the deployment-layer 'record hardens' walk). Single primary source serves both anchor instances; card is shared with the line-45 anchor. Bracket reduced from full Chicago-form apparatus to slug per rule 13 (2026-05-27 sweep).
+- anchor_text: al-dahle-x-llama4-test-sets-2025-04-07
+  card_ids:
+  - al-dahle-x-llama4-test-sets-2025-04-07
+  line_in_chapter: 113
+  notes: Second chapter anchor for the same Al-Dahle X post (chapter line 113, in the evaluation-layer 'goat resists' walk). Single primary source serves both anchor instances; card is shared with the line-47 anchor. Bracket reduced from full Chicago-form apparatus to slug per rule 13 (2026-05-27 sweep).
+- anchor_text: lmarena-meta-llama-4-policy-statement-2025-04-07
+  card_ids:
+  - lmarena-meta-llama-4-policy-statement-2025-04-07
+  line_in_chapter: 115
+  notes: Evaluation-layer alibi worked example; the 7 April 2025 LMArena statement shifting named agent from engineers to policy. Bracket reduced to slug per rule 13 (2026-05-27 sweep); Simon Willison + The Register corroboration moved to card metadata.
+- anchor_text: bartz-settlement-preliminary-approval-2025-09-25
+  card_ids:
+  - bartz-settlement-preliminary-approval-2025-09-25
+  line_in_chapter: 129
+  notes: Per-work gross figure (~$3,000) and class-size figure (~500,000 works) from Judge Alsup's 25 September 2025 preliminary-approval order. Per-work-net depends on final fee award, which depends on final approval (companion card bartz-v-anthropic-fairness-hearing-2026-05-14 covers the 14 May 2026 final fairness hearing under-submission status). Bracket reduced to slug per rule 13 (2026-05-27 sweep).
+- anchor_text: bartz-v-anthropic-fairness-hearing-2026-05-14
+  card_ids:
+  - bartz-v-anthropic-fairness-hearing-2026-05-14
+  line_in_chapter: 131
+  notes: Procedural posture of Bartz settlement as of chapter manuscript-freeze; supersedes prior 'set in early 2026' phrasing. Bracket reduced to slug per rule 13 (2026-05-27 sweep); Authors Alliance attribution moved to card metadata.

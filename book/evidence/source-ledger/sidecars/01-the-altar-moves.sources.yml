@@ -1,0 +1,145 @@
+# Sidecar: chapter 1 [CITE:] anchors → research card ids
+# Built 2026-05-26 to satisfy the research-card pipeline coverage requirement for ch-01.
+# Seventeen distinct anchor occurrences in chapter prose body (lines 25, 27, 29, 37, 39, 51,
+# 55, 61, 63, 65, 81, 83, 95, 97, 99, 113, 129).
+# Two existing cards (oed-scapegoat-figurative-1824, generalbundesanwalt-van-der-lubbe-annulment-2008)
+# resolve two of the anchors; this build adds 16 new cards. Several anchors bundle multiple sources
+# in one [CITE:] bracket (compound-source CITEs), so a single anchor may map to multiple card_ids.
+
+# Refreshed by scripts/refresh_sidecar_anchors.py — anchor_text now
+# carries the card slug (matching the rule-13 [CITE: <slug>] form in
+# chapter prose). The original human-readable citation moved to the
+# `description` field on each anchor. PyYAML round-trip preserves the
+# leading comment block above but may have dropped any mid-file inline
+# comments; recover from git history if needed.
+
+chapter_id: 01-the-altar-moves
+anchors:
+- anchor_text: evans-2003-coming-of-third-reich-ch1
+  card_ids:
+  - evans-2003-coming-of-third-reich-ch1
+  description: Bundesarchiv R 58; Evans 2003 ch. 1
+  line_in_chapter: 25
+  notes: 'Compound CITE: Bundesarchiv R 58 (captured Reich Security Main Office files held at Bundesarchiv Berlin-Lichterfelde, physical-archive access) is the parallel primary-document anchor for the four-thousand-arrests claim; Evans 2003 ch. 1 is the load-bearing standard-monograph reading of those files. Single Evans card covers both (Evans draws explicitly from R 58).'
+- anchor_text: rgbl-i-1933-p-83-reichstagsbrandverordnung
+  card_ids:
+  - rgbl-i-1933-p-83-reichstagsbrandverordnung
+  description: RGBl I 1933 p. 83
+  line_in_chapter: 27
+  notes: Reichstagsbrandverordnung — tier-1 statute as enacted.
+- anchor_text: rgbl-i-1933-p-141-ermaechtigungsgesetz
+  card_ids:
+  - rgbl-i-1933-p-141-ermaechtigungsgesetz
+  description: RGBl I 1933 p. 141
+  line_in_chapter: 29
+  notes: Ermächtigungsgesetz — tier-1 statute as enacted.
+- anchor_text: daniell-1992-tyndale-old-testament-pentateuch
+  card_ids:
+  - daniell-1992-tyndale-old-testament-pentateuch
+  description: Daniell 1992 critical edition of Tyndale; KJV 1611 Lev 16
+  line_in_chapter: 37
+  notes: 'Compound CITE: Daniell 1992 Yale critical edition of Tyndale''s 1530 Pentateuch is the load-bearing scholarly source; the KJV 1611 inheritance is documented within the Daniell card.'
+- anchor_text: milgrom-1991-anchor-bible-leviticus-azazel
+  card_ids:
+  - milgrom-1991-anchor-bible-leviticus-azazel
+  description: Milgrom 1991, Anchor Bible Leviticus 1–16, comm. on 16:8–10
+  line_in_chapter: 39
+  notes: Milgrom Anchor Bible commentary on Lev 16:8-10 — standard modern academic commentary.
+- anchor_text: oed-scapegoat-figurative-1824
+  card_ids:
+  - oed-scapegoat-figurative-1824
+  description: OED, *scapegoat*, n., sense 2 (figurative), first dated citation 1824; bibliographic-author attribution pending direct OED verification — Delon
+  line_in_chapter: 39
+  notes: Existing card (created 2026-05-26); chapters_citing already includes 01-the-altar-moves. Bibliographic-author attribution remains deferred to direct OED access (Delon).
+- anchor_text: jps-1985-tanakh-leviticus-16
+  card_ids:
+  - jps-1985-tanakh-leviticus-16
+  description: JPS 1985 Lev 16:10
+  line_in_chapter: 51
+  notes: JPS 1985 Tanakh, Leviticus 16:10 — single card covers both verse citations in the chapter (51 and 55).
+- anchor_text: jps-1985-tanakh-leviticus-16
+  card_ids:
+  - jps-1985-tanakh-leviticus-16
+  description: JPS 1985 Lev 16:21–22
+  line_in_chapter: 55
+  notes: JPS 1985 Tanakh, Leviticus 16:21-22 — verbatim block-quote in the chapter. Same card as line 51.
+- anchor_text: hipponax-west-fragments-pharmakos
+  card_ids:
+  - hipponax-west-fragments-pharmakos
+  description: Hipponax frr. 5–11 West
+  line_in_chapter: 61
+  notes: 'Hipponax fragments in M. L. West''s OCT edition — earliest extant primary source for the Greek pharmakos. Note: chapter line 61 contains a second [CITE:] bracket immediately after for Bremmer/Hughes; sidecar treats them as two separate anchors.'
+- anchor_text: bremmer-1983-scapegoat-rituals-greece; hughes-1991-human-sacrifice-ancient-greece
+  card_ids:
+  - bremmer-1983-scapegoat-rituals-greece
+  - hughes-1991-human-sacrifice-ancient-greece
+  description: Bremmer 1983 "Scapegoat Rituals in Ancient Greece"; Hughes 1991 Human Sacrifice in Ancient Greece chs. 5–6
+  line_in_chapter: 61
+  notes: 'Compound CITE on line 61: Bremmer 1983 HSCP 87 + Hughes 1991 Routledge monograph — paired sources for the modern scholarly divided reading of the pharmakos (kill vs expel).'
+- anchor_text: anchor-bible-dictionary-atonement-kuppuru; burkert-1979-structure-history-greek-mythology
+  card_ids:
+  - anchor-bible-dictionary-atonement-kuppuru
+  - burkert-1979-structure-history-greek-mythology
+  description: ABD vol. 1 "Atonement"; Burkert 1979 ch. 3
+  line_in_chapter: 63
+  notes: 'Compound CITE: Anchor Bible Dictionary entry on Atonement (Akkadian kuppuru / Hebrew kipper etymology and Babylonian Akitu rite) paired with Burkert 1979 (UC Press Sather Lectures vol. 47, comparative ANE-Greek ritual treatment).'
+- anchor_text: ovid-fasti-2-februa-luperci
+  card_ids:
+  - ovid-fasti-2-februa-luperci
+  description: Ovid Fasti 2.31ff.; Plutarch Romulus 21
+  line_in_chapter: 65
+  notes: 'Compound CITE: Ovid Fasti 2.31ff. (Latin) + Plutarch Romulus 21 (Greek parallel) — both covered in single card on the Februa/Luperci.'
+- anchor_text: rgbl-i-1933-nr-28-p-151-lex-van-der-lubbe
+  card_ids:
+  - rgbl-i-1933-nr-28-p-151-lex-van-der-lubbe
+  description: RGBl I 1933 Nr. 28 p. 151
+  line_in_chapter: 81
+  notes: Lex van der Lubbe — tier-1 statute as enacted (29 March 1933 retroactive death-penalty law).
+- anchor_text: reichsgericht-judgment-23-dec-1933-saechsisches-staatsarchiv
+  card_ids:
+  - reichsgericht-judgment-23-dec-1933-saechsisches-staatsarchiv
+  description: Reichsgericht judgment, Sächsisches Staatsarchiv Leipzig
+  line_in_chapter: 83
+  notes: 23 December 1933 Reichsgericht trial verdict — physical-archive access (Sächsisches Staatsarchiv Leipzig, Bestand 20114). Single card also documents the 10 January 1934 execution at Leipzig.
+- anchor_text: tobias-1962-reichstagsbrand-legende-wirklichkeit
+  card_ids:
+  - tobias-1962-reichstagsbrand-legende-wirklichkeit
+  description: Tobias 1962
+  line_in_chapter: 95
+  notes: 'Tobias 1962 monograph. Note: chapter line 95 contains a second [CITE:] for Mommsen 1964/1972; sidecar treats them as two separate anchors.'
+- anchor_text: mommsen-1964-vfz-reichstagsbrand
+  card_ids:
+  - mommsen-1964-vfz-reichstagsbrand
+  description: Mommsen 1964 VfZ; Mommsen 1972 in Turner ed.
+  line_in_chapter: 95
+  notes: 'Compound CITE: Mommsen 1964 VfZ article + 1972 English-language expansion in Turner ed. (Nazism and the Third Reich, Quadrangle). Single card covers both.'
+- anchor_text: hofer-1972-reichstagsbrand-dokumentation
+  card_ids:
+  - hofer-1972-reichstagsbrand-dokumentation
+  description: Hofer et al. 1972 onwards
+  line_in_chapter: 97
+  notes: 'Hofer / Internationales Komitee Reichstagsbrand documentation (1972 vol. 1; 1978 vol. 2; 1978 research report). Note: chapter line 97 contains a second [CITE:] for Bahar-Kugel 2001; sidecar treats them as two separate anchors. Card grade B; dispute.status=contested reflects the subsidiary scholarly controversy over the committee''s documentation.'
+- anchor_text: bahar-kugel-2001-reichstagsbrand-provokation
+  card_ids:
+  - bahar-kugel-2001-reichstagsbrand-provokation
+  description: Bahar and Kugel 2001
+  line_in_chapter: 97
+  notes: Bahar-Kugel 2001 PapyRossa monograph (Nazi co-conspiracy position). Card grade B; dispute.status=contested reflects the open historiographical question. Living-subject Nancy gate cleared (inherits ch-01 promotion clearance).
+- anchor_text: kellerhoff-2008-reichstagsbrand-karriere
+  card_ids:
+  - kellerhoff-2008-reichstagsbrand-karriere
+  description: Kellerhoff 2008 / 2013 2nd ed.
+  line_in_chapter: 99
+  notes: Kellerhoff 2008 be.bra monograph; 2013 second edition. Lone-perpetrator conclusion. Living-subject Nancy gate cleared (inherits ch-01 promotion clearance).
+- anchor_text: bgbl-i-1998-p-2501-ns-aufhg
+  card_ids:
+  - bgbl-i-1998-p-2501-ns-aufhg
+  description: BGBl I 1998 p. 2501
+  line_in_chapter: 113
+  notes: NS-AufhG — tier-1 statute as enacted; the operative mechanism for the 2007 GBA determination.
+- anchor_text: generalbundesanwalt-van-der-lubbe-annulment-2008
+  card_ids:
+  - generalbundesanwalt-van-der-lubbe-annulment-2008
+  description: Generalbundesanwalt beim Bundesgerichtshof, Pressemitteilung, 10 January 2008, Aktenzeichen 2 AR 187/07
+  line_in_chapter: 129
+  notes: Existing card (created 2026-05-26); chapters_citing already includes 01-the-altar-moves. Anchors the entire 'escape' beat.

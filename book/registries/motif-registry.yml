@@ -1,0 +1,180 @@
+# Book-level motif registry.
+#
+# Schema source: .claude/skills/motif-audit/SKILL.md
+# Audited by: /motif-audit (per chapter rewrite), /dependency-check
+#
+# A motif is a CONCRETE recurring image — an object, a phrase, a setting —
+# threaded through multiple chapters. Distinct from:
+#   - metaphor field (one per book, declared via /device-audit)
+#   - analogy cards (single-chapter devices)
+#   - mirror artifacts (chapter-internal device, also tracked by /device-audit)
+#
+# Fields:
+#   id                       : kebab-case identifier
+#   field                    : which master metaphor field the motif lives in
+#   literal_or_metaphorical  : literal | metaphorical | both
+#   appearances              : list of {chapter, treatment, role}
+#   evolution                : 3+ stage progression string
+#   forbidden_in             : chapters where the motif must NOT appear
+#   frequency_floor          : minimum verified appearances (motif demotes if below)
+
+motifs:
+
+  - id: the-chain
+    field: evidence-forensics
+    literal_or_metaphorical: metaphorical
+    appearances:
+      - {chapter: 2,  treatment: metaphorical, role: scene-anchor}
+      - {chapter: 3,  treatment: metaphorical, role: scene-anchor}
+      - {chapter: 4,  treatment: metaphorical, role: callback}
+      - {chapter: 5,  treatment: metaphorical, role: scene-anchor}
+      - {chapter: 6,  treatment: metaphorical, role: callback}
+      - {chapter: 7,  treatment: metaphorical, role: callback}
+      - {chapter: 10,  treatment: metaphorical, role: callback}
+      - {chapter: 8,  treatment: metaphorical, role: callback}
+      - {chapter: 9, treatment: metaphorical, role: callback}
+      - {chapter: 11, treatment: metaphorical, role: callback}
+      - {chapter: 12, treatment: metaphorical, role: resonant-return}
+      - {chapter: 13, treatment: metaphorical, role: resonant-return}
+    evolution: "chain stops at visible actor (ch-2) → chain climbs by diagnostic (ch-3) → chain runs upward by design rule (ch-11) → chain becomes the reader's instrument (ch-13)"
+    forbidden_in: [1]
+    frequency_floor: 8
+
+  - id: the-named-cause
+    field: evidence-forensics
+    literal_or_metaphorical: both
+    appearances:
+      - {chapter: 1,  treatment: literal,      role: callback}
+      - {chapter: 2,  treatment: literal,      role: scene-anchor}
+      - {chapter: 3,  treatment: literal,      role: scene-anchor}
+      - {chapter: 4,  treatment: literal,      role: scene-anchor}
+      - {chapter: 5,  treatment: literal,      role: callback}
+      - {chapter: 6,  treatment: literal,      role: scene-anchor}
+      - {chapter: 10,  treatment: metaphorical, role: callback}
+      - {chapter: 8,  treatment: literal,      role: callback}
+      - {chapter: 9, treatment: metaphorical, role: resonant-return}
+      - {chapter: 13, treatment: metaphorical, role: resonant-return}
+    evolution: "the named cause is a person (ch-2 pure scapegoat) → the named cause is a thing (ch-2/4/7 system alibi) → the verb's subject is a thing (ch-9 AI grammar) → the named cause is the laundering's location (ch-13 diagnostic close)"
+    forbidden_in: []
+    frequency_floor: 6
+
+  - id: signature-as-seam
+    field: evidence-forensics
+    literal_or_metaphorical: both
+    appearances:
+      - {chapter: 1,  treatment: literal,      role: callback}
+      - {chapter: 2,  treatment: literal,      role: callback}
+      - {chapter: 3,  treatment: literal,      role: scene-anchor}
+      - {chapter: 6,  treatment: metaphorical, role: callback}
+      - {chapter: 7,  treatment: metaphorical, role: resonant-return}
+      - {chapter: 8,  treatment: literal,      role: callback}
+      - {chapter: 9, treatment: metaphorical, role: resonant-return}
+      - {chapter: 11, treatment: metaphorical, role: scene-anchor}
+      - {chapter: 12, treatment: metaphorical, role: callback}
+      - {chapter: 13, treatment: metaphorical, role: resonant-return}
+    evolution: "historical signing acts establish the artefact (ch-1 Hindenburg, ch-2 ODA self-signing) → signature names a person (ch-3 diagnostic) → signature is the laundering's terminal point (ch-6/7) → signature is the design's accountability seam (ch-11) → refusal to sign is the reader's primary move (ch-13)"
+    forbidden_in: []
+    frequency_floor: 5
+
+  - id: the-record
+    field: evidence-forensics
+    literal_or_metaphorical: both
+    appearances:
+      - {chapter: 1,  treatment: literal,      role: callback}
+      - {chapter: 2,  treatment: literal,      role: callback}
+      - {chapter: 3,  treatment: literal,      role: scene-anchor}
+      - {chapter: 4,  treatment: literal,      role: callback}
+      - {chapter: 5,  treatment: literal,      role: callback}
+      - {chapter: 6,  treatment: literal,      role: callback}
+      - {chapter: 7,  treatment: literal,      role: scene-anchor}
+      - {chapter: 10,  treatment: literal,      role: callback}
+      - {chapter: 8,  treatment: literal,      role: callback}
+      - {chapter: 9, treatment: literal,      role: callback}
+      - {chapter: 11, treatment: literal,      role: callback}
+      - {chapter: 12, treatment: literal,      role: scene-anchor}
+      - {chapter: 13, treatment: metaphorical, role: resonant-return}
+    evolution: "the record survives the regime (ch-1 NS-AufhG) → record-control is the sixth diagnostic question (ch-3) → the record is the battlefield (ch-7) → record discipline is the precondition of remedy (ch-12) → the record is what the reader builds (ch-13)"
+    forbidden_in: []
+    frequency_floor: 8
+
+  - id: the-signed-document
+    field: evidence-forensics
+    literal_or_metaphorical: literal
+    appearances:
+      - {chapter: 1,  treatment: literal, role: scene-anchor}
+      - {chapter: 2,  treatment: literal, role: scene-anchor}
+      - {chapter: 4,  treatment: literal, role: callback}
+      - {chapter: 6,  treatment: literal, role: scene-anchor}
+      - {chapter: 10,  treatment: literal, role: callback}
+      - {chapter: 8,  treatment: literal, role: scene-anchor}
+      - {chapter: 11, treatment: literal, role: scene-anchor}
+      - {chapter: 12, treatment: literal, role: scene-anchor}
+    evolution: "the decree as legal scaffolding (ch-1 Reichstag Fire Decree) → the memo as engineered cause (ch-6 Sessions/Nielsen/Ross) → the proclamation as inversion (ch-8 EO 10887/10903) → the signed statute as design rule (ch-11 Park/SOX) → the photocopied study as escape (ch-12 Pentagon Papers)"
+    forbidden_in: []
+    frequency_floor: 6
+
+  - id: the-court-or-inquiry
+    field: evidence-forensics
+    literal_or_metaphorical: literal
+    appearances:
+      - {chapter: 1,  treatment: literal, role: scene-anchor}
+      - {chapter: 2,  treatment: literal, role: callback}
+      - {chapter: 3,  treatment: literal, role: scene-anchor}
+      - {chapter: 4,  treatment: literal, role: scene-anchor}
+      - {chapter: 5,  treatment: literal, role: callback}
+      - {chapter: 6,  treatment: literal, role: callback}
+      - {chapter: 7,  treatment: literal, role: scene-anchor}
+      - {chapter: 10,  treatment: literal, role: resonant-return}
+      - {chapter: 8,  treatment: literal, role: callback}
+      - {chapter: 9, treatment: literal, role: callback}
+      - {chapter: 11, treatment: literal, role: callback}
+      - {chapter: 12, treatment: literal, role: callback}
+    evolution: "the Reichsgericht as record-hardener (ch-1) → the Hague / Cour de Cassation as interceptor (ch-2/4) → Fraser J / Court of Appeal as load-bearing interception (ch-7) → Chilcot as the §21 design contrast (ch-10/11) → Alsup as the AI-stack interceptor (ch-9)"
+    forbidden_in: []
+    frequency_floor: 8
+
+  - id: the-classified-or-sealed-file
+    field: evidence-forensics
+    literal_or_metaphorical: both
+    appearances:
+      - {chapter: 1,  treatment: literal,      role: callback}
+      - {chapter: 2,  treatment: literal,      role: callback}
+      - {chapter: 5,  treatment: literal,      role: scene-anchor}
+      - {chapter: 6,  treatment: literal,      role: scene-anchor}
+      - {chapter: 7,  treatment: literal,      role: scene-anchor}
+      - {chapter: 10,  treatment: literal,      role: scene-anchor}
+      - {chapter: 8,  treatment: literal,      role: callback}
+      - {chapter: 9, treatment: literal,      role: callback}
+      - {chapter: 12, treatment: literal,      role: resonant-return}
+      - {chapter: 13, treatment: literal,      role: callback}
+    evolution: "the captured Reich archives (ch-1) → the May 1982 UCC audit (ch-5 sealed for fifteen years) → the Horizon Known Error Log (ch-7 disclosure compelled by GLO) → the NIE declassified after the war (ch-10) → the training-corpus manifest (ch-9) → the destruction made visible (ch-12) → make the destruction or classification visible as a reader move (ch-13 Move 4)"
+    forbidden_in: []
+    frequency_floor: 6
+
+  - id: the-fair-clue
+    field: evidence-forensics
+    literal_or_metaphorical: metaphorical
+    appearances:
+      - {chapter: 7,  treatment: metaphorical, role: scene-anchor}
+      - {chapter: 9, treatment: metaphorical, role: scene-anchor}
+      - {chapter: 11, treatment: metaphorical, role: scene-anchor}
+      - {chapter: 12, treatment: metaphorical, role: scene-anchor}
+    evolution: "the fair clue planted at chapter open (ch-7 'no other sub-postmaster') → grammar as fair clue (ch-9 'verb's subject is a thing') → design absence as fair clue (ch-11) → verbs with documented human authors (ch-12 Pentagon Papers)"
+    forbidden_in: []
+    frequency_floor: 4
+
+  - id: the-altar
+    field: evidence-forensics
+    literal_or_metaphorical: metaphorical
+    appearances:
+      - {chapter: 1,  treatment: literal,      role: scene-anchor}
+      - {chapter: 9, treatment: metaphorical, role: callback}
+      - {chapter: 13, treatment: metaphorical, role: resonant-return}
+    evolution: "the ancient altar where the substitution was named (ch-1) → the newest altar (ch-9 'the model as altar') → the altar moves; the questions stay (ch-13 close)"
+    forbidden_in: [2, 3, 4, 5, 6, 7, 10, 8, 11, 12]
+    frequency_floor: 3
+
+# ----- Candidate motifs awaiting registration -----
+# Populated by /motif-audit's first-time baseline run. Humans confirm before
+# adding to the `motifs:` list above.
+candidates: []

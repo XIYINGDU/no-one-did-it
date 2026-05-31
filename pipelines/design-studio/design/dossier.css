@@ -1,0 +1,210 @@
+/* ============================================================
+   NO ONE DID IT — DOSSIER EDITION
+   Case-file / evidence aesthetic.
+   Unified palette — five hues on paper: ink · wood · accent ·
+   charcoal · bone. All colors flow from the COLOR TOKENS block
+   (primitives → semantic → legacy aliases). No raw hex outside it.
+   ============================================================ */
+/* Fonts vendored locally — loaded via /vendor/fonts.css in the HTML <head> (GFW-proof). */
+
+*{ box-sizing:border-box; }
+
+:root{
+  /* ============================================================
+     COLOR TOKENS — unified case-file palette
+     Tier 1 · PRIMITIVES (the only raw colors in the whole system)
+     Five hues: ink, wood, accent, dark, bone — on paper.
+     ============================================================ */
+  --c-ink:    #2c2418;   /* warm near-black — all body ink */
+  --c-wood:   #6e4e34;   /* walnut — benches, tabs, secondary */
+  --c-accent: #9c3226;   /* the single accent (oxblood red) */
+  --c-dark:   #29271f;   /* charcoal surface (coal cards/spine) */
+  --c-paper:  #cbba94;   /* manila paper base */
+  --c-bone:   #efe9da;   /* light tone for type on dark surfaces */
+
+  /* ----------------------------------------------------------
+     Tier 2 · SEMANTIC (everything in the UI references these)
+     ---------------------------------------------------------- */
+  /* ink / text */
+  --ink:       var(--c-ink);
+  --ink-soft:  #5d5340;                    /* muted ink (labels, captions) */
+  --on-dark:      var(--c-bone);           /* primary type on dark */
+  --on-dark-soft: #c2b596;                 /* muted type on dark */
+
+  /* accent */
+  --accent:      var(--c-accent);
+  --accent-deep: #7f2a20;                  /* stamps / pressed accent */
+
+  /* wood / secondary surfaces */
+  --wood:      var(--c-wood);
+  --wood-deep: #4f3724;
+
+  /* paper (manila) — layered tones for the kraft gradient */
+  --paper:     var(--c-paper);
+  --paper-hi:  #d8c9a4;
+  --paper-lo:  #b6a47f;
+
+  /* card / index-card inserts */
+  --card:      #e7dec5;
+  --card-hi:   #f0e9d6;
+  --card-lo:   #d8cdb0;
+
+  /* dark surface */
+  --surface-dark: var(--c-dark);
+
+  /* lines & frames (derived, so they stay in-family) */
+  --line:        color-mix(in srgb, var(--c-ink) 30%, transparent);
+  --line-dark:   color-mix(in srgb, var(--c-bone) 30%, transparent);
+  --frame-light: #ece2cb;                  /* photo-edge on pinned crops */
+
+  /* legacy aliases (kept so older refs resolve to the new system) */
+  --kraft:var(--paper); --kraft-hi:var(--paper-hi); --kraft-lo:var(--paper-lo);
+  --walnut:var(--wood); --walnut-dk:var(--wood-deep);
+  --red:var(--accent); --red-dk:var(--accent-deep);
+  --charcoal:var(--surface-dark);
+
+  /* type */
+  --serif:'Spectral', Georgia, serif;
+  --mono:'Courier Prime','Courier New',monospace;
+  --hand:'Caveat',cursive;
+}
+
+/* ---------- manila base ---------- */
+.kraft{
+  position:relative;
+  background:
+    radial-gradient(130% 90% at 25% 10%, var(--kraft-hi), transparent 55%),
+    radial-gradient(130% 120% at 85% 100%, var(--kraft-lo), transparent 55%),
+    var(--kraft);
+  color:var(--ink);
+  overflow:hidden; isolation:isolate;
+}
+.kraft::before{   /* fiber grain */
+  content:""; position:absolute; inset:0; z-index:0; pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode:multiply; opacity:.4;
+}
+.kraft::after{   /* corner shadow / coffee-edge */
+  content:""; position:absolute; inset:0; z-index:0; pointer-events:none;
+  background:radial-gradient(75% 65% at 50% 42%, transparent 52%, rgba(50,36,20,.16) 100%);
+  mix-blend-mode:multiply;
+}
+.kraft > *{ position:relative; z-index:1; }
+
+/* ---------- newsprint tone (light grained white) ----------
+   Applied on an ancestor (.news) so the custom props cascade into
+   every .kraft card. Cooler, lighter paper with a grittier grain. */
+.news{
+  --paper:#f3f1ea;
+  --paper-hi:#fbfaf6;
+  --paper-lo:#e9e6dc;
+  --card:#f8f6f1;
+  --card-hi:#fffefb;
+  --card-lo:#f1eee5;
+}
+.news .kraft::before{ opacity:.6; }            /* grittier newsprint fiber */
+.news .kraft::after{                            /* lighter, cooler edge */
+  background:radial-gradient(78% 66% at 50% 42%, transparent 55%, rgba(40,34,24,.10) 100%);
+}
+
+/* charcoal variant (spine, dramatic covers) */
+.coal{
+  --ink:var(--on-dark); --ink-soft:var(--on-dark-soft);
+  background:
+    radial-gradient(120% 90% at 30% 8%, color-mix(in srgb, var(--surface-dark) 86%, #fff 14%), transparent 60%),
+    var(--surface-dark);
+  color:var(--ink); position:relative; overflow:hidden; isolation:isolate;
+}
+.coal::after{
+  content:""; position:absolute; inset:0; z-index:0; pointer-events:none;
+  background:radial-gradient(80% 70% at 50% 40%, transparent 45%, rgba(0,0,0,.5) 100%);
+}
+.coal > *{ position:relative; z-index:1; }
+
+/* roughen — displacement filters removed for render performance
+   (feTurbulence+feDisplacementMap at this scale crashes rasterization) */
+.rough{ }
+.rough2{ }
+
+/* ---------- type ---------- */
+.label{ font-family:var(--mono); text-transform:uppercase; letter-spacing:.22em; font-size:11px; line-height:1.7; color:var(--ink-soft); }
+.label.tight{ letter-spacing:.12em; }
+.type{ font-family:var(--mono); font-size:13px; line-height:1.55; color:var(--ink); }
+.hand{ font-family:var(--hand); color:var(--walnut); }
+.serif{ font-family:var(--serif); }
+
+.booktitle{
+  font-family:var(--serif); font-weight:700; text-transform:uppercase;
+  letter-spacing:.01em; line-height:.92; color:var(--ink);
+}
+.subtitle{ font-family:var(--serif); font-style:italic; font-weight:400; color:var(--ink-soft); }
+
+/* ---------- case-file components ---------- */
+
+/* folder tab */
+.tab{
+  display:inline-block; background:var(--wood); color:var(--on-dark);
+  font-family:var(--mono); text-transform:uppercase; letter-spacing:.2em;
+  font-size:11px; padding:7px 16px 6px; border-radius:6px 6px 0 0;
+}
+
+/* red rubber stamp */
+.stamp-red{
+  font-family:var(--mono); font-weight:700; text-transform:uppercase;
+  letter-spacing:.14em; color:var(--red); border:2.5px solid var(--red);
+  padding:5px 12px; border-radius:3px; display:inline-block;
+  transform:rotate(-7deg); opacity:.85; mix-blend-mode:multiply;
+}
+.stamp-red.box2{ border-width:3px; border-style:double; }
+
+/* the recurring NO ONE DID IT mini-stamp */
+.minititle{
+  font-family:var(--serif); font-weight:700; text-transform:uppercase;
+  color:var(--red); border:2px solid var(--red); padding:6px 10px; line-height:.95;
+  text-align:center; transform:rotate(-4deg);
+  mix-blend-mode:multiply; font-size:13px; letter-spacing:.02em;
+}
+
+/* paper insert / index card */
+.insert{
+  background:
+    linear-gradient(180deg, var(--card-hi), var(--card) 30%, var(--card-lo));
+  border:1px solid var(--line);
+  box-shadow:0 6px 16px rgba(40,28,14,.28), 0 1px 0 rgba(255,255,255,.4) inset;
+  color:var(--ink);
+}
+
+/* typed evidence line */
+.evi{ font-family:var(--mono); font-size:12px; color:var(--ink); }
+.evi .k{ color:var(--ink-soft); }
+
+/* redaction bar */
+.redact{ display:inline-block; height:.92em; background:var(--ink); border-radius:1px; vertical-align:middle; }
+
+/* rules */
+.rule{ height:2px; background:var(--ink); opacity:.8; }
+.rule.thin{ height:1px; opacity:.45; }
+.rule.red{ background:var(--red); opacity:.85; }
+
+/* tape strip */
+.tape{ position:absolute; width:96px; height:26px; background:rgba(214,196,150,.55);
+  border-left:1px dashed rgba(80,60,30,.35); border-right:1px dashed rgba(80,60,30,.35);
+  box-shadow:0 1px 3px rgba(0,0,0,.15); mix-blend-mode:multiply; }
+
+/* paperclip */
+.clip{ position:absolute; width:22px; height:54px; border:3px solid var(--ink-soft);
+  border-radius:11px; border-bottom:none; }
+.clip::after{ content:""; position:absolute; left:4px; top:8px; width:9px; height:34px;
+  border:3px solid var(--ink-soft); border-radius:6px; border-top:none; }
+
+/* barcode */
+.barcode{ height:54px; width:150px; background:repeating-linear-gradient(90deg,
+  var(--ink) 0 2px,transparent 2px 4px,var(--ink) 4px 5px,transparent 5px 9px,
+  var(--ink) 9px 12px,transparent 12px 14px); }
+
+.smudge{ text-shadow:0 1px 0 rgba(50,36,20,.12), 0 0 14px rgba(50,36,20,.06); }
+.coal .smudge{ text-shadow:0 1px 0 rgba(0,0,0,.45), 0 0 18px rgba(0,0,0,.35); }
+
+/* image-slot framing */
+image-slot{ background:transparent; }
+.exhibit-frame{ border:2.5px solid var(--ink); position:relative; }

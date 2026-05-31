@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>No One Did It — Cover System</title>
+<link rel="stylesheet" href="/vendor/fonts.css" />
+<link rel="stylesheet" href="covers.css" />
+<style>
+  html,body{ margin:0; background:#2b2a27; }
+</style>
+</head>
+<body>
+<!-- scratch / charcoal roughen filters (defined once, referenced by CSS) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <filter id="scratch" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.016 0.022" numOctaves="3" seed="7" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="4" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="scratch2" x="-8%" y="-8%" width="116%" height="116%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.011 0.014" numOctaves="3" seed="13" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="7" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+</svg>
+
+<div id="root"></div>
+
+<script src="/vendor/react.development.js"></script>
+<script src="/vendor/react-dom.development.js"></script>
+<script src="/vendor/babel.min.js"></script>
+<script src="/omelette-shim.js"></script>
+<script src="image-slot.js"></script>
+<script type="text/babel" src="design-canvas.jsx"></script>
+<script type="text/babel" src="covers.jsx"></script>
+<script type="text/babel" src="cartoon.jsx"></script>
+<script type="text/babel" src="cartoon-art.jsx"></script>
+<script type="text/babel">
+const { FrontStruckList, FrontEmptyChair, FrontVerdict, BackCover, ChapterCover, CHAPTERS, CartoonCourt } = window.Covers;
+const { IllustratedFront, IllustratedFrontBleed, IllustratedBack, IllustratedChapter, ART_CHAPTERS } = window.Covers;
+const W = 600, H = 925;
+
+function App() {
+  return (
+    <DesignCanvas>
+      <DCSection id="front" title="Front Cover" subtitle="Three directions on the court-scratch concept">
+        <DCArtboard id="f-list"   label="A · The Struck List"  width={W} height={H}><FrontStruckList /></DCArtboard>
+        <DCArtboard id="f-chair"  label="B · The Empty Chair"  width={W} height={H}><FrontEmptyChair /></DCArtboard>
+        <DCArtboard id="f-verdict" label="C · The Verdict (charcoal)" width={W} height={H}><FrontVerdict /></DCArtboard>
+      </DCSection>
+
+      <DCSection id="illustrated" title="Illustrated Edition" subtitle="Your artwork as the cover — one image, whole system">
+        <DCArtboard id="ill-front" label="E · Illustrated (framed plate)" width={W} height={H}><IllustratedFront /></DCArtboard>
+        <DCArtboard id="ill-bleed" label="F · Illustrated (full-bleed)" width={W} height={H}><IllustratedFrontBleed /></DCArtboard>
+        <DCArtboard id="ill-back" label="Back · illustrated" width={W} height={H}><IllustratedBack /></DCArtboard>
+        {ART_CHAPTERS.map(c => (
+          <DCArtboard key={c.n} id={"ill-ch-"+c.n} label={c.roman + " · " + c.altar} width={W} height={H}>
+            <IllustratedChapter c={c} />
+          </DCArtboard>
+        ))}
+      </DCSection>
+
+      <DCSection id="cartoon" title="Cartoon Edition" subtitle="The animal courtroom — goat in the dock, owl on the bench">
+        <DCArtboard id="cart-1" label="D · The Animal Court" width={W} height={H}><CartoonCourt /></DCArtboard>
+      </DCSection>
+
+      <DCSection id="back" title="Back Cover" subtitle="Matches direction A — toned newsprint">
+        <DCArtboard id="b-1" label="Back · blurb + filed blame" width={W} height={H}><BackCover /></DCArtboard>
+      </DCSection>
+
+      <DCSection id="chapters" title="Chapter Covers" subtitle="The altars — one bearer struck per chapter">
+        {CHAPTERS.map(c => (
+          <DCArtboard key={c.n} id={"ch-"+c.n} label={c.roman + " · " + c.altar} width={W} height={H}>
+            <ChapterCover c={c} />
+          </DCArtboard>
+        ))}
+      </DCSection>
+    </DesignCanvas>
+  );
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body>
+</html>

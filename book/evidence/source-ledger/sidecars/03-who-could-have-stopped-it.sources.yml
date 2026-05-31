@@ -1,0 +1,188 @@
+# Sidecar: chapter 3 [CITE:] anchors -> research card ids
+# Built 2026-05-26 by stephen during the ch-03 anchor backfill pass after Wave D.
+# Chapter 3 ("Who Could Have Stopped It?") installs the eight-question diagnostic
+# via Volkswagen Dieselgate (primary) and Ford Pinto (older echo).
+#
+# Coverage status (2026-05-26):
+#   - 38 [CITE:] anchor occurrences in chapter 3 prose body, resolving to ~24
+#     unique anchor strings and 24 unique underlying cards.
+#   - Only ONE underlying card currently exists in book/evidence/source-ledger/cards/:
+#         agents-md-core-diagnostic   (line 48 anchor)
+#   - The remaining 23 unique cards for the VW Dieselgate and Ford Pinto case
+#     bundles have NOT yet been built. Anchor rows below carry empty
+#     `card_ids: []` lists with the proposed card slug in `notes:`.
+#     Empty `card_ids: []` is validator-safe (the cross-reference loop iterates
+#     zero times); each uncovered anchor still resolves substring-match against
+#     the chapter prose, so the validator emits no [CITE:] anchor-coverage
+#     warnings — but the cards/ directory carries no concrete evidence rows
+#     for these claims until the build pass lands.
+#   - Building these 23 cards is tracked as a separate work item for
+#     delon-research-director / domain researchers (see "Outstanding work").
+#
+# Validator note: the [CITE:] regex captures up to the first ']'; the
+# substring-match logic in cross_reference_integrity accepts either direction
+# between the captured anchor_text and the strings below. The anchor strings
+# below are reproduced verbatim from the chapter prose so the substring match
+# is exact at the prose-anchor end.
+
+# Refreshed by scripts/refresh_sidecar_anchors.py — anchor_text now
+# carries the card slug (matching the rule-13 [CITE: <slug>] form in
+# chapter prose). The original human-readable citation moved to the
+# `description` field on each anchor. PyYAML round-trip preserves the
+# leading comment block above but may have dropped any mid-file inline
+# comments; recover from git history if needed.
+
+chapter_id: 03-who-could-have-stopped-it
+anchors:
+- anchor_text: cafee-wvu-pems-in-use-emissions-report-2014-05-15
+  card_ids:
+  - cafee-wvu-pems-in-use-emissions-report-2014-05-15
+  description: Thompson et al., CAFEE/WVU 2014
+  line_in_chapter: 20
+  notes: 'Accusation scene; CAFEE/WVU PEMS in-use emissions report (Thompson, Carder, Besch, Thiruvengadam, Kappanna, 15 May 2014). Same anchor reused at line-71 and line-117. Proposed card slug: cafee-wvu-pems-in-use-emissions-report-2014-05-15. Expected grade A (peer-reviewed academic testing report; publicly archived ICCT deliverable).'
+- anchor_text: epa-nov-volkswagen-clean-air-act-2015-09-18
+  card_ids:
+  - epa-nov-volkswagen-clean-air-act-2015-09-18
+  description: EPA NoV, Sept. 18, 2015
+  line_in_chapter: 24
+  notes: 'Accusation scene; EPA Notice of Violation under the Clean Air Act issued to Volkswagen AG, Audi AG, Volkswagen Group of America, 18 Sept 2015. Same anchor reused at line-117. Proposed card slug: epa-nov-volkswagen-clean-air-act-2015-09-18. Expected grade A (regulator finding).'
+- anchor_text: us-v-volkswagen-ag-16-cr-20394-plea-agreement-2017-01-11
+  card_ids:
+  - us-v-volkswagen-ag-16-cr-20394-plea-agreement-2017-01-11
+  description: United States v. Volkswagen AG, No. 16-cr-20394 (E.D. Mich.), plea agreement Jan. 11, 2017
+  line_in_chapter: 24
+  notes: 'Accusation scene; Volkswagen AG federal guilty-plea agreement on three felony counts, filed in E.D. Mich. 11 Jan 2017. Plea entered before Judge Sean F. Cox on 10 Mar 2017 (separate anchor at line-117 / line-137 below). Proposed card slug: us-v-volkswagen-ag-16-cr-20394-plea-agreement-2017-01-11. Expected grade A (court filing).'
+- anchor_text: us-v-liang-16-cr-20393-plea-2016-09-09
+  card_ids:
+  - us-v-liang-16-cr-20393-plea-2016-09-09
+  description: United States v. Liang, No. 16-cr-20393 (E.D. Mich.), plea Sept. 9, 2016
+  line_in_chapter: 36
+  notes: 'Official story (rogue-engineers framing); James Liang guilty plea in E.D. Mich., 9 Sept 2016. See also compound anchor at line-75 and sentencing anchor at line-79 / line-137. Proposed card slug: us-v-liang-16-cr-20393-plea-2016-09-09. Expected grade A (court filing).'
+- anchor_text: us-v-schmidt-edmi-arrest-2017-01-07
+  card_ids:
+  - us-v-schmidt-edmi-arrest-2017-01-07
+  description: United States v. Schmidt (E.D. Mich.), arrest Jan. 7, 2017
+  line_in_chapter: 36
+  notes: 'Official story (rogue-engineers framing); Oliver Schmidt arrested at Miami International Airport, 7 Jan 2017. See also compound anchor at line-75 and sentencing anchor at line-137. Proposed card slug: us-v-schmidt-edmi-arrest-2017-01-07. Expected grade A (court docket / DOJ press release).'
+- anchor_text: agents-md-core-diagnostic
+  card_ids:
+  - agents-md-core-diagnostic
+  description: AGENTS.md core diagnostic
+  line_in_chapter: 48
+  notes: Hidden architecture; the eight-question diagnostic is quoted verbatim from the project AGENTS.md 'Core diagnostic' section. Existing card was created 2026-05-26 by stephen during the ch-07/ch-10 sidecar build; chapters_citing on that card currently lists [07-the-record-is-the-battlefield, 09-the-model-did-it]. Ch-03 reuse should be added to that card's chapters_citing in a follow-up card update (out of scope for this sidecar build per the task constraint 'build ONLY the ch-03 sidecar').
+- anchor_text: doj-statement-of-facts-us-v-volkswagen-ag-2017-01-11
+  card_ids:
+  - doj-statement-of-facts-us-v-volkswagen-ag-2017-01-11
+  description: DOJ Statement of Facts, United States v. Volkswagen AG, No. 16-cr-20394 (E.D. Mich., Jan. 11, 2017)
+  line_in_chapter: 67
+  notes: 'Hidden architecture (Q2 control, Q4 knowledge, Q6 record); DOJ Statement of Facts attached to the Volkswagen AG plea agreement, E.D. Mich., 11 Jan 2017. Same anchor reused at line-71 and line-75. Proposed card slug: doj-statement-of-facts-us-v-volkswagen-ag-2017-01-11. Expected grade A (court filing; party admissions to specified facts).'
+- anchor_text: us-v-robert-bosch-gmbh-settlement-2017-01
+  card_ids:
+  - us-v-robert-bosch-gmbh-settlement-2017-01
+  description: United States v. Robert Bosch GmbH, settlement filing, Jan. 2017
+  line_in_chapter: 71
+  notes: 'Hidden architecture (Q4 knowledge); US settlement / agreed statement of facts with Robert Bosch GmbH, Jan 2017 — supplier''s 2007-2008 written defeat-device warnings to Volkswagen and indemnification letter. Same anchor reused at line-137. Proposed card slug: us-v-robert-bosch-gmbh-settlement-2017-01. Expected grade A (court filing / DOJ settlement).'
+- anchor_text: us-v-liang-16-cr-20393-plea-2016-09-09; us-v-schmidt-edmi-arrest-2017-01-07
+  card_ids:
+  - us-v-liang-16-cr-20393-plea-2016-09-09
+  - us-v-schmidt-edmi-arrest-2017-01-07
+  description: United States v. Liang, No. 16-cr-20393 (E.D. Mich.); United States v. Schmidt (E.D. Mich.)
+  line_in_chapter: 75
+  notes: Hidden architecture (Q6 record); compound CITE bundling the two named-engineer dockets as a single public-record anchor. The underlying cards (line-36 anchors) resolve the individual dockets; no additional new card required for this compound.
+- anchor_text: us-v-winterkorn-et-al-18-cr-20275-indictment-2018-05-03
+  card_ids:
+  - us-v-winterkorn-et-al-18-cr-20275-indictment-2018-05-03
+  description: United States v. Winterkorn et al., No. 18-cr-20275 (E.D. Mich.), indictment May 3, 2018
+  line_in_chapter: 75
+  notes: 'Hidden architecture (Q6 record); US federal indictment of Martin Winterkorn and four other former Volkswagen executives, E.D. Mich., 3 May 2018. Winterkorn not extradited to date. Living-subject (Winterkorn): defamation gate requires nancy_cleared=true on the resulting card. Proposed card slug: us-v-winterkorn-et-al-18-cr-20275-indictment-2018-05-03. Expected grade A (court filing).'
+- anchor_text: sec-v-volkswagen-ag-winterkorn-sdny-complaint-2019-03-14
+  card_ids:
+  - sec-v-volkswagen-ag-winterkorn-sdny-complaint-2019-03-14
+  description: SEC v. Volkswagen AG and Winterkorn, S.D.N.Y., complaint Mar. 14, 2019
+  line_in_chapter: 75
+  notes: 'Hidden architecture (Q6 record); SEC civil complaint against Volkswagen AG and Martin Winterkorn, S.D.N.Y., filed 14 Mar 2019. Living-subject (Winterkorn): defamation gate applies. Proposed card slug: sec-v-volkswagen-ag-winterkorn-sdny-complaint-2019-03-14. Expected grade A (regulator civil complaint).'
+- anchor_text: barrett-speth-et-al-erl-2015-vw-excess-mortality
+  card_ids:
+  - barrett-speth-et-al-erl-2015-vw-excess-mortality
+  description: Barrett, Speth et al., Environmental Research Letters 10(11), Nov. 2015
+  line_in_chapter: 77
+  notes: 'Hidden architecture (Q7 cost); peer-reviewed estimate of excess US mortality attributable to VW affected-fleet NOx emissions, Environmental Research Letters 10(11), Nov 2015. Chapter prose presents the figure ("on the order of sixty premature US deaths") as a peer-reviewed estimate, not a settled count, per Stephen''s grading discipline. Proposed card slug: barrett-speth-et-al-erl-2015-vw-excess-mortality. Expected grade B (peer-reviewed scholarly article with methodology caveats; rule 02 caps non-A-grade estimates as ranged claims).'
+- anchor_text: us-v-liang-16-cr-20393-plea-2016-09-09; us-v-liang-16-cr-20393-sentencing-2017-08-25
+  card_ids:
+  - us-v-liang-16-cr-20393-plea-2016-09-09
+  - us-v-liang-16-cr-20393-sentencing-2017-08-25
+  description: United States v. Liang, No. 16-cr-20393 (E.D. Mich.), plea Sept. 9, 2016; sentencing Aug. 25, 2017
+  line_in_chapter: 79
+  notes: 'Hidden architecture (Q8 chain); compound CITE combining Liang plea (line-36 anchor) and 25 Aug 2017 sentencing to 40 months. Proposed card slug for the sentencing card: us-v-liang-16-cr-20393-sentencing-2017-08-25. Expected grade A (court filing / sentencing order).'
+- anchor_text: grimshaw-v-ford-motor-co-119-cal-app-3d-757-1981
+  card_ids:
+  - grimshaw-v-ford-motor-co-119-cal-app-3d-757-1981
+  description: Grimshaw v. Ford Motor Co., 119 Cal.App.3d 757 (1981) at 777–778
+  line_in_chapter: 87
+  notes: 'Older-echo accusation scene; California Court of Appeal published opinion, Grimshaw v. Ford Motor Co. (1981) 119 Cal.App.3d 757 — page-anchored citation at pp. 777-778 (Copp testimony recitation; "crash tests revealed that the Pinto''s fuel system as designed could not meet the 20-mile-per-hour proposed standard"). Same page-anchored citation reused at line-97. Broader citation to the same opinion at line-103, line-105, line-121. Proposed card slug: grimshaw-v-ford-motor-co-119-cal-app-3d-757-1981. Expected grade A (published appellate opinion).'
+- anchor_text: grimshaw-v-ford-motor-co-119-cal-app-3d-757-1981
+  card_ids:
+  - grimshaw-v-ford-motor-co-119-cal-app-3d-757-1981
+  description: Grimshaw v. Ford Motor Co., 119 Cal.App.3d 757 (1981) at 777-778
+  line_in_chapter: 97
+  notes: Older-echo Q4 knowledge; same page-anchored citation as line-87 (Copp testimony at pp. 777-778). Single proposed card grimshaw-v-ford-motor-co-119-cal-app-3d-757-1981 covers all five occurrences.
+- anchor_text: dowie-pinto-madness-mother-jones-1977
+  card_ids:
+  - dowie-pinto-madness-mother-jones-1977
+  description: Dowie, "Pinto Madness," Mother Jones, Sept/Oct 1977
+  line_in_chapter: 99
+  notes: 'Older-echo Q4 knowledge / popular narrative; Mark Dowie, "Pinto Madness," Mother Jones, Sept/Oct 1977. Same anchor reused at line-105. Proposed card slug: dowie-pinto-madness-mother-jones-1977. Expected grade B (acknowledged investigative journalism; chapter prose explicitly contextualises this against the Schwartz 1991 re-examination).'
+- anchor_text: cullen-maakestad-cavender-corporate-crime-under-attack-1987
+  card_ids:
+  - cullen-maakestad-cavender-corporate-crime-under-attack-1987
+  description: Cullen, Maakestad & Cavender, Corporate Crime Under Attack (Anderson Publishing, 1987)
+  line_in_chapter: 99
+  notes: 'Older-echo Q4 knowledge / academic monograph reading; Cullen, Maakestad & Cavender, Corporate Crime Under Attack: The Ford Pinto Case and Beyond (Anderson Publishing, 1987). Proposed card slug: cullen-maakestad-cavender-corporate-crime-under-attack-1987. Expected grade B (academic monograph).'
+- anchor_text: schwartz-myth-ford-pinto-case-43-rutgers-l-rev-1013-1991
+  card_ids:
+  - schwartz-myth-ford-pinto-case-43-rutgers-l-rev-1013-1991
+  description: Schwartz, "The Myth of the Ford Pinto Case," 43 Rutgers L. Rev. 1013 (1991)
+  line_in_chapter: 99
+  notes: 'Older-echo Q4 knowledge / counter-reading; Gary T. Schwartz, "The Myth of the Ford Pinto Case," 43 Rutgers L. Rev. 1013 (1991). Load-bearing steelman source for the chapter''s slot-6 "goat resists" beat. Same anchor reused at line-105 and line-131. Proposed card slug: schwartz-myth-ford-pinto-case-43-rutgers-l-rev-1013-1991. Expected grade A (peer-reviewed law-review article; per Stephen''s grading rubric, peer-reviewed scholarly article is A-eligible when used as a primary source for the article''s own arguments).'
+- anchor_text: grimshaw-v-ford-motor-co-119-cal-app-3d-757-1981
+  card_ids:
+  - grimshaw-v-ford-motor-co-119-cal-app-3d-757-1981
+  description: Grimshaw v. Ford Motor Co., 119 Cal.App.3d 757 (1981)
+  line_in_chapter: 103
+  notes: Older-echo Q6 record; broader citation to the same Grimshaw appellate opinion (no page anchor). Same anchor reused at line-105 and line-121. Single proposed card grimshaw-v-ford-motor-co-119-cal-app-3d-757-1981 covers all occurrences (line-87, line-97, line-103, line-105, line-121).
+- anchor_text: nhtsa-recall-campaign-78v-138-1978-06-09
+  card_ids:
+  - nhtsa-recall-campaign-78v-138-1978-06-09
+  description: NHTSA Recall Campaign 78V-138, June 9, 1978
+  line_in_chapter: 105
+  notes: 'Older-echo Q7 cost; NHTSA Recall Campaign 78V-138, opened 9 June 1978, covering 1971-1976 Pintos and 1975-1976 Mercury Bobcats. Closing materials attribute 27 deaths to the rear-impact fuel-system fires across the recall scope. Same anchor reused at line-131. Proposed card slug: nhtsa-recall-campaign-78v-138-1978-06-09. Expected grade A (regulator recall record; agency-attributed fatality count is the conservative anchor for the chapter''s preserved range).'
+- anchor_text: us-v-volkswagen-ag-16-cr-20394-plea-entered-2017-03-10
+  card_ids:
+  - us-v-volkswagen-ag-16-cr-20394-plea-entered-2017-03-10
+  description: United States v. Volkswagen AG, No. 16-cr-20394 (E.D. Mich.), plea entered Mar. 10, 2017
+  line_in_chapter: 117
+  notes: 'Record hardens; the plea ENTRY before Judge Sean F. Cox on 10 Mar 2017 (distinct from the 11 Jan 2017 plea-agreement filing at line-24). Same anchor reused at line-137. Proposed card slug: us-v-volkswagen-ag-16-cr-20394-plea-entered-2017-03-10. Expected grade A (court order).'
+- anchor_text: fmvss-301-49-cfr-571-301-fuel-system-integrity
+  card_ids:
+  - fmvss-301-49-cfr-571-301-fuel-system-integrity
+  description: FMVSS 301, 49 C.F.R. § 571.301
+  line_in_chapter: 131
+  notes: 'Goat resists (Schwartz steelman); Federal Motor Vehicle Safety Standard 301 — fuel system integrity — codified at 49 C.F.R. § 571.301. The 30-mph rear-impact provision was finalised in 1976 with phased compliance through model year 1977. Proposed card slug: fmvss-301-49-cfr-571-301-fuel-system-integrity. Expected grade A (regulation as enacted).'
+- anchor_text: us-v-liang-16-cr-20393-sentencing-2017-08-25
+  card_ids:
+  - us-v-liang-16-cr-20393-sentencing-2017-08-25
+  description: United States v. Liang, No. 16-cr-20393 (E.D. Mich.), sentencing Aug. 25, 2017
+  line_in_chapter: 137
+  notes: 'Goat resists (deliberate-fraud counterargument); Liang sentencing to 40 months on 25 Aug 2017. Same underlying card proposed at line-79: us-v-liang-16-cr-20393-sentencing-2017-08-25.'
+- anchor_text: us-v-schmidt-edmi-sentencing-2017-12-06
+  card_ids:
+  - us-v-schmidt-edmi-sentencing-2017-12-06
+  description: United States v. Schmidt (E.D. Mich.), sentencing Dec. 6, 2017
+  line_in_chapter: 137
+  notes: 'Goat resists (deliberate-fraud counterargument); Schmidt sentencing to 7 years on 6 Dec 2017. Proposed card slug: us-v-schmidt-edmi-sentencing-2017-12-06. Expected grade A (court order).'
+- anchor_text: stadler-landgericht-muenchen-ii-conviction-2023-06
+  card_ids:
+  - stadler-landgericht-muenchen-ii-conviction-2023-06
+  description: Stadler conviction, Landgericht München II, June 2023
+  line_in_chapter: 137
+  notes: 'Goat resists (deliberate-fraud counterargument); Rupert Stadler, former Audi chief executive, convicted of fraud by negligence at Landgericht Muenchen II, June 2023 — suspended 21-month sentence and EUR 1.1 million fine. Living-subject (Stadler): defamation gate requires nancy_cleared=true on the resulting card. Proposed card slug: stadler-landgericht-muenchen-ii-conviction-2023-06. Expected grade A (German court judgment).'

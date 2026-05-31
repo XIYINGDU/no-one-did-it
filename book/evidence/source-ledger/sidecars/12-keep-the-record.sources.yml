@@ -1,0 +1,123 @@
+# Sidecar: chapter 12 [CITE:] anchors → research card ids
+# Full ch-12 coverage as of 2026-05-26 (Wave A: 6 cards landed; Wave B: 8 cards + 1 Inquiries Act §21 card landed; total 15 unique cards backing 16 chapter [CITE:] anchors).
+#
+# Coverage status
+# - 16 of 17 chapter [CITE:] anchors mapped to existing cards.
+# - 1 anchor (line 81, *United States v. Ellsberg* dismissal May 11, 1973) not yet covered by a card; flagged below as deferred. The chapter's argument at beat 4 (older echo) does not depend on the Ellsberg-dismissal anchor for evidence-grade purposes — the dismissal fact is corroborated across multiple secondary sources cited inline (Sheehan; Ellsberg, *Secrets* (2002)) and the chapter's load-bearing claim (publication outside originating institution forced suppression into adversarial venue) anchors at the per curiam ruling card.
+
+# Refreshed by scripts/refresh_sidecar_anchors.py — anchor_text now
+# carries the card slug (matching the rule-13 [CITE: <slug>] form in
+# chapter prose). The original human-readable citation moved to the
+# `description` field on each anchor. PyYAML round-trip preserves the
+# leading comment block above but may have dropped any mid-file inline
+# comments; recover from git history if needed.
+
+chapter_id: 12-keep-the-record
+anchors:
+- anchor_text: nyt-co-v-united-states-1971-per-curiam
+  card_ids:
+  - nyt-co-v-united-states-1971-per-curiam
+  description: '*New York Times Co. v. United States*, 403 U.S. 713 (1971) — Stephen verify slip-opinion citation.'
+  line_in_chapter: 19
+  notes: 'Beat 1 (accusation scene): Pentagon Papers per curiam ruling. A-grade primary court judgment.'
+- anchor_text: nyt-v-united-states-1971-black-concurrence
+  card_ids:
+  - nyt-v-united-states-1971-black-concurrence
+  description: '*NYT v. US*, 403 U.S. at 717 (Black, J., concurring) — Stephen verify exact wording and page.'
+  line_in_chapter: 19
+  notes: 'Beat 1 (accusation scene): Justice Black concurrence (''bare the secrets of government and inform the people''). Verbatim quote card.'
+- anchor_text: bybee-yoo-olc-torture-memos-2002-opr-2009
+  card_ids:
+  - bybee-yoo-olc-torture-memos-2002-opr-2009
+  description: Bybee memorandum, Aug. 1, 2002; OPR Report, 2009 — ch-2 anchors.
+  line_in_chapter: 49
+  notes: 'Beat 3 (hidden architecture / rule 1): OLC opinion-shop worked example. Cross-reference to ch-2 source ledger; single card covers both the Bybee memo and the OPR Report.'
+- anchor_text: fed-r-evid-901-authentication
+  card_ids:
+  - fed-r-evid-901-authentication
+  description: Fed. R. Evid. 901(a) — Stephen verify codified text as currently in force.
+  line_in_chapter: 57
+  notes: 'Beat 3 (rule 2 — timestamp and chain-of-custody): U.S. authentication-evidence anchor. A-grade primary federal rule of court.'
+- anchor_text: fed-r-civ-p-37e-esi-preservation-2015
+  card_ids:
+  - fed-r-civ-p-37e-esi-preservation-2015
+  description: Fed. R. Civ. P. 37(e) as amended Dec. 1, 2015 — Stephen verify codified text and post-2015 jurisprudence.
+  line_in_chapter: 65
+  notes: 'Beat 3 (rule 3 — make destruction visible): U.S. ESI-preservation discipline anchor. A-grade primary federal rule of court.'
+- anchor_text: federal-records-act-44-usc-chapter-31
+  card_ids:
+  - federal-records-act-44-usc-chapter-31
+  description: Federal Records Act, 44 U.S.C. ch. 31, §§ 3101 *et seq.* — Stephen verify chapter citation; PRA citation similarly.
+  line_in_chapter: 65
+  notes: 'Beat 3 (rule 3 cross-reference): U.S. records-statute floor. A-grade primary federal statute. PRA citation (44 U.S.C. §§ 2201 et seq.) cross-referenced in the FRA card body; a future ch-12 polish pass may create a separate PRA card if a chapter elsewhere needs finer granularity.'
+- anchor_text: crew-v-doge-cooper-preservation-2025-03
+  card_ids:
+  - crew-v-doge-cooper-preservation-2025-03
+  description: CREW v. U.S. DOGE Service docket entries — Stephen lock the preliminary-injunction date and operative language from ch-9 source ledger.
+  line_in_chapter: 67
+  notes: 'Beat 3 (rule 3 live-test): Judge Cooper preliminary injunction March 10, 2025 directing preservation of DOGE records and ruling USDS likely subject to FOIA (''wields substantial authority independently of the President''). Procedurally contested as of May 26, 2026; chapter uses procedural-stage wording.'
+- anchor_text: '*United States v. Ellsberg*, dismissal May 11, 1973; Sheehan, *A Bright Shining Lie*; Ellsberg, *Secrets* (2002) — Stephen verify primary court record reference.'
+  card_ids: []
+  line_in_chapter: 81
+  notes: 'DEFERRED (no card yet). Beat 4 (older echo): the Ellsberg dismissal fact is cited inline against three sources (the primary court record; Sheehan; Ellsberg, *Secrets* (2002)). Chapter''s load-bearing argument does not turn on this anchor; the dismissal is contextual. A future ch-12 polish pass should create a primary-record card for the dismissal order (Judge William Matthew Byrne Jr., C.D. Cal., May 11, 1973) and a secondary card (or shared bibliographic anchor) for the Sheehan and Ellsberg books. Tracked as a Wave-C open item; not blocking ch-12 status: ready since chapter rule 02 evidence-grade is met by the inline corroboration.'
+- anchor_text: eiga-1978-title-vi-independent-counsel
+  card_ids:
+  - eiga-1978-title-vi-independent-counsel
+  description: Ethics in Government Act of 1978, Pub. L. 95-521, Title VI, codified at 28 U.S.C. §§ 591–599 as in force Dec. 1986 — Stephen verify operative-statute reference at appointment date.
+  line_in_chapter: 85
+  notes: 'Beat 5 (record hardens): Walsh appointment authority. A-grade primary federal statute, with operative-version-at-appointment-date qualifier confirmed by Alan (administrative-law frame). The 1983 reauthorization (Pub. L. 97-409) is the operative form at the Dec. 19, 1986 appointment.'
+- anchor_text: walsh-report-north-hall-document-destruction-1986-11
+  card_ids:
+  - walsh-report-north-hall-document-destruction-1986-11
+  description: Walsh, *Final Report of the Independent Counsel for Iran/Contra Matters*, Aug. 4, 1993, vol. I, ch. 5 (Fawn Hall) — Nov. 21, 1986 shredding (~1.5 ft, 12-18 page piles, 30-60 min, five-drawer safe), alteration on North's instruction, Nov. 25 removal of ~16 pages in boots/skirt.
+  line_in_chapter: 82
+  notes: 'Beat 5 (record hardens), v4 render: the rendered shredding scene. Re-anchored away from the Tower Commission (which does NOT carry these specifics) to the Walsh Final Report ch. 5 per memo process/review-memos/ch12-shredding-record-verify-2026-05-29.md. Replaces the provisional [CITE: walsh-final-report-iran-contra — pending-stephen-card] marker. A-grade primary inquiry report; in-volume section anchor pending Stephen page-lock.'
+- anchor_text: walsh-report-profs-deletions-1986-11
+  card_ids:
+  - walsh-report-profs-deletions-1986-11
+  description: Walsh, *Final Report of the Independent Counsel for Iran/Contra Matters*, Aug. 4, 1993, vol. I, ch. 3 (Poindexter) + ch. 2 (North) — Nov. 22-29, 1986 PROFS deletions (North 736, Poindexter 5,012) and Nov. 15 WHCA backup-tape recovery.
+  line_in_chapter: 82
+  notes: 'Beat 5 (record hardens), v4 render: the PROFS-deletion numeric contrast. Re-anchored to the Walsh Final Report ch. 3 (with North count cross-recorded in ch. 2) per memo process/review-memos/ch12-shredding-record-verify-2026-05-29.md. Replaces the provisional [CITE: walsh-final-report-iran-contra — pending-stephen-card] marker. A-grade primary inquiry report; in-volume section anchor pending Stephen page-lock.'
+- anchor_text: tower-commission-report-1987
+  card_ids:
+  - tower-commission-report-1987
+  description: Tower Commission Report, Feb. 26, 1987 — Stephen verify chapter reference for destruction documentation.
+  line_in_chapter: 87
+  notes: 'Beat 5 (record hardens): Tower Commission documents the November 1986 destruction by North and Poindexter. A-grade primary inquiry report.'
+- anchor_text: whca-profs-tape-preservation-1986-11-28; tower-commission-report-1987
+  card_ids:
+  - whca-profs-tape-preservation-1986-11-28
+  - tower-commission-report-1987
+  description: NSA chronology of PROFS backup preservation; Tower Commission Report, Feb. 26, 1987 — Stephen verify WHCA staff action date and operative directive language.
+  line_in_chapter: 91
+  notes: 'Beat 5 (record hardens): Nov. 28, 1986 WHCA career-staff preservation decision. The chapter anchor names ''NSA chronology''; the WHCA-preservation card documents the operative fact through the two primary inquiry reports (Tower; Walsh) that record it. Two cards back this anchor: the WHCA-event card and the Tower Commission card.'
+- anchor_text: tower-commission-report-1987
+  card_ids:
+  - tower-commission-report-1987
+  description: '*Report of the President''s Special Review Board* (Tower Commission), Feb. 26, 1987 — Stephen verify PROFS-note reprint count and report location.'
+  line_in_chapter: 91
+  notes: 'Beat 5 (record hardens): Tower Commission''s PROFS-note reprints. Chapter prose uses ''hundreds'' for evidentiary conservatism rather than a specific count; the Tower Commission card documents the reprint at the Part III appendices.'
+- anchor_text: walsh-iran-contra-final-report-bush-pardons-1992
+  card_ids:
+  - walsh-iran-contra-final-report-bush-pardons-1992
+  description: Walsh, *Final Report of the Independent Counsel for Iran/Contra Matters*, Aug. 4, 1993, Vols. I–III — Stephen verify chapter references for PROFS backup recovery.
+  line_in_chapter: 93
+  notes: 'Beat 5 (record hardens): Walsh Final Report''s documentation of the PROFS-backup reconstruction. A-grade primary independent-counsel report.'
+- anchor_text: walsh-iran-contra-final-report-bush-pardons-1992
+  card_ids:
+  - walsh-iran-contra-final-report-bush-pardons-1992
+  description: Walsh statement, Dec. 24, 1992, as incorporated into *Final Report of the Independent Counsel for Iran/Contra Matters*, Aug. 4, 1993 — Stephen verify exact quotation and report location.
+  line_in_chapter: 93
+  notes: 'Beat 5 (record hardens): Walsh''s byte-exact statement (''the Iran-contra cover-up, which has continued for more than six years, has now been completed'') issued on the day of the Bush 41 pardons. Card carries the verbatim quote and the contemporaneous statement / Final Report incorporation pathway.'
+- anchor_text: judicial-watch-v-nara-fra-enforcement
+  card_ids:
+  - judicial-watch-v-nara-fra-enforcement
+  description: '*Judicial Watch, Inc. v. National Archives and Records Administration*, D.C. Cir. — Stephen lock exact docket, panel date, and operative holding language; cross-reference ch-9 source ledger.'
+  line_in_chapter: 162
+  notes: 'Beat 8 (anti-laundering rule): FRA enforcement-architecture deficit. Card carries the Armstrong v. Bush (1991) and Armstrong v. EOP (1993) A-grade anchors; the specific Judicial Watch v. NARA panel-decision docket is B-grade pending Stephen-lock at chapter promotion (chapter open question #9).'
+- anchor_text: inquiries-act-2005-section-21
+  card_ids:
+  - inquiries-act-2005-section-21
+  description: Inquiries Act 2005, c. 12, §21 — already cited in ch-11; Stephen verify cross-reference.
+  line_in_chapter: 172
+  notes: 'Beat 9 (the escape — Iraq Inquiry panel): UK statutory compulsion under §21. A-grade primary UK statute. If a prior ch-11 card for the same section exists in the card stock, this card''s chapters_citing should expand to include 11-the-architects at chapter 11''s next promotion pass (cross-reference reconciliation noted in card body).'

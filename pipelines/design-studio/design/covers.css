@@ -1,0 +1,153 @@
+/* ============================================================
+   NO ONE DID IT — court-scratch cover system
+   ============================================================ */
+/* Fonts vendored locally — loaded via /vendor/fonts.css in the HTML <head> (GFW-proof). */
+
+*{ box-sizing:border-box; }
+
+:root{  --paper:#d4ccba;        /* toned newsprint */
+  --paper-hi:#e0d9c8;
+  --paper-lo:#c2b8a3;
+  --ink:#1f1a13;          /* charcoal */
+  --ink-soft:#4d463a;
+  --slate:#586872;        /* cold chalk accent */
+  --ox:#8c3225;           /* bruised oxblood — the verdict, used sparingly */
+  --bone:#efe9da;
+  --serif:'Spectral', Georgia, serif;
+  --mono:'Courier Prime', 'Courier New', monospace;
+  --scrawl:'Caveat', cursive;
+}
+
+/* ---- the paper ---- */
+.paper{
+  position:relative;
+  background:
+    radial-gradient(120% 90% at 30% 12%, var(--paper-hi), transparent 60%),
+    radial-gradient(140% 120% at 80% 100%, var(--paper-lo), transparent 55%),
+    var(--paper);
+  color:var(--ink);
+  overflow:hidden;
+  isolation:isolate;
+}
+/* grain */
+.paper::before{
+  content:"";
+  position:absolute; inset:0; z-index:0; pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode:multiply;
+  opacity:.42;
+}
+/* darkened edges / smudge in corners */
+.paper::after{
+  content:"";
+  position:absolute; inset:0; z-index:0; pointer-events:none;
+  background:
+    radial-gradient(70% 60% at 50% 45%, transparent 55%, rgba(31,26,19,.10) 100%);
+  mix-blend-mode:multiply;
+}
+.paper > *{ position:relative; z-index:1; }
+
+/* charcoal variant of paper */
+.paper.dark{
+  --ink:#e7e0d0; --ink-soft:#aaa292;
+  background:
+    radial-gradient(130% 100% at 35% 8%, #2c2820, transparent 60%),
+    radial-gradient(120% 120% at 85% 100%, #131009, transparent 55%),
+    #211c15;
+  color:var(--ink);
+}
+.paper.dark::after{
+  background:radial-gradient(75% 65% at 50% 42%, transparent 50%, rgba(0,0,0,.45) 100%);
+}
+
+/* ---- roughen filters apply via class ---- */
+.rough   { filter:url(#scratch); }
+.rough-2 { filter:url(#scratch2); }
+
+/* ---- type ---- */
+.kicker{
+  font-family:var(--mono);
+  text-transform:uppercase;
+  letter-spacing:.34em;
+  font-size:11px;
+  line-height:1.7;
+  color:var(--ink-soft);
+}
+.stamp{
+  font-family:var(--mono);
+  text-transform:uppercase;
+  letter-spacing:.18em;
+  font-size:10px;
+  color:var(--ink-soft);
+}
+.serif-title{
+  font-family:var(--serif);
+  font-weight:800;
+  line-height:.9;
+  letter-spacing:-.01em;
+  text-transform:uppercase;
+}
+.scrawl{
+  font-family:var(--scrawl);
+  font-weight:700;
+  color:var(--slate);
+}
+
+/* hand strike-through: a roughened bar over struck text */
+.struck{ position:relative; display:inline-block; white-space:nowrap; color:var(--ink-soft); }
+.struck > .bar{
+  position:absolute; left:-4%; right:-4%; top:48%; height:.13em;
+  background:var(--ink);
+  transform:rotate(-1.4deg);
+  filter:url(#scratch2);
+  border-radius:2px;
+}
+.struck.ox > .bar{ background:var(--ox); }
+
+/* a roughed rule line */
+.rule{ height:2px; background:var(--ink); filter:url(#scratch2); opacity:.85; }
+.rule.thin{ height:1px; opacity:.5; }
+
+/* an empty roughed frame = the vacant seat */
+.vacant{
+  border:2.5px solid var(--ink);
+  filter:url(#scratch);
+  border-radius:2px;
+}
+
+/* red rubber stamp — CONFIDENTIAL */
+.rubber{
+  font-family:var(--mono);
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.16em;
+  font-size:14px;
+  color:var(--ox);
+  border:2.5px solid var(--ox);
+  padding:5px 11px;
+  border-radius:3px;
+  display:inline-block;
+  transform:rotate(-8deg);
+  filter:url(#scratch2);
+  opacity:.82;
+  mix-blend-mode:multiply;
+}
+
+/* barcode placeholder */
+.barcode{
+  height:54px; width:150px;
+  background:repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 4px,
+    var(--ink) 4px 5px,transparent 5px 9px,var(--ink) 9px 12px,transparent 12px 14px);
+  filter:url(#scratch2);
+}
+
+/* fine chalk smudge under big type */
+.smudge{ text-shadow:0 1px 0 rgba(31,26,19,.12), 0 0 14px rgba(31,26,19,.06); }
+.paper.dark .smudge{ text-shadow:0 1px 0 rgba(0,0,0,.4), 0 0 18px rgba(0,0,0,.3); }
+
+/* spine-edge tick marks like a sketch pad */
+.pad-edge{
+  position:absolute; top:0; bottom:0; left:0; width:18px; z-index:2;
+  background:repeating-linear-gradient(180deg, transparent 0 26px, rgba(31,26,19,.28) 26px 28px);
+  filter:url(#scratch2);
+}

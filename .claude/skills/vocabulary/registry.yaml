@@ -1,0 +1,172 @@
+# Machine-readable vocabulary registry for the responsibility-laundering book project.
+#
+# Seeded by /nlpm:vocab-init on 2026-05-25; first pass of drift findings
+# from /nlpm:vocab-drift applied 2026-05-25.
+#
+# Read by /nlpm:check and /nlpm:score when R51 is enabled in
+# .claude/nlpm.local.md.
+
+scopes:
+  - id: internal
+    description: Active project surface — commands, agents, skills, docs, rules, hooks, and the prose under book/.
+    paths:
+      - .claude/commands/
+      - .claude/agents/
+      - .claude/skills/
+      - .claude/docs/
+      - .claude/rules/
+      - book/
+      - AGENTS.md
+
+cross_scope_homonyms:
+  verbs:
+    # `review` has two senses in this project; both are sanctioned.
+    #   1. Trigger verb for specialist reviewers and legal counsel ("Use only to review …", "Use when reviewing …").
+    #   2. General-English state inspection ("Review current project state").
+    # Sense (3) — produce a usable/weak/unusable verdict — is canonized as `audit`.
+    - review
+
+verbs:
+  internal:
+    - canonical: build
+      deprecated: [make, produce, create]
+      scope_note: "`create` only when the result is a new artifact."
+    - canonical: audit
+      deprecated: [check]
+      scope_note: "Use `audit` when the output is a usable/weak/unusable verdict. `review` is a sanctioned homonym (see cross_scope_homonyms) for trigger-verb and general-state senses."
+    - canonical: draft
+      deprecated: [compose, pen, author, write]
+      scope_note: "`write` was previously the dominant negative-constraint form (\"does not write final prose\"); it is deprecated in favor of `draft` so the negative constraint and the positive workflow step use the same verb."
+    - canonical: revise
+      deprecated: [rewrite, polish, edit]
+      scope_note: "`edit` only when input is a prior draft."
+    - canonical: compile
+      deprecated: [assemble, gather]
+    - canonical: verify
+      deprecated: [confirm, double-check]
+    - canonical: red-team
+      deprecated: [attack, stress-test, critique]
+      scope_note: "Skill-name and command-name surface form is `red-team`. Body prose may use `attack` and `stress-test` for vivid description; flag only when the imperative appears in a skill/agent frontmatter `description:` field."
+    - canonical: fact-check
+      deprecated: []
+      scope_note: "Do not deprecate `verify` here — they overlap only in narrow per-claim cases."
+    - canonical: grade
+      deprecated: [rank, score, rate, mark]
+      scope_note: "`mark` is deprecated here (assigning an A/B/C/D label is a `grade` action). When `mark` means \"raise attention\" on an unresolved item, it is deprecated under `flag` instead — see that entry."
+    - canonical: flag
+      deprecated: [note, warn]
+      scope_note: "`mark` is moved out of this list as of 2026-05-25 — it is deprecated under `grade` (see drift report Candidate 3). When the corpus uses `mark` to mean \"raise attention\", rewrite to `flag`."
+    - canonical: gate
+      deprecated: [block, hold, stop, clear, "sign off", advance, promote]
+      scope_note: "Only when the output is a draft-readiness decision. `gate` covers both the blocking sense (refuse to advance) and the approval sense (let through). `clear` / `sign off` are the approval-side synonyms; `advance` / `promote` are the affirmative-status-change synonyms. Body prose may still use these in narrative descriptions; flag only when they appear in agent/skill frontmatter `description:` fields or in formal handoff verbs."
+    - canonical: overclaim
+      deprecated: ["over-claim", "overclaiming"]
+      scope_note: "The body prose form is `overclaim`. The hyphenated `Over-claim` survives in the rule-05 heading and the filename slug; both are typographic conventions for slug hygiene, not a different term."
+    - canonical: handoff
+      deprecated: [handover, "pass-off"]
+      scope_note: "One surface form `handoff` is used as both noun (the artifact footer field) and verb (Over-rule #5 imperative, capitalized as `Handoff cleanly`). The previously declared two-word verb `hand off` is retired; agent boilerplate uses the one-word form universally."
+    - canonical: map
+      deprecated: [chart, diagram]
+      scope_note: "Only when the output is a responsibility-chain visual. `diagram` outside the responsibility-chain context (e.g., narrative-structure diagrams) is not penalized."
+    - canonical: cite
+      deprecated: [reference, "point to"]
+
+nouns:
+  artifact_class:
+    - canonical: "case file"
+      deprecated: ["case packet"]
+      scope_note: "The post-grade artifact: complete eight-question diagnostic + evidence grade + handoff. The pre-grade bundle is `source packet` (see below). On-disk filenames use the slug `<case>-case-card.md` (the `case card` form is the template-file slug convention; not deprecated as a slug, only deprecated as the artifact noun in prose)."
+    - canonical: "source packet"
+      deprecated: ["case packet (when referring to the pre-grade bundle)"]
+      scope_note: "The researcher's pre-grade bundle of sources, chronology, and notes. Distinct from `case file` (which is the post-grade artifact). The corpus previously used `case packet` interchangeably for both stages; `case packet` is now deprecated everywhere — for the pre-grade bundle use `source packet`; for the graded artifact use `case file`."
+    - canonical: "chapter brief"
+      deprecated: ["chapter outline", "chapter plan"]
+      scope_note: "Note: the skill that produces a chapter brief is named `chapter-blueprint` (directory). This is deliberate — the skill is named after its method, the artifact after its function. See `.claude/skills/chapter-blueprint/SKILL.md`."
+    - canonical: "chapter draft"
+      deprecated: ["chapter manuscript"]
+    - canonical: "source ledger"
+      deprecated: ["source list", "citation list", "bibliography"]
+    - canonical: "responsibility chain"
+      deprecated: ["chain of responsibility", "responsibility map"]
+    - canonical: handoff
+      deprecated: ["handover", "pass-off"]
+    - canonical: "red-team memo"
+      deprecated: ["red-team report"]
+    - canonical: "proposal pack"
+      deprecated: ["proposal package", "pitch pack"]
+    - canonical: claim
+      deprecated: ["assertion", "statement"]
+    - canonical: scene
+      deprecated: ["episode", "moment"]
+    - canonical: "evidence grade"
+      deprecated: ["source grade", "confidence level", "confidence"]
+      scope_note: "Field-label form is `Evidence grade:`; do not use `Confidence:` in output templates."
+    - canonical: wording
+      deprecated: [phrasing, formulation]
+      scope_note: "The revised-text artifact produced by defamation, legal, or overclaim mitigation review. `wording` is the artifact noun (`wording redlines`, `wording flags`). `phrasing` and `formulation` survive in body prose as descriptive synonyms but should not appear as output-type labels in agent frontmatter."
+    - canonical: counterargument
+      deprecated: ["opposing case", "objection"]
+      scope_note: "Use `counterargument` for the chapter-level adversarial check that must precede assertion (Over-rule #4 wording, template field labels, workflow draft-ready criterion). `opposing case` and `objection` are rhetorical variants that were used in over-rule prose and red-team output specs; both are retired in favor of the single canonical."
+    - canonical: "progress memo"
+      deprecated: ["progress report", "integrated progress report"]
+      scope_note: "The crew-chief's periodic status summary. Aligned with the dominant `memo` artifact-noun across all other agents."
+
+  case_taxonomy:    # load-bearing; do not paraphrase
+    - canonical: "pure scapegoat"
+      deprecated: ["innocent victim", "wrongly accused"]
+    - canonical: "partial scapegoat"
+      deprecated: ["mostly guilty", "lower-level fall guy"]
+    - canonical: "system/object alibi"
+      deprecated: ["procedural cover", "system blame", "process scapegoat", "system-object alibi"]
+    - canonical: "cost-bearing goat"
+      deprecated: ["collateral damage", "silent victim"]
+
+  diagnostic_questions:    # exact wording from AGENTS.md "Core diagnostic"
+    - canonical: control
+      deprecated: ["power over", "decision authority"]
+    - canonical: benefit
+      deprecated: [gain, upside]
+    - canonical: knowledge
+      deprecated: [awareness, "what they knew"]
+    - canonical: preventability
+      deprecated: [avoidability, "could have stopped"]
+    - canonical: "record control"
+      deprecated: ["paper trail control", "archive ownership"]
+    - canonical: "cost bearer"
+      deprecated: ["harmed party", "loser"]
+
+  role_nouns:
+    - canonical: reviewer
+      paired_verb: review
+      examples: [alan]
+      scope_note: "Alan is a single parameterized expert reviewer covering 6 domains; he picks the frame at invocation time."
+    - canonical: researcher
+      paired_verb: build
+      examples: [shirley, selina, warren, loki]
+    - canonical: director
+      paired_verbs: [assign, gate]
+      examples: [delon, stephen]
+    - canonical: strategist
+      paired_verbs: [position, test]
+      examples: [blair]
+      scope_note: "Blair is the combined market strategist (proposal + audience)."
+    - canonical: editor
+      paired_verbs: [red-team, revise]
+      examples: [laura]
+    - canonical: architect
+      paired_verbs: [place, sequence]
+      examples: [bonnie]
+    - canonical: lead
+      paired_verbs: [draft, revise]
+      examples: [wayne]
+    - canonical: chief
+      paired_verbs: [assign, consolidate, decide]
+      examples: [joe]
+    - canonical: counsel
+      paired_verbs: [flag, gate]
+      examples: [nancy]
+
+rejected_pending_warrant:
+  - term: framework
+    rejected_on: 2026-05-25
+    reason: "Appears 1× in agent filenames (jade-visual-framework-designer); no skill, command, or rule defines it as a distinct artifact class."

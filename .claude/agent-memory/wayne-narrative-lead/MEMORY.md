@@ -1,0 +1,2 @@
+- [Vividification Technique](project-vividification-technique.md) — the two SAFE forms (render-the-record, reader-hypothetical) and the FORBIDDEN form (invented detail on real actors); proven in the preface
+- [ch-5 Davie epigraph open](project-ch5-davie-epigraph-open.md) — ch-5 Saʿdi epigraph English couplet is an EVIDENCE-NEEDED flag (Persian + attribution placed); needs verbatim Davie transcription

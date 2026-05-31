@@ -1,0 +1,222 @@
+# Per-chapter treatment class declarations.
+#
+# Schema source: .claude/rules/08-treatment-class-discipline.md
+# Used by: /chapter-defect-diagnose (writes rows), /contract-audit, /dependency-check,
+#          pre-edit-chapter-snapshot.py, post-edit-status-check.py
+#
+# Each row declares ONE chapter's treatment class for the current rewrite cycle.
+# Classes (from rule 08):
+#   no-change                  : passes all rule-12 values; no work needed
+#   prose-polish               : sentence-level only; no structural change
+#   defamation-safe-tighten    : rule-05 / rule-07 surface flagged by Nancy
+#   structural-polish          : scene reorder, focalizer adjustment, motif insertion
+#   full-craft-rewrite         : all Bucket 1 craft moves; full audit chain
+#
+# Class assignment requires defect_evidence (line anchors + rule-12 value verdicts).
+# Reclassification requires a recorded reason and reviewer.
+
+chapters:
+  - chapter: 1
+    slug: the-altar-moves
+    class: prose-polish
+    defect_evidence:
+      - {value: V4, defect: "three explicit-authorial-summary sentences cluster the chapter's architectural directives: L43-45 ('The chapter could end here, with the etymology. It would still have made a point. But the point is small if it is only a point about a word. / The point about the word is this:') flags the choice rather than letting the reader feel it; L125 ('This chapter installs only the recognition. The rest of the book installs the use') and L153 ('This chapter has done one thing, which is to make the rhythm audible') make the same architectural point twice in two paragraphs; opening-chapter category-installation function permits one such moment, not three"}
+      - {value: V10, defect: "L129 Generalbundesanwalt annulment paragraph carries German-language quotation + author's translation + Aktenzeichen + two underlying statute citations in one paragraph; non-reader listener tracks gist but loses the specific legal architecture"}
+    defect_map: process/defect-map/01-the-altar-moves.md
+    declared_at: 2026-05-27
+    declared_by: chapter-defect-diagnose
+    reviewed_by: []   # awaiting xaiolai Gate A confirmation; boundary chapter
+    reclassifications: []
+
+  - chapter: 2
+    slug: the-four-goats
+    class: prose-polish
+    defect_evidence:
+      - {value: V4,  defect: "beat-10 'Recognize/Diagnose/Act/Avoid' structure at L154-L160 uses prescriptive 'three markers' assertion (L156); Wayne flagged the choice explicitly in Finding D at L172 and offered softer wording at the ready"}
+      - {value: V10, defect: "procedural-citation paragraphs at L84 (Abu Ghraib chain), L112-L116 (Boeing DPA->breach->plea->NPA sequence), and L124-L130 (Russian decree numbers + ICC docket + Yale/OHCHR/Ukrainian registry attributions) carry sentence density that fights audio rhythm; non-reader listener would lose track of which entity paid which amount in which year on L116"}
+    defect_map: process/defect-map/02-the-four-goats.md
+    declared_at: 2026-05-27
+    declared_by: chapter-defect-diagnose
+    reviewed_by: []   # awaiting xaiolai Gate A confirmation
+    reclassifications: []
+
+  - chapter: 3
+    slug: who-could-have-stopped-it
+    class: prose-polish
+    defect_evidence:
+      - {value: V4, defect: "beat-10 uses four bolded directive headers (Recognise it / Diagnose it / Act on it / Avoid becoming it at L206/L208/L210/L218) that do more of the reader's work than the rest of the chapter; the three-stage-shift alarm and three-marker heuristic are asserted as instruments rather than discovered"}
+      - {value: V10, defect: "three audio-hostile passages: Volkswagen Q4 knowledge-history paragraph at L71 packs 2006-2015 chronology with multiple attribution clauses into one sentence stream; side-by-side channel table at L182-L188 is unreadable in audio and L190 instruction 'Read the table by row' assumes visual layout; Goat-resists dollar-totals at L137 packs $30B/$2.8B/$1.5B/$14.7B/$327.5M/€1.1M into successive cited sentences"}
+    defect_map: process/defect-map/03-who-could-have-stopped-it.md
+    declared_at: 2026-05-27
+    declared_by: chapter-defect-diagnose
+    reviewed_by: []
+    reclassifications: []
+
+  - chapter: 4
+    slug: the-proxy-and-the-sponsor
+    class: prose-polish
+    defect_evidence:
+      - {value: V4, defect: "L150 'Run them on the chapter' unrolls all three cases applying the three questions; reader could apply after just one worked example. L172 matrix-recap paragraph re-narrates the matrix the reader has just read."}
+      - {value: V10, defect: "In-prose matrix at L162-L170 (7 channels x 3 cases) does not survive read-aloud; procedural-citation paragraphs at L60, L94, L98 carry sentence density (multiple docket numbers, dates, legal articles in single sentences) that fights audio rhythm."}
+    defect_map: process/defect-map/04-the-proxy-and-the-sponsor.md
+    declared_at: 2026-05-27
+    declared_by: chapter-defect-diagnose
+    reviewed_by: []   # Part II opener; xaiolai Gate A advisory
+    reclassifications: []
+
+  - chapter: 5
+    slug: the-guilty-goat
+    class: prose-polish
+    defect_evidence:
+      - {value: V4, defect: "anti-laundering-rule closing at L120 and beat-9 cadence at L146 lecture-summarize; beat-10 three role directives at L166-L172 sit at threshold between calibrated prescription and over-direction (same shape as ch-02 V4 conditional)"}
+      - {value: V6, defect: "layered-architecture note at L66 (the chapter's novel cognitive payload — a single case can stack laundering at multiple diagnostic layers) appears once while the chain-stop diagnostic is restated three times (L46-L48, L92-L102, L114-L120); risk that the reader exits with the chain-stop scene but not the layered-architecture concept"}
+      - {value: V10, defect: "five procedural-citation paragraphs carry sentence density that fights audio rhythm: L56 (Sahu SDNY block), L62 (cost-layer block), L106 (Bhopal alibi-weakens triplet), L108 (Boeing alibi-weakens triplet), L130 (Boeing DOJ disposition sequence DPA-breach-plea-rejection-NPA)"}
+    defect_map: process/defect-map/05-the-guilty-goat.md
+    declared_at: 2026-05-27
+    declared_by: chapter-defect-diagnose
+    reviewed_by: []   # partial-scapegoat anchor; V6 polish may resolve via ch-06 callback per agent recommendation
+    reclassifications: []
+
+  - chapter: 6
+    slug: the-pretext
+    class: prose-polish
+    defect_evidence:
+      - {value: V4, defect: "install-chapter signposting: explicit recipe ('Ask the six questions in order. Ask them all,' L63) and beat-10 four-part directive structure ('Recognize/Diagnose/Act/Avoid,' L233-L251) with bolded section headers; 4-6 instances of 'the chapter's point is...' / 'the chapter's claim is not...' self-reference at L173, L177, L181 exceed the V4 ceiling of one explicit recognition signpost per chapter"}
+      - {value: V10, defect: "four procedural-density paragraphs accumulate sentence load that fights audio rhythm: L49 (Ukraine aid hold framing — $391M/$250M/$141M with USAI/FMF acronyms in one sentence), L161 (census institutional record — five different institutional referents in one paragraph), L163 (Ukraine institutional record — eight institutional events with eight dates in one paragraph), L181 (Ukraine goat-resists — nine names plus Vindman/Atkinson removal sequence in one paragraph)"}
+    defect_map: process/defect-map/06-the-pretext.md
+    declared_at: 2026-05-27
+    declared_by: chapter-defect-diagnose
+    reviewed_by: []
+    reclassifications: []
+
+  - chapter: 7
+    slug: the-record-is-the-battlefield
+    class: prose-polish
+    defect_evidence:
+      - {value: V4, defect: "ordinality of 'first anti-laundering device' is justified in two near-duplicate paragraphs (L153-L155 and L161), shifting work from reader to chapter; beat-10 four-part directive at L190-L200 (necessary for protocol export but high on moral-of-the-story sentence count)"}
+      - {value: V10, defect: "three citation-dense paragraphs fight audio rhythm — L37-L45 (Castle v Cross / section 69 PACE / Fraser J / JFSA / Inquiries Act stacked across five paragraphs), L53 (single sentence enumerating CPIA 1996 s3 / s7A / CJA 2003 / KEL / Bates litigation / 1999-2015 / ~700 prosecutions), L97-L107 (five record-hardening layers with Castle v Cross / [2019] EWHC 606 / Law Commission / 900-prosecutions-236-sentences / Hamilton / Wyn Williams HC 1119 in adjacent paragraphs)"}
+    defect_map: process/defect-map/07-the-record-is-the-battlefield.md
+    declared_at: 2026-05-27
+    declared_by: chapter-defect-diagnose
+    reviewed_by: []   # Part II/Part III bridge; xaiolai Gate A advisory; Nancy 30-day re-pass on Vennells/Jenkins separately scheduled
+    reclassifications: []
+
+  - chapter: 10
+    slug: war-is-the-perfect-laundry
+    class: defamation-safe-tighten
+    defect_evidence:
+      - {value: V4, defect: "beat-10 (L213-L241) uses four role-calibrated directive openers ('As citizen and voter,' 'As bystander and news consumer,' 'As institutional actor,' 'As an intelligence-defence-foreign-service professional') and a recognition-trigger threshold ('If three or more layers are present, the case is structurally laundering-shaped') that do more of the reader's role-recognition work than the rest of the chapter"}
+      - {value: V7, defect: "eight Stephen-to-lock anchors remain on quotation-bearing and personnel-naming claims: Chilcot Executive Summary verbatim at L65/L143/L151/L195; per-soldier Abu Ghraib disposition table at L89 (seven 372nd MP Company personnel + Cruz from 325th MI Battalion); DoD IG Report No. 07-INTEL-04 verbatim at L65/L157; Downing Street Memo Dearlove 'fixed around the policy' attribution at L133; Saddam-Piro deterrence-ambiguity verbatim at L139. Live-content stacking across Iraq WMD strategic-justification chain, MH17 (Putin + Girkin/Dubinskiy/Kharchenko), Blackwater (Slatten/Slough/Liberty/Heard pardoned + Erik Prince), Abu Ghraib (named MPs + chain), Ukrainian children (Putin/Lvova-Belova at ICC) — among the highest defamation surface in the corpus"}
+      - {value: V10, defect: "procedural-citation paragraphs at L65, L71, L107, L157 carry sentence density that fights audio rhythm; absorbed into the defamation-safe-tighten cycle per rule-08 conflict-handling #1"}
+    defect_map: process/defect-map/10-war-is-the-perfect-laundry.md
+    declared_at: 2026-05-27
+    declared_by: chapter-defect-diagnose
+    reviewed_by: []
+    nancy_escalation: true
+    nancy_escalation_reason: "Active 30-day re-pass clock dated 2026-06-25 per book/STATUS.md; eight unverified [CITE: Stephen to lock] anchors on quotation-bearing and personnel-naming claims; live-content stacking across Iraq WMD + MH17 + Blackwater + Abu Ghraib + Ukrainian children = highest defamation surface in the corpus"
+    reclassifications:
+      - {from: defamation-safe-tighten, to: structural-polish, on: 2026-05-29,
+         reason: "Chapter was orphaned from the v4/v5 craft passes by the 8/9/10 renumber. Reader cold-read (process/reader-reports/10-war-is-the-perfect-laundry-2026-05-29.md) returned 3 HARD: bloated close, pre-walk meta-instructions, four-layer blur. xiaolai-surrogate Rulings 5-6 govern — v4-detemplating-spec supersedes SOFT-2 'close on the seam landing' for ch10; cut the role-action walk; relocate Rome-Statute Art-33 substance into the Abu Ghraib chain-of-command layer (load-bearing, orphaned-if-cut); rebuild the four-layer callback around concrete cases. defamation-safe-tighten obligations (nancy 2026-06-25 clock, 8 Stephen-to-lock anchors) persist, inherited by the higher class.",
+         reviewed_by: [xiaolai-surrogate]}
+
+  - chapter: 8
+    slug: when-power-calls-itself-the-goat
+    class: defamation-safe-tighten
+    defect_evidence:
+      - {value: V7, defect: "ten [CITE: ... Stephen to lock] placeholders on attribution-bearing claims (administration 'hostages'/'terrorists'/'activist judges' language at L32/L36; OLC memo byte-exact wording L68; Walsh 'completed the cover-up' page anchor L70; named line prosecutors with OSC/MSPB complaint numbers L86/L124; W.D./S.D. Tex. ruling cites L122; refreshed May 2026 Abrego Garcia posture L152) leave V7 calibration provisional on B/A-stance failure risk for the highest defamation surface in the book"}
+      - {value: V4, defect: "beat-10 three-test directive structure at L162-L166 ('When you hear X — pause and ask Y') does more of the reader's recognition work than the rest of the chapter; addressable inside the defamation-safe-tighten cycle"}
+      - {value: V10, defect: "audio cadence in four procedural-citation paragraphs (L82-L84 court-orders accumulation, L96 steelman pardon-power, L150 escape-mechanism temporal-window stacking) breaks rhythm; addressable inside the defamation-safe-tighten cycle"}
+    defect_map: process/defect-map/08-when-power-calls-itself-the-goat.md
+    declared_at: 2026-05-27
+    declared_by: chapter-defect-diagnose
+    reviewed_by: []
+    nancy_escalation: true
+    nancy_escalation_reason: "Active 30-day re-pass clock dated 2026-06-25 per book/STATUS.md; V7 conditional on live content (sitting President, named cabinet officials, named foreign head of state, named federal judges, named removed individual); ten unresolved Stephen-to-lock anchors"
+    reclassifications:
+      - {from: defamation-safe-tighten, to: structural-polish, on: 2026-05-29,
+         reason: "Chapter was orphaned from the v4/v5 craft passes by the 8/9/10 renumber. Reader cold-read (process/reader-reports/08-when-power-calls-itself-the-goat-2026-05-29-rev2.md) returned 2 HARD: diagnostic question-count wobble (reconciled to eight-instrument/five-shift) and an unreadable 400-word al-Aulaqi block whose cross-party symmetry read as asserted. xiaolai-surrogate Ruling 2 governs — narrow the bipartisan claim to the underlying move (control/benefit/insulation), reframe al-Aulaqi as the legal-opinion-as-shield surface rather than a second instance of the mechanism-inversion. defamation-safe-tighten obligations (nancy 2026-06-25 clock, ten Stephen-to-lock anchors) persist, inherited by the higher class.",
+         reviewed_by: [xiaolai-surrogate]}
+
+  - chapter: 9
+    slug: the-model-did-it
+    class: prose-polish
+    defect_evidence:
+      - {value: V4, defect: "beat-10 layered prescriptive markers at L181/L183/L185 use 'when two or more are present, the alibi is active' threshold that does the reader's pattern-matching rather than achieves it"}
+      - {value: V10, defect: "4 procedural-citation paragraphs (L29 input-layer accusation, L61 who-knew, L121 Bartz settlement, L123 wider-litigation-cluster) carry sentence density (case numbers + judge names + ruling dates + amounts) that fights audio rhythm"}
+    defect_map: process/defect-map/09-the-model-did-it.md
+    declared_at: 2026-05-27
+    declared_by: chapter-defect-diagnose
+    reviewed_by: []   # V7/V8 pass — Nancy 2026-06-25 re-pass continues on schedule (not a defect-driven escalation)
+    reclassifications:
+      - {from: prose-polish, to: structural-polish, on: 2026-05-29,
+         reason: "Chapter was orphaned from the v4/v5 craft passes by the 8/9/10 renumber. Reader cold-read (process/reader-reports/09-the-model-did-it-2026-05-29-rev2.md) returned 2 HARD: the cold-open 'three companies, three layers' grid promised a one-company-per-layer bijection the body could not deliver (OpenAI spans input + deployment), and the eight-question input-layer walk read as a predictable italic-Q&A checklist. xiaolai-surrogate Rulings 3-4 govern — reframe the open as three LAYERS and name the asymmetry; keep the eight-question instrument but vary delivery (cluster control/benefit/knowledge; weight record-control and cost). Cold-open restructure + subhead retitle make this structural-polish, not prose-polish.",
+         reviewed_by: [xiaolai-surrogate]}
+
+  - chapter: 11
+    slug: make-responsibility-follow-control
+    class: prose-polish
+    defect_evidence:
+      - {value: V2, defect: "argumentative-genre abstraction at L54-L56, L84, L132-L134; two specificity anchors blocked behind open [EVIDENCE NEEDED] flags at L146 (FCA Final Notice for SMCR) and L176 (§906 prosecution exemplar)"}
+      - {value: V4, defect: "high count of explicit 'the chapter's claim is / the chapter argues / the chapter does not claim' meta-markers (L84, L128, L132, L134, L150, L166); reversal sentence delivered twice — original at L86 and italicized echo at L154"}
+      - {value: V6, defect: "statute-citation density in SMCR (L63-L65), SOX (L106-L108), and Park-in-operation (L172) paragraphs partly dilutes the diagnostic patterns the lay reader carries forward at six-week recall; matrix and reversal sentence still memorable"}
+      - {value: V10, defect: "statute-citation density at L63-L65 (FSMA + SYSC chain), L106 (five 'that'-clauses in §302 sentence), and L172 (Park + DeCoster + cert. denial + FDA continuation packed in one paragraph) breaks audio cadence; non-reader listener loses section-number tracking"}
+    defect_map: process/defect-map/11-make-responsibility-follow-control.md
+    declared_at: 2026-05-27
+    declared_by: chapter-defect-diagnose
+    reviewed_by: []   # forced 11->12->13 chain; xaiolai Gate A advisory recommended (4 craft conditionals above the rule-08 example threshold)
+    reclassifications: []
+
+  - chapter: 12
+    slug: keep-the-record
+    class: defamation-safe-tighten
+    defect_evidence:
+      - {value: V4, defect: "beat-10 four-role + fifth-note structure plus closing two declarative sentences (L192-L194) deliver recognition rather than letting reader achieve it; rules-chapter architecture justifies, but closing can invert to provocation"}
+      - {value: V7, defect: "13 unresolved [CITE: ... Stephen verify] markers in load-bearing positions; three are byte-exact verbatim quotations subject to rule 06 (Walsh statement L93, Justice Black concurrence L19, FRE 901(a) L57); prose treats them as A-grade while source-ledger verification is pending — B/A-stance candidate per V7 test"}
+      - {value: V8, defect: "two scan-implication causation-by-adjacency patterns on beat-9 panels (L170 Iran-Contra panel lacks in-paragraph rule-07 hedge between WHCA preservation order and North/Poindexter destruction acts; L174 Hofeller panel mitigation 'relying in part on' is borderline-sufficient); plus live-content surface across CREW v DOGE, American Oversight v DOGE/Musk, NYT v Microsoft/OpenAI under 2026-06-25 Nancy 30-day re-pass clock"}
+      - {value: V10, defect: "three procedural-citation paragraphs fight audio rhythm (L29 national-security stack, L33 routine-destruction stack with parenthetical docket numbers, L57 FRE 901 semicolon-list); asymmetry table at L127-L140 is visually load-bearing and needs audio-rendered alternate"}
+    defect_map: process/defect-map/12-keep-the-record.md
+    declared_at: 2026-05-27
+    declared_by: chapter-defect-diagnose
+    reviewed_by: []
+    nancy_escalation: true
+    nancy_escalation_reason: "Active 30-day re-pass clock dated 2026-06-25 per book/STATUS.md; V7 + V8 both conditional on live content (CREW v DOGE, American Oversight v DOGE/Musk, NYT v Microsoft/OpenAI); 13 Stephen-to-lock CITE markers including three byte-exact quotations subject to rule 06"
+    reclassifications: []
+
+  - chapter: 13
+    slug: a-readers-field-guide
+    class: no-change
+    defect_evidence:
+      - {value: V10, defect: "three artefact-blocks (war stack L105-L113; reader-role crosswalk L137-L151; chapter-by-chapter index L161-L181) carry enumeration density that fights audio rhythm; intrinsic to the chapter's printable-artefact deliverable form, not a chapter-level remediable defect"}
+    defect_map: process/defect-map/13-a-readers-field-guide.md
+    declared_at: 2026-05-27
+    declared_by: chapter-defect-diagnose
+    reviewed_by: []   # boundary chapter; xaiolai Gate A confirmation recommended by convention; L301 closing-sentence placeholder is xaiolai's authorial decision (not a defect)
+    reclassifications: []
+
+# Example row (populated by /chapter-defect-diagnose during Stage 0 inventory):
+#
+# chapters:
+#   - chapter: 2
+#     slug: the-four-goats
+#     class: full-craft-rewrite
+#     defect_evidence:
+#       - {value: V3, defect: "reader sympathy lands on visible goat by end of chapter (L312, L380)"}
+#       - {value: V5, defect: "partial/pure discrimination announced at L210 but not consolidated (no worked example)"}
+#       - {value: V6, defect: "memorable scene at L401-L420 without diagnostic carryover"}
+#     defect_map: process/defect-map/02-the-four-goats.md
+#     declared_at: 2026-05-27
+#     declared_by: chapter-defect-diagnose
+#     reviewed_by: [xaiolai]
+#     reclassifications: []
+#
+#   - chapter: 5
+#     slug: the-guilty-goat
+#     class: prose-polish
+#     defect_evidence:
+#       - {value: V10, defect: "audio-cadence break at L155 (long sentence with three nested clauses)"}
+#       - {value: V4, defect: "one explicit moral-of-the-story sentence at L320 should be cut"}
+#     defect_map: process/defect-map/05-the-guilty-goat.md
+#     declared_at: 2026-05-27
+#     declared_by: chapter-defect-diagnose
+#     reviewed_by: [xaiolai]
+#     reclassifications: []

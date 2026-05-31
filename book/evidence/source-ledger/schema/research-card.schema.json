@@ -1,0 +1,210 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://book-workshop/responsibility-laundering/schema/research-card.schema.json",
+  "title": "Research Card",
+  "description": "One (source, claim) pair with verification and provenance metadata. Cards live under book/evidence/source-ledger/cards/<slug>.md with this schema bound to the YAML frontmatter.",
+  "type": "object",
+  "required": ["id", "source", "claim", "verification", "dispute", "defamation", "references", "provenance"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "description": "Stable kebab-case slug; must be unique across cards/."
+    },
+    "source": {
+      "type": "object",
+      "required": ["title", "type", "publication_date", "access_constraint"],
+      "additionalProperties": false,
+      "properties": {
+        "title": { "type": "string", "minLength": 1 },
+        "type": {
+          "type": "string",
+          "enum": [
+            "court-judgment",
+            "court-order",
+            "statute",
+            "regulation",
+            "executive-order",
+            "inquiry-report",
+            "inspector-general-report",
+            "sworn-testimony",
+            "corporate-filing",
+            "academic-peer-reviewed",
+            "journalism-tier-1",
+            "journalism-tier-2",
+            "ngo-report",
+            "archival-document",
+            "press-release",
+            "social-media-statement",
+            "book-monograph",
+            "official-report",
+            "translated-source",
+            "other"
+          ]
+        },
+        "publisher": { "type": "string" },
+        "author": { "type": "string" },
+        "publication_date": {
+          "type": "string",
+          "pattern": "^\\d{4}(-\\d{2}(-\\d{2})?)?$",
+          "description": "ISO-8601 date; YYYY or YYYY-MM or YYYY-MM-DD"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "Primary canonical URL; required when access_constraint = open-web."
+        },
+        "archive": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "wayback_url": { "type": "string", "format": "uri" },
+            "wayback_captured": {
+              "type": "string",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+            },
+            "archive_path": {
+              "type": "string",
+              "description": "Filesystem path for non-web archival sources."
+            }
+          }
+        },
+        "access_constraint": {
+          "type": "string",
+          "enum": ["open-web", "paywall", "institutional", "paywalled-archive", "sealed", "physical-archive"]
+        }
+      }
+    },
+    "claim": {
+      "type": "object",
+      "required": ["text"],
+      "additionalProperties": false,
+      "properties": {
+        "text": { "type": "string", "minLength": 1 },
+        "quote_verbatim": { "type": "string" },
+        "quote_alteration": {
+          "type": "string",
+          "enum": ["none", "sic", "bracketed", "ellipsis", "sentence-case", "translation"]
+        },
+        "quote_permission": {
+          "type": "string",
+          "enum": ["not-required-fair-use", "required-pending", "required-cleared", "not-applicable"]
+        },
+        "page_anchor": { "type": "string" },
+        "paragraph_anchor": { "type": "string" }
+      }
+    },
+    "verification": {
+      "type": "object",
+      "required": ["evidence_grade"],
+      "additionalProperties": false,
+      "properties": {
+        "evidence_grade": {
+          "type": "string",
+          "enum": ["A", "B", "C", "D", "unverified"]
+        },
+        "grade_rationale": { "type": "string" },
+        "verified_by": { "type": "string" },
+        "verified_on": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "body_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      }
+    },
+    "verification_log": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["step", "actor", "outcome"],
+        "additionalProperties": false,
+        "properties": {
+          "step": {
+            "type": "string",
+            "enum": [
+              "source-existence",
+              "quote-byte-exact",
+              "independent-corroboration",
+              "grade-assignment",
+              "sha256-fingerprint",
+              "specialist-doctrine",
+              "specialist-defamation",
+              "specialist-translation",
+              "specialist-technical",
+              "adversarial-test",
+              "dispute-adjudication"
+            ]
+          },
+          "actor": { "type": "string" },
+          "timestamp": { "type": "string" },
+          "tool": { "type": "string" },
+          "outcome": { "type": "string" },
+          "notes": { "type": "string" }
+        }
+      }
+    },
+    "dispute": {
+      "type": "object",
+      "required": ["status"],
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "type": "string",
+          "pattern": "^(undisputed|contested|withdrawn|superseded-by:[a-z0-9-]+)$"
+        },
+        "notes": { "type": "string" }
+      }
+    },
+    "defamation": {
+      "type": "object",
+      "required": ["living_subjects"],
+      "additionalProperties": false,
+      "properties": {
+        "living_subjects": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "nancy_cleared": { "type": "boolean" },
+        "nancy_cleared_on": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "nancy_notes": { "type": "string" }
+      }
+    },
+    "references": {
+      "type": "object",
+      "required": ["cases_affected", "chapters_citing"],
+      "additionalProperties": false,
+      "properties": {
+        "cases_affected": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "chapters_citing": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "required": ["created_by", "created_on", "superseded_by"],
+      "additionalProperties": false,
+      "properties": {
+        "created_by": { "type": "string" },
+        "created_on": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "superseded_by": {
+          "type": ["string", "null"]
+        }
+      }
+    }
+  }
+}

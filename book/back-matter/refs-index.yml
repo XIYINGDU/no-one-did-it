@@ -1,0 +1,1745 @@
+generated_on: '2026-05-28'
+generated_by: scripts/build_v3.py
+total_refs: 423
+refs:
+- n: 1
+  chapter: 1
+  slugs:
+  - evans-2003-coming-of-third-reich-ch1
+- n: 2
+  chapter: 1
+  slugs:
+  - rgbl-i-1933-p-83-reichstagsbrandverordnung
+- n: 3
+  chapter: 1
+  slugs:
+  - rgbl-i-1933-p-141-ermaechtigungsgesetz
+- n: 4
+  chapter: 1
+  slugs:
+  - daniell-1992-tyndale-old-testament-pentateuch
+- n: 5
+  chapter: 1
+  slugs:
+  - milgrom-1991-anchor-bible-leviticus-azazel
+- n: 6
+  chapter: 1
+  slugs:
+  - oed-scapegoat-figurative-1824
+- n: 7
+  chapter: 1
+  slugs:
+  - jps-1985-tanakh-leviticus-16
+- n: 8
+  chapter: 1
+  slugs:
+  - jps-1985-tanakh-leviticus-16
+- n: 9
+  chapter: 1
+  slugs:
+  - hipponax-west-fragments-pharmakos
+- n: 10
+  chapter: 1
+  slugs:
+  - bremmer-1983-scapegoat-rituals-greece
+  - hughes-1991-human-sacrifice-ancient-greece
+- n: 11
+  chapter: 1
+  slugs:
+  - anchor-bible-dictionary-atonement-kuppuru
+  - burkert-1979-structure-history-greek-mythology
+- n: 12
+  chapter: 1
+  slugs:
+  - ovid-fasti-2-februa-luperci
+- n: 13
+  chapter: 1
+  slugs:
+  - rgbl-i-1933-nr-28-p-151-lex-van-der-lubbe
+- n: 14
+  chapter: 1
+  slugs:
+  - reichsgericht-judgment-23-dec-1933-saechsisches-staatsarchiv
+- n: 15
+  chapter: 1
+  slugs:
+  - tobias-1962-reichstagsbrand-legende-wirklichkeit
+- n: 16
+  chapter: 1
+  slugs:
+  - mommsen-1964-vfz-reichstagsbrand
+- n: 17
+  chapter: 1
+  slugs:
+  - hofer-1972-reichstagsbrand-dokumentation
+- n: 18
+  chapter: 1
+  slugs:
+  - bahar-kugel-2001-reichstagsbrand-provokation
+- n: 19
+  chapter: 1
+  slugs:
+  - kellerhoff-2008-reichstagsbrand-karriere
+- n: 20
+  chapter: 1
+  slugs:
+  - bgbl-i-1998-p-2501-ns-aufhg
+- n: 21
+  chapter: 1
+  slugs:
+  - generalbundesanwalt-van-der-lubbe-annulment-2008
+- n: 22
+  chapter: 2
+  slugs:
+  - leveson-turner-therac-25-ieee-1993
+- n: 23
+  chapter: 2
+  slugs:
+  - leveson-turner-therac-25-ieee-1993
+- n: 24
+  chapter: 2
+  slugs:
+  - leveson-turner-therac-25-ieee-1993
+- n: 25
+  chapter: 2
+  slugs:
+  - fda-therac-25-recall-and-cap-1986-1987
+- n: 26
+  chapter: 2
+  slugs:
+  - knkt-lion-air-610-final-report-2019
+- n: 27
+  chapter: 2
+  slugs:
+  - ecaa-ethiopian-302-final-report-2022
+- n: 28
+  chapter: 2
+  slugs:
+  - faa-emergency-order-grounding-737-max-2019-03-13
+- n: 29
+  chapter: 2
+  slugs:
+  - knkt-lion-air-610-final-report-2019
+  - ecaa-ethiopian-302-final-report-2022
+- n: 30
+  chapter: 2
+  slugs:
+  - seattle-times-gates-baker-737-max-2018-2019
+- n: 31
+  chapter: 2
+  slugs:
+  - seattle-times-gates-baker-737-max-2018-2019
+- n: 32
+  chapter: 2
+  slugs:
+  - house-ti-final-report-737-max-2020-09
+- n: 33
+  chapter: 2
+  slugs:
+  - commonwealth-v-sacco-vanzetti-trial-record-1921
+- n: 34
+  chapter: 2
+  slugs:
+  - lowell-committee-report-1927-07-27
+- n: 35
+  chapter: 2
+  slugs:
+  - avrich-1991-sacco-vanzetti-anarchist-background
+- n: 36
+  chapter: 2
+  slugs:
+  - frankfurter-1927-atlantic-sacco-vanzetti
+- n: 37
+  chapter: 2
+  slugs:
+  - avrich-1991-sacco-vanzetti-anarchist-background
+  - young-kaiser-1985-postmortem-sacco-vanzetti
+- n: 38
+  chapter: 2
+  slugs:
+  - dukakis-proclamation-sacco-vanzetti-1977-07-19
+- n: 39
+  chapter: 2
+  slugs:
+  - cbs-60-minutes-ii-hersh-new-yorker-abu-ghraib-2004
+- n: 40
+  chapter: 2
+  slugs:
+  - rumsfeld-sasc-testimony-abu-ghraib-2004-05-07
+- n: 41
+  chapter: 2
+  slugs:
+  - abu-ghraib-courts-martial-and-karpinski-demotion-2004-2005
+- n: 42
+  chapter: 2
+  slugs:
+  - bybee-yoo-olc-torture-memos-2002-opr-2009
+- n: 43
+  chapter: 2
+  slugs:
+  - sasc-detainee-treatment-report-2008-11-20
+  - taguba-schlesinger-fay-jones-reports-2004
+- n: 44
+  chapter: 2
+  slugs:
+  - taguba-schlesinger-fay-jones-reports-2004
+- n: 45
+  chapter: 2
+  slugs:
+  - taguba-schlesinger-fay-jones-reports-2004
+- n: 46
+  chapter: 2
+  slugs:
+  - sasc-detainee-treatment-report-2008-11-20
+- n: 47
+  chapter: 2
+  slugs:
+  - icrc-iraq-detainees-report-2004-02
+- n: 48
+  chapter: 2
+  slugs:
+  - bybee-yoo-olc-torture-memos-2002-opr-2009
+- n: 49
+  chapter: 2
+  slugs:
+  - karpinski-reduction-in-grade-order-2005-05
+- n: 50
+  chapter: 2
+  slugs:
+  - russell-1962-1986-sacco-vanzetti-counter-reading
+- n: 51
+  chapter: 2
+  slugs:
+  - frankfurter-1927-atlantic-sacco-vanzetti
+  - avrich-1991-sacco-vanzetti-anarchist-background
+  - young-kaiser-1985-postmortem-sacco-vanzetti
+  - lowell-committee-report-1927-07-27
+  - bullard-1926-boston-herald-we-submit
+  - dukakis-proclamation-sacco-vanzetti-1977-07-19
+- n: 52
+  chapter: 2
+  slugs:
+  - leveson-turner-therac-25-ieee-1993
+- n: 53
+  chapter: 2
+  slugs:
+  - fda-therac-25-recall-and-cap-1986-1987
+- n: 54
+  chapter: 2
+  slugs:
+  - boeing-737-max-dpa-2021
+- n: 55
+  chapter: 2
+  slugs:
+  - us-v-forkner-2022-acquittal
+- n: 56
+  chapter: 2
+  slugs:
+  - doj-boeing-dpa-breach-letter-2024-05-14
+- n: 57
+  chapter: 2
+  slugs:
+  - oconnor-order-rejecting-boeing-plea-2024-12
+- n: 58
+  chapter: 2
+  slugs:
+  - doj-boeing-npa-resolution-2025-05-23
+- n: 59
+  chapter: 2
+  slugs:
+  - ryan-v-united-states-5th-cir-2026-03-31
+- n: 60
+  chapter: 2
+  slugs:
+  - russian-decrees-330-585-ukrainian-children-2022
+- n: 61
+  chapter: 2
+  slugs:
+  - putin-lvova-belova-public-defence-of-transfers-2022-2023
+- n: 62
+  chapter: 2
+  slugs:
+  - api-1977-art-78-child-evacuation
+- n: 63
+  chapter: 2
+  slugs:
+  - gciv-1949-art-49-deportation-prohibition
+- n: 64
+  chapter: 2
+  slugs:
+  - genocide-convention-1948-art-ii-e
+- n: 65
+  chapter: 2
+  slugs:
+  - un-crc-1989-arts-7-8
+- n: 66
+  chapter: 2
+  slugs:
+  - icc-arrest-warrants-putin-lvova-belova-2023-03-17
+- n: 67
+  chapter: 2
+  slugs:
+  - ukraine-children-of-war-registry-2026-05-25
+  - yale-hrl-conflict-observatory-ukrainian-children-2023-02-14
+- n: 68
+  chapter: 2
+  slugs:
+  - ohchr-hrmmu-ukraine-periodic-reports-2022-2026
+- n: 69
+  chapter: 2
+  slugs:
+  - yale-hrl-conflict-observatory-ukrainian-children-2023-02-14
+  - ohchr-hrmmu-ukraine-periodic-reports-2022-2026
+- n: 70
+  chapter: 2
+  slugs:
+  - api-1977-art-87-commander-duties
+  - rome-statute-arts-6-8-28-33
+  - us-v-calley-1973-cmaa
+- n: 71
+  chapter: 2
+  slugs:
+  - rome-statute-arts-6-8-28-33
+  - icc-arrest-warrants-putin-lvova-belova-2023-03-17
+- n: 72
+  chapter: 2
+  slugs:
+  - bringing-them-home-1997
+- n: 73
+  chapter: 2
+  slugs:
+  - dreyfus-conseil-de-guerre-conviction-1894
+- n: 74
+  chapter: 2
+  slugs:
+  - zola-jaccuse-laurore-1898-01-13
+- n: 75
+  chapter: 2
+  slugs:
+  - cour-de-cassation-dreyfus-exoneration-1906-07-12
+- n: 76
+  chapter: 2
+  slugs:
+  - burnham-nyt-1970-04-25-graft-paid-to-police
+- n: 77
+  chapter: 2
+  slugs:
+  - lindsay-executive-order-11-knapp-commission-1970-05-21
+- n: 78
+  chapter: 2
+  slugs:
+  - mollen-commission-report-1994-07-07
+- n: 79
+  chapter: 2
+  slugs:
+  - cuomo-eo-144-special-prosecutor-termination-1990
+- n: 80
+  chapter: 2
+  slugs:
+  - thomson-2009-computer-weekly-horizon
+- n: 81
+  chapter: 2
+  slugs:
+  - bates-v-post-office-no-6-horizon-issues-2019
+- n: 82
+  chapter: 2
+  slugs:
+  - hamilton-v-post-office-2021-court-of-appeal
+  - hamilton-v-post-office-affront-to-conscience-2021
+- n: 83
+  chapter: 2
+  slugs:
+  - post-office-horizon-system-offences-act-2024
+- n: 84
+  chapter: 2
+  slugs:
+  - bringing-them-home-1997
+- n: 85
+  chapter: 2
+  slugs:
+  - read-1981-stolen-generations-monograph
+- n: 86
+  chapter: 2
+  slugs:
+  - rudd-national-apology-2008-02-13
+- n: 87
+  chapter: 2
+  slugs:
+  - cw-territories-stolen-generations-redress-2022-03-01
+- n: 88
+  chapter: 3
+  slugs:
+  - cafee-wvu-pems-in-use-emissions-report-2014-05-15
+- n: 89
+  chapter: 3
+  slugs:
+  - epa-nov-volkswagen-clean-air-act-2015-09-18
+- n: 90
+  chapter: 3
+  slugs:
+  - us-v-volkswagen-ag-16-cr-20394-plea-agreement-2017-01-11
+- n: 91
+  chapter: 3
+  slugs:
+  - us-v-liang-16-cr-20393-plea-2016-09-09
+- n: 92
+  chapter: 3
+  slugs:
+  - us-v-schmidt-edmi-arrest-2017-01-07
+- n: 93
+  chapter: 3
+  slugs:
+  - doj-statement-of-facts-us-v-volkswagen-ag-2017-01-11
+- n: 94
+  chapter: 3
+  slugs:
+  - doj-statement-of-facts-us-v-volkswagen-ag-2017-01-11
+- n: 95
+  chapter: 3
+  slugs:
+  - us-v-robert-bosch-gmbh-settlement-2017-01
+- n: 96
+  chapter: 3
+  slugs:
+  - cafee-wvu-pems-in-use-emissions-report-2014-05-15
+- n: 97
+  chapter: 3
+  slugs:
+  - doj-statement-of-facts-us-v-volkswagen-ag-2017-01-11
+- n: 98
+  chapter: 3
+  slugs:
+  - us-v-liang-16-cr-20393-plea-2016-09-09
+  - us-v-schmidt-edmi-arrest-2017-01-07
+- n: 99
+  chapter: 3
+  slugs:
+  - us-v-winterkorn-et-al-18-cr-20275-indictment-2018-05-03
+- n: 100
+  chapter: 3
+  slugs:
+  - sec-v-volkswagen-ag-winterkorn-sdny-complaint-2019-03-14
+- n: 101
+  chapter: 3
+  slugs:
+  - barrett-speth-et-al-erl-2015-vw-excess-mortality
+- n: 102
+  chapter: 3
+  slugs:
+  - us-v-liang-16-cr-20393-plea-2016-09-09
+  - us-v-liang-16-cr-20393-sentencing-2017-08-25
+- n: 103
+  chapter: 3
+  slugs:
+  - grimshaw-v-ford-motor-co-119-cal-app-3d-757-1981
+- n: 104
+  chapter: 3
+  slugs:
+  - schwartz-myth-ford-pinto-case-43-rutgers-l-rev-1013-1991
+- n: 105
+  chapter: 3
+  slugs:
+  - grimshaw-v-ford-motor-co-119-cal-app-3d-757-1981
+- n: 106
+  chapter: 3
+  slugs:
+  - dowie-pinto-madness-mother-jones-1977
+- n: 107
+  chapter: 3
+  slugs:
+  - cullen-maakestad-cavender-corporate-crime-under-attack-1987
+- n: 108
+  chapter: 3
+  slugs:
+  - schwartz-myth-ford-pinto-case-43-rutgers-l-rev-1013-1991
+- n: 109
+  chapter: 3
+  slugs:
+  - grimshaw-v-ford-motor-co-119-cal-app-3d-757-1981
+- n: 110
+  chapter: 3
+  slugs:
+  - nhtsa-recall-campaign-78v-138-1978-06-09
+- n: 111
+  chapter: 3
+  slugs:
+  - dowie-pinto-madness-mother-jones-1977
+- n: 112
+  chapter: 3
+  slugs:
+  - schwartz-myth-ford-pinto-case-43-rutgers-l-rev-1013-1991
+- n: 113
+  chapter: 3
+  slugs:
+  - grimshaw-v-ford-motor-co-119-cal-app-3d-757-1981
+- n: 114
+  chapter: 3
+  slugs:
+  - cafee-wvu-pems-in-use-emissions-report-2014-05-15
+- n: 115
+  chapter: 3
+  slugs:
+  - epa-nov-volkswagen-clean-air-act-2015-09-18
+- n: 116
+  chapter: 3
+  slugs:
+  - us-v-volkswagen-ag-16-cr-20394-plea-entered-2017-03-10
+- n: 117
+  chapter: 3
+  slugs:
+  - grimshaw-v-ford-motor-co-119-cal-app-3d-757-1981
+- n: 118
+  chapter: 3
+  slugs:
+  - schwartz-myth-ford-pinto-case-43-rutgers-l-rev-1013-1991
+- n: 119
+  chapter: 3
+  slugs:
+  - nhtsa-recall-campaign-78v-138-1978-06-09
+- n: 120
+  chapter: 3
+  slugs:
+  - fmvss-301-49-cfr-571-301-fuel-system-integrity
+- n: 121
+  chapter: 3
+  slugs:
+  - us-v-liang-16-cr-20393-sentencing-2017-08-25
+- n: 122
+  chapter: 3
+  slugs:
+  - us-v-schmidt-edmi-sentencing-2017-12-06
+- n: 123
+  chapter: 3
+  slugs:
+  - stadler-landgericht-muenchen-ii-conviction-2023-06
+- n: 124
+  chapter: 3
+  slugs:
+  - us-v-volkswagen-ag-16-cr-20394-plea-entered-2017-03-10
+- n: 125
+  chapter: 3
+  slugs:
+  - us-v-robert-bosch-gmbh-settlement-2017-01
+- n: 126
+  chapter: 4
+  slugs:
+  - osce-pc-decision-1117-smm-ukraine-2014-03-21
+- n: 127
+  chapter: 4
+  slugs:
+  - treaty-accession-crimea-russia-2014-03-18
+- n: 128
+  chapter: 4
+  slugs:
+  - putin-press-conference-novo-ogaryovo-2014-03-04
+- n: 129
+  chapter: 4
+  slugs:
+  - russian-state-media-polite-people-framing-2014
+- n: 130
+  chapter: 4
+  slugs:
+  - russian-mod-press-conference-mh17-2014-07-21
+- n: 131
+  chapter: 4
+  slugs:
+  - putin-press-remarks-mh17-2014-07-21
+- n: 132
+  chapter: 4
+  slugs:
+  - almaz-antey-press-briefings-mh17-2015
+- n: 133
+  chapter: 4
+  slugs:
+  - blackwater-nisour-square-doj-indictment-and-state-dept-record
+- n: 134
+  chapter: 4
+  slugs:
+  - iraqi-moi-nisour-square-findings-2007
+- n: 135
+  chapter: 4
+  slugs:
+  - icao-annex-13-aircraft-accident-investigation
+- n: 136
+  chapter: 4
+  slugs:
+  - ovv-mh17-final-report-2015-10-13
+- n: 137
+  chapter: 4
+  slugs:
+  - almaz-antey-press-briefings-mh17-2015
+- n: 138
+  chapter: 4
+  slugs:
+  - mh17-jit-findings-2016-2023
+- n: 139
+  chapter: 4
+  slugs:
+  - mh17-jit-findings-2016-2023
+- n: 140
+  chapter: 4
+  slugs:
+  - mh17-jit-findings-2016-2023
+- n: 141
+  chapter: 4
+  slugs:
+  - hague-district-court-schiphol-mh17-judgment-2022-11-17
+- n: 142
+  chapter: 4
+  slugs:
+  - mh17-jit-findings-2016-2023
+- n: 143
+  chapter: 4
+  slugs:
+  - ecthr-ukraine-netherlands-v-russia-admissibility-2022-11-30
+- n: 144
+  chapter: 4
+  slugs:
+  - ecthr-ukraine-netherlands-v-russia-merits-2025-07-09
+- n: 145
+  chapter: 4
+  slugs:
+  - icao-council-mh17-finding-2025-05-12
+- n: 146
+  chapter: 4
+  slugs:
+  - cpa-order-17-revised-2004-06-27
+- n: 147
+  chapter: 4
+  slugs:
+  - meja-18-usc-3261-3267
+- n: 148
+  chapter: 4
+  slugs:
+  - fbi-nisour-square-investigation-2007-2008
+- n: 149
+  chapter: 4
+  slugs:
+  - iraqi-moi-nisour-square-findings-2007
+- n: 150
+  chapter: 4
+  slugs:
+  - house-oversight-blackwater-hearing-2007-10-02
+- n: 151
+  chapter: 4
+  slugs:
+  - blackwater-nisour-square-doj-indictment-and-state-dept-record
+- n: 152
+  chapter: 4
+  slugs:
+  - us-v-slough-641-f3d-544-dc-cir-2011
+- n: 153
+  chapter: 4
+  slugs:
+  - us-v-slatten-slough-ddc-jury-verdicts-2014-10-22
+- n: 154
+  chapter: 4
+  slugs:
+  - us-v-slatten-865-f3d-767-dc-cir-2017
+- n: 155
+  chapter: 4
+  slugs:
+  - us-v-slatten-ddc-retrial-verdict-2018-12-19
+- n: 156
+  chapter: 4
+  slugs:
+  - trump-blackwater-pardons-2020-12-22
+- n: 157
+  chapter: 4
+  slugs:
+  - un-ga-resolution-68-262-territorial-integrity-ukraine-2014-03-27
+- n: 158
+  chapter: 4
+  slugs:
+  - venice-commission-opinion-762-2014-crimea-referendum
+- n: 159
+  chapter: 4
+  slugs:
+  - pace-resolution-1990-russian-delegation-credentials-2014-04-10
+- n: 160
+  chapter: 4
+  slugs:
+  - ecthr-ukraine-v-russia-re-crimea-admissibility-2020-12-16
+- n: 161
+  chapter: 4
+  slugs:
+  - icc-otp-situation-ukraine-preliminary-examination-investigation
+- n: 162
+  chapter: 4
+  slugs:
+  - un-sc-resolution-2166-mh17-2014-07-21
+- n: 163
+  chapter: 4
+  slugs:
+  - un-sc-draft-resolution-s-2015-562-mh17-tribunal-vetoed
+- n: 164
+  chapter: 4
+  slugs:
+  - hague-district-court-schiphol-mh17-judgment-2022-11-17
+- n: 165
+  chapter: 4
+  slugs:
+  - ecthr-ukraine-netherlands-v-russia-admissibility-2022-11-30
+  - ecthr-ukraine-netherlands-v-russia-merits-2025-07-09
+- n: 166
+  chapter: 4
+  slugs:
+  - icao-council-mh17-finding-2025-05-12
+- n: 167
+  chapter: 4
+  slugs:
+  - us-v-slough-641-f3d-544-dc-cir-2011
+  - us-v-slatten-865-f3d-767-dc-cir-2017
+- n: 168
+  chapter: 4
+  slugs:
+  - ddc-docket-1-14-cr-00107-rcl
+- n: 169
+  chapter: 4
+  slugs:
+  - gao-contractor-accountability-reports-2006-2008
+- n: 170
+  chapter: 4
+  slugs:
+  - sasc-detainee-treatment-report-2008-12-11
+  - house-oversight-blackwater-hearing-2007-10-02
+- n: 171
+  chapter: 4
+  slugs:
+  - us-iraq-sofa-2008-2009
+- n: 172
+  chapter: 4
+  slugs:
+  - budapest-memorandum-1994
+- n: 173
+  chapter: 4
+  slugs:
+  - un-charter-article-2-4
+- n: 174
+  chapter: 4
+  slugs:
+  - ilc-articles-state-responsibility-2001
+- n: 175
+  chapter: 4
+  slugs:
+  - putin-direct-line-2014-04-17
+  - crimea-the-way-home-rossiya-1-2015-03-15
+- n: 176
+  chapter: 4
+  slugs:
+  - putin-direct-line-2014-04-17
+- n: 177
+  chapter: 4
+  slugs:
+  - crimea-the-way-home-rossiya-1-2015-03-15
+- n: 178
+  chapter: 4
+  slugs:
+  - federation-council-decision-48-sf-2014-03-01
+- n: 179
+  chapter: 4
+  slugs:
+  - ohchr-hrmmu-crimea-thematic-reports-2014-present
+- n: 180
+  chapter: 5
+  slugs:
+  - ucc-may-1982-operational-safety-survey-bhopal
+- n: 181
+  chapter: 5
+  slugs:
+  - kalelkar-report-1985
+  - arthur-d-little-bhopal-1988
+- n: 182
+  chapter: 5
+  slugs:
+  - in-re-union-carbide-2d-cir-1987
+- n: 183
+  chapter: 5
+  slugs:
+  - bhopal-cost-bearer-evidence-cluster
+- n: 184
+  chapter: 5
+  slugs:
+  - state-of-mp-v-keshub-mahindra-cjm-bhopal-2010
+- n: 185
+  chapter: 5
+  slugs:
+  - knkt-lion-air-610-final-report-2019
+- n: 186
+  chapter: 5
+  slugs:
+  - boeing-omb-tbc-19-2018-11-06
+- n: 187
+  chapter: 5
+  slugs:
+  - seattle-times-gates-baker-737-max-2018-2019
+- n: 188
+  chapter: 5
+  slugs:
+  - ucc-v-union-of-india-1989-settlement-order
+- n: 189
+  chapter: 5
+  slugs:
+  - knkt-lion-air-610-final-report-2019
+- n: 190
+  chapter: 5
+  slugs:
+  - ecaa-ethiopian-302-final-report-2022
+- n: 191
+  chapter: 5
+  slugs:
+  - boeing-737-max-dpa-2021
+- n: 192
+  chapter: 5
+  slugs:
+  - us-v-forkner-2022-acquittal
+- n: 193
+  chapter: 5
+  slugs:
+  - ucc-v-union-of-india-air-1992-sc-248
+- n: 194
+  chapter: 5
+  slugs:
+  - sahu-v-union-carbide-2d-cir-2008-sdny-2014
+- n: 195
+  chapter: 5
+  slugs:
+  - knkt-lion-air-610-final-report-2019
+- n: 196
+  chapter: 5
+  slugs:
+  - house-ti-final-report-737-max-2020-09
+- n: 197
+  chapter: 5
+  slugs:
+  - acsaa-pub-l-116-260-2020-12-27
+- n: 198
+  chapter: 5
+  slugs:
+  - charan-lal-sahu-air-1990-sc-1480-bhopal-act-1985
+- n: 199
+  chapter: 5
+  slugs:
+  - ecaa-ethiopian-302-final-report-2022
+- n: 200
+  chapter: 5
+  slugs:
+  - doj-boeing-dpa-breach-letter-2024-05-14
+  - oconnor-order-rejecting-boeing-plea-2024-12
+  - doj-boeing-npa-resolution-2025-05-23
+- n: 201
+  chapter: 6
+  slugs:
+  - nielsen-tweet-no-policy-2018-06-17
+- n: 202
+  chapter: 6
+  slugs:
+  - sessions-san-diego-remarks-2018-05-07
+  - sessions-zero-tolerance-memorandum-2018-04-06
+- n: 203
+  chapter: 6
+  slugs:
+  - sessions-san-diego-remarks-2018-05-07
+- n: 204
+  chapter: 6
+  slugs:
+  - sessions-zero-tolerance-memorandum-2018-04-06
+- n: 205
+  chapter: 6
+  slugs:
+  - nielsen-dhs-memorandum-2018-05-04
+- n: 206
+  chapter: 6
+  slugs:
+  - ross-memorandum-citizenship-question-2018-03-26
+- n: 207
+  chapter: 6
+  slugs:
+  - gary-doj-letter-citizenship-2017-12-12
+- n: 208
+  chapter: 6
+  slugs:
+  - gao-opinion-b-331564-ukraine-aid-ica-2020-01-16
+- n: 209
+  chapter: 6
+  slugs:
+  - apa-5-usc-706-arbitrary-capricious
+- n: 210
+  chapter: 6
+  slugs:
+  - overton-park-v-volpe-1971
+- n: 211
+  chapter: 6
+  slugs:
+  - improper-entry-8-usc-1325
+  - sessions-zero-tolerance-memorandum-2018-04-06
+  - nielsen-dhs-memorandum-2018-05-04
+- n: 212
+  chapter: 6
+  slugs:
+  - vra-section-2-52-usc-10301
+  - state-of-ny-v-commerce-furman-findings-2019
+- n: 213
+  chapter: 6
+  slugs:
+  - impoundment-control-act-2-usc-681-688
+  - gao-opinion-b-331564-ukraine-aid-ica-2020-01-16
+- n: 214
+  chapter: 6
+  slugs:
+  - doj-oig-zero-tolerance-report-2021-01
+  - senate-psi-family-separation-2020-10
+  - dhs-oig-20-06-el-paso-pilot-2020-01-29
+- n: 215
+  chapter: 6
+  slugs:
+  - state-of-ny-v-commerce-furman-findings-2019
+- n: 216
+  chapter: 6
+  slugs:
+  - sondland-hpsci-testimony-2019-11-20
+- n: 217
+  chapter: 6
+  slugs:
+  - doj-oig-zero-tolerance-report-2021-01
+- n: 218
+  chapter: 6
+  slugs:
+  - senate-psi-family-separation-2020-10
+- n: 219
+  chapter: 6
+  slugs:
+  - kravitz-v-commerce-d-md-hofeller-filings-2019-05-30
+- n: 220
+  chapter: 6
+  slugs:
+  - hofeller-2015-study-cvap-redistricting
+  - kravitz-v-commerce-d-md-hofeller-filings-2019-05-30
+- n: 221
+  chapter: 6
+  slugs:
+  - trump-zelensky-call-memorandum-2019-07-25
+- n: 222
+  chapter: 6
+  slugs:
+  - sondland-hpsci-testimony-2019-11-20
+- n: 223
+  chapter: 6
+  slugs:
+  - icig-whistleblower-complaint-2019-08-12
+- n: 224
+  chapter: 6
+  slugs:
+  - dhs-oig-20-06-el-paso-pilot-2020-01-29
+- n: 225
+  chapter: 6
+  slugs:
+  - us-census-1950-citizenship-question-historical
+- n: 226
+  chapter: 6
+  slugs:
+  - gao-opinion-b-331564-ukraine-aid-ica-2020-01-16
+- n: 227
+  chapter: 6
+  slugs:
+  - overton-park-v-volpe-1971
+- n: 228
+  chapter: 6
+  slugs:
+  - state-farm-v-mvma-1983
+- n: 229
+  chapter: 6
+  slugs:
+  - dhs-oig-18-87-zero-tolerance-2018-09-27
+- n: 230
+  chapter: 6
+  slugs:
+  - dhs-oig-20-06-el-paso-pilot-2020-01-29
+- n: 231
+  chapter: 6
+  slugs:
+  - doj-oig-zero-tolerance-report-2021-01
+- n: 232
+  chapter: 6
+  slugs:
+  - senate-psi-family-separation-2020-10
+- n: 233
+  chapter: 6
+  slugs:
+  - ms-l-v-ice-sd-cal-18-cv-428
+- n: 234
+  chapter: 6
+  slugs:
+  - state-of-ny-v-commerce-furman-findings-2019
+- n: 235
+  chapter: 6
+  slugs:
+  - dept-of-commerce-v-new-york-2019-roberts
+- n: 236
+  chapter: 6
+  slugs:
+  - kravitz-v-commerce-d-md-hofeller-filings-2019-05-30
+- n: 237
+  chapter: 6
+  slugs:
+  - icig-whistleblower-complaint-2019-08-12
+- n: 238
+  chapter: 6
+  slugs:
+  - hpsci-trump-ukraine-impeachment-inquiry-report-2019-12-03
+- n: 239
+  chapter: 6
+  slugs:
+  - h-res-755-articles-of-impeachment-2019-12-18
+- n: 240
+  chapter: 6
+  slugs:
+  - senate-impeachment-trial-acquittal-2020-02-05
+- n: 241
+  chapter: 6
+  slugs:
+  - gao-opinion-b-331564-ukraine-aid-ica-2020-01-16
+- n: 242
+  chapter: 6
+  slugs:
+  - executive-order-13841-family-reunification-2018-06-20
+- n: 243
+  chapter: 6
+  slugs:
+  - ko-v-united-states-bivens-line-family-separation
+- n: 244
+  chapter: 6
+  slugs:
+  - state-of-ny-v-commerce-furman-findings-2019
+- n: 245
+  chapter: 6
+  slugs:
+  - dept-of-commerce-v-new-york-2019-roberts
+- n: 246
+  chapter: 7
+  slugs:
+  - bates-v-post-office-no-6-horizon-issues-2019
+- n: 247
+  chapter: 7
+  slugs:
+  - clarke-advice-first-2013-07-15
+- n: 248
+  chapter: 7
+  slugs:
+  - hamilton-v-post-office-affront-to-conscience-2021
+- n: 249
+  chapter: 7
+  slugs:
+  - hamilton-v-post-office-2021-court-of-appeal
+  - post-office-horizon-it-inquiry-final-report-vol-1-2025
+- n: 250
+  chapter: 7
+  slugs:
+  - hamilton-v-post-office-affront-to-conscience-2021
+- n: 251
+  chapter: 8
+  slugs:
+  - proclamation-10887-j6-pardons-2025-01-20
+- n: 252
+  chapter: 8
+  slugs:
+  - j6-prosecution-dismissal-coverage-2025
+- n: 253
+  chapter: 8
+  slugs:
+  - doj-j6-prosecutor-osc-mspb-complaints-pending
+- n: 254
+  chapter: 8
+  slugs:
+  - capitol-police-labor-committee-statement-2025-01-21
+- n: 255
+  chapter: 8
+  slugs:
+  - executive-order-14158-doge-2025-01-20
+- n: 256
+  chapter: 8
+  slugs:
+  - crew-v-doge-service-ddc-complaint-2025-02-20
+- n: 257
+  chapter: 8
+  slugs:
+  - proclamation-10903-alien-enemies-act-2025-03-14
+  - alien-enemies-act-50-usc-21-24
+- n: 258
+  chapter: 8
+  slugs:
+  - cecot-march-15-2025-removal-flights-coverage
+- n: 259
+  chapter: 8
+  slugs:
+  - abrego-garcia-v-noem-d-md-complaint-2025
+- n: 260
+  chapter: 8
+  slugs:
+  - proclamation-10887-j6-pardons-2025-01-20
+  - admin-statements-j6-hostages-framing-2025
+- n: 261
+  chapter: 8
+  slugs:
+  - executive-order-14158-doge-2025-01-20
+- n: 262
+  chapter: 8
+  slugs:
+  - crew-v-doge-service-ddc-complaint-2025-02-20
+- n: 263
+  chapter: 8
+  slugs:
+  - proclamation-10903-alien-enemies-act-2025-03-14
+  - admin-statements-aea-worst-of-the-worst-activist-judges-2025
+- n: 264
+  chapter: 8
+  slugs:
+  - admin-statements-aea-worst-of-the-worst-activist-judges-2025
+  - abrego-garcia-v-noem-d-md-complaint-2025
+- n: 265
+  chapter: 8
+  slugs:
+  - abrego-garcia-2019-withholding-of-removal-order
+- n: 266
+  chapter: 8
+  slugs:
+  - j-g-g-v-trump-ddc-complaint-2025-03-15
+- n: 267
+  chapter: 8
+  slugs:
+  - proclamation-10903-alien-enemies-act-2025-03-14
+  - j-g-g-v-trump-ddc-complaint-2025-03-15
+  - abrego-garcia-v-noem-d-md-complaint-2025
+- n: 268
+  chapter: 8
+  slugs:
+  - bilateral-arrangement-cecot-partial-record-2025
+- n: 269
+  chapter: 8
+  slugs:
+  - abrego-garcia-v-noem-d-md-complaint-2025
+- n: 270
+  chapter: 8
+  slugs:
+  - trump-v-jgg-24a931-per-curiam-2025-04-07
+- n: 271
+  chapter: 8
+  slugs:
+  - olc-presidential-self-pardon-memo-1974-08-05
+- n: 272
+  chapter: 8
+  slugs:
+  - proclamation-6518-bush-iran-contra-pardons-1992-12-24
+- n: 273
+  chapter: 8
+  slugs:
+  - walsh-final-report-iran-contra-1993-08-04
+- n: 274
+  chapter: 8
+  slugs:
+  - tower-commission-report-1987-02
+- n: 275
+  chapter: 8
+  slugs:
+  - barron-olc-al-aulaqi-targeting-memo-2010-07-16
+- n: 276
+  chapter: 8
+  slugs:
+  - nyt-aclu-v-doj-2d-cir-al-aulaqi-memo-release-2014
+- n: 277
+  chapter: 8
+  slugs:
+  - al-aulaqi-killing-yemen-drone-strike-2011-09-30
+  - al-aulaqi-v-obama-ddc-pre-strike-dismissal-2010
+  - al-aulaqi-v-panetta-ddc-post-strike-dismissal-2014
+- n: 278
+  chapter: 8
+  slugs:
+  - proclamation-10887-j6-pardons-2025-01-20
+  - executive-order-14158-doge-2025-01-20
+  - proclamation-10903-alien-enemies-act-2025-03-14
+- n: 279
+  chapter: 8
+  slugs:
+  - crew-v-doge-service-ddc-complaint-2025-02-20
+- n: 280
+  chapter: 8
+  slugs:
+  - j-g-g-v-trump-ddc-complaint-2025-03-15
+- n: 281
+  chapter: 8
+  slugs:
+  - abrego-garcia-v-noem-d-md-complaint-2025
+- n: 282
+  chapter: 8
+  slugs:
+  - american-oversight-v-doge-musk-fra-signal-2025
+- n: 283
+  chapter: 8
+  slugs:
+  - cooper-crew-doge-preservation-order-2025-03
+- n: 284
+  chapter: 8
+  slugs:
+  - trump-v-jgg-24a931-per-curiam-2025-04-07
+- n: 285
+  chapter: 8
+  slugs:
+  - trump-v-jgg-24a931-sotomayor-dissent-2025-04-07
+- n: 286
+  chapter: 8
+  slugs:
+  - noem-v-abrego-garcia-24a949-per-curiam-2025-04-10
+- n: 287
+  chapter: 8
+  slugs:
+  - noem-v-abrego-garcia-24a949-sotomayor-statement-2025-04-10
+- n: 288
+  chapter: 8
+  slugs:
+  - boasberg-jgg-contempt-finding-2025-04-16
+- n: 289
+  chapter: 8
+  slugs:
+  - abrego-garcia-v-noem-4th-cir-stay-denial-2025-04-17
+- n: 290
+  chapter: 8
+  slugs:
+  - doj-j6-prosecutor-osc-mspb-complaints-pending
+- n: 291
+  chapter: 8
+  slugs:
+  - federal-convention-records-1787-pardon-debates
+- n: 292
+  chapter: 8
+  slugs:
+  - proclamation-4483-carter-draft-pardon-1977-01-21
+- n: 293
+  chapter: 8
+  slugs:
+  - johnson-christmas-amnesty-proclamation-1868-12-25
+- n: 294
+  chapter: 8
+  slugs:
+  - love-osler-pardon-scholarship
+- n: 295
+  chapter: 8
+  slugs:
+  - trump-v-jgg-24a931-per-curiam-2025-04-07
+- n: 296
+  chapter: 8
+  slugs:
+  - noem-v-abrego-garcia-24a949-per-curiam-2025-04-10
+- n: 297
+  chapter: 8
+  slugs:
+  - cooper-crew-doge-preservation-order-2025-03
+- n: 298
+  chapter: 8
+  slugs:
+  - xinis-abrego-garcia-facilitate-effectuate-order-2025
+- n: 299
+  chapter: 8
+  slugs:
+  - abrego-garcia-v-noem-4th-cir-stay-denial-2025-04-17
+- n: 300
+  chapter: 8
+  slugs:
+  - boasberg-jgg-contempt-finding-2025-04-16
+- n: 301
+  chapter: 8
+  slugs:
+  - wd-sd-tex-aea-due-process-rulings-2025
+- n: 302
+  chapter: 8
+  slugs:
+  - doj-j6-prosecutor-osc-mspb-complaints-pending
+- n: 303
+  chapter: 8
+  slugs:
+  - trump-v-jgg-24a931-per-curiam-2025-04-07
+  - noem-v-abrego-garcia-24a949-per-curiam-2025-04-10
+- n: 304
+  chapter: 8
+  slugs:
+  - cooper-crew-doge-preservation-order-2025-03
+- n: 305
+  chapter: 8
+  slugs:
+  - boasberg-jgg-contempt-finding-2025-04-16
+- n: 306
+  chapter: 8
+  slugs:
+  - abrego-garcia-procedural-status-may-2026
+- n: 307
+  chapter: 9
+  slugs:
+  - openai-gpt4o-sycophancy-postmortem-2025-04-29
+- n: 308
+  chapter: 9
+  slugs:
+  - altman-x-sycophancy-2025-04-27
+- n: 309
+  chapter: 9
+  slugs:
+  - al-dahle-x-llama4-test-sets-2025-04-07
+- n: 310
+  chapter: 9
+  slugs:
+  - wang-order-chatgpt-log-preservation-2025-05-13
+- n: 311
+  chapter: 9
+  slugs:
+  - altman-x-sycophancy-2025-04-27
+- n: 312
+  chapter: 9
+  slugs:
+  - al-dahle-x-llama4-test-sets-2025-04-07
+- n: 313
+  chapter: 9
+  slugs:
+  - lmarena-meta-llama-4-policy-statement-2025-04-07
+- n: 314
+  chapter: 9
+  slugs:
+  - bartz-settlement-preliminary-approval-2025-09-25
+- n: 315
+  chapter: 9
+  slugs:
+  - bartz-v-anthropic-fairness-hearing-2026-05-14
+- n: 316
+  chapter: 10
+  slugs:
+  - un-spv-4701-powell-iraq-presentation-2003
+- n: 317
+  chapter: 10
+  slugs:
+  - robb-silberman-wmd-commission-report-2005
+- n: 318
+  chapter: 10
+  slugs:
+  - ssci-phase-i-iraq-prewar-intelligence-2004
+- n: 319
+  chapter: 10
+  slugs:
+  - dod-ig-osp-report-07-intel-04-2007
+- n: 320
+  chapter: 10
+  slugs:
+  - wilkerson-frontline-cnn-public-statements-2006-2007
+- n: 321
+  chapter: 10
+  slugs:
+  - iraq-survey-group-duelfer-report-2004
+- n: 322
+  chapter: 10
+  slugs:
+  - bush-wwics-remarks-iraq-intelligence-2005-12-14
+- n: 323
+  chapter: 10
+  slugs:
+  - executive-order-13328-2004
+- n: 324
+  chapter: 10
+  slugs:
+  - nie-2002-16hc-iraq-wmd-declassified-2003
+- n: 325
+  chapter: 10
+  slugs:
+  - iraq-survey-group-duelfer-report-2004
+- n: 326
+  chapter: 10
+  slugs:
+  - iaea-elbaradei-niger-forgeries-unsc-2003-03-07
+- n: 327
+  chapter: 10
+  slugs:
+  - ssci-phase-ii-iraq-postwar-findings-2006-2007
+- n: 328
+  chapter: 10
+  slugs:
+  - woodward-plan-of-attack-2004
+  - tenet-at-the-center-of-the-storm-2007
+- n: 329
+  chapter: 10
+  slugs:
+  - al-janabi-curveball-guardian-interview-2011-02-15
+- n: 330
+  chapter: 10
+  slugs:
+  - robb-silberman-wmd-commission-report-2005
+- n: 331
+  chapter: 10
+  slugs:
+  - bumiller-nyt-whig-2002-09-07
+- n: 332
+  chapter: 10
+  slugs:
+  - ssci-phase-i-iraq-prewar-intelligence-2004
+- n: 333
+  chapter: 10
+  slugs:
+  - wilkerson-frontline-cnn-public-statements-2006-2007
+- n: 334
+  chapter: 10
+  slugs:
+  - unscr-1441-iraq-2002
+- n: 335
+  chapter: 10
+  slugs:
+  - pl-107-243-aumf-iraq-2002
+- n: 336
+  chapter: 10
+  slugs:
+  - white-house-tenet-medal-of-freedom-2004-12-14
+- n: 337
+  chapter: 10
+  slugs:
+  - ssci-phase-ii-iraq-postwar-findings-2006-2007
+- n: 338
+  chapter: 10
+  slugs:
+  - dod-ig-osp-report-07-intel-04-2007
+- n: 339
+  chapter: 10
+  slugs:
+  - drumheller-on-the-brink-curveball-2006
+  - tenet-at-the-center-of-the-storm-2007
+- n: 340
+  chapter: 10
+  slugs:
+  - chilcot-iraq-inquiry-report-2016
+- n: 341
+  chapter: 10
+  slugs:
+  - nie-2002-16hc-iraq-wmd-declassified-2003
+- n: 342
+  chapter: 10
+  slugs:
+  - blix-unmovic-unsc-briefings-jan-mar-2003
+- n: 343
+  chapter: 10
+  slugs:
+  - knight-ridder-iraq-prewar-coverage-2002-2003
+- n: 344
+  chapter: 10
+  slugs:
+  - iraq-civilian-casualty-counts-iraq-body-count-lancet-ifhs
+- n: 345
+  chapter: 10
+  slugs:
+  - iraq-civilian-casualty-counts-iraq-body-count-lancet-ifhs
+- n: 346
+  chapter: 10
+  slugs:
+  - iraq-civilian-casualty-counts-iraq-body-count-lancet-ifhs
+- n: 347
+  chapter: 10
+  slugs:
+  - us-dod-iraq-military-casualty-figures
+- n: 348
+  chapter: 10
+  slugs:
+  - uk-mod-iraq-military-casualty-figures
+- n: 349
+  chapter: 10
+  slugs:
+  - unhcr-iraq-displacement-2007
+- n: 350
+  chapter: 10
+  slugs:
+  - abu-ghraib-courts-martial-and-karpinski-demotion-2004-2005
+- n: 351
+  chapter: 10
+  slugs:
+  - sasc-detainee-treatment-report-2008-11-20
+- n: 352
+  chapter: 10
+  slugs:
+  - taguba-schlesinger-fay-jones-reports-2004
+  - sasc-detainee-treatment-report-2008-11-20
+- n: 353
+  chapter: 10
+  slugs:
+  - mh17-jit-findings-2016-2023
+- n: 354
+  chapter: 10
+  slugs:
+  - hague-district-court-schiphol-mh17-judgment-2022-11-17
+- n: 355
+  chapter: 10
+  slugs:
+  - putin-press-remarks-mh17-2014-07-21
+- n: 356
+  chapter: 10
+  slugs:
+  - mh17-jit-findings-2016-2023
+- n: 357
+  chapter: 10
+  slugs:
+  - blackwater-nisour-square-doj-indictment-and-state-dept-record
+- n: 358
+  chapter: 10
+  slugs:
+  - blackwater-us-v-slatten-slough-2014-convictions
+- n: 359
+  chapter: 10
+  slugs:
+  - trump-blackwater-pardons-2020-12-22
+- n: 360
+  chapter: 10
+  slugs:
+  - cpa-order-17-revised-2004-06-27
+- n: 361
+  chapter: 10
+  slugs:
+  - prince-public-statements-doj-pacer-search-2026
+- n: 362
+  chapter: 10
+  slugs:
+  - russian-decrees-330-585-ukrainian-children-2022
+- n: 363
+  chapter: 10
+  slugs:
+  - putin-lvova-belova-public-defence-of-transfers-2022-2023
+- n: 364
+  chapter: 10
+  slugs:
+  - icc-arrest-warrants-putin-lvova-belova-2023-03-17
+- n: 365
+  chapter: 10
+  slugs:
+  - bumiller-nyt-whig-2002-09-07
+- n: 366
+  chapter: 10
+  slugs:
+  - olc-levin-withdrawal-memo-2004-12-30
+- n: 367
+  chapter: 10
+  slugs:
+  - knight-ridder-iraq-prewar-coverage-2002-2003
+- n: 368
+  chapter: 10
+  slugs:
+  - wilkerson-frontline-cnn-public-statements-2006-2007
+- n: 369
+  chapter: 10
+  slugs:
+  - drumheller-on-the-brink-curveball-2006
+- n: 370
+  chapter: 10
+  slugs:
+  - downing-street-memo-2002-07-23-published-2005-05-01
+- n: 371
+  chapter: 10
+  slugs:
+  - al-janabi-curveball-guardian-interview-2011-02-15
+- n: 372
+  chapter: 10
+  slugs:
+  - fbi-piro-saddam-interviews-2004-declassified-2009
+- n: 373
+  chapter: 10
+  slugs:
+  - chilcot-iraq-inquiry-report-2016
+- n: 374
+  chapter: 10
+  slugs:
+  - chilcot-iraq-inquiry-report-2016
+- n: 375
+  chapter: 10
+  slugs:
+  - iraq-survey-group-duelfer-report-2004
+- n: 376
+  chapter: 10
+  slugs:
+  - ssci-phase-i-iraq-prewar-intelligence-2004
+- n: 377
+  chapter: 10
+  slugs:
+  - robb-silberman-wmd-commission-report-2005
+- n: 378
+  chapter: 10
+  slugs:
+  - ssci-phase-ii-iraq-postwar-findings-2006-2007
+- n: 379
+  chapter: 10
+  slugs:
+  - dod-ig-osp-report-07-intel-04-2007
+- n: 380
+  chapter: 10
+  slugs:
+  - al-janabi-curveball-guardian-interview-2011-02-15
+- n: 381
+  chapter: 10
+  slugs:
+  - chilcot-iraq-inquiry-report-2016
+- n: 382
+  chapter: 10
+  slugs:
+  - chilcot-iraq-inquiry-report-2016
+- n: 383
+  chapter: 10
+  slugs:
+  - executive-order-13328-2004
+- n: 384
+  chapter: 11
+  slugs:
+  - boeing-737-max-dpa-2021
+- n: 385
+  chapter: 11
+  slugs:
+  - bybee-yoo-olc-torture-memos-2002-opr-2009
+- n: 386
+  chapter: 11
+  slugs:
+  - olc-levin-withdrawal-memo-2004-12-30
+- n: 387
+  chapter: 11
+  slugs:
+  - executive-order-13328-2004
+- n: 388
+  chapter: 11
+  slugs:
+  - doj-justice-manual-9-28-business-organizations
+- n: 389
+  chapter: 11
+  slugs:
+  - united-states-v-park-1975
+- n: 390
+  chapter: 11
+  slugs:
+  - sarbanes-oxley-302-906-2002
+- n: 391
+  chapter: 11
+  slugs:
+  - sarbanes-oxley-302-906-2002
+- n: 392
+  chapter: 11
+  slugs:
+  - uk-smcr-fsma-fsbra-fca-handbook
+- n: 393
+  chapter: 11
+  slugs:
+  - uk-inquiries-act-2005
+- n: 394
+  chapter: 11
+  slugs:
+  - uk-inquiries-act-2005
+- n: 395
+  chapter: 11
+  slugs:
+  - united-states-v-park-1975
+- n: 396
+  chapter: 11
+  slugs:
+  - united-states-v-park-1975
+- n: 397
+  chapter: 11
+  slugs:
+  - united-states-v-decoster-8th-cir-2016
+- n: 398
+  chapter: 11
+  slugs:
+  - sarbanes-oxley-302-906-2002
+- n: 399
+  chapter: 11
+  slugs:
+  - sarbanes-oxley-302-906-2002
+- n: 400
+  chapter: 11
+  slugs:
+  - chilcot-iraq-inquiry-report-2016
+- n: 401
+  chapter: 11
+  slugs:
+  - united-states-v-park-1975
+- n: 402
+  chapter: 11
+  slugs:
+  - united-states-v-decoster-8th-cir-2016
+- n: 403
+  chapter: 11
+  slugs:
+  - sarbanes-oxley-302-906-2002
+- n: 404
+  chapter: 11
+  slugs:
+  - sarbanes-oxley-302-906-2002
+- n: 405
+  chapter: 11
+  slugs:
+  - uk-smcr-fsma-fsbra-fca-handbook
+- n: 406
+  chapter: 11
+  slugs:
+  - uk-inquiries-act-2005
+- n: 407
+  chapter: 11
+  slugs:
+  - chilcot-iraq-inquiry-report-2016
+- n: 408
+  chapter: 11
+  slugs:
+  - executive-order-13328-2004
+- n: 409
+  chapter: 12
+  slugs:
+  - nyt-co-v-united-states-1971-per-curiam
+- n: 410
+  chapter: 12
+  slugs:
+  - nyt-v-united-states-1971-black-concurrence
+- n: 411
+  chapter: 12
+  slugs:
+  - bybee-yoo-olc-torture-memos-2002-opr-2009
+- n: 412
+  chapter: 12
+  slugs:
+  - fed-r-evid-901-authentication
+- n: 413
+  chapter: 12
+  slugs:
+  - fed-r-civ-p-37e-esi-preservation-2015
+- n: 414
+  chapter: 12
+  slugs:
+  - federal-records-act-44-usc-chapter-31
+- n: 415
+  chapter: 12
+  slugs:
+  - crew-v-doge-cooper-preservation-2025-03
+- n: 416
+  chapter: 12
+  slugs:
+  - eiga-1978-title-vi-independent-counsel
+- n: 417
+  chapter: 12
+  slugs:
+  - tower-commission-report-1987
+- n: 418
+  chapter: 12
+  slugs:
+  - whca-profs-tape-preservation-1986-11-28
+  - tower-commission-report-1987
+- n: 419
+  chapter: 12
+  slugs:
+  - tower-commission-report-1987
+- n: 420
+  chapter: 12
+  slugs:
+  - walsh-iran-contra-final-report-bush-pardons-1992
+- n: 421
+  chapter: 12
+  slugs:
+  - walsh-iran-contra-final-report-bush-pardons-1992
+- n: 422
+  chapter: 12
+  slugs:
+  - judicial-watch-v-nara-fra-enforcement
+- n: 423
+  chapter: 12
+  slugs:
+  - inquiries-act-2005-section-21

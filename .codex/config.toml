@@ -1,0 +1,22 @@
+# cc-suite: generated-by-init  (this comment is consumed by unbridge)
+# Codex CLI configuration for this project.
+# See: https://developers.openai.com/codex/config-reference
+
+# Codex reads AGENTS.md as the project document. CLAUDE.md is a one-line
+# @AGENTS.md import in this project, so no fallback is needed.
+# project_doc_fallback_filenames = ["CLAUDE.md"]
+
+# This project must be marked trusted for hooks and config to take effect:
+#   ~/.codex/config.toml →
+#     [projects."<absolute path to this project>"]
+#     trust_level = "trusted"
+# See /cc-suite:doctor for status.
+
+# MCP servers mirrored from .mcp.json are added below by /cc-suite:bridge-mcp.
+
+# >>> cc-suite-claude-mcp >>>
+[mcp_servers.claude-code]
+command = "npx"
+args    = ["-y", "claude-octopus@1.0.0"]
+env     = {}
+# <<< cc-suite-claude-mcp <<<

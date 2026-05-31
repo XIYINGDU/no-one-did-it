@@ -1,0 +1,439 @@
+# Sidecar: chapter 2 [CITE:] anchors -> research card ids
+# Built 2026-05-26 by stephen-fact-check-director after Wave D's
+# CITE-anchor backfill on the ch-02 prose. Wave D inserted the
+# anchors and constructed the 56 cards now listing 02-the-four-goats
+# in chapters_citing; this sidecar resolves each in-prose anchor to
+# its backing card(s).
+#
+# Chapter 2 ("The Four Goats") installs the four-category taxonomy
+# across nine cases: 4 anchors (Therac-25, 737 MAX, Abu Ghraib,
+# Ukrainian-children transfers), 1 within-case counter-reading
+# (Russell on Sacco), and 4 paired interceptions (Dreyfus, Knapp,
+# Horizon, Stolen Generations). The ICRC report, Karpinski order,
+# and OPR/Margolis memorandum appear as the same-paragraph
+# institutional context for Abu Ghraib.
+#
+# Validator note: the [CITE:] regex captures up to the first ']';
+# the substring-match logic in cross_reference_integrity accepts
+# either direction between the captured anchor_text and the
+# strings below.
+
+# Refreshed by scripts/refresh_sidecar_anchors.py — anchor_text now
+# carries the card slug (matching the rule-13 [CITE: <slug>] form in
+# chapter prose). The original human-readable citation moved to the
+# `description` field on each anchor. PyYAML round-trip preserves the
+# leading comment block above but may have dropped any mid-file inline
+# comments; recover from git history if needed.
+
+chapter_id: 02-the-four-goats
+anchors:
+- anchor_text: leveson-turner-therac-25-ieee-1993
+  card_ids:
+  - leveson-turner-therac-25-ieee-1993
+  description: Leveson & Turner, "An Investigation of the Therac-25 Accidents," IEEE Computer 26(7) (Jul. 1993).
+  line_in_chapter: 24
+  notes: Accusation scene; Cox's 'baseball bat' quote from Leveson & Turner IEEE Computer (1993).
+- anchor_text: leveson-turner-therac-25-ieee-1993
+  card_ids:
+  - leveson-turner-therac-25-ieee-1993
+  description: Leveson & Turner, IEEE Computer (Jul. 1993), Table 1.
+  line_in_chapter: 28
+  notes: Accusation scene; Therac-25 overdose count (six patients, three countries, 1985-1987) via Table 1.
+- anchor_text: leveson-turner-therac-25-ieee-1993
+  card_ids:
+  - leveson-turner-therac-25-ieee-1993
+  description: 'Leveson, *Safeware: System Safety and Computers*, Appendix A (Addison-Wesley, 1995).'
+  line_in_chapter: 28
+  notes: Accusation scene; Verdon Kidd / Marietta proximate-cause contestation per Safeware Appendix A. Card bundles IEEE 1993 paper and Safeware 1995 reconstruction.
+- anchor_text: fda-therac-25-recall-and-cap-1986-1987
+  card_ids:
+  - fda-therac-25-recall-and-cap-1986-1987
+  description: FDA Therac-25 Medical Device Report and recall correspondence, Apr.-May 1986; FDA Class I recall designation and Corrective Action Plan, Feb. 1987.
+  line_in_chapter: 38
+  notes: Official story; FDA MDR + Class I recall + CAP across the three-stage shift.
+- anchor_text: knkt-lion-air-610-final-report-2019
+  card_ids:
+  - knkt-lion-air-610-final-report-2019
+  description: KNKT, Aircraft Accident Investigation Report PK-LQP, Lion Air Flight JT-610, Final Report (Oct. 2019).
+  line_in_chapter: 50
+  notes: Hidden architecture; KNKT Lion Air JT-610 final report.
+- anchor_text: ecaa-ethiopian-302-final-report-2022
+  card_ids:
+  - ecaa-ethiopian-302-final-report-2022
+  description: Ethiopian Civil Aviation Authority, Aircraft Accident Investigation Bureau, Final Report on ET-AVJ Boeing 737-8(MAX) (Dec. 2022).
+  line_in_chapter: 50
+  notes: Hidden architecture; ECAA ET-302 final report.
+- anchor_text: faa-emergency-order-grounding-737-max-2019-03-13
+  card_ids:
+  - faa-emergency-order-grounding-737-max-2019-03-13
+  description: FAA, Emergency Order of Prohibition, 13 March 2019.
+  line_in_chapter: 50
+  notes: Hidden architecture; FAA Emergency Order grounding 737 MAX 12 days after publicly affirming airworthiness.
+- anchor_text: knkt-lion-air-610-final-report-2019; ecaa-ethiopian-302-final-report-2022
+  card_ids:
+  - knkt-lion-air-610-final-report-2019
+  - ecaa-ethiopian-302-final-report-2022
+  description: KNKT Final Report (Oct. 2019); ECAA Final Report (Dec. 2022).
+  line_in_chapter: 52
+  notes: Hidden architecture; both final reports cited together for the common MCAS sequence. Two-card anchor; same cards as line-50.
+- anchor_text: seattle-times-gates-baker-737-max-2018-2019
+  card_ids:
+  - seattle-times-gates-baker-737-max-2018-2019
+  description: Gates & Baker, *Seattle Times*, Nov. 2018 reporting on Boeing investor call — Stephen verify exact date and headline.
+  line_in_chapter: 54
+  notes: Hidden architecture (stage one — pilots); Muilenburg's November 2018 investor-call framing as reported by the Seattle Times. Open question flagged inline by Wayne for Stephen verification.
+- anchor_text: seattle-times-gates-baker-737-max-2018-2019
+  card_ids:
+  - seattle-times-gates-baker-737-max-2018-2019
+  description: 'Gates, "Flawed analysis, failed oversight: How Boeing, FAA certified the suspect 737 MAX flight control system," *Seattle Times*, 17 March 2019.'
+  line_in_chapter: 58
+  notes: Hidden architecture (stage three — certification); Gates' Pulitzer-winning 17 Mar 2019 ODA piece. Same card as line-54.
+- anchor_text: house-ti-final-report-737-max-2020-09
+  card_ids:
+  - house-ti-final-report-737-max-2020-09
+  description: 'U.S. House Committee on Transportation and Infrastructure, "Final Committee Report: The Design, Development & Certification of the Boeing 737 MAX" (Sept. 2020).'
+  line_in_chapter: 58
+  notes: Hidden architecture (stage three — certification); House T&I 245-page final report documenting five 'broken processes' across Boeing and the FAA.
+- anchor_text: commonwealth-v-sacco-vanzetti-trial-record-1921
+  card_ids:
+  - commonwealth-v-sacco-vanzetti-trial-record-1921
+  description: '*Commonwealth v. Sacco and Vanzetti*, Norfolk County Superior Court, Dedham, Mass., verdict 14 July 1921; trial transcript, Norfolk County Clerk''s office.'
+  line_in_chapter: 68
+  notes: Older echo; Sacco-Vanzetti trial verdict and transcript.
+- anchor_text: lowell-committee-report-1927-07-27
+  card_ids:
+  - lowell-committee-report-1927-07-27
+  description: Advisory Committee to Gov. Alvan T. Fuller (Lowell, Stratton, Grant), Report to the Governor, 27 July 1927 (Massachusetts Governor's office).
+  line_in_chapter: 68
+  notes: Older echo; Lowell Committee report endorsing the verdict before the August 1927 executions.
+- anchor_text: avrich-1991-sacco-vanzetti-anarchist-background
+  card_ids:
+  - avrich-1991-sacco-vanzetti-anarchist-background
+  description: 'Avrich, *Sacco and Vanzetti: The Anarchist Background* (Princeton Univ. Press, 1991), chs. 7–8.'
+  line_in_chapter: 70
+  notes: Older echo; First Red Scare political-context chapters in Avrich.
+- anchor_text: frankfurter-1927-atlantic-sacco-vanzetti
+  card_ids:
+  - frankfurter-1927-atlantic-sacco-vanzetti
+  description: Frankfurter, "The Case of Sacco and Vanzetti," *Atlantic Monthly* (March 1927); Benchley affidavit reproduced in Sacco-Vanzetti Case record, Boston Public Library Sacco-Vanzetti Collection.
+  line_in_chapter: 70
+  notes: Older echo; Frankfurter procedural-bias record + the Benchley 'those anarchist bastards' affidavit reproduced in the essay. Card bundles both.
+- anchor_text: avrich-1991-sacco-vanzetti-anarchist-background; young-kaiser-1985-postmortem-sacco-vanzetti
+  card_ids:
+  - avrich-1991-sacco-vanzetti-anarchist-background
+  - young-kaiser-1985-postmortem-sacco-vanzetti
+  description: 'Avrich (1991), chs. 9–10; Young & Kaiser, *Postmortem: New Evidence in the Case of Sacco and Vanzetti* (Univ. of Mass. Press, 1985).'
+  line_in_chapter: 70
+  notes: Older echo; Morelli-gang documentary chain in Avrich + Young & Kaiser ballistics. Two-card anchor.
+- anchor_text: dukakis-proclamation-sacco-vanzetti-1977-07-19
+  card_ids:
+  - dukakis-proclamation-sacco-vanzetti-1977-07-19
+  description: Gov. Michael S. Dukakis, Proclamation of 19 July 1977, Commonwealth of Massachusetts (Governor's office record).
+  line_in_chapter: 72
+  notes: Older echo; Dukakis 19 July 1977 proclamation as record-controller retraction.
+- anchor_text: cbs-60-minutes-ii-hersh-new-yorker-abu-ghraib-2004
+  card_ids:
+  - cbs-60-minutes-ii-hersh-new-yorker-abu-ghraib-2004
+  description: Rebecca Leung, "Abuse of Iraqi POWs by GIs Probed," *60 Minutes II*, CBS News, 28 April 2004; Seymour M. Hersh, "Torture at Abu Ghraib," *The New Yorker*, 10 May 2004 (posted online 30 April 2004).
+  line_in_chapter: 80
+  notes: Record hardens; 60 Minutes II + New Yorker publication of Tier 1A photographs. Card bundles both.
+- anchor_text: rumsfeld-sasc-testimony-abu-ghraib-2004-05-07
+  card_ids:
+  - rumsfeld-sasc-testimony-abu-ghraib-2004-05-07
+  description: Secretary of Defense Donald H. Rumsfeld, testimony before the Senate Armed Services Committee, 7 May 2004 (Senate hearing transcript, 108th Cong., 2d Sess.).
+  line_in_chapter: 82
+  notes: Record hardens; Rumsfeld's 'few bad apples' framing in 7 May 2004 SASC testimony.
+- anchor_text: abu-ghraib-courts-martial-and-karpinski-demotion-2004-2005
+  card_ids:
+  - abu-ghraib-courts-martial-and-karpinski-demotion-2004-2005
+  description: U.S. Army courts-martial records, 372nd Military Police Company (Graner sentencing 15 Jan. 2005; Frederick plea 21 Oct. 2004; England sentencing 26 Sept. 2005).
+  line_in_chapter: 82
+  notes: Record hardens; per-defendant court-martial dispositions for the 372nd MP Company night shift.
+- anchor_text: bybee-yoo-olc-torture-memos-2002-opr-2009
+  card_ids:
+  - bybee-yoo-olc-torture-memos-2002-opr-2009
+  description: Memorandum from Jay S. Bybee, Asst. Atty. Gen., OLC, to Alberto R. Gonzales, Counsel to the President, "Standards of Conduct for Interrogation under 18 U.S.C. §§ 2340–2340A" (1 Aug. 2002).
+  line_in_chapter: 84
+  notes: Record hardens; Bybee 1 Aug 2002 OLC torture memo as upper-stack documentary anchor. Card bundles Bybee memo + OPR Report.
+- anchor_text: sasc-detainee-treatment-report-2008-11-20; taguba-schlesinger-fay-jones-reports-2004
+  card_ids:
+  - sasc-detainee-treatment-report-2008-11-20
+  - taguba-schlesinger-fay-jones-reports-2004
+  description: U.S. Senate Armed Services Committee, "Inquiry into the Treatment of Detainees in U.S. Custody" (20 Nov. 2008; declassified Apr. 2009), Conclusions 12–19; MG Antonio M. Taguba, "Article 15-6 Investigation of the 800th Military Police Brigade" (March 2004); MG George R. Fay & LTG Anthony R. Jones, "AR 15-6 Investigation of the Abu Ghraib Detention Facility and 205th Military Intelligence Brigade" (Aug. 2004).
+  line_in_chapter: 84
+  notes: Record hardens; SASC Inquiry Conclusions 12–19 + Taguba and Fay-Jones AR 15-6 reports as the chain-of-approvals documentary record. Two-card anchor (Taguba/Schlesinger/Fay-Jones card bundles Taguba and Fay-Jones).
+- anchor_text: taguba-schlesinger-fay-jones-reports-2004
+  card_ids:
+  - taguba-schlesinger-fay-jones-reports-2004
+  description: Taguba Report, March 2004.
+  line_in_chapter: 86
+  notes: Record hardens; Taguba Report 'systemic and illegal abuse' finding. Same card as line-84.
+- anchor_text: taguba-schlesinger-fay-jones-reports-2004
+  card_ids:
+  - taguba-schlesinger-fay-jones-reports-2004
+  description: Independent Panel to Review DoD Detention Operations (James R. Schlesinger, Chair), Final Report, 24 Aug. 2004.
+  line_in_chapter: 86
+  notes: Record hardens; Schlesinger Panel 'fundamental failures throughout all levels of command' finding. Card bundles Taguba + Schlesinger + Fay-Jones.
+- anchor_text: sasc-detainee-treatment-report-2008-11-20
+  card_ids:
+  - sasc-detainee-treatment-report-2008-11-20
+  description: SASC Inquiry (20 Nov. 2008), Conclusion 19.
+  line_in_chapter: 86
+  notes: Record hardens; SASC Inquiry Conclusion 19 ('conveyed the message') quote. Same card as line-84.
+- anchor_text: icrc-iraq-detainees-report-2004-02
+  card_ids:
+  - icrc-iraq-detainees-report-2004-02
+  description: ICRC, "Report on the Treatment by the Coalition Forces of Prisoners of War and Other Protected Persons by the Geneva Conventions in Iraq during Arrest, Internment and Interrogation" (Feb. 2004); reported in *Wall Street Journal*, May 2004.
+  line_in_chapter: 86
+  notes: Record hardens; ICRC Feb 2004 confidential report on coalition detention conduct, leaked to WSJ in May 2004.
+- anchor_text: bybee-yoo-olc-torture-memos-2002-opr-2009
+  card_ids:
+  - bybee-yoo-olc-torture-memos-2002-opr-2009
+  description: 'DOJ Office of Professional Responsibility, "Report: Investigation into the Office of Legal Counsel''s Memoranda Concerning Issues Relating to the CIA''s Use of ''Enhanced Interrogation Techniques'' on Suspected Terrorists" (29 July 2009; publicly released 19 Feb. 2010); Memorandum from David Margolis to Attorney General (Jan. 2010).'
+  line_in_chapter: 86
+  notes: Record hardens; OPR Report's professional-misconduct finding + Margolis memorandum's downgrade to poor judgment. Card bundles Bybee memo + OPR Report + Margolis downgrade. Same card as line-84.
+- anchor_text: karpinski-reduction-in-grade-order-2005-05
+  card_ids:
+  - karpinski-reduction-in-grade-order-2005-05
+  description: BG Janis Karpinski reduction-in-grade order, May 2005 (U.S. Army personnel record).
+  line_in_chapter: 88
+  notes: Record hardens; Karpinski demotion as the highest-rank adverse personnel action; partial climb that stopped well below the doctrine layer.
+- anchor_text: russell-1962-1986-sacco-vanzetti-counter-reading
+  card_ids:
+  - russell-1962-1986-sacco-vanzetti-counter-reading
+  description: 'Francis Russell, *Tragedy in Dedham: The Story of the Sacco-Vanzetti Case* (McGraw-Hill, 1962); Russell, *Sacco and Vanzetti: The Case Resolved* (Harper & Row, 1986).'
+  line_in_chapter: 98
+  notes: Goat resists; Russell's within-case ballistics counter-reading (partial-scapegoat reading for Sacco). Card bundles 1962 and 1986 editions.
+- anchor_text: frankfurter-1927-atlantic-sacco-vanzetti; avrich-1991-sacco-vanzetti-anarchist-background; young-kaiser-1985-postmortem-sacco-vanzetti; lowell-committee-report-1927-07-27; bullard-1926-boston-herald-we-submit; dukakis-proclamation-sacco-vanzetti-1977-07-19
+  card_ids:
+  - frankfurter-1927-atlantic-sacco-vanzetti
+  - avrich-1991-sacco-vanzetti-anarchist-background
+  - young-kaiser-1985-postmortem-sacco-vanzetti
+  - lowell-committee-report-1927-07-27
+  - bullard-1926-boston-herald-we-submit
+  - dukakis-proclamation-sacco-vanzetti-1977-07-19
+  description: Frankfurter, *Atlantic Monthly* (March 1927); Avrich (1991); Young & Kaiser (1985); Lowell Committee Report (27 July 1927); F. Lauriston Bullard, "We Submit," *Boston Herald* editorial, 26 Oct. 1926 (Pulitzer Prize 1927); Dukakis Proclamation (19 July 1977).
+  line_in_chapter: 100
+  notes: Goat resists; six-card consolidated cite enumerating the procedural-record sources establishing insufficient evidence and prejudicial process on the South Braintree charge. Six-card anchor.
+- anchor_text: leveson-turner-therac-25-ieee-1993
+  card_ids:
+  - leveson-turner-therac-25-ieee-1993
+  description: 'Leveson & Turner, "An Investigation of the Therac-25 Accidents," IEEE Computer 26(7) (Jul. 1993); Leveson, *Safeware: System Safety and Computers*, Appendix A (Addison-Wesley, 1995).'
+  line_in_chapter: 110
+  notes: Alibi weakens; Leveson & Turner race-condition reconstruction at the machine layer. Same card as lines 24/28; card bundles IEEE 1993 paper + Safeware 1995.
+- anchor_text: fda-therac-25-recall-and-cap-1986-1987
+  card_ids:
+  - fda-therac-25-recall-and-cap-1986-1987
+  description: FDA Corrective Action Plan for Therac-25, February 1987.
+  line_in_chapter: 110
+  notes: Alibi weakens; FDA Feb 1987 CAP forcing AECL hardware-and-software redesign. Same card as line-38.
+- anchor_text: boeing-737-max-dpa-2021
+  card_ids:
+  - boeing-737-max-dpa-2021
+  description: '*United States v. The Boeing Company*, Deferred Prosecution Agreement and Statement of Facts, No. 4:21-cr-00005-O (N.D. Tex., filed 7 Jan. 2021).'
+  line_in_chapter: 112
+  notes: Alibi weakens; Boeing DPA + Statement of Facts paragraphs 1-63 (Forkner/Gustavsson named; $2.5B financial terms).
+- anchor_text: us-v-forkner-2022-acquittal
+  card_ids:
+  - us-v-forkner-2022-acquittal
+  description: '*United States v. Forkner*, No. 4:21-cr-00268-O (N.D. Tex.), jury verdict of acquittal, March 2022.'
+  line_in_chapter: 114
+  notes: Alibi weakens; the one named individual to face trial was acquitted.
+- anchor_text: doj-boeing-dpa-breach-letter-2024-05-14
+  card_ids:
+  - doj-boeing-dpa-breach-letter-2024-05-14
+  description: DOJ letter to Hon. Reed O'Connor in *United States v. The Boeing Company*, No. 4:21-cr-00005-O (N.D. Tex.), filed 14 May 2024, regarding breach of Deferred Prosecution Agreement.
+  line_in_chapter: 116
+  notes: Alibi weakens; DOJ 14 May 2024 breach-of-DPA notification letter.
+- anchor_text: oconnor-order-rejecting-boeing-plea-2024-12
+  card_ids:
+  - oconnor-order-rejecting-boeing-plea-2024-12
+  description: Order denying motion for entry of plea agreement, *United States v. The Boeing Company*, No. 4:21-cr-00005-O (N.D. Tex., Dec. 2024) — Stephen verify exact filing date.
+  line_in_chapter: 116
+  notes: Alibi weakens; Judge O'Connor December 2024 rejection of Boeing plea agreement on monitor-selection grounds. Open question (filing date) flagged inline by Wayne.
+- anchor_text: doj-boeing-npa-resolution-2025-05-23
+  card_ids:
+  - doj-boeing-npa-resolution-2025-05-23
+  description: DOJ press release, "Boeing Reaches Resolution to Address Its Violations of Deferred Prosecution Agreement," 23 May 2025; agreement and Rule 48(a) motion in *United States v. The Boeing Company*, N.D. Tex.
+  line_in_chapter: 116
+  notes: Alibi weakens; DOJ 23 May 2025 non-prosecution-agreement resolution + Rule 48(a) motion.
+- anchor_text: ryan-v-united-states-5th-cir-2026-03-31
+  card_ids:
+  - ryan-v-united-states-5th-cir-2026-03-31
+  description: '*Ryan v. United States*, No. ___ (5th Cir., 31 March 2026) — Stephen verify docket number.'
+  line_in_chapter: 116
+  notes: Alibi weakens; Fifth Circuit 31 Mar 2026 ruling that 2024 breach mooted DPA challenge and that CVRA did not entitle victims to unlimited appeal of the Rule 48(a) dismissal. Open question (docket number) flagged inline by Wayne.
+- anchor_text: russian-decrees-330-585-ukrainian-children-2022
+  card_ids:
+  - russian-decrees-330-585-ukrainian-children-2022
+  description: Russian Federation Presidential Decree No. 330 of 30 May 2022; Decree No. 585 of 11 July 2022 (official publication, publication.pravo.gov.ru).
+  line_in_chapter: 124
+  notes: Anti-laundering rule; Russian presidential decrees as the legal scaffolding for the citizenship-simplification practice.
+- anchor_text: putin-lvova-belova-public-defence-of-transfers-2022-2023
+  card_ids:
+  - putin-lvova-belova-public-defence-of-transfers-2022-2023
+  description: Public statements by M. A. Lvova-Belova on RIA Novosti and TASS, 2022 (Russian state media broadcasts).
+  line_in_chapter: 124
+  notes: Anti-laundering rule; Lvova-Belova's 2022 RIA/TASS statement about taking Mariupol boy 'Filipp' into her family — book reports she said this, does not adopt framing. Highest-defamation-discipline sentence in the chapter (Wayne Finding B).
+- anchor_text: api-1977-art-78-child-evacuation
+  card_ids:
+  - api-1977-art-78-child-evacuation
+  description: Additional Protocol I to the Geneva Conventions of 12 August 1949 (1977), Art. 78.
+  line_in_chapter: 128
+  notes: Anti-laundering rule; API Article 78 child-evacuation prohibition (occupied-territory exclusion forecloses the Russian carve-out).
+- anchor_text: gciv-1949-art-49-deportation-prohibition
+  card_ids:
+  - gciv-1949-art-49-deportation-prohibition
+  description: Geneva Convention (IV) Relative to the Protection of Civilian Persons in Time of War (1949), Art. 49.
+  line_in_chapter: 128
+  notes: Anti-laundering rule; GCIV Article 49 deportation/transfer-from-occupied-territory prohibition.
+- anchor_text: genocide-convention-1948-art-ii-e
+  card_ids:
+  - genocide-convention-1948-art-ii-e
+  description: Convention on the Prevention and Punishment of the Crime of Genocide (9 Dec. 1948), Art. II(e).
+  line_in_chapter: 128
+  notes: Anti-laundering rule; Genocide Convention Article II(e) 'forcibly transferring children' enumerated act.
+- anchor_text: un-crc-1989-arts-7-8
+  card_ids:
+  - un-crc-1989-arts-7-8
+  description: United Nations Convention on the Rights of the Child (20 Nov. 1989), Arts. 7–8.
+  line_in_chapter: 128
+  notes: Anti-laundering rule; UNCRC Articles 7 (right to know parents) and 8 (identity protection).
+- anchor_text: icc-arrest-warrants-putin-lvova-belova-2023-03-17
+  card_ids:
+  - icc-arrest-warrants-putin-lvova-belova-2023-03-17
+  description: ICC Pre-Trial Chamber II, Decision on the Prosecutor's Application for Warrants of Arrest under Article 58 of the Rome Statute, ICC-01/22, 17 March 2023.
+  line_in_chapter: 130
+  notes: Anti-laundering rule; ICC Pre-Trial Chamber II 17 Mar 2023 arrest warrants against Putin and Lvova-Belova under Articles 8(2)(a)(vii) and 8(2)(b)(viii).
+- anchor_text: ukraine-children-of-war-registry-2026-05-25; yale-hrl-conflict-observatory-ukrainian-children-2023-02-14
+  card_ids:
+  - ukraine-children-of-war-registry-2026-05-25
+  - yale-hrl-conflict-observatory-ukrainian-children-2023-02-14
+  description: Ukrainian Government "Children of War" (Diti Viyny) registry, accessed 25 May 2026; Yale School of Public Health Humanitarian Research Lab and the U.S. State Department Conflict Observatory, "Russia's Systematic Program for the Re-Education and Adoption of Ukraine's Children," 14 February 2023, and subsequent reports.
+  line_in_chapter: 130
+  notes: Anti-laundering rule; Ukrainian government registry (20,000+ identified) + Yale HRL/Conflict Observatory report series documenting receiving-facility network. Two-card anchor.
+- anchor_text: ohchr-hrmmu-ukraine-periodic-reports-2022-2026
+  card_ids:
+  - ohchr-hrmmu-ukraine-periodic-reports-2022-2026
+  description: OHCHR, Human Rights Monitoring Mission in Ukraine, periodic reports on the situation of human rights in Ukraine (2022–2026).
+  line_in_chapter: 130
+  notes: Anti-laundering rule; OHCHR HRMMU periodic reports documenting forced-transfer cases.
+- anchor_text: yale-hrl-conflict-observatory-ukrainian-children-2023-02-14; ohchr-hrmmu-ukraine-periodic-reports-2022-2026
+  card_ids:
+  - yale-hrl-conflict-observatory-ukrainian-children-2023-02-14
+  - ohchr-hrmmu-ukraine-periodic-reports-2022-2026
+  description: Yale HRL/Conflict Observatory report series (2023–2026); OHCHR HRMMU periodic reports (2022–2026) — Stephen verify exact passages for the "operationally directed" characterization.
+  line_in_chapter: 130
+  notes: Anti-laundering rule; the "operationally directed at the highest levels of the Russian state" characterization is attributed to the report authors, not adopted by the book (Wayne Finding A flag for Nancy). Two-card anchor; open question (exact passages) flagged inline by Wayne.
+- anchor_text: api-1977-art-87-commander-duties; rome-statute-arts-6-8-28-33; us-v-calley-1973-cmaa
+  card_ids:
+  - api-1977-art-87-commander-duties
+  - rome-statute-arts-6-8-28-33
+  - us-v-calley-1973-cmaa
+  description: Additional Protocol I (1977), Art. 87 (commander duties); Rome Statute of the International Criminal Court (1998), Arts. 28, 33; *United States v. Calley*, 22 U.S.C.M.A. 534 (1973).
+  line_in_chapter: 134
+  notes: Anti-laundering rule (doctrine-boundary synthesis); API Article 87 commander duties + Rome Statute Articles 28/33 + Calley line. Three-card anchor.
+- anchor_text: rome-statute-arts-6-8-28-33; icc-arrest-warrants-putin-lvova-belova-2023-03-17
+  card_ids:
+  - rome-statute-arts-6-8-28-33
+  - icc-arrest-warrants-putin-lvova-belova-2023-03-17
+  description: Rome Statute of the International Criminal Court (1998), Arts. 6(e), 8(2)(a)(vii), 8(2)(b)(viii); ICC Pre-Trial Chamber II arrest-warrant decision (17 March 2023).
+  line_in_chapter: 134
+  notes: Anti-laundering rule (doctrine-boundary synthesis); Article 8 charge vs Article 6(e) genocide choice at warrant stage (dolus specialis threshold). Two-card anchor.
+- anchor_text: bringing-them-home-1997
+  card_ids:
+  - bringing-them-home-1997
+  description: 'Human Rights and Equal Opportunity Commission, *Bringing Them Home: Report of the National Inquiry into the Separation of Aboriginal and Torres Strait Islander Children from Their Families* (26 May 1997), Part 4 (genocide finding).'
+  line_in_chapter: 134
+  notes: Anti-laundering rule (doctrine-boundary synthesis); BTH Part 4 Article II(e) finding rejected by Howard Government, not adopted by Rudd apology.
+- anchor_text: dreyfus-conseil-de-guerre-conviction-1894
+  card_ids:
+  - dreyfus-conseil-de-guerre-conviction-1894
+  description: Conseil de guerre de Paris, judgment of 22 December 1894 (Dreyfus court-martial conviction); Service Historique de la Défense (SHD), Vincennes — Dreyfus dossier.
+  line_in_chapter: 142
+  notes: The escape (pure scapegoat intercepted); Dreyfus 22 Dec 1894 court-martial conviction + SHD Vincennes dossier.
+- anchor_text: zola-jaccuse-laurore-1898-01-13
+  card_ids:
+  - zola-jaccuse-laurore-1898-01-13
+  description: Émile Zola, "J'Accuse...! Lettre au Président de la République," *L'Aurore*, 13 January 1898 (front page).
+  line_in_chapter: 142
+  notes: The escape (pure scapegoat intercepted); Zola J'Accuse front page naming the General Staff officers responsible.
+- anchor_text: cour-de-cassation-dreyfus-exoneration-1906-07-12
+  card_ids:
+  - cour-de-cassation-dreyfus-exoneration-1906-07-12
+  description: Cour de Cassation, Chambres réunies, arrêt du 12 juillet 1906 (Dreyfus exoneration); Reinach, *Histoire de l'Affaire Dreyfus* (1901–1911).
+  line_in_chapter: 142
+  notes: The escape (pure scapegoat intercepted); Cour de Cassation 12 Jul 1906 quashing of Rennes conviction without remand. Reinach reference treated as the contemporaneous historical authority supporting the same record; not given a separate card.
+- anchor_text: burnham-nyt-1970-04-25-graft-paid-to-police
+  card_ids:
+  - burnham-nyt-1970-04-25-graft-paid-to-police
+  description: David Burnham, "Graft Paid to Police Here Said to Run Into Millions," *New York Times*, 25 April 1970, p. 1.
+  line_in_chapter: 144
+  notes: The escape (partial scapegoat intercepted); Burnham NYT 25 Apr 1970 front-page story forcing the Lindsay political response.
+- anchor_text: lindsay-executive-order-11-knapp-commission-1970-05-21
+  card_ids:
+  - lindsay-executive-order-11-knapp-commission-1970-05-21
+  description: Mayor's Executive Order No. 11 of 21 May 1970 (City of New York); Commission to Investigate Allegations of Police Corruption (Whitman Knapp, Chair), *Report*, 27 December 1972.
+  line_in_chapter: 144
+  notes: The escape (partial scapegoat intercepted); Lindsay EO 11 establishing the Knapp Commission + 27 Dec 1972 Final Report. Card bundles both.
+- anchor_text: mollen-commission-report-1994-07-07
+  card_ids:
+  - mollen-commission-report-1994-07-07
+  description: Commission to Investigate Allegations of Police Corruption and the Anti-Corruption Procedures of the Police Department (Milton Mollen, Chair), *Commission Report*, 7 July 1994.
+  line_in_chapter: 144
+  notes: The escape (partial scapegoat intercepted); Mollen Commission 1994 Report documenting recurrence within the same department.
+- anchor_text: cuomo-eo-144-special-prosecutor-termination-1990
+  card_ids:
+  - cuomo-eo-144-special-prosecutor-termination-1990
+  description: Governor Mario M. Cuomo, Executive Order No. 144 (1990) terminating the Office of the Special State Prosecutor for the New York City Criminal Justice System.
+  line_in_chapter: 144
+  notes: The escape (partial scapegoat intercepted); Cuomo EO 144 closing the Special Prosecutor's office (architecture defunded).
+- anchor_text: thomson-2009-computer-weekly-horizon
+  card_ids:
+  - thomson-2009-computer-weekly-horizon
+  description: Rebecca Thomson, "Bankruptcy, prosecution and disrupted lives — investigating the Post Office Horizon IT system," *Computer Weekly*, 11 May 2009.
+  line_in_chapter: 146
+  notes: The escape (system/object alibi intercepted); Thomson 11 May 2009 Computer Weekly pattern-assembly.
+- anchor_text: bates-v-post-office-no-6-horizon-issues-2019
+  card_ids:
+  - bates-v-post-office-no-6-horizon-issues-2019
+  description: '*Bates and Others v Post Office Ltd (No 6: Horizon Issues)* [2019] EWHC 3408 (QB), judgment of Fraser J, 16 December 2019.'
+  line_in_chapter: 146
+  notes: The escape (system/object alibi intercepted); Fraser J 16 Dec 2019 Horizon Issues judgment — load-bearing engineering-forensics interception.
+- anchor_text: hamilton-v-post-office-2021-court-of-appeal; hamilton-v-post-office-affront-to-conscience-2021
+  card_ids:
+  - hamilton-v-post-office-2021-court-of-appeal
+  - hamilton-v-post-office-affront-to-conscience-2021
+  description: '*Hamilton & Others v Post Office Limited* [2021] EWCA Crim 577, judgment of 23 April 2021.'
+  line_in_chapter: 146
+  notes: 'The escape (system/object alibi intercepted); Court of Appeal 23 Apr 2021 quashing 39 convictions (''affront to the conscience of the Court''). Two cards: full judgment + the affront-quote anchor.'
+- anchor_text: post-office-horizon-system-offences-act-2024
+  card_ids:
+  - post-office-horizon-system-offences-act-2024
+  description: Post Office (Horizon System) Offences Act 2024 (c. 14), Royal Assent 24 May 2024.
+  line_in_chapter: 146
+  notes: The escape (system/object alibi intercepted); Royal-Assent statute mass-quashing remaining Horizon convictions.
+- anchor_text: bringing-them-home-1997
+  card_ids:
+  - bringing-them-home-1997
+  description: 'Human Rights and Equal Opportunity Commission, *Bringing Them Home: Report of the National Inquiry into the Separation of Aboriginal and Torres Strait Islander Children from Their Families* (26 May 1997).'
+  line_in_chapter: 148
+  notes: The escape (cost-bearing goat intercepted); BTH 26 May 1997 report ('between one in three and one in ten' removed 1910-1970). Same card as line-134.
+- anchor_text: read-1981-stolen-generations-monograph
+  card_ids:
+  - read-1981-stolen-generations-monograph
+  description: 'Peter Read, *The Stolen Generations: The Removal of Aboriginal Children in New South Wales 1883 to 1969*, Occasional Paper No. 1, NSW Ministry of Aboriginal Affairs (1981).'
+  line_in_chapter: 148
+  notes: The escape (cost-bearing goat intercepted); Read 1981 monograph introducing 'Stolen Generations' into the formal record.
+- anchor_text: rudd-national-apology-2008-02-13
+  card_ids:
+  - rudd-national-apology-2008-02-13
+  description: Prime Minister Kevin Rudd, "Apology to Australia's Indigenous Peoples," speech to the House of Representatives, *Hansard*, 13 February 2008.
+  line_in_chapter: 148
+  notes: The escape (cost-bearing goat intercepted); Rudd National Apology, 13 Feb 2008.
+- anchor_text: cw-territories-stolen-generations-redress-2022-03-01
+  card_ids:
+  - cw-territories-stolen-generations-redress-2022-03-01
+  description: Commonwealth of Australia, Territories Stolen Generations Redress Scheme, opened 1 March 2022 (National Indigenous Australians Agency).
+  line_in_chapter: 148
+  notes: The escape (cost-bearing goat intercepted); Commonwealth Territories Stolen Generations Redress Scheme opening, 1 Mar 2022.

@@ -1,0 +1,179 @@
+# Sidecar: chapter 5 [CITE:] anchors -> research card ids
+# Built 2026-05-26 by stephen during the ch-05 anchor backfill pass.
+# Chapter 5 ("The Guilty Goat") installs the partial-scapegoat mechanism via the
+# Bhopal anchor (Anderson personification layer) and the Boeing 737 MAX counter-case
+# (Lion Air JT 610 / Ethiopian ET 302 crew-blame framing pierced by KNKT/ECAA).
+#
+# Anchor inventory: 21 [CITE:] anchor occurrences in the chapter prose body
+# (lines 28, 36, 38, 62, 64, 72, 74 x2, 84, 86 x2, 102 x2, 106 x2, 108 x3, 126,
+# 128, 130).
+#
+# Coverage status (mixed):
+# - Boeing-side anchors (11 of 21) resolve to existing cards built during the
+#   ch-02 / ch-11 Boeing-DPA Wave-D pass:
+#     - knkt-lion-air-610-final-report-2019              (A; reused; line 72, 108)
+#     - ecaa-ethiopian-302-final-report-2022             (A; reused; line 86, 128)
+#     - boeing-737-max-dpa-2021                          (A; reused; line 102)
+#     - us-v-forkner-2022-acquittal                      (A; reused; line 102)
+#     - house-ti-final-report-737-max-2020-09            (A; reused; line 108)
+#     - seattle-times-gates-baker-737-max-2018-2019      (B; reused; line 74 Muilenburg quote)
+#     - doj-boeing-dpa-breach-letter-2024-05-14          (A; reused; line 130)
+#     - oconnor-order-rejecting-boeing-plea-2024-12      (B; reused; line 130)
+#     - doj-boeing-npa-resolution-2025-05-23             (A; reused; line 130)
+#
+# - Bhopal-side anchors (10 of 21) have NO cards yet in book/evidence/source-ledger/cards/.
+#   The bhopal-union-carbide.md case file is still at status:brief with three
+#   [EVIDENCE NEEDED] items flagged for Delon (CBI investigation report, court-filed
+#   UCC May 1982 audit transmittal, death-toll source-by-source). Per the chapter
+#   draft handoff (Wayne -> Stephen), these are tracked but not yet promoted to
+#   research-card form. The anchor entries below carry card_ids: [] so that the
+#   chapter [CITE:] anchors are covered by the sidecar (no WARN from the validator)
+#   while not falsely claiming card backing. Bhopal cards remain on the deferred
+#   work list for Wave E.
+#
+# - Two anchors lack any directly-mapped card today: (a) the November 6, 2018
+#   Boeing OMB TBC-19 anchor at line 74; (b) the Aircraft Certification, Safety,
+#   and Accountability Act of 2020 statute anchor at line 108. Both are tracked
+#   as deferred (carry card_ids: []) and queued for Wave E with the Bhopal set.
+#
+# - One anchor at line 108 bundles the KNKT Final Report citation; resolved to
+#   the existing knkt-lion-air-610-final-report-2019 card.
+
+# Refreshed by scripts/refresh_sidecar_anchors.py — anchor_text now
+# carries the card slug (matching the rule-13 [CITE: <slug>] form in
+# chapter prose). The original human-readable citation moved to the
+# `description` field on each anchor. PyYAML round-trip preserves the
+# leading comment block above but may have dropped any mid-file inline
+# comments; recover from git history if needed.
+
+chapter_id: 05-the-guilty-goat
+anchors:
+- anchor_text: ucc-may-1982-operational-safety-survey-bhopal
+  card_ids:
+  - ucc-may-1982-operational-safety-survey-bhopal
+  description: UCC May 1982 Operational Safety Survey of UCIL Bhopal, transmittal-chain confirmation pending PACER pull on Sahu SDNY docket.
+  line_in_chapter: 28
+  notes: Beat-1 accusation scene. Bhopal UCC May 1982 audit / transmittal-chain. NO CARD YET — case file bhopal-union-carbide.md still at status:brief; [EVIDENCE NEEDED] item flagged for Delon (court-filed UCC May 1982 Operational Safety Survey via Sahu SDNY 99-cv-11329 docket on PACER). Deferred to Wave E. Chapter prose already marks this as 'transmittal-chain confirmation pending' inline.
+- anchor_text: kalelkar-report-1985; arthur-d-little-bhopal-1988
+  card_ids:
+  - kalelkar-report-1985
+  - arthur-d-little-bhopal-1988
+  description: Kalelkar report, March 1985 (UCC-commissioned internal investigation); Arthur D. Little, Inc., *Report on the Bhopal Methyl Isocyanate Incident*, 1988 (UCC-commissioned).
+  line_in_chapter: 36
+  notes: 'Beat-2 official story; the sabotage-by-disgruntled-employee narrative. Compound CITE: Kalelkar report (UCC-commissioned March 1985) and Arthur D. Little 1988 report. NO CARDS YET — the Bhopal source-ledger build is deferred to Wave E pending Delon''s CBI investigation-report retrieval (the structural rebuttal to the sabotage theory) and the Arthur D. Little PDF surface. Chapter prose anchors these as UCC-commissioned hypotheses not adopted by Indian or US adjudication.'
+- anchor_text: in-re-union-carbide-2d-cir-1987
+  card_ids:
+  - in-re-union-carbide-2d-cir-1987
+  description: '*In re Union Carbide Corp. Gas Plant Disaster at Bhopal*, 809 F.2d 195 (2d Cir. 1987).'
+  line_in_chapter: 38
+  notes: Beat-2 official story; the forum non conveniens decision locking US tort dismissal. NO CARD YET — Bhopal card-set deferred. The case file lists this as a tier-1 source pending Stephen's paragraph-level verification of the 2d Circuit's forum non conveniens reasoning.
+- anchor_text: bhopal-cost-bearer-evidence-cluster
+  card_ids:
+  - bhopal-cost-bearer-evidence-cluster
+  description: Indian Council of Medical Research, *Health Effects of the Toxic Gas Leak from the Union Carbide Methyl Isocyanate Plant in Bhopal*, technical reports 1985–2010; *Union Carbide Corporation v. Union of India*, AIR 1992 SC 248 (Indian Supreme Court, Oct 3, 1991), Government of India 1991 affidavit on death toll; Greenpeace, *The Bhopal Legacy* (1999) site-contamination sampling; Centre for Science and Environment, *Contamination of Soil and Water inside and outside the Union Carbide India Limited, Bhopal* (2009).
+  line_in_chapter: 62
+  notes: 'Beat-3 hidden architecture; cost-bearer leg of the eight-question diagnostic. Four-source compound CITE: (a) ICMR technical reports 1985-2010; (b) AIR 1992 SC 248 + Government of India 1991 death-toll affidavit; (c) Greenpeace 1999 site contamination sampling; (d) CSE 2009 contamination study. NO CARDS YET — all four are queued for Wave E. The AIR 1992 SC 248 cite reappears as a standalone anchor at line 106 and is also queued for Wave E.'
+- anchor_text: state-of-mp-v-keshub-mahindra-cjm-bhopal-2010
+  card_ids:
+  - state-of-mp-v-keshub-mahindra-cjm-bhopal-2010
+  description: '*State of Madhya Pradesh v. Keshub Mahindra et al.*, Bhopal Chief Judicial Magistrate''s Court judgment, June 7, 2010.'
+  line_in_chapter: 64
+  notes: Beat-3 hidden architecture; the 7 June 2010 CJM Bhopal conviction of seven UCIL officials (including Keshub Mahindra as former UCIL chairman). NO CARD YET — deferred to Wave E. Chapter draft carries a [Stephen] flag at this anchor pending Mahindra appeal status and living/deceased status of the other six officials before individual naming beyond the public record.
+- anchor_text: knkt-lion-air-610-final-report-2019
+  card_ids:
+  - knkt-lion-air-610-final-report-2019
+  description: 'KNKT (Komite Nasional Keselamatan Transportasi, Indonesia), *Aircraft Accident Investigation Report: PT Lion Mentari Airlines Boeing 737-8 (MAX); PK-LQP; Tanjung Karawang, West Java, 29 October 2018*, KNKT.18.10.35.04, October 25, 2019.'
+  line_in_chapter: 72
+  notes: Beat-4 older echo; KNKT Final Report on Lion Air JT 610 establishing 21 MCAS nose-down trim commands. Existing card (built 2026-05-26 for ch-02). Reused at line 108.
+- anchor_text: boeing-omb-tbc-19-2018-11-06
+  card_ids:
+  - boeing-omb-tbc-19-2018-11-06
+  description: Boeing Operations Manual Bulletin TBC-19, November 6, 2018 (Multi Operator Message, AOA sensor / MCAS).
+  line_in_chapter: 74
+  notes: Beat-4 older echo; Boeing's first post-Lion-Air bulletin framing the AOA sensor as the issue. NO CARD YET — Boeing's OMB TBC-19 surface is deferred to Wave E. Tier-1 primary document (Boeing-published service bulletin); will lift to A on direct PDF retrieval.
+- anchor_text: seattle-times-gates-baker-737-max-2018-2019
+  card_ids:
+  - seattle-times-gates-baker-737-max-2018-2019
+  description: Dennis Muilenburg, Boeing investor conference-call remarks, November 2018, as reported by Dominic Gates et al., *Seattle Times*.
+  line_in_chapter: 74
+  notes: Beat-4 older echo; Muilenburg's 'all the information that's needed to safely fly our aircraft' quote, as reported by Gates and Baker. Existing card carries the verbatim quote at evidence grade B pending Stephen verification of exact November 2018 publication date and headline.
+- anchor_text: ucc-v-union-of-india-1989-settlement-order
+  card_ids:
+  - ucc-v-union-of-india-1989-settlement-order
+  description: '*Union Carbide Corporation v. Union of India* (1989), 2 SCC 540 (settlement order, February 14–15, 1989).'
+  line_in_chapter: 84
+  notes: Beat-5 record hardens; the 14-15 February 1989 Indian Supreme Court settlement order locking the $470 million civil-claims settlement. NO CARD YET — deferred to Wave E. The 1989 settlement order and the AIR 1992 SC 248 review judgment (line 106) are two of the load-bearing record-controller documents in the bhopal-union-carbide.md case file.
+- anchor_text: knkt-lion-air-610-final-report-2019
+  card_ids:
+  - knkt-lion-air-610-final-report-2019
+  description: KNKT, *Preliminary KNKT.18.10.35.04 Aircraft Accident Investigation Report*, PT Lion Mentari Airlines PK-LQP, November 28, 2018.
+  line_in_chapter: 86
+  notes: Beat-5 record hardens; KNKT's 28 November 2018 Preliminary Report releasing the FDR readout and the 21 MCAS trim commands. Existing KNKT-Lion-Air card covers both the Preliminary and the Final report stages of the same investigation series; the preliminary-report date (28 Nov 2018) is on Stephen's verification list per the chapter draft handoff.
+- anchor_text: ecaa-ethiopian-302-final-report-2022
+  card_ids:
+  - ecaa-ethiopian-302-final-report-2022
+  description: Ethiopian Civil Aviation Authority Aircraft Accident Investigation Bureau, *Preliminary Report on Accident to the Boeing 737-8 MAX Registered ET-AVJ Operated by Ethiopian Airlines, 10 March 2019*, released April 4, 2019.
+  line_in_chapter: 86
+  notes: Beat-5 record hardens; ECAA's 4 April 2019 Preliminary Report releasing the FDR/CVR traces showing the ET 302 crew had executed the cut-out procedure. Existing ECAA card covers both the Preliminary (Apr 2019) and the Final (Dec 2022) ECAA report stages; the preliminary-report date is on Stephen's verification list per the chapter draft handoff. Final report reused at line 128.
+- anchor_text: boeing-737-max-dpa-2021
+  card_ids:
+  - boeing-737-max-dpa-2021
+  description: '*United States v. The Boeing Company*, Deferred Prosecution Agreement and Statement of Facts, No. 4:21-cr-00005-O (N.D. Tex., filed January 7, 2021).'
+  line_in_chapter: 102
+  notes: Beat-6 goat resists; the 2021 DPA Statement of Facts named in the Boeing counter-objection. Existing card built for ch-02 / ch-11.
+- anchor_text: us-v-forkner-2022-acquittal
+  card_ids:
+  - us-v-forkner-2022-acquittal
+  description: '*United States v. Mark A. Forkner*, jury verdict of acquittal, No. 4:21-cr-00268-O (N.D. Tex., March 23, 2022).'
+  line_in_chapter: 102
+  notes: Beat-6 goat resists; the Forkner acquittal showing the chain stopped at the certification-process layer. Existing card. Chapter draft handoff flags the 23 March 2022 acquittal date for Stephen verification.
+- anchor_text: ucc-v-union-of-india-air-1992-sc-248
+  card_ids:
+  - ucc-v-union-of-india-air-1992-sc-248
+  description: '*Union Carbide Corporation v. Union of India*, AIR 1992 SC 248 (Supreme Court of India, October 3, 1991).'
+  line_in_chapter: 106
+  notes: Beat-7 alibi weakens; the 3 October 1991 Indian Supreme Court judgment upholding the 1989 settlement amount and reinstating criminal proceedings against UCC and Anderson. NO CARD YET — deferred to Wave E. Stephen's verification list (per chapter draft handoff) flags this for paragraph-level reasoning on criminal-proceeding reinstatement.
+- anchor_text: sahu-v-union-carbide-2d-cir-2008-sdny-2014
+  card_ids:
+  - sahu-v-union-carbide-2d-cir-2008-sdny-2014
+  description: '*Sahu v. Union Carbide Corporation*, 548 F.3d 59 (2d Cir. 2008); *Sahu v. Union Carbide Corp.*, S.D.N.Y. 99-cv-11329 (final SDNY dismissal 2014, statute-of-limitations grounds).'
+  line_in_chapter: 106
+  notes: Beat-7 alibi weakens; the 1999-2014 Sahu SDNY litigation that introduced internal UCC engineering documents into the US court record. Compound CITE covering the 2008 2d Circuit decision and the 2014 SDNY final dismissal. NO CARDS YET — deferred to Wave E (and dependent on Delon's PACER pull, which is also the missing transmittal-chain document tracked at line 28).
+- anchor_text: knkt-lion-air-610-final-report-2019
+  card_ids:
+  - knkt-lion-air-610-final-report-2019
+  description: KNKT, *Final Aircraft Accident Investigation Report KNKT.18.10.35.04*, PT Lion Mentari Airlines PK-LQP, October 25, 2019.
+  line_in_chapter: 108
+  notes: Beat-7 alibi weakens; KNKT Final Report identifying nine contributing factors with MCAS design and Boeing's documentation / training assumptions named explicitly. Same card as line 72 and line 86.
+- anchor_text: house-ti-final-report-737-max-2020-09
+  card_ids:
+  - house-ti-final-report-737-max-2020-09
+  description: 'U.S. House Committee on Transportation and Infrastructure (Majority Staff), *The Boeing 737 MAX Aircraft: Costs, Consequences, and Lessons from its Design, Development, and Certification — Final Committee Report*, September 16, 2020, 245 pp. (Chairman DeFazio; Subcommittee Chair Larsen).'
+  line_in_chapter: 108
+  notes: Beat-7 alibi weakens; the September 2020 House T&I Majority Staff Final Committee Report naming five broken processes (production pressures; faulty design/performance assumptions; culture of concealment; conflicts of interest within ODA; grossly insufficient FAA oversight). Existing card.
+- anchor_text: acsaa-pub-l-116-260-2020-12-27
+  card_ids:
+  - acsaa-pub-l-116-260-2020-12-27
+  description: Aircraft Certification, Safety, and Accountability Act of 2020, Pub. L. 116-260, Division V, Title I (December 27, 2020).
+  line_in_chapter: 108
+  notes: Beat-7 alibi weakens; the ACSAA reforming the ODA framework. NO CARD YET — tier-1 statute as enacted; deferred to Wave E. Chapter draft handoff flags Pub. L. 116-260 enactment date (27 December 2020) for Stephen verification.
+- anchor_text: charan-lal-sahu-air-1990-sc-1480-bhopal-act-1985
+  card_ids:
+  - charan-lal-sahu-air-1990-sc-1480-bhopal-act-1985
+  description: '*Charan Lal Sahu v. Union of India*, AIR 1990 SC 1480 (Supreme Court of India); Bhopal Gas Leak Disaster (Processing of Claims) Act, 1985 (India Code).'
+  line_in_chapter: 126
+  notes: 'Beat-9 the escape; Bhopal interception apparatus. Compound CITE: (a) the 1990 Indian Supreme Court constitutional sustainment of the Bhopal Act; (b) the Bhopal Gas Leak Disaster (Processing of Claims) Act, 1985 as enacted. NO CARDS YET — both queued for Wave E.'
+- anchor_text: ecaa-ethiopian-302-final-report-2022
+  card_ids:
+  - ecaa-ethiopian-302-final-report-2022
+  description: ECAA Aircraft Accident Investigation Bureau, *Final Report on Accident to the Boeing 737-8 MAX Registered ET-AVJ Operated by Ethiopian Airlines, 10 March 2019*, released December 23, 2022; NTSB technical comments filed under ICAO Annex 13.
+  line_in_chapter: 128
+  notes: Beat-9 the escape; ECAA Final Report sustaining the MCAS attribution against NTSB Annex 13 technical comments filed as state-of-design dissent. Existing ECAA card covers the Final Report. The NTSB Annex 13 technical-comments component is treated as a sub-claim inside the ECAA Final Report (Appendix) under the existing card; a standalone NTSB-comments card is queued for Wave E if Stephen requires sub-claim separation.
+- anchor_text: doj-boeing-dpa-breach-letter-2024-05-14; oconnor-order-rejecting-boeing-plea-2024-12; doj-boeing-npa-resolution-2025-05-23
+  card_ids:
+  - doj-boeing-dpa-breach-letter-2024-05-14
+  - oconnor-order-rejecting-boeing-plea-2024-12
+  - doj-boeing-npa-resolution-2025-05-23
+  description: DOJ breach determination, *United States v. The Boeing Company*, No. 4:21-cr-00005-O (N.D. Tex., May 14, 2024); Boeing plea agreement filed July 2024 and rejected by Judge Reed O'Connor, December 2024 (monitor-selection grounds); DOJ non-prosecution agreement announced May 23, 2025 (Boeing 8-K Exhibit 10.1, SEC filing of May 29, 2025).
+  line_in_chapter: 130
+  notes: 'Beat-9 the escape; the DPA -> breach -> rejected-plea -> NPA sequence at the certification-process layer where the chain stopped. Three-card compound CITE: (a) DOJ 14 May 2024 breach determination; (b) Judge O''Connor December 2024 order rejecting the July 2024 plea on monitor-selection grounds; (c) 23 May 2025 DOJ NPA resolution. All three are existing cards.'

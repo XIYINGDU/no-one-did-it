@@ -1,0 +1,72 @@
+# Responsibility Laundering — book spine (v1, revisable)
+#
+# Source: dev-docs/05_SPINE_DISCUSSION/spine-proposal-v1.md
+# Status: v1 — ratified for drafting. Revisions become v2/v3 alongside spine-proposal-v1.md.
+#
+# Reader-state ladder:
+#   S0  The visible blamed party is the responsibility-holder.
+#   S1  Sometimes blame lands wrong, but it is a story-by-story problem.
+#   S2  Wrong-blame is a recurring institutional method with named mechanisms.
+#   S3  The diagnostic and the escape mechanisms are portable to my own life and work.
+
+acts:
+  - id: part-01
+    title: "The Mechanism"
+    function: "Install the diagnostic before any pattern chapter runs."
+    reader_state_in: "S0_VISIBLE_GOAT"
+    reader_state_out: "S1_DIAGNOSTIC_AWAKE"
+    act_reversal:
+      old: "The blamed party is the responsibility-holder."
+      new: "Blame and responsibility are separable; visible blame is only the first data point."
+    chapters:
+      - ch-001-the-altar-moves
+      - ch-002-the-four-goats
+      - ch-003-who-could-have-stopped-it
+
+  - id: part-02
+    title: "The Patterns"
+    function: "Show the recurring laundering mechanisms across centuries — pattern, not period."
+    reader_state_in: "S1_DIAGNOSTIC_AWAKE"
+    reader_state_out: "S2_PATTERN_INSTALLED"
+    act_reversal:
+      old: "Each story has its own villain."
+      new: "Stories repeat the same nine mechanisms; the villain is the mechanism, not the story."
+    chapters:
+      - ch-004-the-proxy-and-the-sponsor
+      - ch-005-the-guilty-goat
+      - ch-006-the-pretext
+      - ch-007-the-record-is-the-battlefield
+
+  - id: part-03
+    title: "The Stress Tests"
+    function: "Hold the patterns against contested modern terrain where the reader's prior commitments will fight the analysis."
+    reader_state_in: "S2_PATTERN_INSTALLED"
+    reader_state_out: "S2.5_PATTERN_STRESSED"
+    act_reversal:
+      old: "Modern complexity makes responsibility impossible to assign."
+      new: "Modern complexity is the design that makes responsibility hard to assign; the diagnostic still works."
+    parallel_chapters: false   # sequential: War is the Part III capstone, read last
+    chapters:
+      - ch-008-when-power-calls-itself-the-goat
+      - ch-009-the-model-did-it
+      - ch-010-war-is-the-perfect-laundry
+
+  - id: part-04
+    title: "The Anti-Laundering Rules"
+    function: "Turn the diagnostic into design principles the reader can apply at work, in news consumption, in contracts, in citizenship."
+    reader_state_in: "S2.5_PATTERN_STRESSED"
+    reader_state_out: "S3_OPERATIONAL"
+    act_reversal:
+      old: "Responsibility laundering is something powerful institutions do; I am a spectator."
+      new: "Responsibility laundering has portable countermeasures; I am an institutional actor in my own life."
+    chapters:
+      - ch-011-make-responsibility-follow-control
+      - ch-012-keep-the-record
+      - ch-013-a-readers-field-guide
+
+# Reading DAG (informal — see spine-proposal-v1.md for the mermaid graph):
+#   1 -> 2 -> 3 (forced order; taxonomy must be installed before any pattern)
+#   3 -> {4, 5, 6, 7}             (Part II chapters are parallel siblings)
+#   {4, 5, 6, 7} -> 8 -> 9 -> 10   (stress tests assume patterns are known)
+#   8 -> 9 -> 10                   (sequential; War is the Part III capstone, read last)
+#   8 -> 9 -> 10 -> 11 -> 12 -> 13 (corrective rules at the end, in order)

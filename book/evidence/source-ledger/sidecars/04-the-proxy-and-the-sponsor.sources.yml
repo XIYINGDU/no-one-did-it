@@ -1,0 +1,348 @@
+# Sidecar: chapter 4 [CITE:] anchors -> research card ids
+# Built 2026-05-26 by stephen during the ch-04 anchor backfill pass.
+# Chapter 4 ("The Proxy and the Sponsor") covers three proxy-deniability cases
+# (Crimea little-green-men state-direct; MH17 state-via-shell; Blackwater
+# Nisour Square private-contractor). 52 [CITE:] anchor occurrences in the
+# prose body resolve to 38 unique cards (7 reused from ch-08; 31 new for ch-04).
+#
+# Validator note: the [CITE:] regex captures up to the first ']'; the
+# substring-match logic in cross_reference_integrity accepts either direction
+# between the captured anchor_text and the strings below.
+
+# Refreshed by scripts/refresh_sidecar_anchors.py — anchor_text now
+# carries the card slug (matching the rule-13 [CITE: <slug>] form in
+# chapter prose). The original human-readable citation moved to the
+# `description` field on each anchor. PyYAML round-trip preserves the
+# leading comment block above but may have dropped any mid-file inline
+# comments; recover from git history if needed.
+
+chapter_id: 04-the-proxy-and-the-sponsor
+anchors:
+- anchor_text: osce-pc-decision-1117-smm-ukraine-2014-03-21
+  card_ids:
+  - osce-pc-decision-1117-smm-ukraine-2014-03-21
+  description: OSCE PC.DEC/1117, 21 Mar 2014
+  line_in_chapter: 18
+  notes: Accusation scene; OSCE SMM mandate establishing decision.
+- anchor_text: treaty-accession-crimea-russia-2014-03-18
+  card_ids:
+  - treaty-accession-crimea-russia-2014-03-18
+  description: Treaty of accession of Crimea to the Russian Federation, 18 Mar 2014
+  line_in_chapter: 18
+  notes: Accusation scene; 18 Mar 2014 treaty procedural-shell instrument.
+- anchor_text: putin-press-conference-novo-ogaryovo-2014-03-04
+  card_ids:
+  - putin-press-conference-novo-ogaryovo-2014-03-04
+  description: Putin press conference, Novo-Ogaryovo, 4 Mar 2014, kremlin.ru transcript
+  line_in_chapter: 30
+  notes: Beat-2 official story; Putin's 4 Mar 2014 shop-uniform denial.
+- anchor_text: russian-state-media-polite-people-framing-2014
+  card_ids:
+  - russian-state-media-polite-people-framing-2014
+  description: Russian state media (Rossiya-1, TASS, RIA Novosti) "polite people" framing, Feb–Mar 2014
+  line_in_chapter: 30
+  notes: Beat-2 official story; vezhlivye lyudi framing carried by Russian state media.
+- anchor_text: russian-mod-press-conference-mh17-2014-07-21
+  card_ids:
+  - russian-mod-press-conference-mh17-2014-07-21
+  description: Russian Ministry of Defence press conference, 21 Jul 2014
+  line_in_chapter: 32
+  notes: Beat-2 official story; sequential alternative-cause framings (Su-25; Ukrainian Buk; 156th Regiment).
+- anchor_text: putin-press-remarks-mh17-2014-07-21
+  card_ids:
+  - putin-press-remarks-mh17-2014-07-21
+  description: Putin remarks, 21 Jul 2014
+  line_in_chapter: 32
+  notes: Beat-2 official story; Putin's own 21 Jul 2014 denial of Russian state involvement.
+- anchor_text: almaz-antey-press-briefings-mh17-2015
+  card_ids:
+  - almaz-antey-press-briefings-mh17-2015
+  description: Almaz-Antey press briefings, 2 Jun 2015 and 13 Oct 2015
+  line_in_chapter: 32
+  notes: Beat-2 official story; Almaz-Antey manufacturer technical case. Same card reused at line-48.
+- anchor_text: blackwater-nisour-square-doj-indictment-and-state-dept-record
+  card_ids:
+  - blackwater-nisour-square-doj-indictment-and-state-dept-record
+  description: DOJ indictment + State Department contemporaneous incident reports, 2007–2008
+  line_in_chapter: 34
+  notes: Beat-2 official story; State Department initial Raven-23 framing (reused ch-08 card).
+- anchor_text: iraqi-moi-nisour-square-findings-2007
+  card_ids:
+  - iraqi-moi-nisour-square-findings-2007
+  description: Iraqi Ministry of Interior investigative findings, Sept 2007
+  line_in_chapter: 34
+  notes: Beat-2 official story; Iraqi MoI contradicted the Blackwater self-defense framing within days. Same card reused at line-78.
+- anchor_text: icao-annex-13-aircraft-accident-investigation
+  card_ids:
+  - icao-annex-13-aircraft-accident-investigation
+  description: ICAO Annex 13 to the Chicago Convention, Aircraft Accident and Incident Investigation
+  line_in_chapter: 46
+  notes: Beat-3 hidden architecture; ICAO Annex 13 regulatory protocol under which OVV led the MH17 investigation.
+- anchor_text: ovv-mh17-final-report-2015-10-13
+  card_ids:
+  - ovv-mh17-final-report-2015-10-13
+  description: Onderzoeksraad voor Veiligheid, "Crash of Malaysia Airlines flight MH17," final report, 13 Oct 2015
+  line_in_chapter: 48
+  notes: Beat-3 hidden architecture; OVV 9N314M warhead / 9M38 missile / Buk attribution.
+- anchor_text: almaz-antey-press-briefings-mh17-2015
+  card_ids:
+  - almaz-antey-press-briefings-mh17-2015
+  description: Almaz-Antey press briefings, 2 Jun 2015 and 13 Oct 2015
+  line_in_chapter: 48
+  notes: Beat-3 hidden architecture; manufacturer technical case contradicted by OVV. Same card as line-32.
+- anchor_text: mh17-jit-findings-2016-2023
+  card_ids:
+  - mh17-jit-findings-2016-2023
+  description: JIT presentation, 28 Sep 2016
+  line_in_chapter: 50
+  notes: Beat-3 hidden architecture; JIT launch-site identification near Pervomaiskyi (reused ch-08 card).
+- anchor_text: mh17-jit-findings-2016-2023
+  card_ids:
+  - mh17-jit-findings-2016-2023
+  description: JIT presentation, 24 May 2018, 53rd Brigade attribution
+  line_in_chapter: 52
+  notes: Beat-3 hidden architecture; JIT 53rd Anti-Aircraft Missile Brigade attribution. Same card.
+- anchor_text: mh17-jit-findings-2016-2023
+  card_ids:
+  - mh17-jit-findings-2016-2023
+  description: JIT presentation, 19 Jun 2019, indictment of Girkin/Dubinsky/Kharchenko/Pulatov
+  line_in_chapter: 54
+  notes: Beat-3 hidden architecture; JIT indictment of the four suspects. Same card.
+- anchor_text: hague-district-court-schiphol-mh17-judgment-2022-11-17
+  card_ids:
+  - hague-district-court-schiphol-mh17-judgment-2022-11-17
+  description: Rechtbank Den Haag, judgment 17 Nov 2022, ECLI:NL:RBDHA:2022:12217
+  line_in_chapter: 56
+  notes: Beat-3 hidden architecture; Hague District Court three-in-absentia convictions + Pulatov acquittal (reused ch-08 card).
+- anchor_text: mh17-jit-findings-2016-2023
+  card_ids:
+  - mh17-jit-findings-2016-2023
+  description: JIT closing statement, 8 Feb 2023, "strong indications"
+  line_in_chapter: 58
+  notes: Beat-3 hidden architecture; JIT closing statement, prosecutorial 'strong indications' formulation. Same card.
+- anchor_text: ecthr-ukraine-netherlands-v-russia-admissibility-2022-11-30
+  card_ids:
+  - ecthr-ukraine-netherlands-v-russia-admissibility-2022-11-30
+  description: ECtHR Grand Chamber admissibility decision, Ukraine and the Netherlands v. Russia, apps. 8019/16, 43800/14, 28525/20, 30 Nov 2022
+  line_in_chapter: 60
+  notes: Beat-3 hidden architecture; ECtHR admissibility finding on Russian Article 1 jurisdiction over the Buk launch territory from 11 May 2014.
+- anchor_text: ecthr-ukraine-netherlands-v-russia-merits-2025-07-09
+  card_ids:
+  - ecthr-ukraine-netherlands-v-russia-merits-2025-07-09
+  description: ECtHR Grand Chamber merits judgment, joined cases, 9 Jul 2025
+  line_in_chapter: 60
+  notes: Beat-3 hidden architecture; ECtHR Grand Chamber merits judgment finding multiple Convention violations including in respect of MH17.
+- anchor_text: icao-council-mh17-finding-2025-05-12
+  card_ids:
+  - icao-council-mh17-finding-2025-05-12
+  description: ICAO Council finding, 12 May 2025, Article 3 bis Chicago Convention MH17
+  line_in_chapter: 60
+  notes: Beat-3 hidden architecture; first-ever ICAO Council finding against a state under Article 3 bis.
+- anchor_text: cpa-order-17-revised-2004-06-27
+  card_ids:
+  - cpa-order-17-revised-2004-06-27
+  description: CPA Order 17 (Revised), 27 Jun 2004, § 4
+  line_in_chapter: 72
+  notes: Beat-4 older echo; CPA Order 17 Section 4 contractor-immunity provision (reused ch-08 card).
+- anchor_text: meja-18-usc-3261-3267
+  card_ids:
+  - meja-18-usc-3261-3267
+  description: Military Extraterritorial Jurisdiction Act, 18 U.S.C. §§ 3261–3267 (2000, as amended 2004)
+  line_in_chapter: 74
+  notes: Beat-4 older echo; MEJA federal-statutory jurisdictional pathway.
+- anchor_text: fbi-nisour-square-investigation-2007-2008
+  card_ids:
+  - fbi-nisour-square-investigation-2007-2008
+  description: FBI investigative materials introduced as trial exhibits in US v. Slough et al. and US v. Slatten et al.; DOJ press release 08-NSD-1068, 8 Dec 2008
+  line_in_chapter: 78
+  notes: Beat-4 older echo; FBI finding that shooting was unjustified for at least 14 of 17 deaths.
+- anchor_text: iraqi-moi-nisour-square-findings-2007
+  card_ids:
+  - iraqi-moi-nisour-square-findings-2007
+  description: Iraqi Ministry of Interior investigative findings, Sept 2007
+  line_in_chapter: 78
+  notes: Beat-4 older echo; Iraqi MoI contemporaneous finding. Same card as line-34.
+- anchor_text: house-oversight-blackwater-hearing-2007-10-02
+  card_ids:
+  - house-oversight-blackwater-hearing-2007-10-02
+  description: House Committee on Oversight and Government Reform, "Blackwater USA," hearing of 2 Oct 2007, testimony of Erik Prince
+  line_in_chapter: 78
+  notes: Beat-4 older echo; Erik Prince sworn testimony at House Oversight hearing.
+- anchor_text: blackwater-nisour-square-doj-indictment-and-state-dept-record
+  card_ids:
+  - blackwater-nisour-square-doj-indictment-and-state-dept-record
+  description: DOJ indictment, US v. Slough/Slatten/Liberty/Heard, D.D.C., 8 Dec 2008
+  line_in_chapter: 80
+  notes: Beat-4 older echo; DOJ federal indictment under MEJA (reused ch-08 card). Same card as line-34.
+- anchor_text: us-v-slough-641-f3d-544-dc-cir-2011
+  card_ids:
+  - us-v-slough-641-f3d-544-dc-cir-2011
+  description: United States v. Slough, 641 F.3d 544 (D.C. Cir. 2011)
+  line_in_chapter: 82
+  notes: Beat-4 older echo; D.C. Circuit 2011 reversal of the Kastigar dismissal.
+- anchor_text: us-v-slatten-slough-ddc-jury-verdicts-2014-10-22
+  card_ids:
+  - us-v-slatten-slough-ddc-jury-verdicts-2014-10-22
+  description: US v. Slatten / Slough et al., D.D.C. jury verdicts, 22 Oct 2014
+  line_in_chapter: 82
+  notes: Beat-4 older echo; 22 Oct 2014 jury verdicts.
+- anchor_text: us-v-slatten-865-f3d-767-dc-cir-2017
+  card_ids:
+  - us-v-slatten-865-f3d-767-dc-cir-2017
+  description: United States v. Slatten, 865 F.3d 767 (D.C. Cir. 2017)
+  line_in_chapter: 82
+  notes: Beat-4 older echo; D.C. Circuit 2017 vacatur-in-part and remand.
+- anchor_text: us-v-slatten-ddc-retrial-verdict-2018-12-19
+  card_ids:
+  - us-v-slatten-ddc-retrial-verdict-2018-12-19
+  description: US v. Slatten, D.D.C. retrial verdict, 19 Dec 2018
+  line_in_chapter: 82
+  notes: Beat-4 older echo; 19 Dec 2018 first-degree murder retrial conviction.
+- anchor_text: trump-blackwater-pardons-2020-12-22
+  card_ids:
+  - trump-blackwater-pardons-2020-12-22
+  description: White House, "Statement from the Press Secretary Regarding Executive Grants of Clemency," 22 Dec 2020
+  line_in_chapter: 86
+  notes: Beat-4 older echo; Trump pardons of the four Blackwater contractors (reused ch-08 card).
+- anchor_text: un-ga-resolution-68-262-territorial-integrity-ukraine-2014-03-27
+  card_ids:
+  - un-ga-resolution-68-262-territorial-integrity-ukraine-2014-03-27
+  description: UN General Assembly Resolution 68/262, "Territorial integrity of Ukraine," A/RES/68/262, 27 Mar 2014
+  line_in_chapter: 94
+  notes: Beat-5 record hardens; UN GA resolution affirming Ukrainian territorial integrity.
+- anchor_text: pace-resolution-1990-russian-delegation-credentials-2014-04-10
+  card_ids:
+  - pace-resolution-1990-russian-delegation-credentials-2014-04-10
+  description: PACE Resolution 1990 (2014), 10 Apr 2014
+  line_in_chapter: 94
+  notes: Beat-5 record hardens; PACE suspension of Russian delegation voting rights.
+- anchor_text: venice-commission-opinion-762-2014-crimea-referendum
+  card_ids:
+  - venice-commission-opinion-762-2014-crimea-referendum
+  description: Venice Commission Opinion No. 762/2014, CDL-AD(2014)002, 21 Mar 2014
+  line_in_chapter: 94
+  notes: Beat-5 record hardens; Venice Commission legal opinion on Crimea referendum.
+- anchor_text: ecthr-ukraine-v-russia-re-crimea-admissibility-2020-12-16
+  card_ids:
+  - ecthr-ukraine-v-russia-re-crimea-admissibility-2020-12-16
+  description: ECtHR Grand Chamber admissibility decision, Ukraine v. Russia (re Crimea), apps. 20958/14 and 38334/18, 16 Dec 2020
+  line_in_chapter: 94
+  notes: Beat-5 record hardens; ECtHR Grand Chamber Crimea effective-control finding from 27 Feb 2014.
+- anchor_text: icc-otp-situation-ukraine-preliminary-examination-investigation
+  card_ids:
+  - icc-otp-situation-ukraine-preliminary-examination-investigation
+  description: ICC OTP Situation in Ukraine, preliminary examination opened 25 Apr 2014; investigation opened 2 Mar 2022
+  line_in_chapter: 94
+  notes: Beat-5 record hardens; ICC procedural stages on Situation in Ukraine.
+- anchor_text: un-sc-resolution-2166-mh17-2014-07-21
+  card_ids:
+  - un-sc-resolution-2166-mh17-2014-07-21
+  description: UN Security Council Resolution 2166 (2014), S/RES/2166, 21 Jul 2014
+  line_in_chapter: 96
+  notes: Beat-5 record hardens; unanimously-adopted UN SC demand for MH17 international investigation.
+- anchor_text: un-sc-draft-resolution-s-2015-562-mh17-tribunal-vetoed
+  card_ids:
+  - un-sc-draft-resolution-s-2015-562-mh17-tribunal-vetoed
+  description: UN Security Council draft resolution S/2015/562, 29 Jul 2015, vetoed by the Russian Federation
+  line_in_chapter: 96
+  notes: Beat-5 record hardens; failed UN SC draft proposing MH17 international tribunal.
+- anchor_text: hague-district-court-schiphol-mh17-judgment-2022-11-17
+  card_ids:
+  - hague-district-court-schiphol-mh17-judgment-2022-11-17
+  description: Rechtbank Den Haag, judgment 17 Nov 2022, ECLI:NL:RBDHA:2022:12217
+  line_in_chapter: 96
+  notes: Beat-5 record hardens; criminal conviction record. Same card as line-56.
+- anchor_text: ecthr-ukraine-netherlands-v-russia-admissibility-2022-11-30; ecthr-ukraine-netherlands-v-russia-merits-2025-07-09
+  card_ids:
+  - ecthr-ukraine-netherlands-v-russia-admissibility-2022-11-30
+  - ecthr-ukraine-netherlands-v-russia-merits-2025-07-09
+  description: ECtHR Grand Chamber admissibility decision, 30 Nov 2022, and merits judgment, 9 Jul 2025, joined cases
+  line_in_chapter: 96
+  notes: Beat-5 record hardens; ECtHR state-responsibility record (admissibility + merits). Two-card anchor; same cards as line-60.
+- anchor_text: icao-council-mh17-finding-2025-05-12
+  card_ids:
+  - icao-council-mh17-finding-2025-05-12
+  description: ICAO Council finding, 12 May 2025; Chicago Convention Article 3 bis (added 1984)
+  line_in_chapter: 96
+  notes: Beat-5 record hardens; ICAO Council aviation-regulatory record under Article 3 bis. Same card as line-60.
+- anchor_text: us-v-slough-641-f3d-544-dc-cir-2011; us-v-slatten-865-f3d-767-dc-cir-2017
+  card_ids:
+  - us-v-slough-641-f3d-544-dc-cir-2011
+  - us-v-slatten-865-f3d-767-dc-cir-2017
+  description: US v. Slough, 641 F.3d 544 (D.C. Cir. 2011); US v. Slatten, 865 F.3d 767 (D.C. Cir. 2017)
+  line_in_chapter: 98
+  notes: Beat-5 record hardens; D.C. Circuit appellate spine. Two-card anchor; same cards as line-82.
+- anchor_text: ddc-docket-1-14-cr-00107-rcl
+  card_ids:
+  - ddc-docket-1-14-cr-00107-rcl
+  description: US v. Slatten et al., D.D.C. docket 1:14-cr-00107-RCL
+  line_in_chapter: 98
+  notes: Beat-5 record hardens; D.D.C. trial-court docket spine.
+- anchor_text: gao-contractor-accountability-reports-2006-2008
+  card_ids:
+  - gao-contractor-accountability-reports-2006-2008
+  description: GAO-06-865R (Jun 2006); GAO-08-966 (Jul 2008); GAO-09-19 (Oct 2008)
+  line_in_chapter: 98
+  notes: Beat-5 record hardens; GAO contractor-accountability reports documenting prior knowledge of oversight gaps.
+- anchor_text: sasc-detainee-treatment-report-2008-12-11; house-oversight-blackwater-hearing-2007-10-02
+  card_ids:
+  - sasc-detainee-treatment-report-2008-12-11
+  - house-oversight-blackwater-hearing-2007-10-02
+  description: Senate Armed Services Committee, "Inquiry into the Treatment of Detainees in U.S. Custody," 11 Dec 2008; House Committee on Oversight and Government Reform hearing of 2 Oct 2007
+  line_in_chapter: 98
+  notes: Beat-5 record hardens; SASC report + House Oversight hearing as contemporaneous contractor-policy record. Two-card anchor.
+- anchor_text: us-iraq-sofa-2008-2009
+  card_ids:
+  - us-iraq-sofa-2008-2009
+  description: US–Iraq Status of Forces Agreement, signed 17 Nov 2008, entered into force 1 Jan 2009
+  line_in_chapter: 98
+  notes: Beat-5 record hardens; SOFA formally ending CPA Order 17 immunity for security contractors going forward.
+- anchor_text: budapest-memorandum-1994
+  card_ids:
+  - budapest-memorandum-1994
+  description: Budapest Memorandum on Security Assurances, 5 Dec 1994
+  line_in_chapter: 112
+  notes: Beat-6 goat resists; 1994 Russian commitment to respect Ukrainian territorial integrity.
+- anchor_text: un-charter-article-2-4
+  card_ids:
+  - un-charter-article-2-4
+  description: Charter of the United Nations, Article 2(4)
+  line_in_chapter: 112
+  notes: Beat-6 goat resists; UN Charter prohibition on threat or use of force.
+- anchor_text: ilc-articles-state-responsibility-2001
+  card_ids:
+  - ilc-articles-state-responsibility-2001
+  description: ILC Articles on Responsibility of States for Internationally Wrongful Acts (2001), Articles 4 and 11
+  line_in_chapter: 112
+  notes: Beat-6 goat resists; ILC framework for state attribution applied to Putin's televised admissions.
+- anchor_text: putin-direct-line-2014-04-17; crimea-the-way-home-rossiya-1-2015-03-15
+  card_ids:
+  - putin-direct-line-2014-04-17
+  - crimea-the-way-home-rossiya-1-2015-03-15
+  description: 'Putin, "Direct Line with Vladimir Putin," 17 Apr 2014, kremlin.ru transcript; "Crimea: The Way Home," Rossiya-1, 15 Mar 2015'
+  line_in_chapter: 112
+  notes: Beat-6 goat resists; Putin's two televised admissions as Article 4 evidence of organ direction. Two-card anchor.
+- anchor_text: putin-direct-line-2014-04-17
+  card_ids:
+  - putin-direct-line-2014-04-17
+  description: Putin, "Direct Line with Vladimir Putin," 17 Apr 2014, kremlin.ru transcript
+  line_in_chapter: 128
+  notes: Beat-7 alibi weakens; Putin's first televised retirement of the shop-uniform denial. Same card as line-112.
+- anchor_text: crimea-the-way-home-rossiya-1-2015-03-15
+  card_ids:
+  - crimea-the-way-home-rossiya-1-2015-03-15
+  description: '"Crimea: The Way Home" (Krym. Put'' na Rodinu), dir. Andrey Kondrashov, Rossiya-1, 15 Mar 2015'
+  line_in_chapter: 128
+  notes: Beat-7 alibi weakens; Putin's filmed admission of having personally ordered the operation. Same card as line-112.
+- anchor_text: federation-council-decision-48-sf-2014-03-01
+  card_ids:
+  - federation-council-decision-48-sf-2014-03-01
+  description: Federation Council of the Russian Federal Assembly, Decision No. 48-SF, 1 Mar 2014
+  line_in_chapter: 128
+  notes: Beat-7 alibi weakens; Federation Council use-of-force authorization that contradicted the 4 Mar 2014 denial three days later.
+- anchor_text: ohchr-hrmmu-crimea-thematic-reports-2014-present
+  card_ids:
+  - ohchr-hrmmu-crimea-thematic-reports-2014-present
+  description: UN OHCHR Human Rights Monitoring Mission in Ukraine, thematic reports on Crimea, 2014–present
+  line_in_chapter: 170
+  notes: Beat-9 the escape (matrix row); cost-bearer-status reference to OHCHR documentation on Crimean Tatar Mejlis ban, conscription, and detentions.

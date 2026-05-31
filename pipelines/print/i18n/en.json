@@ -1,0 +1,31 @@
+{
+  "lang": "en",
+  "title": "No One Did It",
+  "subtitle": "Responsibility Laundering, from the Scapegoat to the Algorithm",
+  "author": "Li Xiaolai",
+  "publisher": "Xiaolai Books",
+  "version": "1.0.0",
+  "epub_filename": "no-one-did-it.epub",
+  "pdf_filename": "no-one-did-it-interior.pdf",
+  "cover_filename": "no-one-did-it-cover.pdf",
+  "isbn": "978-1-80826-002-5",
+  "paperback_isbn": "978-1-80826-003-2",
+  "_isbn_note": "isbn is the EPUB SKU; paperback_isbn is the print SKU. build-prose substitutes the latter into the print copyright page so the PDF carries the correct print ISBN distinct from the EPUB.",
+  "headings": {
+    "title_page": "Title page",
+    "copyright": "Copyright",
+    "dedication": "Dedication",
+    "epigraph": "Epigraph",
+    "contents": "Contents",
+    "front_matter": "Front matter",
+    "chapters": "Chapters",
+    "parts": "Parts",
+    "back_matter": "Back matter",
+    "back_cover": "Back cover",
+    "navigation": "Navigation",
+    "table_of_contents": "Table of Contents",
+    "prologue": "Preface",
+    "chapter_n": "Chapter %d",
+    "part_n": "Part %s"
+  }
+}

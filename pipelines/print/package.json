@@ -1,0 +1,21 @@
+{
+  "name": "responsibility-laundering-print-build",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Print PDF + cover build pipeline for No One Did It (KDP paperback).",
+  "scripts": {
+    "prose": "node build-prose.mjs",
+    "interior": "node build-print-pdf.mjs",
+    "cover": "../.venv/bin/python build-print-cover.py",
+    "build": "node build-prose.mjs && node build-print-pdf.mjs",
+    "preview": "node pipeline.mjs"
+  },
+  "dependencies": {
+    "marked": "^18.0.3",
+    "marked-footnote": "^1.4.0",
+    "marked-gfm-heading-id": "^4.1.4",
+    "playwright": "^1.59.1",
+    "js-yaml": "^4.1.0"
+  }
+}

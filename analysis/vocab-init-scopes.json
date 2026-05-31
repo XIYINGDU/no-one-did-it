@@ -1,0 +1,8 @@
+{
+  "scopes": {
+    "commands": { "scope": "internal", "glob": ".claude/commands/*.md", "role": "verb-filename" },
+    "agents":   { "scope": "internal", "glob": ".claude/agents/*.md",   "role": "noun-filename" },
+    "skills":   { "scope": "internal", "glob": ".claude/skills/*/SKILL.md", "role": "skill-dirname" },
+    "docs":     { "scope": "internal", "glob": ".claude/docs/*.md",     "role": "headings" }
+  }
+}

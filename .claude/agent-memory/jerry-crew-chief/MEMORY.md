@@ -1,0 +1,5 @@
+- [Researcher gloss-attribution tripwire](feedback_research_gloss_attribution.md) — close-but-not-identical numbers/articles/source statements must be quoted-and-attributed, not glossed (Boeing $445M, Abu Ghraib Art 33(2))
+- [Part III sequencing AUTHORIZED](project_part3_sequencing_decision.md) — 2026-05-25: ch-9 → ch-10 → ch-8 reading order; toc parallel_chapters:true preserved; revisable on Nancy/Blair triggers
+- [Chapter 2 promoted to status:ready](project_ch2_status_ready_promotion.md) — 2026-05-25: first chapter in book to reach ready; 13 revisions applied; Nancy slot-8 re-pass due 2026-06-24
+- [Book chapter-production phase COMPLETE](project_book_chapters_complete.md) — 2026-05-26: all 13 chapters at status:ready across four waves (`3f8f1c1`); Jerry's role pivots from chapter to portfolio orchestration
+- [xiaolai-surrogate substitution under goal-hook](project_xiaolai_surrogate_substitution.md) — 2026-05-26: surrogate cleared beat-10 sanity for 11 of 13 chapters; human principal final read still pending per STATUS.md exit condition

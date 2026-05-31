@@ -1,0 +1,168 @@
+# Sidecar: chapter 11 [CITE:] anchors → research card ids
+# Built 2026-05-26 to satisfy the research-card pipeline coverage requirement for ch-11.
+# 26 distinct [CITE:] anchor occurrences in the chapter prose body resolve to 11 unique cards
+# (one card per source cluster; multi-anchor cards shared across instances).
+# Validator note: the [CITE:] regex captures up to the first ']'; anchors that contain a
+# bracketed citation get truncated at the validator level. The full descriptive anchor_text
+# below contains the truncated capture as a substring, which the validator's substring-match
+# logic accepts in either direction.
+
+# Refreshed by scripts/refresh_sidecar_anchors.py — anchor_text now
+# carries the card slug (matching the rule-13 [CITE: <slug>] form in
+# chapter prose). The original human-readable citation moved to the
+# `description` field on each anchor. PyYAML round-trip preserves the
+# leading comment block above but may have dropped any mid-file inline
+# comments; recover from git history if needed.
+
+chapter_id: 11-make-responsibility-follow-control
+anchors:
+- anchor_text: boeing-737-max-dpa-2021
+  card_ids:
+  - boeing-737-max-dpa-2021
+  description: U.S. v. The Boeing Company, N.D. Tex. Case No. 4:21-cr-00005, Deferred Prosecution Agreement and Statement of Facts, 7 Jan 2021
+  line_in_chapter: 27
+  notes: Accusation-scene exhibit 1. The 2021 Boeing 737 MAX DPA Statement of Facts naming two Technical Pilots and closing the prosecution without indictment above the operating layer.
+- anchor_text: bybee-yoo-olc-torture-memos-2002-opr-2009
+  card_ids:
+  - bybee-yoo-olc-torture-memos-2002-opr-2009
+  description: Memorandum from Jay S. Bybee for Alberto R. Gonzales, "Standards of Conduct for Interrogation under 18 U.S.C. §§ 2340-2340A," 1 Aug 2002
+  line_in_chapter: 29
+  notes: Accusation-scene exhibit 2 (first anchor). The Bybee/Yoo OLC torture memorandum, anchored by the existing ch-12 card; ch-11 added to chapters_citing on 2026-05-26.
+- anchor_text: olc-levin-withdrawal-memo-2004-12-30
+  card_ids:
+  - olc-levin-withdrawal-memo-2004-12-30
+  description: OLC withdrawal memorandum, 30 Dec 2004
+  line_in_chapter: 29
+  notes: Accusation-scene exhibit 2 (second anchor). The Levin 30 Dec 2004 withdrawal of the Bybee 1 Aug 2002 memorandum; primary OLC instrument.
+- anchor_text: executive-order-13328-2004
+  card_ids:
+  - executive-order-13328-2004
+  description: Exec. Order No. 13328 of Feb. 6, 2004, 69 Fed. Reg. 6901
+  line_in_chapter: 31
+  notes: Accusation-scene exhibit 3 (first anchor). EO 13328 chartering the Robb-Silberman Commission with mandate scoped to the intelligence-community product and not extending to policymaker use.
+- anchor_text: doj-justice-manual-9-28-business-organizations
+  card_ids:
+  - doj-justice-manual-9-28-business-organizations
+  description: U.S. Dep't of Justice, Justice Manual § 9-28.000
+  line_in_chapter: 41
+  notes: Beat-2 'official story' anchor. Justice Manual § 9-28.000 as the institutional defence of the corporate-plea framework against named-officer attachment.
+- anchor_text: united-states-v-park-1975
+  card_ids:
+  - united-states-v-park-1975
+  description: United States v. Park, 421 U.S. 658, 673-674 (1975)
+  line_in_chapter: 59
+  notes: 'Beat-3 hidden-architecture anchor. Park doctrine holding language at 421 U.S. 673-674: ''responsibility and authority either to prevent in the first instance, or promptly to correct, the violation complained of.'' Same card as line-94, line-96, and line-172 anchors.'
+- anchor_text: sarbanes-oxley-302-906-2002
+  card_ids:
+  - sarbanes-oxley-302-906-2002
+  description: 15 U.S.C. § 7241; Sarbanes-Oxley Act of 2002, Pub. L. No. 107-204, § 302, 116 Stat. 745, as codified; SEC Rules 13a-14, 15d-14
+  line_in_chapter: 61
+  notes: Beat-3 hidden-architecture anchor. SOX § 302 as codified plus SEC implementing rules. Same card as line-61 (second), line-106, line-108, and line-174 anchors.
+- anchor_text: sarbanes-oxley-302-906-2002
+  card_ids:
+  - sarbanes-oxley-302-906-2002
+  description: 18 U.S.C. § 1350
+  line_in_chapter: 61
+  notes: Beat-3 hidden-architecture anchor (companion to § 302 anchor on the same line). SOX § 906 codified criminal-penalty section. Same card as line-108 and line-174 anchors.
+- anchor_text: uk-smcr-fsma-fsbra-fca-handbook
+  card_ids:
+  - uk-smcr-fsma-fsbra-fca-handbook
+  description: Financial Services and Markets Act 2000, ss. 59ZA, 59A, 59B, as inserted by Financial Services (Banking Reform) Act 2013; FCA Handbook SYSC 4.7, SYSC 24, SYSC 27
+  line_in_chapter: 63
+  notes: Beat-3 hidden-architecture anchor. UK SMCR statutory base plus FCA Handbook implementation. Same card as line-176 anchor.
+- anchor_text: uk-inquiries-act-2005
+  card_ids:
+  - uk-inquiries-act-2005
+  description: Inquiries Act 2005 (UK), ss. 1, 4
+  line_in_chapter: 67
+  notes: Beat-3 hidden-architecture anchor (first of two on the same line). UK Inquiries Act ss. 1, 4 establishment and chair-appointment provisions. Same card as line-67 (second) and line-178 anchors.
+- anchor_text: uk-inquiries-act-2005
+  card_ids:
+  - uk-inquiries-act-2005
+  description: Inquiries Act 2005 (UK), ss. 21(1)-(4), 35
+  line_in_chapter: 67
+  notes: Beat-3 hidden-architecture anchor (second of two on the same line). UK Inquiries Act §21 compulsion-of-evidence power and §35 criminal-penalty for non-compliance. Same card as line-67 (first) and line-178 anchors.
+- anchor_text: united-states-v-park-1975
+  card_ids:
+  - united-states-v-park-1975
+  description: United States v. Park, 421 U.S. 658, 671-674 (1975)
+  line_in_chapter: 94
+  notes: Beat-4 older-echo anchor. Park doctrine holding text at 421 U.S. 671-674. Same card as line-59, line-96, and line-172 anchors.
+- anchor_text: united-states-v-park-1975
+  card_ids:
+  - united-states-v-park-1975
+  description: United States v. Park, 421 U.S. 658, 660-665 (1975), recitation of trial record
+  line_in_chapter: 96
+  notes: Beat-4 older-echo anchor. Park trial-record recitation pin cite at 421 U.S. 660-665 documenting the FDA's prior written warning to Park. Same card as line-59, line-94, and line-172 anchors.
+- anchor_text: united-states-v-decoster-8th-cir-2016
+  card_ids:
+  - united-states-v-decoster-8th-cir-2016
+  description: United States v. DeCoster, 828 F.3d 626 (8th Cir. 2016), cert. denied, 137 S. Ct. 2160 (2017)
+  line_in_chapter: 98
+  notes: Beat-4 older-echo anchor (first of two). DeCoster as the modern senior-officer test of Park, affirming three-month prison sentences over divided-panel Eighth-Amendment and due-process objections. Same card as line-172 anchor.
+- anchor_text: sarbanes-oxley-302-906-2002
+  card_ids:
+  - sarbanes-oxley-302-906-2002
+  description: 15 U.S.C. § 7241
+  line_in_chapter: 106
+  notes: Beat-5 record-hardens anchor. SOX § 302 codification. Same card as line-61 (twice), line-108, and line-174 anchors.
+- anchor_text: sarbanes-oxley-302-906-2002
+  card_ids:
+  - sarbanes-oxley-302-906-2002
+  description: 18 U.S.C. § 1350
+  line_in_chapter: 108
+  notes: Beat-5 record-hardens anchor. SOX § 906 codification. Same card as line-61 (twice), line-106, and line-174 anchors.
+- anchor_text: chilcot-iraq-inquiry-report-2016
+  card_ids:
+  - chilcot-iraq-inquiry-report-2016
+  description: Iraq Inquiry, "The Report of the Iraq Inquiry" (6 Jul 2016); Blair to Bush, 28 Jul 2002, declassified through the Inquiry
+  line_in_chapter: 148
+  notes: Beat-7 asymmetry-table anchor (inquiry-statute row). Chilcot Report + Blair-Bush 28 July 2002 'I will be with you, whatever' minute. Same card as line-178 anchor.
+- anchor_text: united-states-v-park-1975
+  card_ids:
+  - united-states-v-park-1975
+  description: 421 U.S. 658 (1975)
+  line_in_chapter: 172
+  notes: Beat-9 'the escape' anchor (first of two for Park). Park decision date and citation. Same card as line-59, line-94, and line-96 anchors.
+- anchor_text: united-states-v-decoster-8th-cir-2016
+  card_ids:
+  - united-states-v-decoster-8th-cir-2016
+  description: United States v. DeCoster, 828 F.3d 626 (8th Cir. 2016), cert. denied, 137 S. Ct. 2160 (2017)
+  line_in_chapter: 172
+  notes: Beat-9 'the escape' anchor (second DeCoster occurrence). Same card as line-98 anchor.
+- anchor_text: sarbanes-oxley-302-906-2002
+  card_ids:
+  - sarbanes-oxley-302-906-2002
+  description: Sarbanes-Oxley Act of 2002, Pub. L. No. 107-204, 116 Stat. 745
+  line_in_chapter: 174
+  notes: Beat-9 'the escape' anchor. SOX Public Law citation. Same card as line-61, line-106, line-108, and line-174 (second) anchors.
+- anchor_text: sarbanes-oxley-302-906-2002
+  card_ids:
+  - sarbanes-oxley-302-906-2002
+  description: 15 U.S.C. § 7241; 18 U.S.C. § 1350
+  line_in_chapter: 174
+  notes: Beat-9 'the escape' anchor (second on the same line). SOX §§ 302 and 906 codified together. Same card as the other four SOX anchor occurrences.
+- anchor_text: uk-smcr-fsma-fsbra-fca-handbook
+  card_ids:
+  - uk-smcr-fsma-fsbra-fca-handbook
+  description: Financial Services and Markets Act 2000, ss. 59ZA, 59A, 59B; FCA Handbook SYSC 4.7, SYSC 24, SYSC 27
+  line_in_chapter: 176
+  notes: Beat-9 'the escape' anchor. SMCR statutory and FCA Handbook implementation. Same card as line-63 anchor.
+- anchor_text: uk-inquiries-act-2005
+  card_ids:
+  - uk-inquiries-act-2005
+  description: Inquiries Act 2005 (UK)
+  line_in_chapter: 178
+  notes: Beat-9 'the escape' anchor (first of two on the same line). Inquiries Act umbrella reference. Same card as line-67 (twice) and line-178 (second) anchors.
+- anchor_text: chilcot-iraq-inquiry-report-2016
+  card_ids:
+  - chilcot-iraq-inquiry-report-2016
+  description: The Report of the Iraq Inquiry (Chilcot), Executive Summary, ¶¶ 499, 510, 875-876 (6 Jul 2016)
+  line_in_chapter: 178
+  notes: 'Beat-9 ''the escape'' anchor (second of three on the same line). Chilcot Executive Summary pin cites: September 2002 Dossier (¶499); JIC certainty caveats (¶510); legal basis for war (¶¶875-876). Same card as line-148 anchor.'
+- anchor_text: executive-order-13328-2004
+  card_ids:
+  - executive-order-13328-2004
+  description: Exec. Order No. 13328 of Feb. 6, 2004, 69 Fed. Reg. 6901
+  line_in_chapter: 178
+  notes: Beat-9 'the escape' anchor (third of three on the same line). EO 13328 charter-scope contrast with Inquiries Act §21. Same card as line-31 anchor.

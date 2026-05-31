@@ -1,0 +1,104 @@
+{
+  "root": ".",
+  "by_source": {
+    "commands:filename": {
+      "case": 1,
+      "file": 1,
+      "chapter": 1,
+      "brief": 1,
+      "crew": 1,
+      "briefing": 1,
+      "proposal": 1,
+      "pack": 1,
+      "red": 1,
+      "team": 1,
+      "source": 1,
+      "audit": 1
+    },
+    "commands:description": {
+      "build": 1,
+      "review": 1,
+      "create": 1,
+      "audit": 1
+    },
+    "agents:description": {
+      "use": 6
+    },
+    "skills:description": {
+      "build": 3,
+      "prepare": 1
+    }
+  },
+  "scope": {
+    "case": [
+      "internal"
+    ],
+    "file": [
+      "internal"
+    ],
+    "build": [
+      "internal"
+    ],
+    "chapter": [
+      "internal"
+    ],
+    "brief": [
+      "internal"
+    ],
+    "crew": [
+      "internal"
+    ],
+    "briefing": [
+      "internal"
+    ],
+    "review": [
+      "internal"
+    ],
+    "proposal": [
+      "internal"
+    ],
+    "pack": [
+      "internal"
+    ],
+    "create": [
+      "internal"
+    ],
+    "red": [
+      "internal"
+    ],
+    "team": [
+      "internal"
+    ],
+    "source": [
+      "internal"
+    ],
+    "audit": [
+      "internal"
+    ],
+    "use": [
+      "internal"
+    ],
+    "prepare": [
+      "internal"
+    ]
+  },
+  "totals": {
+    "use": 6,
+    "build": 4,
+    "audit": 2,
+    "case": 1,
+    "file": 1,
+    "chapter": 1,
+    "brief": 1,
+    "crew": 1,
+    "briefing": 1,
+    "proposal": 1,
+    "pack": 1,
+    "red": 1,
+    "team": 1,
+    "source": 1,
+    "review": 1,
+    "create": 1,
+    "prepare": 1
+  }
+}

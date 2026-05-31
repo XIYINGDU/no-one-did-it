@@ -1,0 +1,1 @@
+- [Doctrinal gloss must be attributed](feedback_doctrinal_gloss_must_be_attributed.md) — IHL/Rome-Statute gloss bridging two close categories must be quoted-and-attributed, not asserted as the source's own text.

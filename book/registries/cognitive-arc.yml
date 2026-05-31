@@ -1,0 +1,308 @@
+# Book-level cognitive arc.
+#
+# Schema source: .claude/skills/cognitive-arc-audit/SKILL.md
+# Audited by: /cognitive-arc-audit (per chapter rewrite + book baseline)
+#
+# Declares what the reader is expected to acquire as the book progresses.
+# Three artifact types:
+#
+#   discriminations - distinctions the reader can apply (e.g., pure vs partial scapegoat)
+#   concept_introductions - named terms the chapter introduces
+#   retirements - pre-book misconceptions the book actively dismantles
+#
+# Forced reading order (book/toc.yml):
+#   1 -> 2 -> 3 (Part I, ordered)
+#   3 -> {4, 5, 6, 7} (Part II, parallel siblings)
+#   {4,5,6,7} -> {8, 9, 10} (Part III, parallel siblings; Jerry-authorised sibling order 8 -> 9 -> 10)
+#   {8,9,10} -> 11 -> 12 -> 13 (Part IV, ordered)
+
+discriminations:
+  # ---- The four taxonomy discriminations (installed ch-2, consolidated across Part II/III) ----
+
+  - id: distinguish-pure-from-partial-scapegoat
+    introduced_in: 2
+    consolidated_by: 5
+    required_by: [10, 8, 11, 13]
+
+  - id: identify-system-or-object-alibi
+    introduced_in: 2
+    consolidated_by: 7
+    required_by: [10, 9, 11, 12, 13]
+
+  # NOTE: ch-9 reads BEFORE ch-10 in the Jerry-authorised Part III sibling order
+  # (8 -> 9 -> 10), so consolidation must land no later than Part II. The
+  # ch-2 Ukrainian-children install is itself the worked example (Bonnie/Wayne
+  # treat it as the cost-bearing-goat anchor), so consolidated_by collapses
+  # to the install chapter. ch-10's civilian-invisibility layer is layer-
+  # specific reinforcement, not the first consolidation.
+  - id: read-cost-bearing-goat-pattern
+    introduced_in: 2
+    consolidated_by: 2
+    required_by: [10, 13]
+
+  # Pure scapegoat install is partially self-contested in ch-2 via the Russell
+  # counter-reading on Sacco. The discrimination is named in ch-2 but the
+  # unconditional reading is held until later anchor cases (Dreyfus is the
+  # clean Picquart-shaped intercept in ch-2 slot 9 / ch-13 index). This row
+  # tracks the discrimination's installation specifically; the Sacco caveat is
+  # part of why downstream pure-scapegoat anchors gate to Dreyfus-shaped cases.
+  - id: distinguish-pure-scapegoat-from-no-laundering
+    introduced_in: 2
+    consolidated_by: 5
+    required_by: [8, 11, 13]
+
+  # ---- The procedural / diagnostic discriminations ----
+
+  # The 8-question forensic walk. Introduced as the full instrument in ch-3
+  # (VW Dieselgate spine + Ford Pinto echo). Every Part II/III/IV chapter
+  # leans on the reader being able to walk it.
+  - id: apply-eight-question-diagnostic
+    introduced_in: 3
+    consolidated_by: 3
+    required_by: [4, 5, 6, 7, 10, 8, 9, 11, 12, 13]
+
+  # The three-stage-shift alarm: when an institutional account moves twice
+  # within a finite window, the sequence is the laundering. Introduced AND
+  # demonstrated in ch-3 (VW's technical issues -> rogue engineers ->
+  # defeat-device software, with the Ford Pinto echo as confirmation), so
+  # consolidation collapses to the install chapter. ch-5 (Bhopal's
+  # sabotage -> subsidiary -> chairman; Boeing's pilot -> MCAS ->
+  # certification process) and ch-6 (the pretext citation-shift sequence)
+  # are reinforcement at higher layers, not first consolidation.
+  # NOTE: ch-6 is a parallel sibling of ch-5 in Part II; if consolidation
+  # had landed at ch-5, ch-6 could not have required it. Forced consolidation
+  # to ch-3 resolves the constraint.
+  - id: detect-three-stage-shift
+    introduced_in: 3
+    consolidated_by: 3
+    required_by: [5, 6, 9]
+
+  # The five-channel interception scoreboard. Introduced ch-3 as the
+  # VW vs Pinto comparison matrix; deepened in ch-4 to seven channels across
+  # Crimea / MH17 / Blackwater. Used to evaluate "is this case closed?"
+  # claims throughout Part III and Part IV.
+  # NOTE: ch-5 and ch-7 are parallel siblings of ch-4 in Part II;
+  # consolidation cannot land at ch-4 if they are to require it. ch-3
+  # introduces the five-channel comparison AND walks it in action across
+  # VW vs Pinto (the chapter's beat-9), so consolidation collapses to the
+  # install chapter. ch-4 deepens the matrix to seven channels (Crimea /
+  # MH17 / Blackwater); later chapters extend further (ch-7's 8 channels;
+  # ch-11's 4-row design-asymmetry; ch-12's 10-row record-survival table).
+  - id: read-multi-channel-interception-asymmetry
+    introduced_in: 3
+    consolidated_by: 3
+    required_by: [4, 5, 7, 10, 9, 11, 12]
+
+  # The proxy-vs-sponsor pattern. Introduced ch-4 with three-question
+  # specialisation (who supplied the means / who controls the territory of the
+  # act / who would lose access if the proxy were prosecuted). Stress-tested
+  # in ch-10 at the war scale.
+  - id: distinguish-proxy-from-sponsor
+    introduced_in: 4
+    consolidated_by: 4
+    required_by: [10, 13]
+
+  # The six-question pretext diagnostic. Introduced ch-6 against
+  # family-separation, census, and Ukraine-aid. Baseline audit (2026-05-27)
+  # verified that ch-8 and ch-11 do NOT carry the pretext frame in prose;
+  # required_by trimmed to [13] (the field guide indexes the diagnostic by
+  # its ch-6 anchor for reader retrieval). Whether ch-8/ch-11 SHOULD carry
+  # explicit pretext callbacks is a separate authorial-add question for
+  # xaiolai, not a registry claim.
+  - id: apply-six-question-pretext-diagnostic
+    introduced_in: 6
+    consolidated_by: 6
+    required_by: [13]
+
+  # The five-role conflation diagnostic. Same institution holds deploy /
+  # audit / complaint / prosecution / disclosure roles. Introduced ch-7
+  # (Horizon / Post Office). Explicitly ported into ch-9 (AI-stack labs)
+  # and ch-11 (named-attribution design) and ch-12 (record discipline).
+  - id: detect-five-role-conflation
+    introduced_in: 7
+    consolidated_by: 7
+    required_by: [9, 11, 12, 13]
+
+  # The five-layer war stack: chain-of-command secrecy / proxy / contractor-
+  # shell / civilian-invisibility-euphemism / strategic-justification. The
+  # taxonomy specific to war-and-statecraft laundering. Required by ch-13's
+  # field-guide artefact 4.
+  - id: recognize-five-layer-war-stack
+    introduced_in: 10
+    consolidated_by: 10
+    required_by: [13]
+
+  # The inversion case: when the actor with control publicly reframes the
+  # accountability mechanism as itself the prior abuse. Introduced ch-8 (J6
+  # pardons / DOGE records / AEA invocation against the courts that constrain
+  # them); historical echoes (Watergate / Iran-Contra) carry the
+  # administration-agnostic claim. Required by ch-13's field guide.
+  - id: recognize-accountability-mechanism-inversion
+    introduced_in: 8
+    consolidated_by: 8
+    required_by: [13]
+
+  # The AI-stack three-layer diagnostic: input / deployment / evaluation.
+  # Each layer names a different non-human verb-subject and a different
+  # displaced human decision. Introduced ch-9. Required by ch-13's field
+  # guide artefact 3 and beat-9 algorithmic-denial walk.
+  - id: diagnose-three-AI-stack-layers
+    introduced_in: 9
+    consolidated_by: 9
+    required_by: [13]
+
+  # The alibi-escalation pattern. When the laundering is caught at level N
+  # it moves to level N+1. Most cleanly visible in ch-9's Llama 4 / LMArena
+  # walk (the variant performed -> the policy did not match expectations).
+  # Reader uses it to distinguish "the alibi failed" from "the alibi moved
+  # one rung up". Baseline audit (2026-05-27) verified that ch-11/12/13 do
+  # NOT carry the level-N → level-N+1 walk in prose; the discrimination
+  # installs and consolidates inside ch-9 only. required_by trimmed to [].
+  # Whether downstream chapters SHOULD walk it is an authorial-add question.
+  - id: detect-alibi-escalation
+    introduced_in: 9
+    consolidated_by: 9
+    required_by: []
+
+  # The diagnostic-as-design-rule inversion. The 8 questions run forward
+  # (before harm) instead of backward (after harm). Introduced ch-11 via
+  # Park / SOX / SMCR / Inquiries Act §21 vs EO 13328. Required by ch-12
+  # (record discipline is the precondition for the design rule to operate)
+  # and ch-13 (crosswalk's Move 5).
+  - id: apply-design-vs-forensic-frame
+    introduced_in: 11
+    consolidated_by: 11
+    required_by: [12, 13]
+
+  # The three record-discipline rules: write it down / multi-custodian
+  # chain-of-custody / make destruction visible. Introduced ch-12 against
+  # Pentagon Papers / Iran-Contra / Iraq Inquiry / Hofeller surviving column
+  # vs Bybee / Boeing / DOJ-J6 / DOGE suppressed column.
+  - id: apply-three-record-discipline-rules
+    introduced_in: 12
+    consolidated_by: 12
+    required_by: [13]
+
+  # The alibi-collapse-vs-architectural-reform distinction. The reader
+  # learns to ask, when a case is described as "closed" or "resolved",
+  # whether the laundering architecture remains in place even where the
+  # specific instance was reversed. Introduced ch-7 (Horizon: 6 of 8
+  # channels delivered remedy; architecture intact); reinforced ch-10
+  # (Chilcot produced the record, not the remedy).
+  # NOTE: ch-8 and ch-9 read BEFORE ch-10 in the Jerry-authorised Part III
+  # sibling order (8 -> 9 -> 10); consolidation cannot land at ch-10 if they
+  # are to require it. ch-7's beat-9 (Horizon: 6 of 8 channels delivered
+  # remedy; architecture intact) is the install and demonstrates the
+  # distinction in action, so consolidation collapses to ch-7. ch-10's
+  # "Chilcot produced the record, not the remedy" formulation is
+  # reinforcement at strategic scale, not first consolidation.
+  - id: distinguish-alibi-collapse-from-architectural-reform
+    introduced_in: 7
+    consolidated_by: 7
+    required_by: [10, 8, 9, 11, 12, 13]
+
+  # The signature-as-seam discrimination. The named human signer of an
+  # output whose underlying record they cannot inspect is the laundering's
+  # terminal point. Introduced ch-6 (line-officer signature on §1325
+  # referral); consolidated ch-7 (Horizon sub-postmaster daily balance);
+  # required everywhere reader-role moves are walked.
+  # NOTE: ch-7 is a parallel sibling of ch-6 in Part II; consolidation cannot
+  # land at ch-7 if any other Part II chapter is to require it. ch-6 itself
+  # names the seam ("the signature is the seam") and demonstrates it via
+  # the line-officer signature on §1325 referral, so consolidation collapses
+  # to ch-6. ch-7's Horizon sub-postmaster daily-balance signature and
+  # ch-11/12's design-rule extensions are reinforcement at later layers.
+  - id: recognize-signature-as-seam
+    introduced_in: 6
+    consolidated_by: 6
+    required_by: [7, 9, 11, 12, 13]
+
+concept_introductions:
+  # Foundational vocabulary (Part I)
+  - {id: responsibility-chain,                       ch: 1}
+  - {id: altar-moves,                                ch: 1}
+  - {id: scapegoat-etymology-and-modern-loss,        ch: 1}
+  - {id: pure-scapegoat-pattern,                     ch: 2}
+  - {id: partial-scapegoat-pattern,                  ch: 2}
+  - {id: system-object-alibi-pattern,                ch: 2}
+  - {id: cost-bearing-goat,                          ch: 2}
+  - {id: eight-question-diagnostic,                  ch: 3}
+  - {id: three-stage-shift,                          ch: 3}
+  - {id: five-channel-interception-matrix,           ch: 3}
+
+  # Part II vocabulary
+  - {id: proxy-and-sponsor,                          ch: 4}
+  - {id: three-question-proxy-rule,                  ch: 4}
+  - {id: legal-status-shell,                         ch: 4}
+  - {id: layered-laundering-architecture,            ch: 5}
+  - {id: pretext-form,                               ch: 6}
+  - {id: six-question-pretext-diagnostic,            ch: 6}
+  - {id: signature-as-seam,                          ch: 6}
+  - {id: record-control,                             ch: 7}
+  - {id: five-role-conflation,                       ch: 7}
+  - {id: record-is-first-rule,                       ch: 7}
+
+  # Part III vocabulary
+  - {id: five-layer-war-stack,                       ch: 10}
+  - {id: strategic-justification-reification,        ch: 10}
+  - {id: chain-of-command-secrecy-layer,             ch: 10}
+  - {id: civilian-invisibility-euphemism,            ch: 10}
+  - {id: accountability-mechanism-inversion,         ch: 8}
+  - {id: AI-stack-three-layers,                      ch: 9}
+  - {id: alibi-escalation,                           ch: 9}
+  - {id: three-record-demand,                        ch: 9}
+
+  # Part IV vocabulary
+  - {id: named-attribution-design,                   ch: 11}
+  - {id: design-asymmetry-matrix,                    ch: 11}
+  - {id: responsibility-following-control-design,    ch: 11}
+  - {id: write-it-down-rule,                         ch: 12}
+  - {id: multi-custodian-chain-of-custody,           ch: 12}
+  - {id: make-destruction-visible-rule,              ch: 12}
+  - {id: counter-record-from-outside,                ch: 12}
+  - {id: role-by-domain-crosswalk,                   ch: 13}
+
+retirements:
+  # The pre-book frame that "if a case is complicated, it must be
+  # un-blameable" — retired by ch-5's demonstration that involved-but-not-
+  # sole actors absorb attribution precisely because they are partially
+  # culpable. The visible-consequence test is replaced by the chain test.
+  - {id: "pre-book-frame:complexity-equals-innocence",              retired_by: 5}
+
+  # The pre-book frame that "if the named actor is sympathetic / a victim
+  # / weak, they cannot be the responsibility-holder". Retired by ch-2's
+  # cost-bearing-goat install (the harm-bearer's weakness is the
+  # laundering's surface, not its discharge) and by ch-3's diagnostic that
+  # separates moral weight from chain position.
+  - {id: pre-book-frame:weakness-equals-innocence,                  retired_by: 2}
+
+  # The pre-book frame that "if the named cause is a system, machine,
+  # process, or institution, no human is responsible". Retired by ch-2's
+  # system/object-alibi install (Therac-25 / Boeing) and consolidated by
+  # ch-7 (Horizon's five-role conflation makes the human chain inside the
+  # system visible).
+  - {id: pre-book-frame:system-is-not-an-agent,                     retired_by: 2}
+
+  # The pre-book frame that "the bad-apples explanation closes the case".
+  # Retired by ch-2's Abu Ghraib install (chain stopped at staff sergeant)
+  # plus the Knapp Commission counter (the move is structurally identifiable
+  # as the partial-scapegoat shape; bad-apples is the rhetorical form).
+  - {id: pre-book-frame:bad-apples-closes-the-case,                 retired_by: 2}
+
+  # The pre-book frame that "intelligence was wrong" exhausts strategic
+  # responsibility — i.e., that the institutional-product framing is the
+  # full account when the product fails publicly. Retired by ch-10 (Iraq
+  # WMD: SSCI Phase II, DoD IG OSP, Chilcot all establish a public-
+  # statements gap distinct from the underlying product's hedges).
+  - {id: pre-book-frame:intelligence-was-wrong-equals-policy-not-responsible, retired_by: 10}
+
+  # The pre-book frame that "the accountability mechanism is itself an
+  # overreach" when invoked against the speaker's preferred actor. Retired
+  # by ch-8's structural test (the diagnostic is administration-agnostic;
+  # Watergate 1974 and Iran-Contra 1992 show the same inversion across
+  # parties).
+  - {id: pre-book-frame:accountability-mechanism-equals-overreach,  retired_by: 8}
+
+# ----- Candidate discriminations/concepts awaiting registration -----
+# Populated by /cognitive-arc-audit's first-time baseline run.
+candidates: []

@@ -1,0 +1,42 @@
+Owner: the reader
+Task: Cold-read 09-the-model-did-it publication form
+Inputs reviewed: book/chapters-v5/09-the-model-did-it.md (cold; no briefs/rules/registries/prior-reports/other-chapters consulted)
+Output: this report
+
+## Verdict
+CLEAN — no HARD findings
+
+## Findings (HARD) — block v3 publication until resolved or xaiolai-overridden
+None.
+
+## Findings (SOFT) — documented tradeoffs
+
+- [comprehension] §"Three operations, three official stories", input-layer paragraph (line 37) — Three framings get stacked fast: "publicly available data," the UK House of Lords sentence, and then the *Getty v. Stability AI* "statistically trained parameters, not stored copies" framing. The last one introduces a new idea (model weights as abstraction) that I had to slow down for. The opening paragraph promised one agent per layer ("at input it is the data"), but here the input layer suddenly has three sub-framings and an input/output split ("The input is renamed substance. The output is renamed abstraction."). I followed it, but it was the densest spot in the chapter and the cleanest one-thing-per-layer promise from the opening frayed a little.
+
+- [engagement] §"Running the diagnostic at the input layer" (lines 49–69) — This is the full eight-question walk and it is the long flat stretch. The abbreviated walks later (deployment, evaluation) are sharper because they say "only these two/three questions bend, here they are." The first full walk, by contrast, marches through all eight, and the middle of it (control/benefit/knowledge merged, then the two-other-cases paragraph on Authors Guild and NYT) is where my attention dipped. It recovered at "Who bore the cost?" I did not put the book down, but this was the slog.
+
+- [comprehension] Opening paragraph (line 17) — On first read I hit "at input it is the data, at deployment it is the model, at evaluation it is the variant" and had to hold three abstract pairings before I had any concrete case to attach them to. The three company cases that follow (Meta/evaluation, OpenAI/deployment, Anthropic/input) then arrive in a DIFFERENT order than the layers were just listed (input/deployment/evaluation). The chapter flags this ("in the order the events unfolded — but the layer, not the company, is the thing to watch"), which helped, but I still spent the Meta paragraph quietly re-sorting which layer I was in. By the recap at line 29 ("Three operations. Three layers...") I was oriented. So: a brief disorientation in the opening run, self-corrected, not a block.
+
+- [orientation] §"Running the diagnostic at the input layer" (line 49) — "Hybrid classification: the primary case-type is system/object alibi; the secondary is cost-bearing goat." I understood what these meant and trusted they were established categories, but reading cold I could not have crisply restated the difference between "system/object alibi" and "cost-bearing goat" from memory of earlier chapters — I took them on faith here. The chapter then explains them well ("The first names the mechanism. The second names the harm."), so the gap closed inside the paragraph. Minor.
+
+- [mechanics] §"Three operations, three official stories", evaluation paragraph (line 41) — The dates around the Meta spokesperson statement and the Al-Dahle X post and the LMArena response ("between 7 and 8 April," "On 7 April," "mid-April") come in a cluster that I read past rather than tracked precisely. Later (line 109) LMArena's statement is dated "7 April 2025," which I noticed was tighter than the earlier "mid-April." Not a contradiction I could pin down on a cold read, but the date-density in this paragraph is high enough that I stopped trying to hold the sequence.
+
+- [engagement] §"Run the diagnostic three times" through the close (lines 139–201) — The closing run is strong but long: the three-record demand, then the five-role integration, then the litigation triplet (which is its own section), then the cost-of-escape accounting, then the everyday-life list, then the signature-as-personal-alibi beat, then the emerging-fourth-layer coda. Each beat earned its place, but by the everyday-life list ("Employer AI screening. Bank-AI denial...") I felt the chapter winding down and then it kept going for several more strong paragraphs. A satisfied-but-slightly-tired feeling, not a put-down.
+
+## Clean axes
+
+- **Recognition** — The chapter's central turn ("The grammar is the laundering") landed as mine, not delivered. The "fair clue is in the grammar" setup in the opening (line 31) primed me to watch the verb's subject, and by the time the three official stories were laid out I was already noticing the non-human subjects myself before the prose named the move. The "alibi escalation" beat at the leaderboard (variant → policy, line 111) was a genuine click — I saw it relocate one rung up before the chapter named it. Earned.
+
+- **Trust** — This was the chapter's strongest axis for me. The hedging read as scrupulous, not evasive, at every load-bearing moment: "No public statement attributing the [decision] to [Zuckerberg/Amodei/Altman] personally has been documented as of May 2026"; "we hold the superlative to that condition"; "the procedural-stage trio is what we can support... is what the record cannot support, and we do not advance it." When the prose makes a strong claim (Anthropic "knew"), it immediately grounds it in the *Bartz* ruling and exhibits and grades it ("the highest-evidence-grade finding to date"). I never felt a thumb on the scale; the book holding itself to its own record-discipline is visible and it built trust over the chapter.
+
+- **Takeaway** — I can explain the diagnostic to a friend: AI companies launder responsibility by putting a non-human noun in the subject position of the sentence ("the model decided," "the data showed," "the variant performed"), and there are three different layers where this happens — how the model is built, how it is run, how it is benchmarked — so you have to run the test three times and demand three different records. I can complete "now I can recognize the model-decided alibi when a non-human verb-subject absorbs a decision that affects me." The chapter explicitly hands me the recognition trigger ("Did a non-human verb-subject just absorb a decision that affects me?"). Solid.
+
+## Notes on the specific concern you flagged (opening + three company cases)
+
+You asked me to pay honest attention to whether the opening paragraph and the three company cases that follow read cleanly or left me disoriented about the chapter's structure. My experience: the opening paragraph itself is dense (three abstract layer/agent pairings before any concrete case), and the three company cases arrive in event-order (Meta, OpenAI, Anthropic) rather than layer-order (input, deployment, evaluation), which produced a brief re-sorting friction — logged as SOFT above. But the chapter anticipates this exact friction with its own sentence ("in the order the events unfolded — but the layer, not the company, is the thing to watch") and seals it with the recap at line 29. I was oriented well before the section break. It is a real bump, not a block — I never lost the thread, only had to work slightly to assemble it on first pass.
+
+Evidence grade: N/A (experiential report)
+Assumptions: Read as a reader who has read chapters 1–8 in order; I recognized the callbacks to chapter 3 (the eight questions), chapter 7 (the five-role conflation, Horizon, Jason Coyne), and chapter 2 (Therac-25, Boeing MAX) as triggering memory rather than blanks, which means those callbacks worked on me.
+Open questions: The date-cluster in the line-41 evaluation paragraph ("between 7 and 8 April," "mid-April") versus the tighter "7 April 2025" at line 109 — I could not resolve on a cold read whether these describe the same statement or different ones. Not a comprehension block, but I noticed I'd stopped tracking.
+Risks: None blocking. The SOFT findings describe a slightly dense opening and two long stretches (the first full eight-question walk; the extended close) that a tired reader might skim — but the chapter never lost me and the recognition and trust axes are strong enough to carry it.
+Handoff: Jerry (triage) — all findings are SOFT; if any are actioned, the opening-density and first-walk-length items are Wayne (prose-level), and the larger question of whether the first full eight-question walk should compress would be Bonnie (structural).

@@ -1,0 +1,326 @@
+# Sidecar: chapter 6 [CITE:] anchors → research card ids
+# Full coverage of chapter 6 prose-body anchors as of 2026-05-26.
+#
+# Coverage status
+# - 47 [CITE:] anchor instances in chapter prose body (lines 31–193); ~30 unique source items
+#   covered by 26 unique research cards (24 new in this pass + 2 pre-existing cards reused:
+#   hofeller-2015-study-cvap-redistricting and dept-of-commerce-v-new-york-2019-roberts).
+# - Multiple anchors are multi-card composites (e.g., line 91 anchors both the DOJ OIG and
+#   the Senate PSI report; line 81 anchors § 1325 plus the two recruitment memoranda).
+# - Pin-cite locks carried forward to Wayne next pass (do not block ready-promotion):
+#     - Sessions San Diego remarks: byte-exact DOJ-OPA wording vs. chapter's near-paraphrase
+#       at lines 33 and 35.
+#     - Furman findings of fact: byte-exact "substantially solicited" verbatim and paragraph
+#       cite (chapter currently paraphrases the finding at line 93).
+#     - GAO B-331564: tighten $214M DoD-USAI vs. $391M total scope distinction at line 49.
+#     - Sondland HPSCI: byte-exact opening-statement quotation for "quid pro quo" alongside
+#       chapter's paraphrase "at the express direction of the President of the United States"
+#       at lines 95 and 105.
+#     - DOJ OIG Sessions-awareness operative language verbatim quotation at line 101.
+#     - Ms. L. Steering Committee unreunited-children tally as of chapter freeze date
+#       (chapter prose at line 159 already carries inline [EVIDENCE NEEDED] marker).
+#     - K.O. v. United States / FTCA per-case procedural posture as of chapter freeze date
+#       (chapter prose at line 173 already carries inline [EVIDENCE NEEDED] marker).
+
+# Refreshed by scripts/refresh_sidecar_anchors.py — anchor_text now
+# carries the card slug (matching the rule-13 [CITE: <slug>] form in
+# chapter prose). The original human-readable citation moved to the
+# `description` field on each anchor. PyYAML round-trip preserves the
+# leading comment block above but may have dropped any mid-file inline
+# comments; recover from git history if needed.
+
+chapter_id: 06-the-pretext
+anchors:
+- anchor_text: nielsen-tweet-no-policy-2018-06-17
+  card_ids:
+  - nielsen-tweet-no-policy-2018-06-17
+  description: Nielsen tweet, @SecNielsen, June 17, 2018, 2:08 p.m. ET; reproduced verbatim in contemporaneous tier-1 reporting (AP, Reuters, NYT, WaPo, June 17–18, 2018); archived.
+  line_in_chapter: 31
+  notes: 'Beat 1 (accusation scene): Nielsen denial of the family-separation policy on Twitter the day before the ProPublica audio release. Anchor language tightened 2026-05-27 to acknowledge the tier-1 reproduction path because the original tweet URL is now login-walled at twitter.com/x.com; the card retains A-grade on the basis of contemporaneous tier-1 verbatim reproduction across at least four independent outlets within 24 hours.'
+- anchor_text: sessions-san-diego-remarks-2018-05-07; sessions-zero-tolerance-memorandum-2018-04-06
+  card_ids:
+  - sessions-san-diego-remarks-2018-05-07
+  - sessions-zero-tolerance-memorandum-2018-04-06
+  description: AG Sessions remarks, May 7, 2018; AG Sessions memorandum, April 6, 2018.
+  line_in_chapter: 33
+  notes: 'Beat 1: zero-tolerance public framing; two cards (San Diego remarks + April 6 memorandum).'
+- anchor_text: sessions-san-diego-remarks-2018-05-07
+  card_ids:
+  - sessions-san-diego-remarks-2018-05-07
+  description: Sessions remarks, May 7, 2018, San Diego, contemporaneous transcripts.
+  line_in_chapter: 35
+  notes: 'Beat 1: operative paraphrase quoted by chapter. Verbatim/paraphrase tightening flagged for Wayne next pass per card body.'
+- anchor_text: sessions-zero-tolerance-memorandum-2018-04-06
+  card_ids:
+  - sessions-zero-tolerance-memorandum-2018-04-06
+  description: AG memorandum, April 6, 2018, "Zero-Tolerance for Offenses Under 8 U.S.C. § 1325(a)."
+  line_in_chapter: 45
+  notes: 'Beat 2 (official story): Sessions April 6, 2018 memorandum directing zero-tolerance referral.'
+- anchor_text: nielsen-dhs-memorandum-2018-05-04
+  card_ids:
+  - nielsen-dhs-memorandum-2018-05-04
+  description: Nielsen memorandum, May 4, 2018.
+  line_in_chapter: 45
+  notes: 'Beat 2: Nielsen May 4, 2018 memorandum directing CBP referral of adults with children.'
+- anchor_text: ross-memorandum-citizenship-question-2018-03-26
+  card_ids:
+  - ross-memorandum-citizenship-question-2018-03-26
+  description: Ross memorandum, March 26, 2018.
+  line_in_chapter: 47
+  notes: 'Beat 2: Ross memorandum reinstating the 2020 census citizenship question.'
+- anchor_text: gary-doj-letter-citizenship-2017-12-12
+  card_ids:
+  - gary-doj-letter-citizenship-2017-12-12
+  description: Gary letter, December 12, 2017.
+  line_in_chapter: 47
+  notes: 'Beat 2: DOJ-VRA request letter that the Ross memorandum cited.'
+- anchor_text: gao-opinion-b-331564-ukraine-aid-ica-2020-01-16
+  card_ids:
+  - gao-opinion-b-331564-ukraine-aid-ica-2020-01-16
+  description: GAO opinion B-331564, January 16, 2020.
+  line_in_chapter: 49
+  notes: 'Beat 2: GAO opinion characterizing Ukraine-aid hold as ICA violation. First chapter reference; further references at lines 85, 115, 163.'
+- anchor_text: apa-5-usc-706-arbitrary-capricious
+  card_ids:
+  - apa-5-usc-706-arbitrary-capricious
+  description: 5 U.S.C. § 706(2)(A).
+  line_in_chapter: 57
+  notes: 'Beat 3 (hidden architecture): APA standard of review cite.'
+- anchor_text: overton-park-v-volpe-1971
+  card_ids:
+  - overton-park-v-volpe-1971
+  description: 401 U.S. 402 (1971).
+  line_in_chapter: 57
+  notes: 'Beat 3: Overton Park citation. First chapter reference; second at line 145.'
+- anchor_text: improper-entry-8-usc-1325; sessions-zero-tolerance-memorandum-2018-04-06; nielsen-dhs-memorandum-2018-05-04
+  card_ids:
+  - improper-entry-8-usc-1325
+  - sessions-zero-tolerance-memorandum-2018-04-06
+  - nielsen-dhs-memorandum-2018-05-04
+  description: 8 U.S.C. § 1325; AG memorandum April 6, 2018; Nielsen memorandum May 4, 2018.
+  line_in_chapter: 81
+  notes: 'Beat 3 Q1 (family separation): three-card composite anchor — the statute plus the two recruitment memoranda.'
+- anchor_text: vra-section-2-52-usc-10301
+  card_ids:
+  - vra-section-2-52-usc-10301
+  description: 52 U.S.C. § 10301.
+  line_in_chapter: 83
+  notes: 'Beat 3 Q1 (census citizenship): VRA Section 2 citation.'
+- anchor_text: state-of-ny-v-commerce-furman-findings-2019
+  card_ids:
+  - state-of-ny-v-commerce-furman-findings-2019
+  description: 340 F. Supp. 3d 314 at 638–43 (S.D.N.Y. 2019), Furman, J., findings of fact citing Census Bureau internal memoranda.
+  line_in_chapter: 83
+  notes: 'Beat 3 Q1 (census citizenship): Furman pin-cite to Census Bureau internal memoranda. First chapter reference; further references at lines 93, 161, 193.'
+- anchor_text: impoundment-control-act-2-usc-681-688
+  card_ids:
+  - impoundment-control-act-2-usc-681-688
+  description: 2 U.S.C. §§ 681–688.
+  line_in_chapter: 85
+  notes: 'Beat 3 Q1 (Ukraine): Impoundment Control Act citation.'
+- anchor_text: gao-opinion-b-331564-ukraine-aid-ica-2020-01-16
+  card_ids:
+  - gao-opinion-b-331564-ukraine-aid-ica-2020-01-16
+  description: GAO opinion B-331564, January 16, 2020.
+  line_in_chapter: 85
+  notes: 'Beat 3 Q1 (Ukraine): GAO opinion. Second chapter reference.'
+- anchor_text: doj-oig-zero-tolerance-report-2021-01; senate-psi-family-separation-2020-10
+  card_ids:
+  - doj-oig-zero-tolerance-report-2021-01
+  - senate-psi-family-separation-2020-10
+  description: DOJ OIG, "Review of the Department of Justice's Planning and Implementation of Its Zero Tolerance Policy," January 2021; Senate PSI report, October 2020.
+  line_in_chapter: 91
+  notes: 'Beat 3 Q2 (family separation): two-card composite anchor — DOJ OIG + Senate PSI naming participants in coordination.'
+- anchor_text: dhs-oig-20-06-el-paso-pilot-2020-01-29
+  card_ids:
+  - dhs-oig-20-06-el-paso-pilot-2020-01-29
+  description: DHS OIG OIG-20-06, January 29, 2020.
+  line_in_chapter: 91
+  notes: 'Beat 3 Q2 (family separation): DHS OIG El Paso Phase I pilot documentation.'
+- anchor_text: state-of-ny-v-commerce-furman-findings-2019
+  card_ids:
+  - state-of-ny-v-commerce-furman-findings-2019
+  description: 340 F. Supp. 3d 314 (S.D.N.Y. 2019), Furman, J., findings of fact.
+  line_in_chapter: 93
+  notes: 'Beat 3 Q2 (census citizenship): Furman findings on DOJ-request solicitation pathway. Second chapter reference.'
+- anchor_text: sondland-hpsci-testimony-2019-11-20
+  card_ids:
+  - sondland-hpsci-testimony-2019-11-20
+  description: HPSCI testimony, Sondland, November 20, 2019.
+  line_in_chapter: 95
+  notes: 'Beat 3 Q2 (Ukraine): Sondland sworn HPSCI testimony. First chapter reference; second at line 105.'
+- anchor_text: doj-oig-zero-tolerance-report-2021-01
+  card_ids:
+  - doj-oig-zero-tolerance-report-2021-01
+  description: DOJ OIG report, January 2021.
+  line_in_chapter: 101
+  notes: 'Beat 3 Q3 (family separation): DOJ OIG documented deterrent purpose. Second chapter reference.'
+- anchor_text: senate-psi-family-separation-2020-10
+  card_ids:
+  - senate-psi-family-separation-2020-10
+  description: Senate PSI report, October 2020.
+  line_in_chapter: 101
+  notes: 'Beat 3 Q3 (family separation): Senate PSI documented deterrent purpose. Second chapter reference.'
+- anchor_text: kravitz-v-commerce-d-md-hofeller-filings-2019-05-30
+  card_ids:
+  - kravitz-v-commerce-d-md-hofeller-filings-2019-05-30
+  description: D. Md. Case No. 18-cv-1041, filings of May 30, 2019.
+  line_in_chapter: 103
+  notes: 'Beat 3 Q3 (census citizenship): Hofeller-files public filing. First chapter reference; second at line 161.'
+- anchor_text: hofeller-2015-study-cvap-redistricting; kravitz-v-commerce-d-md-hofeller-filings-2019-05-30
+  card_ids:
+  - hofeller-2015-study-cvap-redistricting
+  - kravitz-v-commerce-d-md-hofeller-filings-2019-05-30
+  description: Hofeller 2015 study, filed as Exhibit to plaintiffs' letter of 30 May 2019 in *Kravitz v. U.S. Department of Commerce*, D. Md. Case No. 18-cv-1041; reproduced in plaintiffs' supplemental filings in *State of New York v. U.S. Department of Commerce*, S.D.N.Y.
+  line_in_chapter: 103
+  notes: 'Beat 3 Q3 (census citizenship): two-card composite anchor — the 2015 study (pre-existing card) + the May 30, 2019 filing vehicle.'
+- anchor_text: trump-zelensky-call-memorandum-2019-07-25
+  card_ids:
+  - trump-zelensky-call-memorandum-2019-07-25
+  description: Call memorandum, July 25, 2019, released September 24, 2019.
+  line_in_chapter: 105
+  notes: 'Beat 3 Q3 (Ukraine): Trump-Zelensky call memorandum ''do us a favor though'' anchor.'
+- anchor_text: sondland-hpsci-testimony-2019-11-20
+  card_ids:
+  - sondland-hpsci-testimony-2019-11-20
+  description: HPSCI testimony, Sondland, November 20, 2019.
+  line_in_chapter: 105
+  notes: 'Beat 3 Q3 (Ukraine): Sondland sworn testimony. Second chapter reference (first at line 95).'
+- anchor_text: icig-whistleblower-complaint-2019-08-12
+  card_ids:
+  - icig-whistleblower-complaint-2019-08-12
+  description: ICIG-certified whistleblower complaint, August 12, 2019.
+  line_in_chapter: 105
+  notes: 'Beat 3 Q3 (Ukraine): ICIG-certified whistleblower complaint. First chapter reference; second at line 163.'
+- anchor_text: dhs-oig-20-06-el-paso-pilot-2020-01-29
+  card_ids:
+  - dhs-oig-20-06-el-paso-pilot-2020-01-29
+  description: DHS OIG OIG-20-06, January 2020.
+  line_in_chapter: 111
+  notes: 'Beat 3 Q4 (family separation): El Paso pilot prior-use-pattern documentation. Second chapter reference.'
+- anchor_text: us-census-1950-citizenship-question-historical
+  card_ids:
+  - us-census-1950-citizenship-question-historical
+  description: U.S. Census Bureau historical record.
+  line_in_chapter: 113
+  notes: 'Beat 3 Q4 (census citizenship): 1950 last all-household decennial citizenship question.'
+- anchor_text: gao-opinion-b-331564-ukraine-aid-ica-2020-01-16
+  card_ids:
+  - gao-opinion-b-331564-ukraine-aid-ica-2020-01-16
+  description: GAO opinion B-331564, January 16, 2020.
+  line_in_chapter: 115
+  notes: 'Beat 3 Q4 (Ukraine): GAO opinion in prior-use-pattern context. Third chapter reference.'
+- anchor_text: overton-park-v-volpe-1971
+  card_ids:
+  - overton-park-v-volpe-1971
+  description: 401 U.S. 402 (1971).
+  line_in_chapter: 145
+  notes: 'Beat 4 (older echo): Overton Park lineage anchor. Second chapter reference (first at line 57).'
+- anchor_text: state-farm-v-mvma-1983
+  card_ids:
+  - state-farm-v-mvma-1983
+  description: 463 U.S. 29 (1983).
+  line_in_chapter: 147
+  notes: 'Beat 4 (older echo): State Farm modern reasoned-explanation articulation.'
+- anchor_text: dhs-oig-18-87-zero-tolerance-2018-09-27
+  card_ids:
+  - dhs-oig-18-87-zero-tolerance-2018-09-27
+  description: DHS OIG OIG-18-87.
+  line_in_chapter: 159
+  notes: 'Beat 5 (record hardens): first DHS OIG report on family separation.'
+- anchor_text: dhs-oig-20-06-el-paso-pilot-2020-01-29
+  card_ids:
+  - dhs-oig-20-06-el-paso-pilot-2020-01-29
+  description: DHS OIG OIG-20-06.
+  line_in_chapter: 159
+  notes: 'Beat 5: DHS OIG El Paso pilot report. Third chapter reference.'
+- anchor_text: doj-oig-zero-tolerance-report-2021-01
+  card_ids:
+  - doj-oig-zero-tolerance-report-2021-01
+  description: DOJ OIG Zero-Tolerance Report, January 2021.
+  line_in_chapter: 159
+  notes: 'Beat 5: DOJ OIG Zero-Tolerance Report. Third chapter reference.'
+- anchor_text: senate-psi-family-separation-2020-10
+  card_ids:
+  - senate-psi-family-separation-2020-10
+  description: Senate PSI report, October 2020.
+  line_in_chapter: 159
+  notes: 'Beat 5: Senate PSI report. Third chapter reference.'
+- anchor_text: ms-l-v-ice-sd-cal-18-cv-428
+  card_ids:
+  - ms-l-v-ice-sd-cal-18-cv-428
+  description: '*Ms. L. v. ICE*, S.D. Cal. Case No. 18-cv-428.'
+  line_in_chapter: 159
+  notes: 'Beat 5: Ms. L. v. ICE Sabraw preliminary injunction and Steering Committee. Steering Committee unreunited-children tally chapter [EVIDENCE NEEDED] marker pending Stephen live re-pass at manuscript freeze.'
+- anchor_text: state-of-ny-v-commerce-furman-findings-2019
+  card_ids:
+  - state-of-ny-v-commerce-furman-findings-2019
+  description: 340 F. Supp. 3d 314 (S.D.N.Y. 2019).
+  line_in_chapter: 161
+  notes: 'Beat 5: Furman findings of fact citation. Third chapter reference.'
+- anchor_text: dept-of-commerce-v-new-york-2019-roberts
+  card_ids:
+  - dept-of-commerce-v-new-york-2019-roberts
+  description: '*Department of Commerce v. New York*, 588 U.S. 752, 139 S. Ct. 2551, 2575–2576 (2019) (opinion of the Court, Part V); official U.S. Reports volume 588 pagination pending publication'
+  line_in_chapter: 161
+  notes: 'Beat 5: SCOTUS Roberts opinion ''contrived'' rationale finding. First chapter reference; second at line 193.'
+- anchor_text: kravitz-v-commerce-d-md-hofeller-filings-2019-05-30
+  card_ids:
+  - kravitz-v-commerce-d-md-hofeller-filings-2019-05-30
+  description: D. Md. filings, May 30, 2019.
+  line_in_chapter: 161
+  notes: 'Beat 5: Hofeller-files D. Md. public filing. Second chapter reference.'
+- anchor_text: icig-whistleblower-complaint-2019-08-12
+  card_ids:
+  - icig-whistleblower-complaint-2019-08-12
+  description: ICIG certification; whistleblower complaint, declassified September 26, 2019.
+  line_in_chapter: 163
+  notes: 'Beat 5: ICIG certification of whistleblower complaint. Second chapter reference.'
+- anchor_text: hpsci-trump-ukraine-impeachment-inquiry-report-2019-12-03
+  card_ids:
+  - hpsci-trump-ukraine-impeachment-inquiry-report-2019-12-03
+  description: HPSCI Majority Staff, December 3, 2019.
+  line_in_chapter: 163
+  notes: 'Beat 5: Trump-Ukraine Impeachment Inquiry Report transmitted to House Judiciary.'
+- anchor_text: h-res-755-articles-of-impeachment-2019-12-18
+  card_ids:
+  - h-res-755-articles-of-impeachment-2019-12-18
+  description: H. Res. 755, December 18, 2019.
+  line_in_chapter: 163
+  notes: 'Beat 5: House Articles of Impeachment as adopted.'
+- anchor_text: senate-impeachment-trial-acquittal-2020-02-05
+  card_ids:
+  - senate-impeachment-trial-acquittal-2020-02-05
+  description: Senate trial record.
+  line_in_chapter: 163
+  notes: 'Beat 5: Senate impeachment trial and acquittal votes (Article I 48–52; Article II 47–53).'
+- anchor_text: gao-opinion-b-331564-ukraine-aid-ica-2020-01-16
+  card_ids:
+  - gao-opinion-b-331564-ukraine-aid-ica-2020-01-16
+  description: GAO opinion B-331564.
+  line_in_chapter: 163
+  notes: 'Beat 5: GAO opinion. Fourth chapter reference.'
+- anchor_text: executive-order-13841-family-reunification-2018-06-20
+  card_ids:
+  - executive-order-13841-family-reunification-2018-06-20
+  description: EO 13841.
+  line_in_chapter: 171
+  notes: 'Beat 6 (goat resists): Executive Order 13841 ending family separation.'
+- anchor_text: ko-v-united-states-bivens-line-family-separation
+  card_ids:
+  - ko-v-united-states-bivens-line-family-separation
+  description: '*K.O. v. United States* and related Bivens actions; current procedural status.'
+  line_in_chapter: 173
+  notes: 'Beat 6 (goat resists): Bivens-line qualified-immunity dismissals. Chapter [EVIDENCE NEEDED] marker pending Stephen live re-pass at manuscript freeze. C-grade live-litigation card per rule 02 contested-record carve-out (chapter context is explicitly the contested individual-accountability status).'
+- anchor_text: state-of-ny-v-commerce-furman-findings-2019
+  card_ids:
+  - state-of-ny-v-commerce-furman-findings-2019
+  description: 340 F. Supp. 3d 314 (S.D.N.Y. 2019).
+  line_in_chapter: 193
+  notes: 'Beat 7 (alibi weakens — census citizenship): Furman pretextual-rationale finding. Fourth chapter reference.'
+- anchor_text: dept-of-commerce-v-new-york-2019-roberts
+  card_ids:
+  - dept-of-commerce-v-new-york-2019-roberts
+  description: 588 U.S. 752 at 783 (2019).
+  line_in_chapter: 193
+  notes: 'Beat 7: SCOTUS Roberts pin-cite. Card body notes the prior pin cite ''588 U.S. 752 at 783'' could not be independently verified (U.S. Reports vol 588 pagination pending publication); parallel cite at 139 S. Ct. 2551, 2575–2576 is A-grade confirmable and is carried in the chapter''s line-161 anchor. Wayne next pass should harmonize lines 161 and 193 to the parallel cite. Second chapter reference.'

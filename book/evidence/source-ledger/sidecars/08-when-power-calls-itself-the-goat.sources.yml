@@ -1,0 +1,323 @@
+# Sidecar: chapter 9 [CITE:] anchors → research card ids
+# Full coverage of chapter 9 anchors as of 2026-05-26.
+# 26 [CITE:] anchors in chapter prose body (lines 18-152); 24 unique cards back the 26 anchor
+# instances (Trump v. J.G.G. per curiam, Noem v. Abrego Garcia per curiam, Boasberg contempt
+# finding, Cooper preservation order, and Federal Register catch-all each anchor multiple
+# locations).
+
+# Refreshed by scripts/refresh_sidecar_anchors.py — anchor_text now
+# carries the card slug (matching the rule-13 [CITE: <slug>] form in
+# chapter prose). The original human-readable citation moved to the
+# `description` field on each anchor. PyYAML round-trip preserves the
+# leading comment block above but may have dropped any mid-file inline
+# comments; recover from git history if needed.
+
+chapter_id: 08-when-power-calls-itself-the-goat
+anchors:
+- anchor_text: proclamation-10887-j6-pardons-2025-01-20
+  card_ids:
+  - proclamation-10887-j6-pardons-2025-01-20
+  description: 90 Fed. Reg. 8331 (Jan. 29, 2025)
+  line_in_chapter: 18
+  notes: Accusation scene; Proclamation 10887 (J6 pardons). Federal Register cite.
+- anchor_text: j6-prosecution-dismissal-coverage-2025; doj-j6-prosecutor-osc-mspb-complaints-pending
+  card_ids:
+  - j6-prosecution-dismissal-coverage-2025
+  - doj-j6-prosecutor-osc-mspb-complaints-pending
+  description: Reuters, WaPo, NYT 2025 reporting; Stephen to lock article cites; named prosecutors pending OSC/MSPB filings
+  line_in_chapter: 20
+  notes: 'Accusation scene; two related sub-claims: tier-1 journalism coverage of J6 dismissal motions / dashboard removal / prosecutor terminations (first card), and the OSC/MSPB complaint-filing sub-claim (second card). Both carry forward pin-cite locks per chapter prose.'
+- anchor_text: capitol-police-labor-committee-statement-2025-01-21
+  card_ids:
+  - capitol-police-labor-committee-statement-2025-01-21
+  description: Capitol Police Labor Committee statement, Jan. 21, 2025
+  line_in_chapter: 20
+  notes: Accusation scene; contemporaneous institutional response. URL and verbatim text pending lock.
+- anchor_text: doj-capitol-breach-dashboard-removal-2025
+  card_ids:
+  - doj-capitol-breach-dashboard-removal-2025
+  description: 'DOJ USAO-DC "Capitol Breach Cases" page; last Wayback capture 2025-01-24; removed 2025-01-24..2025-01-28; replaced with page-not-found notice. Charged-count figure grounded in DOJ 48-month update (justice.gov/usao-dc/48-months-jan-6-attack-us-capitol, Jan. 6, 2025): "approximately 1,583 defendants have been charged criminally."'
+  line_in_chapter: 19
+  notes: 'Accusation scene; the public prosecution ledger that went dark. Card grade B for existence/live-as-of-2025-01-24/removal. LOCKED 2026-05-29 (pending-stephen-lock removed): the chapter claim "more than 1,500 charged" is grounded in a DOJ PRIMARY statement for the same window — the DOJ 48-month update (Jan. 6, 2025) states "approximately 1,583 defendants have been charged criminally in federal court," confirmed via two independent renderings. "More than 1,500" is a true conservative floor under 1,583; framing matches CBS/CREW/Proclamation-10887 coverage. The literal masthead pixel-string on capture 20250124023512 remains unrendered (web.archive.org blocked from this checkpoint AND from the Claude Code fetch tool) but is NOT what the sentence asserts, so it did not block the lock.'
+- anchor_text: proclamation-10903-alien-enemies-act-2025-03-14; alien-enemies-act-50-usc-21-24
+  card_ids:
+  - proclamation-10903-alien-enemies-act-2025-03-14
+  - alien-enemies-act-50-usc-21-24
+  description: 90 Fed. Reg. 13033 (Mar. 20, 2025); 50 U.S.C. §§ 21–24
+  line_in_chapter: 22
+  notes: 'Accusation scene; Proclamation 10903 (AEA invocation) plus the statutory companion. Two cards: proclamation and statute.'
+- anchor_text: cecot-march-15-2025-removal-flights-coverage
+  card_ids:
+  - cecot-march-15-2025-removal-flights-coverage
+  description: AP, ProPublica, CBS News reconstructions, 2025; manifest count B
+  line_in_chapter: 24
+  notes: Accusation scene; March 15, 2025 CECOT removal flights. Manifest-count B per chapter prose; per-article URL lock pending.
+- anchor_text: abrego-garcia-v-noem-d-md-complaint-2025
+  card_ids:
+  - abrego-garcia-v-noem-d-md-complaint-2025
+  description: Abrego Garcia v. Noem complaint, No. 8:25-cv-00951 (D. Md.); government filings in same
+  line_in_chapter: 24
+  notes: Accusation scene; D. Md. docket and 'administrative error' filings. Specific docket-entry pin pending.
+- anchor_text: proclamation-10887-j6-pardons-2025-01-20; admin-statements-j6-hostages-framing-2025
+  card_ids:
+  - proclamation-10887-j6-pardons-2025-01-20
+  - admin-statements-j6-hostages-framing-2025
+  description: Proclamation 10887; on-the-record administration statements, 2025; Stephen to lock specific dated statements and speaker-by-speaker attribution
+  line_in_chapter: 32
+  notes: 'Official-story beat; J6 frame (''grave national injustice'' + ''hostages''). Two cards: proclamation (A-grade) and admin-statements aggregate (C-grade, pending speaker pin).'
+- anchor_text: executive-order-14158-doge-2025-01-20
+  card_ids:
+  - executive-order-14158-doge-2025-01-20
+  description: 90 Fed. Reg. 8441 (Jan. 29, 2025)
+  line_in_chapter: 34
+  notes: Official-story beat; EO 14158 establishing the U.S. DOGE Service.
+- anchor_text: crew-v-doge-service-ddc-complaint-2025-02-20
+  card_ids:
+  - crew-v-doge-service-ddc-complaint-2025-02-20
+  description: filings in CREW v. U.S. DOGE Service, No. 1:25-cv-00511 (D.D.C.)
+  line_in_chapter: 34
+  notes: Official-story beat; administration position on DOGE FOIA-applicability via case filings.
+- anchor_text: proclamation-10903-alien-enemies-act-2025-03-14; admin-statements-aea-worst-of-the-worst-activist-judges-2025
+  card_ids:
+  - proclamation-10903-alien-enemies-act-2025-03-14
+  - admin-statements-aea-worst-of-the-worst-activist-judges-2025
+  description: Proclamation 10903; on-the-record administration statements, 2025; Stephen to lock specific dated statements and speaker-by-speaker attribution
+  line_in_chapter: 36
+  notes: 'Official-story beat; AEA frame (''invasion'' + ''terrorists'' / ''worst of the worst'' + ''activist judges''). Two cards: proclamation (A-grade) and admin-statements aggregate (C-grade, pending speaker pin).'
+- anchor_text: admin-statements-aea-worst-of-the-worst-activist-judges-2025; abrego-garcia-v-noem-d-md-complaint-2025
+  card_ids:
+  - admin-statements-aea-worst-of-the-worst-activist-judges-2025
+  - abrego-garcia-v-noem-d-md-complaint-2025
+  description: administration statements; Abrego Garcia v. Noem filings disputing the characterization
+  line_in_chapter: 46
+  notes: 'Hidden-architecture beat; who was publicly blamed. Two cards: admin-statements aggregate plus the case docket where the characterization was disputed.'
+- anchor_text: abrego-garcia-2019-withholding-of-removal-order
+  card_ids:
+  - abrego-garcia-2019-withholding-of-removal-order
+  description: 2019 withholding-of-removal order; reflected in subsequent court filings
+  line_in_chapter: 46
+  notes: Hidden-architecture beat; 2019 immigration-judge order reflected in 2025 case filings. Per-exhibit pin pending.
+- anchor_text: j-g-g-v-trump-ddc-complaint-2025-03-15
+  card_ids:
+  - j-g-g-v-trump-ddc-complaint-2025-03-15
+  description: J.G.G. v. Trump dockets and parallel proceedings
+  line_in_chapter: 46
+  notes: Hidden-architecture beat; the ~137 Venezuelan removals' adjudicated finding question. J.G.G. docket is the central anchor; parallel-proceeding references covered by [[wd-sd-tex-aea-due-process-rulings-2025]].
+- anchor_text: proclamation-10903-alien-enemies-act-2025-03-14; j-g-g-v-trump-ddc-complaint-2025-03-15; abrego-garcia-v-noem-d-md-complaint-2025
+  card_ids:
+  - proclamation-10903-alien-enemies-act-2025-03-14
+  - j-g-g-v-trump-ddc-complaint-2025-03-15
+  - abrego-garcia-v-noem-d-md-complaint-2025
+  description: Proclamation 10903; DHS/ICE manifests in J.G.G. and Abrego Garcia dockets
+  line_in_chapter: 48
+  notes: 'Hidden-architecture beat; who had control. Three cards: proclamation and the two dockets carrying the DHS/ICE manifest filings.'
+- anchor_text: bilateral-arrangement-cecot-partial-record-2025
+  card_ids:
+  - bilateral-arrangement-cecot-partial-record-2025
+  description: bilateral-arrangement details, partial public record; Stephen to anchor congressional briefings if available
+  line_in_chapter: 50
+  notes: Hidden-architecture beat; beneficiary-layer (bilateral arrangement). C-grade live partial-disclosure card.
+- anchor_text: abrego-garcia-v-noem-d-md-complaint-2025
+  card_ids:
+  - abrego-garcia-v-noem-d-md-complaint-2025
+  description: government filings, Abrego Garcia v. Noem
+  line_in_chapter: 52
+  notes: Hidden-architecture beat; documented knowledge ('administrative error' language). Pin-cite pending.
+- anchor_text: trump-v-jgg-24a931-per-curiam-2025-04-07
+  card_ids:
+  - trump-v-jgg-24a931-per-curiam-2025-04-07
+  description: per curiam
+  line_in_chapter: 54
+  notes: Hidden-architecture beat; codification of individuated process requirement. First chapter reference to Trump v. J.G.G., 24A931 per curiam.
+- anchor_text: olc-presidential-self-pardon-memo-1974-08-05
+  card_ids:
+  - olc-presidential-self-pardon-memo-1974-08-05
+  description: OLC memorandum, Aug. 5, 1974, "Presidential or Legislative Pardon of the President"; Stephen to confirm exact wording
+  line_in_chapter: 68
+  notes: Older-echo beat; Watergate-era OLC self-pardon memorandum. Verbatim phrase locked from DOJ-published copy.
+- anchor_text: proclamation-6518-bush-iran-contra-pardons-1992-12-24
+  card_ids:
+  - proclamation-6518-bush-iran-contra-pardons-1992-12-24
+  description: Proclamation 6518 (Dec. 24, 1992)
+  line_in_chapter: 70
+  notes: Older-echo beat; Bush Iran-Contra pardons.
+- anchor_text: walsh-final-report-iran-contra-1993-08-04
+  card_ids:
+  - walsh-final-report-iran-contra-1993-08-04
+  description: Walsh, Final Report, Aug. 4, 1993; Stephen to anchor exact page
+  line_in_chapter: 70
+  notes: Older-echo beat; Walsh Final Report 'completed the cover-up' characterization. Verbatim phrase locked across multi-source corroboration; page-cite pending.
+- anchor_text: tower-commission-report-1987-02
+  card_ids:
+  - tower-commission-report-1987-02
+  description: Tower Commission Report, Feb. 1987; Senate Iran-Contra hearings, 1987
+  line_in_chapter: 70
+  notes: Older-echo beat; contemporaneous Iran-Contra documentation including North's Nov. 1986 document destruction. Senate hearings 1987 reference folded into Tower Commission card; future split possible if Senate hearings carry independent claim.
+- anchor_text: proclamation-10887-j6-pardons-2025-01-20; executive-order-14158-doge-2025-01-20; proclamation-10903-alien-enemies-act-2025-03-14
+  card_ids:
+  - proclamation-10887-j6-pardons-2025-01-20
+  - executive-order-14158-doge-2025-01-20
+  - proclamation-10903-alien-enemies-act-2025-03-14
+  description: Federal Register, as stated
+  line_in_chapter: 80
+  notes: Record-hardens beat; catch-all FR cite anchoring all three 2025 acts (10887, 14158, 10903) cited together. All three primary cards.
+- anchor_text: crew-v-doge-service-ddc-complaint-2025-02-20; j-g-g-v-trump-ddc-complaint-2025-03-15; abrego-garcia-v-noem-d-md-complaint-2025
+  card_ids:
+  - crew-v-doge-service-ddc-complaint-2025-02-20
+  - j-g-g-v-trump-ddc-complaint-2025-03-15
+  - abrego-garcia-v-noem-d-md-complaint-2025
+  description: PACER
+  line_in_chapter: 82
+  notes: 'Record-hardens beat; PACER catch-all anchoring the three case-filing references in the same sentence (CREW, J.G.G., Abrego Garcia). NOTE: chapter prose at line 82 cites a single ''PACER'' anchor after each of three case captions; this sidecar entry covers all three case-filing PACER anchors. The American Oversight v. DOGE filing on the same line is anchored separately below.'
+- anchor_text: american-oversight-v-doge-musk-fra-signal-2025; federal-records-act-44-usc-chapter-31
+  card_ids:
+  - american-oversight-v-doge-musk-fra-signal-2025
+  - federal-records-act-44-usc-chapter-31
+  description: docket; Stephen to lock number
+  line_in_chapter: 82
+  notes: Record-hardens beat; American Oversight v. DOGE FRA-circumvention action. Docket number pending lock. FRA statute card cross-referenced as the operative statute the action alleges was circumvented.
+- anchor_text: cooper-crew-doge-preservation-order-2025-03
+  card_ids:
+  - cooper-crew-doge-preservation-order-2025-03
+  description: docket entries and stage-specific orders pending Stephen verification
+  line_in_chapter: 84
+  notes: Record-hardens beat; Cooper preservation order + subsequent stage-specific orders in CREW v. DOGE. First chapter reference; second reference at line 120. Pin-cite and quote-text pending PACER lock.
+- anchor_text: trump-v-jgg-24a931-per-curiam-2025-04-07
+  card_ids:
+  - trump-v-jgg-24a931-per-curiam-2025-04-07
+  description: 24A931 per curiam
+  line_in_chapter: 84
+  notes: Record-hardens beat; Trump v. J.G.G., 24A931 per curiam. Second chapter reference (first at line 54).
+- anchor_text: trump-v-jgg-24a931-sotomayor-dissent-2025-04-07
+  card_ids:
+  - trump-v-jgg-24a931-sotomayor-dissent-2025-04-07
+  description: 24A931, Sotomayor, J., dissenting
+  line_in_chapter: 84
+  notes: Record-hardens beat; Sotomayor dissent in Trump v. J.G.G., 24A931.
+- anchor_text: noem-v-abrego-garcia-24a949-per-curiam-2025-04-10
+  card_ids:
+  - noem-v-abrego-garcia-24a949-per-curiam-2025-04-10
+  description: 24A949 per curiam
+  line_in_chapter: 84
+  notes: Record-hardens beat; Noem v. Abrego Garcia, 24A949 per curiam. First chapter reference; second at line 118; third at line 150.
+- anchor_text: noem-v-abrego-garcia-24a949-sotomayor-statement-2025-04-10
+  card_ids:
+  - noem-v-abrego-garcia-24a949-sotomayor-statement-2025-04-10
+  description: same order
+  line_in_chapter: 84
+  notes: Record-hardens beat; Sotomayor separate statement in Noem v. Abrego Garcia, 24A949. Anchor text 'same order' refers to 24A949 immediately preceding.
+- anchor_text: boasberg-jgg-contempt-finding-2025-04-16
+  card_ids:
+  - boasberg-jgg-contempt-finding-2025-04-16
+  description: J.G.G. docket entry, Apr. 16, 2025
+  line_in_chapter: 84
+  notes: Record-hardens beat; Boasberg probable-cause-for-contempt finding. First chapter reference; second at line 122; third at line 150. Docket-entry pin pending PACER lock.
+- anchor_text: abrego-garcia-v-noem-4th-cir-stay-denial-2025-04-17
+  card_ids:
+  - abrego-garcia-v-noem-4th-cir-stay-denial-2025-04-17
+  description: Abrego Garcia v. Noem, 4th Cir. order, Apr. 17, 2025
+  line_in_chapter: 84
+  notes: Record-hardens beat; Fourth Circuit stay denial. First chapter reference; second at line 122. Specific opinion citation pending lock.
+- anchor_text: doj-j6-prosecutor-osc-mspb-complaints-pending
+  card_ids:
+  - doj-j6-prosecutor-osc-mspb-complaints-pending
+  description: complaints pending; Stephen to lock prosecutor names and complaint numbers per Delon's verification
+  line_in_chapter: 86
+  notes: Record-hardens beat; OSC/MSPB complaints by terminated J6 prosecutors. Second chapter reference (first folded into line-20 j6-prosecution-dismissal-coverage anchor); third at line 124. Per-complainant pin pending.
+- anchor_text: federal-convention-records-1787-pardon-debates
+  card_ids:
+  - federal-convention-records-1787-pardon-debates
+  description: Records of the Federal Convention, 1787
+  line_in_chapter: 96
+  notes: Steelman beat; Convention debates on pardon power. Farrand edition canonical; specific page-cite pending.
+- anchor_text: proclamation-4483-carter-draft-pardon-1977-01-21
+  card_ids:
+  - proclamation-4483-carter-draft-pardon-1977-01-21
+  description: Proclamation 4483, Jan. 21, 1977
+  line_in_chapter: 96
+  notes: Steelman beat; Carter Vietnam-era draft pardon.
+- anchor_text: johnson-christmas-amnesty-proclamation-1868-12-25
+  card_ids:
+  - johnson-christmas-amnesty-proclamation-1868-12-25
+  description: Proclamation of Dec. 25, 1868
+  line_in_chapter: 96
+  notes: Steelman beat; Johnson Christmas amnesty proclamation.
+- anchor_text: love-osler-pardon-scholarship
+  card_ids:
+  - love-osler-pardon-scholarship
+  description: Love and Osler scholarship; secondary B
+  line_in_chapter: 96
+  notes: Steelman beat; pardon-power scholarship as steelman scholarly position. B-grade per chapter self-grading; specific representative articles pending lock.
+- anchor_text: trump-v-jgg-24a931-per-curiam-2025-04-07
+  card_ids:
+  - trump-v-jgg-24a931-per-curiam-2025-04-07
+  description: 24A931 per curiam
+  line_in_chapter: 116
+  notes: Alibi-weakens beat; Trump v. J.G.G., 24A931 per curiam. Third chapter reference; same primary card serves lines 54, 84, 116, 150.
+- anchor_text: noem-v-abrego-garcia-24a949-per-curiam-2025-04-10
+  card_ids:
+  - noem-v-abrego-garcia-24a949-per-curiam-2025-04-10
+  description: 24A949 per curiam
+  line_in_chapter: 118
+  notes: Alibi-weakens beat; Noem v. Abrego Garcia, 24A949 per curiam. Second chapter reference.
+- anchor_text: cooper-crew-doge-preservation-order-2025-03
+  card_ids:
+  - cooper-crew-doge-preservation-order-2025-03
+  description: docket entries and stage-specific orders pending Stephen verification
+  line_in_chapter: 120
+  notes: Alibi-weakens beat; Cooper preservation and stage-specific orders. Second chapter reference (first at line 84).
+- anchor_text: xinis-abrego-garcia-facilitate-effectuate-order-2025
+  card_ids:
+  - xinis-abrego-garcia-facilitate-effectuate-order-2025
+  description: Abrego Garcia v. Noem, D. Md.
+  line_in_chapter: 122
+  notes: Alibi-weakens beat; Xinis 'facilitate and effectuate' order. Verbatim phrase locked; docket-entry pin pending.
+- anchor_text: abrego-garcia-v-noem-4th-cir-stay-denial-2025-04-17
+  card_ids:
+  - abrego-garcia-v-noem-4th-cir-stay-denial-2025-04-17
+  description: 4th Cir. order, Apr. 17, 2025
+  line_in_chapter: 122
+  notes: Alibi-weakens beat; Fourth Circuit stay denial. Second chapter reference (first at line 84).
+- anchor_text: boasberg-jgg-contempt-finding-2025-04-16
+  card_ids:
+  - boasberg-jgg-contempt-finding-2025-04-16
+  description: J.G.G. docket
+  line_in_chapter: 122
+  notes: Alibi-weakens beat; Boasberg contempt finding. Second chapter reference (first at line 84). Anchor text 'J.G.G. docket' is the short form for the Apr 16 2025 contempt finding earlier anchored more fully.
+- anchor_text: wd-sd-tex-aea-due-process-rulings-2025
+  card_ids:
+  - wd-sd-tex-aea-due-process-rulings-2025
+  description: W.D. Tex. and S.D. Tex. rulings, May 2025 onward; Stephen to anchor
+  line_in_chapter: 122
+  notes: Alibi-weakens beat; distributed district-court enforcement across appointment lines. C-grade per-case PACER lock pending; sub-claim.
+- anchor_text: doj-j6-prosecutor-osc-mspb-complaints-pending
+  card_ids:
+  - doj-j6-prosecutor-osc-mspb-complaints-pending
+  description: pending OSC/MSPB complaints; Stephen to lock
+  line_in_chapter: 124
+  notes: Alibi-weakens beat; same complaint-filings sub-claim as line 86; third chapter reference (line 20 and line 86 are the prior references).
+- anchor_text: trump-v-jgg-24a931-per-curiam-2025-04-07; noem-v-abrego-garcia-24a949-per-curiam-2025-04-10
+  card_ids:
+  - trump-v-jgg-24a931-per-curiam-2025-04-07
+  - noem-v-abrego-garcia-24a949-per-curiam-2025-04-10
+  description: 24A931; 24A949
+  line_in_chapter: 150
+  notes: The-escape beat; combined cite for both SCOTUS per curiam orders inside the escape-beat math. Fourth chapter reference for 24A931 and third for 24A949.
+- anchor_text: cooper-crew-doge-preservation-order-2025-03
+  card_ids:
+  - cooper-crew-doge-preservation-order-2025-03
+  description: Cooper, Mar. 10, 2025
+  line_in_chapter: 150
+  notes: The-escape beat; Cooper preliminary injunction date locked to Mar. 10, 2025 in chapter prose (twenty days after EO 14158). Third chapter reference for the Cooper order; date-pin pending PACER lock.
+- anchor_text: boasberg-jgg-contempt-finding-2025-04-16
+  card_ids:
+  - boasberg-jgg-contempt-finding-2025-04-16
+  description: J.G.G. docket, Apr. 16, 2025
+  line_in_chapter: 150
+  notes: The-escape beat; Boasberg contempt finding. Third chapter reference.
+- anchor_text: abrego-garcia-procedural-status-may-2026
+  card_ids:
+  - abrego-garcia-procedural-status-may-2026
+  description: Stephen to lock current docket position
+  line_in_chapter: 152
+  notes: The-escape beat; continuing procedural status of Abrego Garcia as of May 2026 evidence cutoff. Live-monitoring card; re-grade required at manuscript-freeze.

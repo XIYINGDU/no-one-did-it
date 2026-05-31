@@ -1,0 +1,386 @@
+# Book-level callback graph.
+#
+# Schema source: .claude/skills/callback-audit/SKILL.md
+# Audited by: /callback-audit (per chapter rewrite), /dependency-check (cross-chapter)
+#
+# Each edge records one setup → payoff pair. The plant in one chapter sets up
+# the payoff in another. Callback-audit verifies both endpoints exist in their
+# named chapters whenever any chapter in the graph is rewritten.
+#
+# Edge types:
+#   - object_callback : same artifact recurs (manila folder → same manila folder)
+#   - phrase_callback : load-bearing word or image recurs
+#   - scene_callback  : structurally mirrored scene
+#   - rule_callback   : rule stated in one chapter applied/violated in another
+#
+# Payoff kinds:
+#   - re-reading    : the planted thing is seen differently the second time
+#   - reversal      : the planted thing's apparent meaning is overturned
+#   - confirmation  : the planted thing's apparent meaning is confirmed
+#   - refutation    : the planted thing's apparent meaning is shown false
+#   - ambient       : atmospheric repetition; not audited
+#
+# `required: true` causes hard fail on missing payoff. `required: false` is soft flag.
+#
+# Section field convention: literal v6 H2 heading where the line_anchor resolves.
+# "Chapter opening" denotes content before the first H2. Reconciled to v6 canonical
+# on 2026-05-30 (see process/audits/chekhov-verification-2026-05-30.md); pre-2026-05-30
+# section names used conventional A2B beat names ("accusation scene", "older echo")
+# that no longer match v6's descriptive section headings.
+
+edges:
+  # ===== ch-1 → ch-13: the book-bracketing object/phrase callbacks =====
+
+  - id: altar-moves-bookframe
+    type: phrase_callback
+    payoff_kind: re-reading
+    required: true
+    planted:
+      chapter: 1
+      section: "The altar moves, the substitution does not"
+      line_anchor: "The altar moves. The substitution does not."
+    paid_off:
+      chapter: 13
+      section: "We are the escape"
+      line_anchor: "The altar moves. The questions stay."
+    revision_history: []
+
+  - id: two-goats-opening-image
+    type: scene_callback
+    payoff_kind: re-reading
+    required: true
+    planted:
+      chapter: 1
+      section: "Leviticus, Athens, Babylon, Rome"
+      line_anchor: "Aaron the priest is to bring two goats to the entrance of the Tent of Meeting"
+    paid_off:
+      chapter: 13
+      section: "Chapter opening"
+      line_anchor: "two goats brought before a priest at the entrance of a tent in the wilderness"
+    revision_history: []
+
+  # ===== ch-2 → ch-13: taxonomy install paid off in field guide =====
+
+  - id: four-category-taxonomy-install
+    type: rule_callback
+    payoff_kind: confirmation
+    required: true
+    planted:
+      chapter: 2
+      section: "Decree No. 330 and the language of care"
+      line_anchor: "This is what we call the **cost-bearing goat**"
+    paid_off:
+      chapter: 13
+      section: "Six artefacts, to be carried"
+      line_anchor: "The four categories are verbatim from rule"
+    revision_history: []
+
+  # ===== ch-3 → ch-13: eight-question diagnostic install paid off in field guide =====
+
+  - id: eight-question-diagnostic-install
+    type: rule_callback
+    payoff_kind: confirmation
+    required: true
+    planted:
+      chapter: 3
+      section: "Run the eight questions, slowly"
+      line_anchor: "Our rule is the diagnostic itself. Run it."
+    paid_off:
+      chapter: 13
+      section: "Six artefacts, to be carried"
+      line_anchor: "The diagnostic is verbatim from our project file."
+    revision_history: []
+
+  # ===== ch-3 → ch-5: diagnostic applied "one floor higher" =====
+
+  - id: diagnostic-climbs-one-floor-higher
+    type: rule_callback
+    payoff_kind: confirmation
+    required: true
+    planted:
+      chapter: 3
+      section: "Eight questions, in order"
+      line_anchor: "What would responsibility look like if it followed control instead of visibility?"
+    paid_off:
+      chapter: 5
+      section: "Twenty-five years against twenty months"
+      line_anchor: "The diagnostic that opens at chapter 3 still works. It just has to be asked one floor higher."
+    revision_history: []
+
+  # ===== ch-2 → ch-5: Boeing partial-scapegoat layer carried forward =====
+
+  - id: boeing-737-max-partial-scapegoat-layer
+    type: object_callback
+    payoff_kind: re-reading
+    required: true
+    planted:
+      chapter: 2
+      section: "The alibi climbs the stack"
+      line_anchor: "Lion Air Flight 610, a Boeing 737 MAX 8, crashed into the Java Sea"
+    paid_off:
+      chapter: 5
+      section: "Two crews, three hundred forty-six dead"
+      line_anchor: "Lion Air Flight JT 610, a Boeing 737 MAX 8, took off from Soekarno-Hatta"
+    revision_history: []
+
+  # ===== ch-2 → ch-5: Bhopal/Anderson layered re-reading =====
+
+  - id: bhopal-anderson-layered-rereading
+    type: object_callback
+    payoff_kind: re-reading
+    required: true
+    planted:
+      chapter: 2
+      section: "The alibi climbs the stack"
+      line_anchor: "system/object alibi"
+    paid_off:
+      chapter: 5
+      section: "The May 1982 safety survey"
+      line_anchor: "Chapter 2 named the Bhopal case in its first installation."
+    revision_history: []
+
+  # ===== ch-7 → ch-9: five-role conflation ported into AI stack =====
+
+  - id: five-role-conflation-rule
+    type: rule_callback
+    payoff_kind: confirmation
+    required: true
+    planted:
+      chapter: 7
+      section: "The first device is the record"
+      line_anchor: "five-role distribution principle"
+    paid_off:
+      chapter: 9
+      section: "Therac, MAX, Horizon — updated"
+      line_anchor: "The AI stack runs the same conflation with the labels updated."
+    revision_history: []
+
+  # ===== ch-7 → ch-12: "record is first" anti-laundering rule paid off =====
+
+  - id: record-is-first-anti-laundering-rule
+    type: rule_callback
+    payoff_kind: confirmation
+    required: true
+    planted:
+      chapter: 7
+      section: "The first device is the record"
+      line_anchor: "The first anti-laundering device is the record."
+    paid_off:
+      chapter: 12
+      section: "Three portable rules"
+      line_anchor: "Chapter 7 installed the institutional form of record-control laundering."
+    revision_history: []
+
+  # ===== ch-2 → ch-7: Therac-25 artifact-layer callback =====
+
+  - id: therac-25-artifact-layer-callback
+    type: object_callback
+    payoff_kind: re-reading
+    required: true
+    planted:
+      chapter: 2
+      section: "Chapter opening"
+      line_anchor: "Therac-25 medical linear accelerator"
+    paid_off:
+      chapter: 7
+      section: "Therac-25, Dreyfus, MH17"
+      line_anchor: "In Chapter 2 we met the Therac-25"
+    revision_history: []
+
+  # ===== ch-4 → ch-7: MH17 state-layer callback =====
+
+  - id: mh17-state-layer-callback
+    type: object_callback
+    payoff_kind: re-reading
+    required: true
+    planted:
+      chapter: 4
+      section: "A Buk from the 53rd Brigade"
+      line_anchor: "the specific Buk-TELAR used to shoot down MH17 had come from the inventory of the Russian 53rd Anti-Aircraft Missile Brigade"
+    paid_off:
+      chapter: 7
+      section: "Therac-25, Dreyfus, MH17"
+      line_anchor: "At the state layer, the same logic appears."
+    revision_history: []
+
+  # ===== ch-2 → ch-10: Abu Ghraib partial-scapegoat callback at chain-of-command layer =====
+
+  - id: abu-ghraib-chain-of-command-callback
+    type: object_callback
+    payoff_kind: re-reading
+    required: true
+    planted:
+      chapter: 2
+      section: "A few bad apples on Tier 1A"
+      line_anchor: "What Abu Ghraib installs is what we call the **partial scapegoat**"
+    paid_off:
+      chapter: 10
+      section: "Five layers, four callbacks"
+      line_anchor: "Abu Ghraib entered the argument in chapter 2 as a partial scapegoat."
+    revision_history:
+      - {on: 2026-05-30, change: "Updated payoff line_anchor to v6 phrasing ('entered the argument' replaces 'we read')."}
+
+  # ===== ch-2 → ch-10: Ukrainian children civilian-invisibility callback =====
+
+  - id: ukrainian-children-civilian-invisibility-callback
+    type: object_callback
+    payoff_kind: re-reading
+    required: true
+    planted:
+      chapter: 2
+      section: "Decree No. 330 and the language of care"
+      line_anchor: "Decree No. 330"
+    paid_off:
+      chapter: 10
+      section: "Five layers, four callbacks"
+      line_anchor: "The Russian transfers of Ukrainian children from occupied territories came into the argument in chapter 2"
+    revision_history:
+      - {on: 2026-05-30, change: "Updated both line_anchors to v6 phrasings; plant line_anchor shortened to 'Decree No. 330' (body prose) since the full 'Russian Presidential Decree No. 330 of 30 May 2022' form lives only in a footnote."}
+
+  # ===== ch-10 → ch-11: EO 13328 vs Inquiries Act §21 design contrast =====
+
+  - id: eo-13328-vs-inquiries-act-design-contrast
+    type: object_callback
+    payoff_kind: re-reading
+    required: true
+    planted:
+      chapter: 10
+      section: "What made the inquiry work"
+      line_anchor: "Robb-Silberman, whose founding Executive Order 13328 of 6 February 2004 explicitly excluded examination of how policy-makers used the intelligence"
+    paid_off:
+      chapter: 11
+      section: "Chapter opening"
+      line_anchor: "The third document is Executive Order 13328 of 6 February 2004"
+    revision_history: []
+
+  # ===== ch-11 → ch-12: design rule paid off by record discipline =====
+
+  - id: design-rule-needs-record-discipline
+    type: rule_callback
+    payoff_kind: confirmation
+    required: true
+    planted:
+      chapter: 11
+      section: "Name the person before the design ships"
+      line_anchor: "When you propose, sign, or advocate for an institutional design"
+    paid_off:
+      chapter: 12
+      section: "Three portable rules"
+      line_anchor: "Chapter 11 added the design rule. Named attribution."
+    revision_history: []
+
+  # ===== ch-6 → ch-11/13: signature-as-seam phrase callback =====
+
+  - id: signature-is-the-seam-rule
+    type: phrase_callback
+    payoff_kind: confirmation
+    required: true
+    planted:
+      chapter: 6
+      section: "Treat the citation as a hypothesis"
+      line_anchor: "The signature is the seam."
+    paid_off:
+      chapter: 11
+      section: "Name the person before the design ships"
+      line_anchor: "The signature is the seam. Watch the seam."
+    revision_history: []
+
+  # ===== ch-7 → ch-9: signature-as-seam ported into AI stack =====
+
+  - id: signature-seam-ai-stack
+    type: phrase_callback
+    payoff_kind: re-reading
+    required: true
+    planted:
+      chapter: 7
+      section: "Eight channels, asymmetric reach"
+      line_anchor: "If you cannot inspect the record, you cannot legitimately sign for the output."
+    paid_off:
+      chapter: 9
+      section: "The litigation interception triplet"
+      line_anchor: "If we cannot inspect the training corpus, the deployment record, and the benchmark-submission record, we cannot legitimately sign for the output."
+    revision_history: []
+
+  # ===== ch-9 → ch-13: three-record demand paid off in field guide beat 9 walk =====
+
+  - id: three-record-demand-ai-stack
+    type: rule_callback
+    payoff_kind: confirmation
+    required: true
+    planted:
+      chapter: 9
+      section: "Run the diagnostic three times"
+      line_anchor: "Run the diagnostic three times per AI system — once at input layer, once at deployment layer, once at evaluation layer."
+    paid_off:
+      chapter: 13
+      section: "The letter that names the model"
+      line_anchor: "You write back. You ask the three-record demand from chapter 9"
+    revision_history: []
+
+  # ===== ch-8 → ch-12: Walsh/Iran-Contra echo =====
+
+  - id: walsh-iran-contra-cover-up-callback
+    type: object_callback
+    payoff_kind: re-reading
+    required: true
+    planted:
+      chapter: 8
+      section: "Watergate, Iran-Contra, al-Aulaqi"
+      line_anchor: "Independent Counsel Lawrence Walsh, in his Final Report of the Independent Counsel for Iran/Contra Matters"
+    paid_off:
+      chapter: 12
+      section: "Backup tapes the destroyers forgot"
+      line_anchor: "Independent Counsel Lawrence E. Walsh"
+    revision_history: []
+
+  # ===== ch-6 → ch-12: Hofeller files object callback =====
+
+  - id: hofeller-files-posthumous-custody
+    type: object_callback
+    payoff_kind: re-reading
+    required: true
+    planted:
+      chapter: 6
+      section: "Six questions for a citation"
+      line_anchor: "The Hofeller files surfaced in the District of Maryland census litigation"
+    paid_off:
+      chapter: 12
+      section: "Four records that survived"
+      line_anchor: "The Hofeller files (2018–2019; chapter 6)"
+    revision_history:
+      - {on: 2026-05-30, change: "Dropped 'slot 5' tail from payoff line_anchor; v6 prose says 'chapter 6' without slot reference."}
+
+  # ===== ch-1 → ch-13: signs/recognition phrase callback (cumulative) =====
+
+  - id: recognition-without-method-payoff
+    type: phrase_callback
+    payoff_kind: re-reading
+    required: false
+    planted:
+      chapter: 1
+      section: "Leipzig, January 2008"
+      line_anchor: "Recognition without method is our deliberate stopping point."
+    paid_off:
+      chapter: 13
+      section: "Walk the diagnostic before the verdict"
+      line_anchor: "Carry the eight questions. Carry the four categories."
+    revision_history: []
+
+  # ===== ch-2 through ch-12 → ch-13: beat-10 moves consolidated in crosswalk =====
+
+  - id: beat10-moves-to-crosswalk
+    type: rule_callback
+    payoff_kind: confirmation
+    required: true
+    planted:
+      chapter: 11
+      section: "Four designs in operation"
+      line_anchor: "do not sign the named-signer line of a function whose written allocation you did not write"
+    paid_off:
+      chapter: 13
+      section: "Six artefacts, to be carried"
+      line_anchor: "Move 3 — Refuse the signature without the chain."
+    revision_history: []
+
+# ----- Edges removed during rewrite cycles (kept for audit trail) -----
+removed_edges: []

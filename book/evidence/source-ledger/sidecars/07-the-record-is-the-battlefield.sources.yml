@@ -1,0 +1,48 @@
+# Sidecar: chapter 7 [CITE:] anchors → research card ids
+# Built 2026-05-26 to satisfy the research-card pipeline coverage requirement for ch-07.
+# Five distinct anchor occurrences in the chapter prose body (lines 49, 63 [x2], 65, 105, 143).
+# Validator note: the [CITE:] regex captures up to the first ']'; anchors that contain a bracketed
+# legal citation like [2019] or [2021] therefore get truncated at the validator level. The full
+# descriptive anchor_text below contains the truncated capture as a substring, which the
+# validator's substring-match logic accepts in either direction.
+
+# Refreshed by scripts/refresh_sidecar_anchors.py — anchor_text now
+# carries the card slug (matching the rule-13 [CITE: <slug>] form in
+# chapter prose). The original human-readable citation moved to the
+# `description` field on each anchor. PyYAML round-trip preserves the
+# leading comment block above but may have dropped any mid-file inline
+# comments; recover from git history if needed.
+
+chapter_id: 07-the-record-is-the-battlefield
+anchors:
+- anchor_text: agents-md-core-diagnostic
+  card_ids:
+  - agents-md-core-diagnostic
+  description: AGENTS.md core diagnostic
+  line_in_chapter: 49
+  notes: Self-reference to the project's constitution; introduces the eight-question diagnostic the chapter walks through Horizon. Resolves to the existing canonical card already cited by ch-10.
+- anchor_text: bates-v-post-office-no-6-horizon-issues-2019
+  card_ids:
+  - bates-v-post-office-no-6-horizon-issues-2019
+  description: '[2019] EWHC 3408 (QB)'
+  line_in_chapter: 63
+  notes: Mr Justice Fraser's Horizon Issues judgment of 16 December 2019; cited for the finding that bugs/errors/defects in Horizon had had the potential to cause apparent or alleged shortfalls in branch accounts. Validator captures '[2019' (truncated at first ']'); the longer anchor_text contains that capture as a substring.
+- anchor_text: clarke-advice-first-2013-07-15
+  card_ids:
+  - clarke-advice-first-2013-07-15
+  description: Clarke advice, 2013, disclosed to Inquiry
+  line_in_chapter: 63
+  notes: The first Clarke Advice (Simon Clarke, Cartwright King, 15 July 2013) — barrister's written advice to the Post Office that prosecutions relying on Gareth Jenkins's expert evidence had serious problems. Substantively load-bearing for the 'should have known' prong of the diagnostic walk in slot 3.
+- anchor_text: hamilton-v-post-office-affront-to-conscience-2021
+  card_ids:
+  - hamilton-v-post-office-affront-to-conscience-2021
+  description: '[2021] EWCA Crim 577'
+  line_in_chapter: 65
+  notes: Court of Appeal Hamilton finding that the Post Office's failure to disclose what it knew about Horizon's unreliability was 'an affront to the conscience of the Court'. Validator captures '[2021' (truncated at first ']'); the longer anchor_text contains that capture as a substring. Same captured form appears at line 143 — sidecar covers both occurrences.
+- anchor_text: hamilton-v-post-office-2021-court-of-appeal; post-office-horizon-it-inquiry-final-report-vol-1-2025
+  card_ids:
+  - hamilton-v-post-office-2021-court-of-appeal
+  - post-office-horizon-it-inquiry-final-report-vol-1-2025
+  description: '*Hamilton & Ors v. Post Office Limited*, [2021] EWCA Crim 577, paragraphs reproduced in Post Office Horizon IT Inquiry Final Report, Volume 1, HC 1119 (Sir Wyn Williams, 7 July 2025)'
+  line_in_chapter: 105
+  notes: Compound CITE bundling Hamilton (plea-rate finding card) and Volume 1 of the Inquiry Final Report. The Hamilton card carries the Court of Appeal's verbatim 'pleas...founded upon Post Office Ltd's failures of investigation and disclosure' finding; the Inquiry Volume 1 card carries the aggregate prosecution figures (900+ / 236) recorded in the statutory record. Validator capture for this anchor is '*Hamilton & Ors v. Post Office Limited*, [2021' (truncated at first ']'); the longer anchor_text contains that capture as a substring.

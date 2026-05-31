@@ -1,0 +1,614 @@
+{
+  "root": ".",
+  "by_source": {
+    "commands:heading": {
+      "Case File": 1,
+      "Chapter Brief": 1,
+      "Crew Briefing": 1,
+      "Proposal Pack": 1,
+      "Red Team": 1,
+      "Source Audit": 1
+    },
+    "agents:filename": {
+      "celeste": 1,
+      "legal": 1,
+      "risk": 1,
+      "counsel": 1,
+      "claire": 1,
+      "public": 1,
+      "law": 2,
+      "politics": 1,
+      "researcher": 4,
+      "damien": 1,
+      "red": 1,
+      "team": 1,
+      "editor": 2,
+      "elena": 1,
+      "book": 1,
+      "architect": 1,
+      "hana": 1,
+      "war": 1,
+      "statecraft": 1,
+      "harriet": 1,
+      "administrative": 1,
+      "reviewer": 6,
+      "jade": 1,
+      "visual": 1,
+      "framework": 1,
+      "designer": 1,
+      "leonard": 1,
+      "proposal": 1,
+      "strategist": 2,
+      "lina": 1,
+      "ihl": 1,
+      "marcus": 1,
+      "narrative": 1,
+      "lead": 1,
+      "miles": 1,
+      "audio": 1,
+      "style": 1,
+      "miriam": 1,
+      "ancient": 1,
+      "ritual": 1,
+      "naomi": 1,
+      "ai": 2,
+      "governance": 1,
+      "nora": 1,
+      "crew": 1,
+      "chief": 1,
+      "owen": 1,
+      "systems": 1,
+      "failure": 1,
+      "priya": 1,
+      "research": 1,
+      "director": 2,
+      "ruth": 1,
+      "fact": 1,
+      "check": 1,
+      "samuel": 1,
+      "historical": 1,
+      "case": 1,
+      "sofia": 1,
+      "audience": 1,
+      "thomas": 1,
+      "responsibility": 1,
+      "theory": 1,
+      "victor": 1,
+      "technology": 1
+    },
+    "agents:heading": {
+      "Celeste Morgan": 1,
+      "Media": 1,
+      "Defamation Risk Counsel": 1,
+      "Global Five Over": 21,
+      "Rules": 21,
+      "Role": 21,
+      "Output": 21,
+      "Operating": 21,
+      "Default": 21,
+      "Hook": 21,
+      "Example": 21,
+      "Claire Beaumont": 1,
+      "Public Law": 1,
+      "Politics Researcher": 1,
+      "Damien Brooks": 1,
+      "Red": 1,
+      "Editor": 1,
+      "Elena Vargas": 1,
+      "Book Architect": 1,
+      "Developmental Editor": 1,
+      "Hana Kowalski": 1,
+      "War": 1,
+      "Statecraft Researcher": 1,
+      "Harriet Cole": 1,
+      "Administrative": 1,
+      "Constitutional Law Reviewer": 1,
+      "Jade Mori": 1,
+      "Visual": 1,
+      "Framework Designer": 1,
+      "Leonard Grant": 1,
+      "Literary Proposal Strategist": 1,
+      "Lina": 1,
+      "International Humanitarian Law Reviewer": 1,
+      "Marcus Reed": 1,
+      "Narrative Lead": 1,
+      "Miles Hart": 1,
+      "Audio Style Editor": 1,
+      "Miriam Tal": 1,
+      "Ancient Ritual": 1,
+      "Religious Studies Reviewer": 1,
+      "Naomi Sato": 1,
+      "Governance": 1,
+      "Technical Reviewer": 1,
+      "Nora Park": 1,
+      "Crew Chief": 1,
+      "Orchestrator": 1,
+      "Owen Bell": 1,
+      "Complex Systems": 1,
+      "Safety Engineering Reviewer": 1,
+      "Priya Nair": 1,
+      "Research Director": 1,
+      "Ruth Adler": 1,
+      "Fact": 1,
+      "Director": 1,
+      "Samuel Okafor": 1,
+      "Historical Case Researcher": 1,
+      "Sofia Alvarez": 1,
+      "Audience Strategist": 1,
+      "Thomas Vale": 1,
+      "Legal Philosophy": 1,
+      "Responsibility Reviewer": 1,
+      "Victor Chen": 1,
+      "Technology Researcher": 1
+    },
+    "skills:dirname": {
+      "case": 1,
+      "file": 1,
+      "method": 1,
+      "chapter": 1,
+      "blueprint": 1,
+      "citation": 1,
+      "hygiene": 1,
+      "counterargument": 1,
+      "red": 1,
+      "team": 1,
+      "publication": 1,
+      "proposal": 1,
+      "responsibility": 1,
+      "chain": 1,
+      "mapping": 1,
+      "source": 1,
+      "ledger": 1,
+      "discipline": 1
+    },
+    "skills:heading": {
+      "Case File Method": 1,
+      "Global Five Over": 7,
+      "Rules": 7,
+      "Chapter Blueprint": 1,
+      "Citation Hygiene": 1,
+      "Counterargument Red Team": 1,
+      "Publication Proposal Skill": 1,
+      "Responsibility Chain Mapping": 1,
+      "Source Ledger Discipline": 1
+    },
+    "docs:heading": {
+      "Agent Role Map": 1,
+      "Case Card Template": 1,
+      "Chapter Template": 1,
+      "Crew Operating Manual": 1,
+      "Global Five Over": 1,
+      "Rules": 1,
+      "Cells": 1,
+      "Command": 1,
+      "Evidence": 1,
+      "Integrity": 1,
+      "Format": 1,
+      "Expert": 1,
+      "Workflow": 2,
+      "Project Hooks Guide": 1,
+      "Bash": 1,
+      "Write": 1,
+      "Edit": 1,
+      "Disabling": 1,
+      "Claude Code Configuration References": 1,
+      "Source Ledger Template": 1,
+      "Case": 1,
+      "Sprint": 1,
+      "Required": 1
+    }
+  },
+  "scope": {
+    "case": [
+      "internal"
+    ],
+    "file": [
+      "internal"
+    ],
+    "chapter": [
+      "internal"
+    ],
+    "crew": [
+      "internal"
+    ],
+    "proposal": [
+      "internal"
+    ],
+    "red": [
+      "internal"
+    ],
+    "team": [
+      "internal"
+    ],
+    "source": [
+      "internal"
+    ],
+    "celeste": [
+      "internal"
+    ],
+    "legal": [
+      "internal"
+    ],
+    "risk": [
+      "internal"
+    ],
+    "counsel": [
+      "internal"
+    ],
+    "claire": [
+      "internal"
+    ],
+    "public": [
+      "internal"
+    ],
+    "law": [
+      "internal"
+    ],
+    "politics": [
+      "internal"
+    ],
+    "researcher": [
+      "internal"
+    ],
+    "damien": [
+      "internal"
+    ],
+    "editor": [
+      "internal"
+    ],
+    "elena": [
+      "internal"
+    ],
+    "book": [
+      "internal"
+    ],
+    "architect": [
+      "internal"
+    ],
+    "hana": [
+      "internal"
+    ],
+    "war": [
+      "internal"
+    ],
+    "statecraft": [
+      "internal"
+    ],
+    "harriet": [
+      "internal"
+    ],
+    "administrative": [
+      "internal"
+    ],
+    "reviewer": [
+      "internal"
+    ],
+    "jade": [
+      "internal"
+    ],
+    "visual": [
+      "internal"
+    ],
+    "framework": [
+      "internal"
+    ],
+    "designer": [
+      "internal"
+    ],
+    "leonard": [
+      "internal"
+    ],
+    "strategist": [
+      "internal"
+    ],
+    "lina": [
+      "internal"
+    ],
+    "ihl": [
+      "internal"
+    ],
+    "marcus": [
+      "internal"
+    ],
+    "narrative": [
+      "internal"
+    ],
+    "lead": [
+      "internal"
+    ],
+    "miles": [
+      "internal"
+    ],
+    "audio": [
+      "internal"
+    ],
+    "style": [
+      "internal"
+    ],
+    "miriam": [
+      "internal"
+    ],
+    "ancient": [
+      "internal"
+    ],
+    "ritual": [
+      "internal"
+    ],
+    "naomi": [
+      "internal"
+    ],
+    "ai": [
+      "internal"
+    ],
+    "governance": [
+      "internal"
+    ],
+    "nora": [
+      "internal"
+    ],
+    "chief": [
+      "internal"
+    ],
+    "owen": [
+      "internal"
+    ],
+    "systems": [
+      "internal"
+    ],
+    "failure": [
+      "internal"
+    ],
+    "priya": [
+      "internal"
+    ],
+    "research": [
+      "internal"
+    ],
+    "director": [
+      "internal"
+    ],
+    "ruth": [
+      "internal"
+    ],
+    "fact": [
+      "internal"
+    ],
+    "check": [
+      "internal"
+    ],
+    "samuel": [
+      "internal"
+    ],
+    "historical": [
+      "internal"
+    ],
+    "sofia": [
+      "internal"
+    ],
+    "audience": [
+      "internal"
+    ],
+    "thomas": [
+      "internal"
+    ],
+    "responsibility": [
+      "internal"
+    ],
+    "theory": [
+      "internal"
+    ],
+    "victor": [
+      "internal"
+    ],
+    "technology": [
+      "internal"
+    ],
+    "method": [
+      "internal"
+    ],
+    "blueprint": [
+      "internal"
+    ],
+    "citation": [
+      "internal"
+    ],
+    "hygiene": [
+      "internal"
+    ],
+    "counterargument": [
+      "internal"
+    ],
+    "publication": [
+      "internal"
+    ],
+    "chain": [
+      "internal"
+    ],
+    "mapping": [
+      "internal"
+    ],
+    "ledger": [
+      "internal"
+    ],
+    "discipline": [
+      "internal"
+    ]
+  },
+  "totals": {
+    "Global Five Over": 29,
+    "Rules": 29,
+    "Role": 21,
+    "Output": 21,
+    "Operating": 21,
+    "Default": 21,
+    "Hook": 21,
+    "Example": 21,
+    "reviewer": 6,
+    "researcher": 4,
+    "law": 2,
+    "red": 2,
+    "team": 2,
+    "editor": 2,
+    "proposal": 2,
+    "strategist": 2,
+    "ai": 2,
+    "director": 2,
+    "case": 2,
+    "responsibility": 2,
+    "Workflow": 2,
+    "Case File": 1,
+    "Chapter Brief": 1,
+    "Crew Briefing": 1,
+    "Proposal Pack": 1,
+    "Red Team": 1,
+    "Source Audit": 1,
+    "celeste": 1,
+    "legal": 1,
+    "risk": 1,
+    "counsel": 1,
+    "claire": 1,
+    "public": 1,
+    "politics": 1,
+    "damien": 1,
+    "elena": 1,
+    "book": 1,
+    "architect": 1,
+    "hana": 1,
+    "war": 1,
+    "statecraft": 1,
+    "harriet": 1,
+    "administrative": 1,
+    "jade": 1,
+    "visual": 1,
+    "framework": 1,
+    "designer": 1,
+    "leonard": 1,
+    "lina": 1,
+    "ihl": 1,
+    "marcus": 1,
+    "narrative": 1,
+    "lead": 1,
+    "miles": 1,
+    "audio": 1,
+    "style": 1,
+    "miriam": 1,
+    "ancient": 1,
+    "ritual": 1,
+    "naomi": 1,
+    "governance": 1,
+    "nora": 1,
+    "crew": 1,
+    "chief": 1,
+    "owen": 1,
+    "systems": 1,
+    "failure": 1,
+    "priya": 1,
+    "research": 1,
+    "ruth": 1,
+    "fact": 1,
+    "check": 1,
+    "samuel": 1,
+    "historical": 1,
+    "sofia": 1,
+    "audience": 1,
+    "thomas": 1,
+    "theory": 1,
+    "victor": 1,
+    "technology": 1,
+    "Celeste Morgan": 1,
+    "Media": 1,
+    "Defamation Risk Counsel": 1,
+    "Claire Beaumont": 1,
+    "Public Law": 1,
+    "Politics Researcher": 1,
+    "Damien Brooks": 1,
+    "Red": 1,
+    "Editor": 1,
+    "Elena Vargas": 1,
+    "Book Architect": 1,
+    "Developmental Editor": 1,
+    "Hana Kowalski": 1,
+    "War": 1,
+    "Statecraft Researcher": 1,
+    "Harriet Cole": 1,
+    "Administrative": 1,
+    "Constitutional Law Reviewer": 1,
+    "Jade Mori": 1,
+    "Visual": 1,
+    "Framework Designer": 1,
+    "Leonard Grant": 1,
+    "Literary Proposal Strategist": 1,
+    "Lina": 1,
+    "International Humanitarian Law Reviewer": 1,
+    "Marcus Reed": 1,
+    "Narrative Lead": 1,
+    "Miles Hart": 1,
+    "Audio Style Editor": 1,
+    "Miriam Tal": 1,
+    "Ancient Ritual": 1,
+    "Religious Studies Reviewer": 1,
+    "Naomi Sato": 1,
+    "Governance": 1,
+    "Technical Reviewer": 1,
+    "Nora Park": 1,
+    "Crew Chief": 1,
+    "Orchestrator": 1,
+    "Owen Bell": 1,
+    "Complex Systems": 1,
+    "Safety Engineering Reviewer": 1,
+    "Priya Nair": 1,
+    "Research Director": 1,
+    "Ruth Adler": 1,
+    "Fact": 1,
+    "Director": 1,
+    "Samuel Okafor": 1,
+    "Historical Case Researcher": 1,
+    "Sofia Alvarez": 1,
+    "Audience Strategist": 1,
+    "Thomas Vale": 1,
+    "Legal Philosophy": 1,
+    "Responsibility Reviewer": 1,
+    "Victor Chen": 1,
+    "Technology Researcher": 1,
+    "file": 1,
+    "method": 1,
+    "chapter": 1,
+    "blueprint": 1,
+    "citation": 1,
+    "hygiene": 1,
+    "counterargument": 1,
+    "publication": 1,
+    "chain": 1,
+    "mapping": 1,
+    "source": 1,
+    "ledger": 1,
+    "discipline": 1,
+    "Case File Method": 1,
+    "Chapter Blueprint": 1,
+    "Citation Hygiene": 1,
+    "Counterargument Red Team": 1,
+    "Publication Proposal Skill": 1,
+    "Responsibility Chain Mapping": 1,
+    "Source Ledger Discipline": 1,
+    "Agent Role Map": 1,
+    "Case Card Template": 1,
+    "Chapter Template": 1,
+    "Crew Operating Manual": 1,
+    "Cells": 1,
+    "Command": 1,
+    "Evidence": 1,
+    "Integrity": 1,
+    "Format": 1,
+    "Expert": 1,
+    "Project Hooks Guide": 1,
+    "Bash": 1,
+    "Write": 1,
+    "Edit": 1,
+    "Disabling": 1,
+    "Claude Code Configuration References": 1,
+    "Source Ledger Template": 1,
+    "Case": 1,
+    "Sprint": 1,
+    "Required": 1
+  }
+}
