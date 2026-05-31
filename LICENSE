@@ -7,7 +7,7 @@ This repository is dual-licensed. Two licenses cover different parts of the tree
 | Directory / files | License |
 |---|---|
 | **Prose** — `book/chapters-v6/`, `book/front-matter/`, `book/back-matter/`, and any edition built from them (the assembled manuscript, the EPUB, the print interior/cover PDFs) | **CC BY-NC 4.0** (see §1 below) |
-| **Apparatus** — everything else: `.claude/`, `scripts/`, `pipelines/`, `tests/`, `process/`, `book/evidence/source-ledger/`, `book/evidence/diagrams/`, `book/registries/`, `book/design/`, `dev-docs/`, `AGENTS.md`, `README.md`, `RELEASE-PREP.md`, configuration files | **MIT** (see §2 below) |
+| **Apparatus** — everything else: `.claude/`, `scripts/`, `pipelines/`, `tests/`, `process/`, `book/evidence/source-ledger/`, `book/evidence/diagrams/`, `book/registries/`, `book/design/`, `dev-docs/`, `AGENTS.md`, `README.md`, configuration files | **MIT** (see §2 below) |
 
 When in doubt about a specific file, the rule is:
 - **Prose** = anything a reader reads as the book itself (chapter narrative, front matter, back matter, the compiled manuscript and exported artifacts).
