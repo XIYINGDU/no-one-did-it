@@ -1,0 +1,181 @@
+# 翻译术语表 — 所有译者的共享真相源
+#
+# 规则：
+# 1. 术语表一旦锁定，Translator 只有使用权没有修改权
+# 2. 任何术语修改必须经过 Glossary Master
+# 3. forbidden 字段列出禁止使用的替代译法
+# 4. 每个术语标注 first_chapter（首次出现的章节）和 domain（所属领域）
+
+terms:
+
+  # === 核心概念（全书基石） ===
+
+  - en: "scapegoat"
+    zh: "替罪羊"
+    forbidden: ["替罪羔羊", "代罪羔羊", "赎罪羊"]
+    domain: "核心概念"
+    first_chapter: 1
+    note: "全书最核心的术语。源自 Tyndale 1530 年英译圣经时创造的 scapegoate 一词（escape-goat 的合成）。中文'替罪羊'已是约定译法，全书统一使用。"
+
+  - en: "scapegoating"
+    zh: "替罪"
+    forbidden: ["找替罪羊", "归罪"]
+    domain: "核心概念"
+    first_chapter: 1
+    note: "作为动词/过程使用时的译法。'替罪机制'在需要强调系统性的语境下也允许。"
+
+  - en: "responsibility laundering"
+    zh: "责任洗白"
+    forbidden: ["责任漂洗", "责任转移", "责任推卸", "责任清洗"]
+    domain: "核心概念"
+    first_chapter: 1
+    note: "全书的核心论点术语。'洗白'保留了 laundering 的隐喻（将脏钱洗白的过程类比），且中文'洗白'有较明确的负面含义。"
+
+  - en: "pure scapegoat"
+    zh: "纯粹替罪羊"
+    forbidden: ["完全替罪羊", "无辜替罪羊"]
+    domain: "分类术语"
+    first_chapter: 2
+    note: "四种分类之一。'纯粹'强调其无辜性——被归咎者基本无辜。"
+
+  - en: "partial scapegoat"
+    zh: "部分替罪羊"
+    forbidden: ["不完全替罪羊", "半替罪"]
+    domain: "分类术语"
+    first_chapter: 2
+    note: "四种分类之一。被归咎者确有参与或有过失，但归责停在过低层级。"
+
+  - en: "system/object alibi"
+    zh: "系统/对象托辞"
+    forbidden: ["系统替罪", "机器托辞", "制度托辞"]
+    domain: "分类术语"
+    first_chapter: 2
+    note: "四种分类之一。机器、算法、公司、委员会、市场、法律程序成为被命名的原因。"
+
+  - en: "cost-bearing goat"
+    zh: "承担代价的山羊"
+    forbidden: ["代价承担者", "受害替罪羊"]
+    domain: "分类术语"
+    first_chapter: 2
+    note: "四种分类之一。受害者或底层工作者未被指责为有罪，但在责任被逃避的同时承受了伤害。"
+
+  # === 第 1 章专属术语 ===
+
+  - en: "substitution"
+    zh: "替代"
+    forbidden: ["替换", "代替"]
+    domain: "仪式/机制"
+    first_chapter: 1
+    note: "本章核心机制术语。指用可见的替罪羊替代不可见的责任链。不同于一般意义的'replacement'。"
+
+  - en: "the altar"
+    zh: "祭坛"
+    forbidden: ["神坛", "圣坛"]
+    domain: "仪式/隐喻"
+    first_chapter: 1
+    note: "全书题目的核心隐喻。'祭坛移动了，替代没有消失'——仪式的外在形式现代化了，但替代机制本身不变。"
+
+  - en: "pharmakos"
+    zh: "pharmakos（替罪人）"
+    forbidden: []
+    domain: "古代仪式"
+    first_chapter: 1
+    note: "古希腊仪式中被驱逐出城的替罪者。首次出现时保留希腊文转写并括号注中文。后续出现可用'pharmakos'。"
+
+  - en: "Azazel"
+    zh: "阿撒泻勒"
+    forbidden: []
+    domain: "圣经/古代"
+    first_chapter: 1
+    note: "利未记中替罪羊被送往的目的地。学术界对其是地名还是恶魔名存在争议。中文圣经传统译法。"
+
+  - en: "alibi"
+    zh: "托辞"
+    forbidden: ["不在场证明", "借口", "说辞"]
+    domain: "核心概念"
+    first_chapter: 1
+    note: "本书中的 alibi 不是法律意义上的'不在场证明'，而是指为真正的责任承担者提供掩护的叙事/程序/制度。'托辞'保留了'有意的掩护'的含义。"
+
+  - en: "hidden architecture"
+    zh: "隐藏架构"
+    forbidden: ["隐藏结构", "暗藏结构", "底层架构"]
+    domain: "分析方法"
+    first_chapter: 1
+    note: "本书的核心分析方法术语。指在'官方叙事'之下支撑责任洗白的制度、法律和程序架构。"
+
+  - en: "responsibility chain"
+    zh: "责任链"
+    forbidden: ["责任链条"]
+    domain: "分析方法"
+    first_chapter: 1
+    note: "从可见的被归咎者向上追溯的控制链/受益链/知情链。区别于供应链(supply chain)或指挥链(chain of command)。"
+
+  # === 法律/政治术语 ===
+
+  - en: "Reichstag Fire Decree"
+    zh: "国会纵火法令"
+    forbidden: ["国会大厦纵火法令"]
+    domain: "历史/德国"
+    first_chapter: 1
+    note: "1933年2月28日兴登堡签署的《保护人民和国家的总统令》。中文史学界通用'国会纵火法令'。"
+
+  - en: "Enabling Act"
+    zh: "授权法"
+    forbidden: ["授权法案", "赋能法"]
+    domain: "历史/德国"
+    first_chapter: 1
+    note: "1933年3月23日通过的《消除人民和国家痛苦法》(Gesetz zur Behebung der Not von Volk und Reich)。中文史学界通用'授权法'。"
+
+  - en: "Lex van der Lubbe"
+    zh: "范·德·卢贝法"
+    forbidden: []
+    domain: "历史/德国"
+    first_chapter: 1
+    note: "1933年3月29日通过的追溯性死刑修正案，专为处决 van der Lubbe 而设。"
+
+  - en: "NS-AufhG"
+    zh: "《纳粹不公正判决撤销法》"
+    forbidden: []
+    domain: "法律/德国"
+    first_chapter: 1
+    note: "1998年德国联邦议院通过的《撤销国家社会主义刑事司法不公正判决法》。首次出现时给出德文全称和中文翻译，后续可用 NS-AufhG。"
+
+  # === 人名 ===
+
+  - en: "Marinus van der Lubbe"
+    zh: "马里努斯·范·德·卢贝"
+    forbidden: []
+    domain: "人名"
+    first_chapter: 1
+    note: "荷兰人名。遵循新华社译名规范。"
+
+  # === 书名/文献名 ===
+
+  - en: "The Laws of Manu"
+    zh: "《摩奴法典》"
+    forbidden: []
+    domain: "文献"
+    first_chapter: 1
+
+  - en: "Leviticus"
+    zh: "《利未记》"
+    forbidden: []
+    domain: "圣经"
+    first_chapter: 1
+    note: "圣经旧约第三卷。中文和合本译法。"
+
+  # === 一般术语 ===
+
+  - en: "cost"
+    zh: "代价"
+    forbidden: ["成本"]
+    domain: "一般"
+    first_chapter: 1
+    note: "在本书的伦理/政治语境下，cost 译为'代价'而非'成本'。'成本'偏向经济学含义。"
+
+  - en: "bearing"
+    zh: "承担"
+    forbidden: ["背负", "承受"]
+    domain: "一般"
+    first_chapter: 1
+    note: "在 cost-bearing goat 等表达中统一使用'承担'。"
