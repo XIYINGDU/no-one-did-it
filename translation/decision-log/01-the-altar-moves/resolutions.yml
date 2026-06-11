@@ -1,0 +1,284 @@
+# 翻译审核结论追踪 — 第 1 章《祭坛移动》
+#
+# 每条 Reviewer 和 Chinese Reader 的发现均在此追踪至修复闭环。
+# 追责链: 谁发现 → 谁修复 → 谁验证 → 谁否决（如有）
+
+chapter: "01-the-altar-moves"
+chapter_title_zh: "祭坛移动"
+
+resolutions:
+
+  # === review-1 发现（2026-06-10，部分译文） ===
+
+  - id: R01-001
+    source_review: "01-the-altar-moves-review-1"
+    source_finding: "SOFT 准确性 #1 — critical edition 译为'评注本'不精确"
+    severity: SOFT
+    found_by: reviewer
+    found_at: 2026-06-10
+    assigned_to: translator
+    status: fixed
+    fix_description: "将'评注本'改为'校订本'"
+    fixed_at: 2026-06-10
+    verified_by: reviewer
+    verified_at: 2026-06-10
+    verification_result: "review-2 确认修复，通过"
+
+  - id: R01-002
+    source_review: "01-the-altar-moves-review-1"
+    source_finding: "SOFT 准确性 #2 — 'philologically strained' 译为'在语文学上是牵强的'稍显生硬"
+    severity: SOFT
+    found_by: reviewer
+    found_at: 2026-06-10
+    assigned_to: translator
+    status: fixed
+    fix_description: "改为'语文学上颇为牵强'——删除'在...是...的'结构，用'颇为'替代，保持正式语域的同时消除句法生硬感"
+    fixed_at: 2026-06-11
+    verified_by: reviewer
+    verified_at: 2026-06-11
+    verification_result: "确认修复。'语文学上颇为牵强'（第 110 行）句法自然，消除生硬感，准确传达原文 meaning。"
+
+  - id: R01-003
+    source_review: "01-the-altar-moves-review-1"
+    source_finding: "SOFT 准确性 #3 — 'a demonic being' 译为'一个恶魔存在'语法不自然"
+    severity: SOFT
+    found_by: reviewer
+    found_at: 2026-06-10
+    assigned_to: translator
+    status: fixed
+    fix_description: "删除'存在'二字，改为'一个恶魔'——'居住在旷野中的一个恶魔的名字'语法自然，'恶魔'在中文中已足够表达 demonic being 的含义"
+    fixed_at: 2026-06-11
+    verified_by: reviewer
+    verified_at: 2026-06-11
+    verification_result: "确认修复。'一个恶魔的名字'（第 110 行）语法完整，'恶魔'正确覆盖 demonic being 的全部含义。"
+
+  - id: R01-004
+    source_review: "01-the-altar-moves-review-1"
+    source_finding: "SOFT 术语 #1 — Anchor Bible commentary 中文译法待标准化"
+    severity: SOFT
+    found_by: reviewer
+    found_at: 2026-06-10
+    assigned_to: translator (临时修改) / glossary-master (最终裁决)
+    status: fixed
+    fix_description: "改为'锚圣经（Anchor Bible）注释'——中英对照，保留系列名称可识别性。Glossary Master 裁决批准此格式并加入 glossary.yml 锁定。Anchor Bible Dictionary 按同一模式处理。"
+    fixed_at: 2026-06-10
+    glossary_master_ruling: "2026-06-10 — 批准并锁定。中英对照格式同时满足可识别性和可读性需求。"
+    verified_by: reviewer (临时修改) / glossary-master (最终裁决)
+    verified_at: 2026-06-10
+    verification_result: "格式已批准。术语已锁定。"
+
+  - id: R01-005
+    source_review: "01-the-altar-moves-review-1"
+    source_finding: "SOFT 术语 #2 — council communist 译法待 Glossary Master 裁决"
+    severity: SOFT
+    found_by: reviewer
+    found_at: 2026-06-10
+    assigned_to: glossary-master
+    status: fixed
+    fix_description: "Glossary Master 裁决：译法准确。已加入 glossary.yml 锁定（第 1 章专属术语）。译文保持不变——翻译笔记中已有的词义解释即满足首次出现注释需求。Chinese Reader 的短暂停顿属于精确术语在未预热语境中的可接受认知成本，不要求正交加内文注释。"
+    fixed_at: 2026-06-10
+    verified_by: glossary-master
+    verified_at: 2026-06-10
+    verification_result: "术语已锁定。译文无需修改。"
+
+  - id: R01-006
+    source_review: "01-the-altar-moves-review-1"
+    source_finding: "阻断：翻译仅覆盖约 33%"
+    severity: HARD
+    found_by: reviewer
+    found_at: 2026-06-10
+    assigned_to: translator
+    status: fixed
+    fix_description: "完成全章 7 个章节节 + References 翻译，共 523 行"
+    fixed_at: 2026-06-10
+    verified_by: reviewer
+    verified_at: 2026-06-10
+    verification_result: "review-2 确认全章完整"
+
+  # === review-2 发现（2026-06-10，全章） ===
+
+  - id: R01-007
+    source_review: "01-the-altar-moves-review-2"
+    source_finding: "SOFT 准确性 #1 — 史学段末尾 'the question is open..' 在第一处省略"
+    severity: SOFT
+    found_by: reviewer
+    found_at: 2026-06-10
+    assigned_to: translator
+    status: fixed
+    fix_description: "恢复了原文的'..'——段末句改为'每一方都阅读了现有的档案并得出了不同的结论；问题仍然是开放的..'，以两个句号匹配原文的悬而未决效果。同步更新了翻译笔记中对应的术语说明。"
+    fixed_at: 2026-06-11
+    verified_by: reviewer
+    verified_at: 2026-06-11
+    verification_result: "确认修复。'问题仍然是开放的..'（第 248 行）保留原文双句号文体效果，段末余韵与下一段'我们在此不作选择'形成自然过渡。"
+
+  - id: R01-008
+    source_review: "01-the-altar-moves-review-2"
+    source_finding: "SOFT 准确性 #2 — '持续有效法律的十二年间'疑有多余字'法律'"
+    severity: SOFT
+    found_by: reviewer
+    found_at: 2026-06-10
+    assigned_to: translator
+    status: fixed
+    fix_description: "删除冗余的'法律'二字——'在这部法令持续有效法律的十二年间'改为'在这部法令持续有效的十二年间'"
+    fixed_at: 2026-06-10
+
+  - id: R01-009
+    source_review: "01-the-altar-moves-review-2"
+    source_finding: "SOFT 准确性 #3 — '替代没有消失' vs 原文 the substitution does not 修辞微差"
+    severity: SOFT
+    found_by: reviewer
+    found_at: 2026-06-10
+    assigned_to: translator
+    status: fixed
+    fix_description: "将标题和正文中的'替代没有消失'均改为'替代不动'——与'祭坛移动'形成平行对仗（移动 vs 不动），使用相同动词'动'，匹配原文 the altar moves / the substitution does not 的动词平行结构。同时更新了翻译笔记中对该短语的引用。"
+    fixed_at: 2026-06-11
+    verified_by: reviewer
+    verified_at: 2026-06-11
+    verification_result: "确认修复。标题'祭坛移动，替代不动'（第 298 行）与正文'祭坛移动了。替代不动。'（第 316 行）均建立动/不动平行对仗，匹配原文动词结构。"
+
+  - id: R01-010
+    source_review: "01-the-altar-moves-review-2"
+    source_finding: "SOFT 准确性 #4 — 结尾段'某种别的人'自指对比略微模糊"
+    severity: SOFT
+    found_by: reviewer
+    found_at: 2026-06-10
+    assigned_to: translator
+    status: fixed
+    fix_description: "改写为'这并非适用于某种\"别人\"的比喻'——用引号标记'别人'为类别标签，增强与'我们'的对比清晰度"
+    fixed_at: 2026-06-10
+
+  - id: R01-011
+    source_review: "01-the-altar-moves-review-2"
+    source_finding: "SOFT 准确性 #5 — '也许再过几年就会'软化了原文的肯定确定性"
+    severity: SOFT
+    found_by: reviewer
+    found_at: 2026-06-10
+    assigned_to: translator
+    status: fixed
+    fix_description: "删除'也许'，改为'几年之内就会'——原文 within several years more 是肯定陈述（will see...within...），非条件句"
+    fixed_at: 2026-06-10
+
+  - id: R01-012
+    source_review: "01-the-altar-moves-review-2"
+    source_finding: "SOFT 术语 #1 — 'The fire was the match' match 双关不可译"
+    severity: SOFT
+    found_by: reviewer
+    found_at: 2026-06-10
+    assigned_to: glossary-master
+    status: fixed
+    fix_description: "Glossary Master 裁决：接受不可译性损失。当前译文「火就是火柴」保留原文短句力量。原文 match 双关（火柴/引爆点）的第二义在上下文中可通过推断获得（前文已说明火被用作起义信号）。不需要读者面对的脚注——在段落高潮处插入注脚会破坏节奏，且上下文推断已足够。注：这是源语言固有不可译性的一个实例，不属于术语表问题——不需要 glossary 条目。"
+    fixed_at: 2026-06-10
+    verified_by: glossary-master
+    verified_at: 2026-06-10
+    verification_result: "接受不可译性。译文无需修改。译者标注的 [AMBIGUOUS] 标记可解除。"
+
+  - id: R01-013
+    source_review: "01-the-altar-moves-review-2"
+    source_finding: "SOFT 语域 #1 — '双手按上去' 的'按上去'略显口语化"
+    severity: SOFT
+    found_by: reviewer
+    found_at: 2026-06-10
+    assigned_to: translator
+    status: fixed
+    fix_description: "将'双手按上去'改为'双手按在羊头上'——添加宾语'羊头'，消除'上去'的口语化倾向，同时与原文 the hands are placed 的定位保持一致"
+    fixed_at: 2026-06-11
+    verified_by: reviewer
+    verified_at: 2026-06-11
+    verification_result: "确认修复。'双手按在羊头上'（第 163 行）消除口语化倾向，语域匹配原文被动/客观语气，上下文补充信息合理。"
+
+  # === Chinese Reader 冷读发现（2026-06-10） ===
+
+  - id: R01-014
+    source_review: "01-the-altar-moves-chinese-reader-1"
+    source_finding: "SOFT — '委员会共产主义者'未解释，有短暂停顿"
+    severity: SOFT
+    found_by: chinese-reader
+    found_at: 2026-06-10
+    assigned_to: glossary-master
+    status: accepted_as_is
+    rationale: "Glossary Master 裁决：译法准确。翻译笔记已有词义解释。不在正文中加内文注释——这是因为（a）该词在句中仅为一系列描述性短语之一，打断该序列加注会破坏阅读节奏；（b）上下文中"反对列宁主义先锋党模式、主张工人委员会"等语境元素为中文读者提供了理解线索；（c）短暂停顿是精确术语在首次出现时的正常认知成本，不构成阻碍理解的障碍。"
+    fixed_at: 2026-06-10
+    verified_by: glossary-master
+    verified_at: 2026-06-10
+    verification_result: "术语已锁定。翻译笔记已有解释。不接受正文加注请求。"
+
+  - id: R01-015
+    source_review: "01-the-altar-moves-chinese-reader-1"
+    source_finding: "SOFT — '它们也不需要是'——'是'字悬空，语法不完整"
+    severity: SOFT
+    found_by: chinese-reader
+    found_at: 2026-06-10
+    assigned_to: translator
+    status: fixed
+    fix_description: "将'它们也不需要是'改为'它们也不需要如此'——'如此'补全悬空谓语，指代前句'在一起'的含义"
+    fixed_at: 2026-06-10
+
+  - id: R01-016
+    source_review: "01-the-altar-moves-chinese-reader-1"
+    source_finding: "SOFT — '做功'物理学隐喻在非物理上下文中突兀"
+    severity: SOFT
+    found_by: chinese-reader
+    found_at: 2026-06-10
+    assigned_to: translator
+    status: fixed
+    fix_description: "两处'做功'均改为'起作用'——保留'施加影响/发挥作用'的核心意涵。同时更新翻译笔记中对应的[AMBIGUOUS]标记为[TERM-NOTE]。Open questions 中'doing work'条目一并移除"
+    fixed_at: 2026-06-10
+
+  - id: R01-017
+    source_review: "01-the-altar-moves-chinese-reader-1"
+    source_finding: "SOFT — '我们的脸...那张面孔'略有冗余感"
+    severity: SOFT
+    found_by: chinese-reader
+    found_at: 2026-06-10
+    assigned_to: translator
+    status: fixed
+    fix_description: "将'如果我们的脸是一项决策对外的那张面孔'改为'如果我们的脸是某项决策对外的面孔'——删除'那张'以消除指示冗余，'某项'替换'一项'使语感更流畅"
+    fixed_at: 2026-06-10
+
+  - id: R01-018
+    source_review: "01-the-altar-moves-chinese-reader-1"
+    source_finding: "SOFT — 英文词汇在中文正文中的结构性存在（scapegoate/escape-goat 等）——对不读英文的读者造成认知阻力"
+    severity: SOFT
+    found_by: chinese-reader
+    found_at: 2026-06-10
+    assigned_to: glossary-master
+    status: fixed
+    fix_description: "Glossary Master 裁决：已制定全书统一策略。在 glossary.yml 顶部注释中正式写入词源讨论段落的外文词汇处理规则：（1）被讨论的外文词汇以斜体保留原文形式——这些词本身就是讨论的对象/内容，不可翻译；（2）正文中文叙事提供足够上下文，使不读该外文的读者能理解论证线索；（3）首次出现的词源性关键词汇在翻译笔记中给出详细解释；（4）不在正文中加括号注中文。此策略适用于全书所有词源讨论段落。读者认知阻力是翻译一本语言自觉型书籍的固有结构性代价，不属于可消除的问题。"
+    fixed_at: 2026-06-10
+    verified_by: glossary-master
+    verified_at: 2026-06-10
+    verification_result: "全书策略已文档化。所有章节的同类型段落依此策略处理。"
+
+  - id: R01-019
+    source_review: "01-the-altar-moves-chinese-reader-1"
+    source_finding: "SOFT — '一笔公司和解'量词搭配不当"
+    severity: SOFT
+    found_by: chinese-reader
+    found_at: 2026-06-10
+    assigned_to: translator
+    status: fixed
+    fix_description: "将'一笔公司和解'改为'一桩企业和解'——'一笔'适合搭配钱款金额而非'和解'事件，改为'一桩'；'公司'改为'企业'以匹配 corporate settlement 的正式语域"
+    fixed_at: 2026-06-11
+    verified_by: reviewer
+    verified_at: 2026-06-11
+    verification_result: "确认修复。'一桩企业和解'（第 432 行）量词正确，语域匹配原文正式程度。"
+
+  - id: R01-020
+    source_review: "01-the-altar-moves-chinese-reader-1"
+    source_finding: "SOFT — '跨政权更迭的法定记录的持久性'名词链过长"
+    severity: SOFT
+    found_by: chinese-reader
+    found_at: 2026-06-10
+    assigned_to: translator
+    status: fixed
+    fix_description: "重组为'法定记录跨越政权更迭的持久性'——将'跨'动词化为'跨越'，减少'的'字堆叠，使语序更流畅"
+    fixed_at: 2026-06-11
+    verified_by: reviewer
+    verified_at: 2026-06-11
+    verification_result: "确认修复。'法定记录跨越政权更迭的持久性'（第 363 行）名词链流畅，'的'字从 3 个减至 1 个，语感明显改善。注：翻译笔记第 381 行仍保留旧版用词记录，建议同步更新。"
+
+# === 统计 ===
+# 总发现: 20
+# 已关闭: 20 (fixed: 19, accepted_as_is: 1)
+# 开放中: 0
+# 否决: 0

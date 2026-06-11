@@ -14,6 +14,7 @@
 3. **语域跟随原文。** 原文的叙事热度保留叙事热度，分析冷度保留分析冷度。作者的冷峻/精确/可读的语气在译文中存活。
 4. **审核先于合入。** 任何章节未经 Reviewer 审核不得进入 `ready`。Reviewer 的 HARD 发现阻止推进。
 5. **干净交接。** 每个产出声明假设、不确定项、开放问题、下一负责人。
+6. **追责可追溯。** 每条非显而易见的翻译决策记录在决策日志中。每个 Review 发现追踪至修复闭环。当译法在第六章出问题，可一路追溯至第一章是谁做的选择、谁通过的、有无争议。
 
 ## 核心原则
 
@@ -51,14 +52,80 @@
 
 | 产出类型 | 位置 | 命名规则 |
 |---|---|---|
-| 译文稿 | `translation/chapters/` | `<章节号>-<slug>-draft.md` |
+| 译文稿（双语） | `translation/chapters/` | `<章节号>-<slug>-draft.md` |
+| 纯文本产出 | `translation/ready/` | `<章节号>-<slug>.md` |
 | 审核报告 | `translation/reviews/` | `<章节号>-<slug>-review-<序号>.md` |
+| 冷读报告 | `translation/reviews/` | `<章节号>-<slug>-chinese-reader-<序号>.md` |
+| 决策日志 | `translation/decision-log/<章节号>-<slug>/` | `decisions.yml` + `resolutions.yml` |
 | 术语表 | `translation/glossary.yml` | 单一文件，由 Glossary Master 维护 |
+| 评分标准 | `translation/SCORING.md` | 翻译质量等级 A/B/C/D 的宪法 |
 | 翻译规范 | `translation/TRANSLATION.md` | 本文件 |
+
+**双语稿（chapters/）与纯文本（ready/）的分工：**
+- `chapters/` 保留双语格式（原文 + 译文 + 翻译笔记）——这是翻译决策的证据链，不可删除
+- `ready/` 为剥离后的纯中文正文 + References——这是合稿和出版的输入源
+- 章节进入 `ready` 后由 Translation Director 或合稿负责人执行剥离
 
 审核报告每次审核单独存档，序号递增。报告 frontmatter 必须包含：`review_id`、`chapter`、`reviewer`、`date`、`coverage`、`verdict`。如有前次审核，标注 `previous_review`。
 
 译文稿 frontmatter 必须包含：`source`、`translator`、`chapter`、`title_en`、`title_zh`、`glossary_version`、`status`。
+
+## 决策日志与追责链
+
+本书的核心论点是责任洗白——将控制者与代价承担者分离。翻译流水线自身必须实践它所诊断的东西。
+
+### 决策日志（decisions.yml）
+
+每条非显而易见的翻译决策均记录在 `translation/decision-log/<章节号>-<slug>/decisions.yml`：
+
+```yaml
+decisions:
+  - id: D<章>-<序号>
+    location: "<段落/句子位置>"
+    type: prose-choice | term-choice | style-choice
+    decision: "<译者的实际选择>"
+    alternatives_considered: ["<备选 1>", "<备选 2>"]
+    rationale: "<为什么这样选>"
+    decided_by: translator | reviewer | glossary-master
+    decided_at: <日期>
+    reviewed_by: <审核者>
+    review_outcome: pass | accepted_pending | revised | disputed
+```
+
+### 审核结论追踪（resolutions.yml）
+
+每条 Reviewer 或 Chinese Reader 的发现均追踪至修复闭环：
+
+```yaml
+resolutions:
+  - id: R<章>-<序号>
+    source_review: "<审核报告文件名>"
+    source_finding: "<发现描述>"
+    severity: HARD | SOFT
+    found_by: reviewer | chinese-reader
+    found_at: <日期>
+    assigned_to: translator | glossary-master | translation-director
+    status: open | fixed | accepted_as_is | disputed | overridden
+    fix_description: "<修复描述>"
+    verified_by: "<验证者>"
+    override_by: "<否决者>"
+    override_reason: "<否决理由>"
+```
+
+### 追责链的八问诊断
+
+对翻译流水线中任何争议，应用主书诊断框架：
+
+1. 谁或什么被公开归咎？（哪个译法/哪个决策出了问题）
+2. 谁有控制权？（谁做出了这个选择）
+3. 谁受益？（这个选择服务于哪个读者群或风格目标）
+4. 谁知情或应知情？（审核者是否看到了这个选择）
+5. 谁能阻止复发？（修复是否堵住了系统性原因而不仅是单点）
+6. 谁控制了记录？（决策日志是否完整记录了这条链）
+7. 谁承担了代价？（读者——中文读者读到了什么）
+8. 如果让责任跟随控制权而非可见度，谁应被追问？
+
+模板文件位于 `translation/decision-log/TEMPLATE-decisions.yml` 和 `TEMPLATE-resolutions.yml`。
 
 ## 产出标准
 

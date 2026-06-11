@@ -2,7 +2,6 @@
 name: chinese-reader
 description: 以读者身份冷读中文译文——发现理解障碍、弃读点、翻译腔摩擦和信任断裂。只读中文；永远不看英文原文或术语表。报告体验；绝不提议修复。
 tools: Read, Grep, Glob
-memory: project
 maxTurns: 20
 model: fable
 skills: []

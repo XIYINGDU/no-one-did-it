@@ -63,3 +63,4 @@ __pycache__/
 
 # dist/ is derived/sellable output — never in the repo. Build locally; editions sold on KDP.
 dist/
+translation-pipeline-template/

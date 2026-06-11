@@ -5,6 +5,20 @@
 # 2. 任何术语修改必须经过 Glossary Master
 # 3. forbidden 字段列出禁止使用的替代译法
 # 4. 每个术语标注 first_chapter（首次出现的章节）和 domain（所属领域）
+#
+# 全书翻译策略（Glossary Master 裁决 2026-06-10）：
+#
+# 词源讨论段落的外文词汇策略（原文：ch-01 廷代尔段落 scapegoate 词源分析）：
+# 当原文讨论英语（或其他语言）的词源/构词时，该外文词汇本身即是讨论的对象，
+# 不可翻译。全书统一处理如下：
+# 1. 被讨论的词源性外文词汇以斜体保留原文形式（如 scapegoate, escape-goat）
+# 2. 正文中的中文叙事提供足够的上下文，使不读该外文的读者能理解论证线索
+#    例：ch-01 中解释"他将 Azazel 解读为一个合成词：ez ozel，离开的山羊，
+#    the escape-goat。在他 1530 年的英语摩西五经中，他写下了 scapegoate。"
+#    即使不读英文的读者也能从中文上下文中理解词源过程
+# 3. 首次出现的词源性关键外文词汇，在翻译笔记（非正文）中给出详细解释
+# 4. 不在正文段落内加括号注中文——词源讨论的认知焦点应保持在论证本身，
+#    而非为读者逐词翻译被讨论的词汇
 
 terms:
 
@@ -89,6 +103,14 @@ terms:
     first_chapter: 1
     note: "利未记中替罪羊被送往的目的地。学术界对其是地名还是恶魔名存在争议。中文圣经传统译法。"
 
+  - en: "council communist"
+    zh: "委员会共产主义者"
+    forbidden: ["苏维埃共产主义者", "议会共产主义者"]
+    domain: "政治/历史"
+    first_chapter: 1
+    note: "1920-30 年代荷兰/德国左翼共产主义流派成员。反对列宁主义先锋党模式，主张工人委员会(Räte)直接民主。中文政治学术语'委员会共产主义'的派生用法。首次出现时翻译笔记中已提供解释。"
+    ruling: "Glossary Master 裁决 2026-06-10 — 译法准确。Chinese Reader SOFT 发现'有短暂停顿'属于准确术语的可接受认知成本。"
+
   - en: "alibi"
     zh: "托辞"
     forbidden: ["不在场证明", "借口", "说辞"]
@@ -150,6 +172,22 @@ terms:
     note: "荷兰人名。遵循新华社译名规范。"
 
   # === 书名/文献名 ===
+
+  - en: "Anchor Bible"
+    zh: "锚圣经（Anchor Bible）"
+    forbidden: []
+    domain: "学术/圣经研究"
+    first_chapter: 1
+    note: "Doubleday/Yale 出版的知名学术圣经注释系列。中文圣经学界无单一约定译法，采用中英对照形式以保留系列名称的可识别性。Anchor Bible Dictionary 按同一模式处理。"
+    ruling: "Glossary Master 裁决 2026-06-10 — 中英对照格式已满足可识别性和可读性双重需求。"
+
+  - en: "Anchor Bible Dictionary"
+    zh: "锚圣经词典（Anchor Bible Dictionary）"
+    forbidden: []
+    domain: "学术/圣经研究"
+    first_chapter: 1
+    note: "Anchor Bible 系列的多卷本圣经词典。译法跟随 Anchor Bible。"
+    ruling: "Glossary Master 裁决 2026-06-10 — 跟随 Anchor Bible 译法。"
 
   - en: "The Laws of Manu"
     zh: "《摩奴法典》"
