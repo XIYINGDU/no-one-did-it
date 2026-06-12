@@ -217,3 +217,56 @@ terms:
     domain: "一般"
     first_chapter: 1
     note: "在 cost-bearing goat 等表达中统一使用'承担'。"
+
+  # === 第 2 章修复增加 ===
+
+  - en: "doctrine"
+    zh: "条令 / 原则"
+    forbidden: ["教条", "教条主义"]
+    domain: "法律/军事"
+    first_chapter: 2
+    note: "中性的制度性术语，非 dogmatic。在军事/指挥链语境下译为「条令」；在法律/国际法语境下译为「原则」。禁止使用「教条」。具体语境映射见翻译笔记层。"
+
+  - en: "doctrinal"
+    zh: "条令的 / 原则的"
+    forbidden: ["教条的"]
+    domain: "法律/军事"
+    first_chapter: 2
+    note: "doctrine 的形容词形式。语境译法随 doctrine。'doctrinal ambiguity' → 条令模糊性（军事）；'doctrinal frame' → 原则框架（法律）。"
+
+  # === 第 2 章新增术语（Glossary Master 裁决 2026-06-12） ===
+
+  - en: "meat eaters"
+    zh: "主动索贿者"
+    forbidden: ["肉食者"]
+    domain: "犯罪学/警务"
+    first_chapter: 2
+    note: "纳普委员会（Knapp Commission）对纽约警察腐败的分类术语。'主动索贿者'(meat eaters)指主动寻找腐败机会的警察；'被动受贿者'(grass eaters)指被动接受贿赂而非主动索要的警察。英文比喻在中文中不可保留，故采用功能意译。首次出现时保留英文括号对照。"
+    ruling: "Glossary Master 裁决 2026-06-12 — 功能意译准确。'肉食者'禁止——该词在古汉语中有独立含义，会造成混淆。要求首次出现时中英对照。"
+    translation_strategy: "source-metaphor-unrecoverable"
+
+  - en: "grass eaters"
+    zh: "被动受贿者"
+    forbidden: ["草食者"]
+    domain: "犯罪学/警务"
+    first_chapter: 2
+    note: "纳普委员会（Knapp Commission）对纽约警察腐败的分类术语。见 meat eaters 条目。首次出现时保留英文括号对照。"
+    ruling: "Glossary Master 裁决 2026-06-12 — 跟随 meat eaters 裁决。"
+    translation_strategy: "source-metaphor-unrecoverable"
+
+  - en: "pad system"
+    zh: "保护费制度"
+    forbidden: ["贿赂制度", "保护金制度", "份子钱制度"]
+    domain: "犯罪学/警务"
+    first_chapter: 2
+    note: "纳普委员会（Knapp Commission）描述的纽约市警局系统性勒索制度。pad 指警察每月从非法商户收取的固定'份额'(share)。中文'保护费制度'的'黑社会收保护费'联想在此处与原文所指的保护费勒索(protection racket)高度吻合，并非误导。该术语在中文语境中尚无预设参考文献，当前译法基于上下文意译。"
+    ruling: "Glossary Master 裁决 2026-06-12 — 译法准确。'保护费'的犯罪组织联想在此恰好服务于原意的准确传达。禁止使用弱化该制度本质的替代词。无需首次出现中英对照。"
+    translation_strategy: "functional-equivalent"
+
+  - en: "recursion"
+    zh: "递归"
+    forbidden: ["循环", "重复", "自我复制"]
+    domain: "计算机科学隐喻"
+    first_chapter: 2
+    note: "原书在分析性语境中使用计算机科学隐喻——托辞(recurse/alibi)可以在制度层级阶梯的任意一层'递归'(以自相似结构反复出现)。'递归'在中文中的首要含义是CS术语，但在本书中作为跨学科隐喻使用，上下文（'制度的层级阶梯'）已提供足够的理解线索。译者应在首次出现的翻译笔记中说明此隐喻用法，正文不需要括号注英文。后续章节如再次出现同一隐喻，需保持同一译法。"
+    ruling: "Glossary Master 裁决 2026-06-12 — 批准。上下文中的'层级阶梯'(stack)隐喻已为此铺垫。禁止使用'循环'或'重复'——两者丢失了递归的'自相似结构在不同层级重复'的精确含义。"

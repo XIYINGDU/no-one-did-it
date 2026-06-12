@@ -1,0 +1,185 @@
+# Chapter 03 — Review 1 Resolutions
+# Fixed: 2026-06-12
+# Status: re-submitted for Review 2
+
+hard_fixes:
+  - id: H1
+    location: "开场场景第1段，第42行"
+    issue: "受雇于——将ICCT与CAFEE之间的合同委托关系改变为直接雇佣关系"
+    original: "受雇于华盛顿一家名为国际清洁交通委员会（International Council on Clean Transportation）的小型非营利组织。"
+    fix: "接受华盛顿一家名为国际清洁交通委员会（International Council on Clean Transportation）的小型非营利组织的委托。"
+    status: fixed
+    rationale: "原文 'under a contract from' 指CAFEE（通过WVU）与ICCT之间的合同关系。工程师是WVU/CAFEE的员工，不是ICCT的直接雇员。'接受……的委托'保留了委托合同关系，与原文法律含义一致。"
+
+soft_fixes:
+  - id: S1
+    location: "开场场景第2段，第44行"
+    issue: "实际——添加了原文没有的限定词"
+    original: "测量汽车行驶时排气管实际排出的物质"
+    fix: "测量汽车行驶时排气管排出的物质"
+    status: fixed
+    rationale: "删除 '实际'。原文 'measured what came out of the exhaust pipe' 无'实际'(actual)一词。"
+
+  - id: S2
+    location: "开场场景第2段，第46行"
+    issue: "验证——与原文 'vindicate'（为制造商正名/证明其清白）含义不同"
+    original: "验证制造商"
+    fix: "为制造商正名"
+    status: fixed
+    rationale: "'vindicate' 意为'证明……的正确/正当'，在此语境中指证明制造商的立场是正确的。'为制造商正名'比 '验证' 更准确。"
+
+  - id: S3
+    location: "三个故事第1段，第102行"
+    issue: "买了十六个月——读音似支付十六个月的价款，表达生硬"
+    original: "这个故事买了十六个月。"
+    fix: "这个故事争取了十六个月的时间。"
+    status: fixed
+    rationale: "'买时间'是汉语已有表达，但 '买了十六个月' 缺少 '时间' 一词，易被读为用十六个月的价款购买某物。增加 '时间' 并换用 '争取了' 使语义更清晰。"
+
+  - id: S4
+    location: "八个问题——问题6，第152行"
+    issue: "语法结构被压缩——'从未发布的报告'直接修饰'律所'，中文不通顺"
+    original: "聘请了那份从未发布的报告的律所"
+    fix: "聘请了一家律所——其报告从未发布"
+    status: fixed
+    rationale: "原文 'hired the law firm whose report was never released' 的后置定语从句在中文中不能压缩为前置修饰。拆分为主句+破折号解释从句。"
+
+  - id: S5
+    location: "问题四段落，第218行"
+    issue: "大众继续了——缺少补语，句子不完整"
+    original: "大众继续了。"
+    fix: "大众继续执行。"
+    status: fixed
+    rationale: "'continued' 在原文中为不及物动词，但中文 '继续了' 需要补语。'继续执行' 保留了'supplier warned; VW continued (with the plan)' 的含义。"
+
+  - id: S6
+    location: "两个时刻第1段，第552行"
+    issue: "语序问题——'一旦它们发生就检测到它们'语序不符合中文习惯"
+    original: "诊断一旦它们发生就检测到它们。"
+    fix: "一旦它们发生，诊断就能检测到它们。"
+    status: fixed
+    rationale: "将条件状语 '一旦它们发生' 提前，符合中文语序。"
+
+  - id: S7
+    location: "两个时刻第2段，第555行"
+    issue: "简写——偏向缩写(abbreviation)，而'shorthand'在此意为简便说法/习语"
+    original: "行业媒体简写中存活"
+    fix: "行业媒体简语中存活"
+    status: fixed
+    rationale: "'trade-press shorthand' 指行业媒体使用的简便说法，非缩写。'简语' 比 '简写' 更准确——包含简化和习语化的含义。"
+
+  - id: S8
+    location: "慢速运行八个问题段落，第583行"
+    issue: "核算——有强烈财务含义，原文 'accounted for' 在此意为涵盖/解释"
+    original: "该解释已经核算了链的哪些部分"
+    fix: "该解释已经涵盖了链的哪些部分"
+    status: fixed
+    rationale: "'accounted for' 在此语境指解释/覆盖了哪些部分，非财务意义。'涵盖' 保留此含义。"
+
+  - id: S9
+    location: "五个渠道第1段，第637行"
+    issue: "错过了——丢失了原文 'walked past' 的空间隐喻"
+    original: "哪个渠道错过了它本应触及的链"
+    fix: "哪个渠道走过而未触及它本应触及的链"
+    status: fixed
+    rationale: "'walked past' 的空间隐喻（走过而未触及）在中英文之间不完全对应。'走过而未触及' 保留了的两个动作之间的对比——有移动（走过）但无接触（未触及）。"
+
+  - id: S10
+    location: "认真对待施瓦茨第3段，第489行"
+    issue: "人工物——工程/技术含义偏强，在调查/法证语境中不自然"
+    original: "人工物"
+    fix: "物件"
+    status: fixed
+    rationale: "'artifact' 在此语境指留存在记录中的证据性载体（备忘录/文件）。'物件' 在中文调查/法证语境中更自然。"
+
+  - id: S11
+    location: "认真对待施瓦茨第7段，第508行"
+    issue: "长成——添加了原文没有的'成长'比喻"
+    original: "运转中的问责长成的样子"
+    fix: "运转中的问责的样子"
+    status: fixed
+    rationale: "删除’长成‘——原文 'what working accountability looks like' 无生长隐喻。"
+
+  - id: S12
+    location: "五个渠道段落，第620行"
+    issue: "走入——未传达'walk away (from responsibility)'的潜台词"
+    original: "从福特走入克莱斯勒"
+    state: accepted_as_is
+    rationale: "原文 'walked from Ford to Chrysler' 的 'walk' 确实隐含'轻松脱身'的含义，但此潜台词在中文中通过下文语境（'从未为平托面临个人责任'）已传达。强行在单个动词中嵌入'脱身'含义会添加原文没有的词汇。上下文+下文的组合足以传达相同的分析结论。"
+
+  - id: R3
+    location: "结尾段落，第678行"
+    issue: "第三句篇幅膨胀近一倍，道德短句的锤击节奏被削弱"
+    original: "它是一种足够长时间地观察一个故事以看到其中差距的方式。"
+    fix: "它是足够久地审视一个故事、直到看见差距的方式。"
+    status: fixed
+    rationale: "原文三句(It is not a verdict / not a remedy / a way of looking...)的节奏在中英文间不可完全对应。[5-5-17字] 压缩为 [5-5-13字]，减少嵌入结构，保留短句的平行节奏。"
+
+  # Round 2 fixes: 3 SOFT from review-1 (2026-06-12)
+  - id: SOFT-R2-1
+    location: "问题六段落，第258行（译文）"
+    issue: "counter-record →「对应记录」— counter- 对抗前缀弱化"
+    original: "相对于这种记录控制手段，更干净的对应记录是美国的刑事案卷。"
+    fix: "相对于这种记录控制手段，更干净的对抗记录是美国的刑事案卷。"
+    status: fixed
+    rationale: "counter-record 中的 counter- 前缀含对抗/抗衡含义，指美国刑事案卷作为与公司内部记录相对抗的外部记录。'对抗记录'保留了此对抗维度。翻译笔记同步更新。"
+
+  - id: SOFT-R2-2
+    location: "三个故事第1段，第114行（译文）"
+    issue: "operational weight →「操作层面的重量」— 略显机械，语感不够自然"
+    original: "这个叙事具有操作层面的重量。"
+    fix: "这个叙事具有操作分量。"
+    status: fixed
+    rationale: "'分(fèn)量' 在中文中自然承载'重要性/影响力'的含义，与原文 'operational weight'（在实际操作中具有影响力/后果）一致。'操作分量' 比 '操作层面的重量' 更简洁自然。"
+
+  - id: SOFT-R2-3
+    location: "平托收束段落，第440行（译文）"
+    issue: "survives →「跨越了」— survives 语义微差丢失（经受挑战后保持有效）"
+    original: "诊断工具跨越了四十年的跳跃。"
+    fix: "诊断工具经受住了四十年的跨越。"
+    status: fixed
+    rationale: "survives the forty-year jump 强调诊断工具经受住了时间跳跃的检验（仍然有效），而非简单地跨越了时间距离。'经受住了……的跨越' 保留了这层挑战-通过的含义。翻译笔记同步更新。"
+
+  - id: "CR-HARD-1-pronoun-reference"
+    source_review: "chinese-reader-cold-read-03"
+    source_finding: "「当他们是时」中「他们」指代模糊——读者无法判断指「代价承担者」还是「控制者/受益者」还是「两者是同一人群」"
+    severity: HARD
+    found_by: chinese-reader
+    found_at: "语感 HARD — 问题七紧缩结构指代不清"
+    assigned_to: translator
+    status: fixed
+    fix_description: "「代价承担者与控制者或受益者很少是同一人群；当他们是时，没有发生洗白。当他们不是时，间隙命名了洗白。」→「代价承担者与控制者或受益者很少是同一人群；当代价承担者与控制者或受益者是同一人群时，没有发生洗白。当他们不是时，间隙命名了洗白。」明确主语为「代价承担者与控制者或受益者是同一人群」这一整体条件。"
+    fixed_at: "2026-06-12"
+
+  - id: "CR-HARD-2-nested-de"
+    source_review: "chinese-reader-cold-read-03"
+    source_finding: "「通过它以其成本可接受的选定硬件、在合规排放水平下无法实现的对美国市场柴油车销量」——长前置定语「的」嵌套过多，英文词序残留"
+    severity: HARD
+    found_by: chinese-reader
+    found_at: "语感 HARD — 问题三长句「的」嵌套"
+    assigned_to: translator
+    status: fixed
+    fix_description: "拆分短句，先交代主体再补修饰：「通过其在美国市场的柴油车销量获利——这些销量是该司以其成本可接受的选定硬件、在合规排放水平下所无法实现的。」破折号后的补充说明将「销量」与修饰语分离，避免前置定语嵌套。"
+    fixed_at: "2026-06-12"
+
+  - id: "CR-HARD-3-sufficiency-container"
+    source_review: "chinese-reader-cold-read-03"
+    source_finding: "「充分性容器」——中文读者无法形成概念图式，法律分析语境中非常见术语"
+    severity: HARD
+    found_by: chinese-reader
+    found_at: "概念清晰度 HARD — 充分性容器术语断裂"
+    assigned_to: translator
+    status: fixed
+    fix_description: "「公司作为一个充分性容器」→「公司作为法律意义上的'充分性容器'」。增加「法律意义上的」极简语境引导，帮助读者建立概念图式（该术语是法律分析框架中的特定概念，而非日常概念）。未改变 glossary 锁定译法「充分性容器」。英文对照（sufficiency container）保留括号注。"
+    fixed_at: "2026-06-12"
+
+  - id: "CR-HARD-4-slash-taxonomy"
+    source_review: "chinese-reader-cold-read-03"
+    source_finding: "「系统/对象托辞」——斜线读起来像技术代码，在中文正文中不自然"
+    severity: HARD
+    found_by: chinese-reader
+    found_at: "可读性 HARD — 斜线术语"
+    assigned_to: translator
+    status: fixed
+    fix_description: "首次出现展开为「系统托辞或对象托辞」：四分类枚举句从「纯粹替罪羊、部分替罪羊、系统/对象托辞和承担代价的山羊」改为「纯粹替罪羊、部分替罪羊、系统托辞或对象托辞，以及承担代价的山羊」。同时「和」改为「以及」以与非并列的「或」区分。「或」表明该分类涵盖两种子形态（系统作为托辞或对象作为托辞）。同一段中的第二次出现「是一个系统/对象托辞」保留斜线简写形式。未改变 glossary 锁定译法。"
+    fixed_at: "2026-06-12"

@@ -1,0 +1,281 @@
+# 翻译审核结论追踪 — 第 2 章《四种山羊》
+
+chapter: "02-the-four-goats"
+chapter_title_zh: "四种山羊"
+
+resolutions:
+  - id: "GM-01-meat-eaters-grass-eaters"
+    source_review: "glossary-master-ruling-2026-06-12"
+    source_finding: "「主动索贿者」/「被动受贿者」译法经 Glossary Master 裁决确认。要求首次出现处括号注英文原文（meat eaters / grass eaters）。"
+    severity: HARD
+    found_by: glossary-master
+    found_at: "术语准确性 — meat eaters / grass eaters 译法与括号注英文规则"
+    assigned_to: translator
+    status: fixed
+    fix_description: >
+      译文已在首次出现处（塞尔皮科段）实现括号注英文：
+      "主动索贿者（meat eaters）" / "被动受贿者（grass eaters）"。
+      后续出现不附加英文。Open questions 已更新为已解决。resolutions.yml 已记录。
+    fixed_at: "2026-06-12"
+    verified_by: glossary-master
+    verified_at: "2026-06-12"
+    override_by: ""
+    override_reason: ""
+
+
+  - id: "HARD-01-doctrine"
+    source_review: "02-the-four-goats-review-1"
+    source_finding: "系统性术语选择错误——'doctrine/doctrinal'（中性制度术语）被译为「教条」（dogma的贬义），全章至少10处，将分析冷度变为道德谴责"
+    severity: HARD
+    found_by: reviewer
+    found_at: "准确性 HARD #1 / 语域 HARD #1"
+    assigned_to: translator
+    status: fixed
+    fix_description: >
+      全章12处「教条」逐语境修复：
+      - 军事/指挥链语境（5处）→ 「条令」：军事教条机器→军事条令机器；
+        指挥链、教条、政策的层面→指挥链、条令、政策的层面；
+        教条上的模糊性→条令上的模糊性；教条层面→条令层面；
+        制造了教条→制定了条令。
+      - 法律/原则/制度语境（7处）→ 「原则」：现有教条→现有原则；
+        教条框架→原则框架；可用教条→可用原则；教条能/不能到达→原则能/不能到达；
+        将教条延伸到→将原则延伸到。
+      同时更新 glossary.yml，新增 doctrine/doctrinal 条目，forbidden: [「教条」]。
+    fixed_at: "2026-06-12"
+    verified_by: reviewer
+    verified_at: "2026-06-12"
+    override_by: ""
+    override_reason: ""
+
+  - id: "SOFT-04-turned-on-itself"
+    source_review: "02-the-four-goats-review-1"
+    source_finding: "「对自己发起了攻击」将原文'反转/自我倒戈'的隐喻强化为'攻击'，增添了原文没有的对抗性"
+    severity: SOFT
+    found_by: reviewer
+    found_at: "准确性 SOFT #4"
+    assigned_to: translator
+    status: fixed
+    fix_description: "「对自己发起了攻击」→「反噬了自身」。原文 turned on itself 的'转向'含义更接近'反噬'（自身倒戈），非'攻击'（主动出击）。同步更新翻译笔记。"
+    fixed_at: "2026-06-12"
+
+  - id: "SOFT-05-close-public-record"
+    source_review: "02-the-four-goats-review-1"
+    source_finding: "「了结对这一伤害的公开记录」中'了结'与原文'close the public record'的准确对应可商榷——原意是封闭/终结公共记录"
+    severity: SOFT
+    found_by: reviewer
+    found_at: "准确性 SOFT #5"
+    assigned_to: translator
+    status: fixed
+    fix_description: "「了结对这一伤害的公开记录」→「关闭对这一伤害的公开记录」。close 在原文语境中意为'封闭'（使不再被讨论/审查），非'了结'（使结束）。"
+    fixed_at: "2026-06-12"
+
+  - id: "SOFT-06-proximate-cause"
+    source_review: "02-the-four-goats-review-1"
+    source_finding: "「近因」(操作员段)与「直接原因」(Marietta段)同一法律术语不一致"
+    severity: SOFT
+    found_by: reviewer
+    found_at: "准确性 SOFT #6 / 术语 SOFT #1"
+    assigned_to: translator
+    status: fixed
+    fix_description: "统一为「近因」。proximate cause 是法律术语，中文法律用语通常译为'近因'。操作员段129行已使用'近因'，Marietta段统一。"
+    fixed_at: "2026-06-12"
+
+  - id: "SOFT-07-on-its-own-terms"
+    source_review: "02-the-four-goats-review-1"
+    source_finding: "「按其自身条件」未能传达'terms'的逻辑性含义，原意为'按其自身逻辑/根据自身规则'"
+    severity: SOFT
+    found_by: reviewer
+    found_at: "准确性 SOFT #7"
+    assigned_to: translator
+    status: fixed
+    fix_description: "「按其自身条件」→「按其自身逻辑」。原文 on its own terms 意为按照其自身的运作规则/逻辑，非'条件'(conditions)。同步更新翻译笔记。"
+    fixed_at: "2026-06-12"
+
+  - id: "SOFT-08-bright-lines"
+    source_review: "02-the-four-goats-review-1"
+    source_finding: "「亮线」——法律术语'bright-line rule'在中文法律用语中通常译为'明确界线'，直译可能让一般读者困惑"
+    severity: SOFT
+    found_by: reviewer
+    found_at: "准确性 SOFT #8"
+    assigned_to: translator
+    status: fixed
+    fix_description: "「亮线」→「明确界线」。bright-line rule 是法律术语，中文法律用语约定译法为'明确界线'/'清晰界线'。同步更新翻译笔记。"
+    fixed_at: "2026-06-12"
+
+  - id: "SOFT-09-removal-policy"
+    source_review: "02-the-four-goats-review-1"
+    source_finding: "「强行迁移政策」添加原文没有的'强行'——原文只说'removal policy'"
+    severity: SOFT
+    found_by: reviewer
+    found_at: "准确性 SOFT #9"
+    assigned_to: translator
+    status: fixed
+    fix_description: "「强行迁移政策」→「迁移政策」。删除原文未出现的'强行'。该政策本身即是'强行'性质（儿童被强迫带走），但原文的克制应保留。"
+    fixed_at: "2026-06-12"
+
+  - id: "SOFT-10-long-sentence"
+    source_review: "02-the-four-goats-review-1"
+    source_finding: "句子过长(60+字)，'每当...时'的状语从句过重，节奏拖沓"
+    severity: SOFT
+    found_by: reviewer
+    found_at: "语域 SOFT #2"
+    assigned_to: translator
+    status: fixed
+    fix_description: "长句拆为破折号连接的两个短句：「被公开归咎于某个伤害的人，与掌控了造成该伤害的决定的人不一致——那就是四种形状中的某一种。」"
+    fixed_at: "2026-06-12"
+
+  - id: "SOFT-11-triple-structure"
+    source_review: "02-the-four-goats-review-1"
+    source_finding: "三重'对于身处...的我们中的那些人'在中文中重复拖沓"
+    severity: SOFT
+    found_by: reviewer
+    found_at: "语域 SOFT #1"
+    assigned_to: translator
+    status: fixed
+    fix_description: "三处'对于身处...的我们中的那些人'→'身处...的我们'。保留平行结构同时去除冗余的'对于...那些人'。"
+    fixed_at: "2026-06-12"
+
+  - id: "SOFT-12-redress-scheme"
+    source_review: "02-the-four-goats-review-1"
+    source_finding: "「补救」侧重修复，而'redress'侧重赔偿/补偿——更精确的可能是'赔偿计划'或'补偿计划'"
+    severity: SOFT
+    found_by: reviewer
+    found_at: "准确性 SOFT #12"
+    assigned_to: translator
+    status: fixed
+    fix_description: "「补救计划」→「赔偿计划」。Redress 在法律语境中侧重'赔偿/补偿'（金钱或其他形式的弥补），非'补救'（维修复原）。'
+    fixed_at: "2026-06-12"
+
+  - id: "SOFT-13-blame-moved-off"
+    source_review: "02-the-four-goats-review-1"
+    source_finding: "'blame is moved off'翻译为'移开'略显机械"
+    severity: SOFT
+    found_by: reviewer
+    found_at: "准确性 SOFT #13"
+    assigned_to: translator
+    status: fixed
+    fix_description: "「从行动者身上移开」→「从行动者身上转移」。'转移'在中文中比'移开'更自然，且保留了原文的'移动方向'含义。"
+    fixed_at: "2026-06-12"
+
+  - id: "SOFT-14-from-the-start"
+    source_review: "02-the-four-goats-review-1"
+    source_finding: "「我们从一开始就在问」略弱化了原文'from the start'的跨章节延续感（从第1章持续到第2章的问题）"
+    severity: SOFT
+    found_by: reviewer
+    found_at: "准确性 SOFT #14"
+    assigned_to: translator
+    status: fixed
+    fix_description: "「我们从一开始就在问」→「我们从第1章就在问」。强化跨章节延续感——该问题从第1章持续到第2章。"
+    fixed_at: "2026-06-12"
+
+  - id: "SOFT-01-named-introduced"
+    source_review: "02-the-four-goats-review-1"
+    source_finding: "「一名33岁的油田工人名叫...」中'名叫'的插入略显生硬"
+    severity: SOFT
+    found_by: reviewer
+    found_at: "准确性 SOFT #1"
+    assigned_to: translator
+    status: fixed
+    fix_description: "「一名33岁的油田工人名叫沃因·雷·考克斯」→「一名33岁的油田工人，沃因·雷·考克斯（Voyne Ray Cox），」——去除'名叫'，用同位语结构处理人名插入。"
+    fixed_at: "2026-06-12"
+
+  - id: "SOFT-02-word-order"
+    source_review: "02-the-four-goats-review-1"
+    source_finding: "「观察当制度层级升高中被命名原因会发生什么」语序别扭"
+    severity: SOFT
+    found_by: reviewer
+    found_at: "准确性 SOFT #2"
+    assigned_to: translator
+    status: fixed
+    fix_description: "「当制度层级升高中被命名原因会发生什么」→「被命名原因如何随制度层级的升高而变化」。重构语序，使平行结构更流畅。"
+    fixed_at: "2026-06-12"
+
+  - id: "SOFT-03-shift-weakness"
+    source_review: "02-the-four-goats-review-1"
+    source_finding: "'shift'(递进转变)的阶段性推演感略弱化"
+    severity: SOFT
+    found_by: reviewer
+    found_at: "准确性 SOFT #3"
+    assigned_to: translator
+    status: fixed
+    fix_description: "「三个阶段的变化」→「三个阶段递变」。'递变'比'变化'更能传达原文 shift 的阶段性推演含义（从操作员→机器→漏洞的逐层迁移）。"
+    fixed_at: "2026-06-12"
+
+  - id: "CR-HARD-01-actor-diversity"
+    source_review: "chinese-reader-cold-read-02"
+    source_finding: "「行动者」在中文句子里反复出现不自然。需要按语境替换为「当事人」「行为人」「被归咎的人」或省略。"
+    severity: HARD
+    found_by: chinese-reader
+    found_at: "语感 HARD — 行动者密集重复"
+    assigned_to: translator
+    status: fixed
+    fix_description: >
+      「行动者」全文按语境多样化替换：
+      - 主语位置（被公开指名的行动者×2）→「人」/「此人」
+      - 被动位置（被指名的行动者）→「当事人」
+      - 低层级（较低层行动者）→「行为人」
+      - 高层级（高级行动者、上游行动者）→「负责人」
+      - 拦截语境（拦截行动者）→「拦截者」
+      保留图注一处「掌握控制权的行动者」作为术语使用（接受度可接受）。
+    fixed_at: "2026-06-12"
+
+  - id: "CR-HARD-02-passive-diversity"
+    source_review: "chinese-reader-cold-read-02"
+    source_finding: "高频「被」字句（被归咎/被指控/被点名/被认定/被描述），需交替使用「遭到」「受到」「遭」「由...的」等被动表达。"
+    severity: HARD
+    found_by: chinese-reader
+    found_at: "语感 HARD — 「被」字句过度"
+    assigned_to: translator
+    status: fixed
+    fix_description: >
+      全章「被」字句系统性多样化：
+      - 「被归咎」→「遭归咎」
+      - 「被指控」→「遭指控」
+      - 「被军事法庭审判」→「遭军事法庭审判」
+      - 「被判处」→「遭判处」
+      - 「被定罪」→「遭定罪」
+      - 「被否决」→「遭否决」
+      - 「被刑事起诉」→「遭刑事起诉」
+      - 「被降级/解职」→「遭降级/解职」
+      - 「被要求/点名/用来」→「遭要求/点名/用来」
+      - 「被鉴定/识别」→「认定为/已认定」
+      - 「被当作」→「被视为」
+      - 「被封存」→「遭封存」
+      - 「被拒绝」→「遭拒绝」
+      - 「被排除」→「遭排除」
+      - 「被采纳」→「获采纳」
+      核心术语「被洗白」保留（全书核心动词）。
+    fixed_at: "2026-06-12"
+
+  - id: "CR-HARD-03-word-order"
+    source_review: "chinese-reader-cold-read-02"
+    source_finding: "长前置定语英文词序残留。例如「被剥光衣物、戴着头罩、被约束的被拘留者」类结构需改为中文自然语序。"
+    severity: HARD
+    found_by: chinese-reader
+    found_at: "语感 HARD — 英文词序"
+    assigned_to: translator
+    status: fixed
+    fix_description: >
+      - 「头罩被拘留者」（英文 hooded detainee 的直译词序）→「头戴面罩的拘留者」
+      - 「被剥光衣物、戴着头罩、受到约束的被拘留者」（已在初次翻译时处理为谓语分列而非前置定语）
+      - 「在入籍法令下被安置在俄罗斯寄养家庭中的承担代价的儿童」→「根据入籍法令，被安置在俄罗斯寄养家庭中的承担代价的儿童」
+      原则：先交代主体，再补修饰，用逗号拆分，避免英文前置定语词序。
+    fixed_at: "2026-06-12"
+
+  - id: "CR-HARD-04-ihl-logical-connectors"
+    source_review: "chinese-reader-cold-read-02"
+    source_finding: "IHL 法律条款（Geneva/Rome Statute 段）五条逐条罗列，读者迷失。需在条款间增加极简逻辑连接。"
+    severity: HARD
+    found_by: chinese-reader
+    found_at: "结构清晰度 HARD — 法律条款墙"
+    assigned_to: translator
+    status: fixed
+    fix_description: >
+      五项国际法条款增加逻辑连接词：
+      - 「首先」→「第一」（枚举性更强）
+      - 「其次」→保留
+      - 「进而」→保留
+      - 「更进一步」→保留
+      - 第五项「第8条则」→「最终，同一公约第8条则」（增加「最终」标记逻辑终点）
+      未添加原文没有的内容。
+    fixed_at: "2026-06-12"

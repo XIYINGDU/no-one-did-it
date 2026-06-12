@@ -1,0 +1,306 @@
+# 翻译决策日志 — 第 3 章
+#
+# 本章翻译中非显而易见的翻译决策记录。
+
+chapter: "03-who-could-have-stopped-it"
+chapter_title_zh: "谁能阻止它"
+translator: "claude"
+glossary_version: "1.0.0-pilot"
+
+decisions:
+  - id: D03-001
+    location: "题记（Cicero 拉丁文引用）"
+    type: style-choice
+    decision: "Cicero, De Officiis I.23 保留书名斜体拉丁文并括号注中文译文"
+    alternatives_considered: ["只保留中文译文", "保留拉丁文原文不翻译"]
+    rationale: "按全书翻译规范——非英语文字保留原文斜体，首次出现时括号注中文翻译。此处的引文是一句完整的拉丁文拉丁文格言，虽正文已有英译，但保留拉丁文原文有助于读者感受古典引用的质感。"
+    decided_by: translator
+    decided_at: 2026-06-12
+    reviewed_by: null
+    review_outcome: pending
+
+  - id: D03-002
+    location: "第 2 段 — CAFEE"
+    type: term-choice
+    decision: "首次出现时保留英文原文 CAFEE 并括号注中文全称「替代燃料、发动机与排放中心」"
+    alternatives_considered: ["只写中文名称", "只保留英文缩写"]
+    rationale: "CAFEE 作为 West Virginia University 的研究中心，全称较长且在文中只出现一次。括号注中文全称后，后续直接用 CAFEE。"
+    decided_by: translator
+    decided_at: 2026-06-12
+    reviewed_by: null
+    review_outcome: pending
+
+  - id: D03-003
+    location: "第 2 段 — ICCT"
+    type: term-choice
+    decision: "首次出现时保留英文原文并括号注中文全称「国际清洁交通委员会」"
+    alternatives_considered: ["只写英文缩写"]
+    rationale: "ICCT 在中文语境中非常用缩写，需要首次给出全称。"
+    decided_by: translator
+    decided_at: 2026-06-12
+    reviewed_by: null
+    review_outcome: pending
+
+  - id: D03-004
+    location: "第 2 段 — PEMS"
+    type: term-choice
+    decision: "保留 PEMS 英文缩写，首次出现时括号注「便携式排放测量系统」"
+    alternatives_considered: ["译为「便携式排放测试系统」"]
+    rationale: "PEMS 是技术术语的中性缩写，中文括号注全称后读者可理解。"
+    decided_by: translator
+    decided_at: 2026-06-12
+    reviewed_by: null
+    review_outcome: pending
+
+  - id: D03-005
+    location: "第 2 段 — Clean Air Act"
+    type: term-choice
+    decision: "译为「《清洁空气法》」"
+    alternatives_considered: ["《清洁空气法案》"]
+    rationale: "美国 Clean Air Act 是联邦成文法，中文环境法和美国法文献中约定译法为《清洁空气法》。Act 译为法而非法案（bill是法案，act是已生效的法律）。"
+    decided_by: translator
+    decided_at: 2026-06-12
+    reviewed_by: null
+    review_outcome: pending
+
+  - id: D03-006
+    location: "第 2 段 — defeat device"
+    type: term-choice
+    decision: "译为「作弊装置（defeat device）」——首次出现时括号注英文"
+    alternatives_considered: ["译为「失效装置」", "直接译为「作弊装置」"]
+    rationale: "defeat device 在美国排放法规中的技术含义是'使排放控制装置失效的装置'。但在本书的公共叙事语境中，其含义更接近'作弊/欺骗装置'。综合考虑，译为「作弊装置」比「失效装置」更准确地传达了该装置的功能性质。首次出现时保留英文对照以确保术语精确性。"
+    decided_by: translator
+    decided_at: 2026-06-12
+    reviewed_by: null
+    review_outcome: pending
+
+  - id: D03-007
+    location: "第 8 段 — Jones Day"
+    type: term-choice
+    decision: "保留 Jones Day 英文原名"
+    alternatives_considered: ["译为「琼斯·戴律师事务所」"]
+    rationale: "Jones Day（众达）是国际知名律所，在中国法律界已有约定俗称的中文名「众达」。但考虑到英文原文使用 Jones Day 且本书读者可能不认识「众达」，保留原文更为稳妥。"
+    decided_by: translator
+    decided_at: 2026-06-12
+    reviewed_by: null
+    review_outcome: pending
+
+  - id: D03-008
+    location: "第 8 段 — rogue engineers"
+    type: term-choice
+    decision: "译为「流氓工程师」——保留原文的贬义情绪强度"
+    alternatives_considered: ["不服从管理的工程师", "违规操作的工程师"]
+    rationale: "原文 rogue engineers 在大众公司的叙事中有明确的贬义——将工程师描绘为偏离组织控制的'脱缰者'。中文「流氓」在此语境中不是指性犯罪，而是指不守规矩/不受控制的人。保留此译法以传达原文叙事中的情绪强度。"
+    decided_by: translator
+    decided_at: 2026-06-12
+    reviewed_by: null
+    review_outcome: pending
+
+  - id: D03-009
+    location: "第 5 段（Pinto 段落）— the striking driver"
+    type: term-choice
+    decision: "译为「撞击方驾驶员」"
+    alternatives_considered: ["后车驾驶员", "追尾驾驶员"]
+    rationale: "原文「the striking driver」指追尾的驾驶员（striking = delivering a blow/strike）。在 Pin to 案件中，这是福特诉讼策略框架下将责任转移给后车驾驶员的手法。译为「撞击方驾驶员」比「后车驾驶员」更能传达其法律归责含义。"
+    decided_by: translator
+    decided_at: 2026-06-12
+    reviewed_by: null
+    review_outcome: pending
+
+  - id: D03-010
+    location: "第 5 段（Pinto）— FMVSS 301"
+    type: term-choice
+    decision: "保留英文缩写 FMVSS 301，首次出现时括号注中文全称"
+    alternatives_considered: []
+    rationale: "联邦机动车辆安全标准（Federal Motor Vehicle Safety Standard）的缩写 FMVSS 在汽车安全和产品责任文献中通用。"
+    decided_by: translator
+    decided_at: 2026-06-12
+    reviewed_by: null
+    review_outcome: pending
+
+  - id: D03-011
+    location: "第 5 段（Pinto）— the exploding Pinto"
+    type: term-choice
+    decision: "译为「爆炸的平托」——保留原文的定冠词和被动语法结构"
+    alternatives_considered: ["平托爆炸案", "平托的爆炸问题"]
+    rationale: "原文「the exploding Pinto」是当时媒体/公共叙事对 Pinto 型号的简化标签。中文「爆炸的平托」保留了这个标签化的修辞效果。"
+    decided_by: translator
+    decided_at: 2026-06-12
+    reviewed_by: null
+    review_outcome: pending
+
+  - id: D03-012
+    location: "第 5 段（Pinto 成本效益备忘录）— 11-dollar fix"
+    type: term-choice
+    decision: "译为「十一美元的修复方案」"
+    alternatives_considered: []
+    rationale: "福特 Pinto 案件中著名的 per-vehicle fix cost。保留具体数字以传达其低廉性。"
+    decided_by: translator
+    decided_at: 2026-06-12
+    reviewed_by: null
+    review_outcome: pending
+
+  - id: D03-013
+    location: "第 8 问 — meta-question"
+    type: term-choice
+    decision: "译为「元问题」"
+    alternatives_considered: ["更高层次的问题", "根本问题"]
+    rationale: "第八问是对前七问的回顾性重组——'如果让责任跟随控制权而非可见度'"。meta- 前缀在中文哲学/方法论文献中常译为「元」，如元认知、元问题。保留此译法。"
+    decided_by: translator
+    decided_at: 2026-06-12
+    reviewed_by: null
+    review_outcome: pending
+
+  - id: D03-014
+    location: "第 5 条 — Statement of Facts"
+    type: term-choice
+    decision: "译为「事实陈述书」"
+    alternatives_considered: []
+    rationale: "Statement of Facts 是美国刑事诉讼 plea agreement 的附随文件。中文法律文献通常译为「事实陈述」或「事实陈述书」。"
+    decided_by: translator
+    decided_at: 2026-06-12
+    reviewed_by: null
+    review_outcome: pending
+
+  - id: D03-015
+    location: "第 10 条 — Tier 2 Bin 5"
+    type: term-choice
+    decision: "保留英文原文 Tier 2 Bin 5 并括号注中文解释「美国 Tier 2 排放标准第 5 级」"
+    alternatives_considered: []
+    rationale: "这是美国 EPA 的排放标准分类体系，直接翻译会丢失其精确含义。保留原文缩写加解释。"
+    decided_by: translator
+    decided_at: 2026-06-12
+    reviewed_by: null
+    review_outcome: pending
+
+  - id: D03-016
+    location: "第 8 条（Pinto）— sufficiency container"
+    type: term-choice
+    decision: "译为「充分性容器」"
+    alternatives_considered: ["充份容器", "充份的容器"]
+    rationale: "原文说 corporation served as a sufficiency container——公司作为一个'足够'的容器，吸收了法律/公众的责任追究，使得个人层面的追责不再被追索。'充分性'暗示其容纳程度足以满足外部问责需求。"
+    decided_by: translator
+    decided_at: 2026-06-12
+    reviewed_by: null
+    review_outcome: pending
+
+  - id: D03-017
+    location: "第 10 条 — civil discovery"
+    type: term-choice
+    decision: "译为「民事诉讼证据开示」"
+    alternatives_considered: ["民事发现程序", "民事证据交换"]
+    rationale: "civil discovery 是美国民事诉讼程序中的核心制度——一方当事人有权要求对方提供相关文件和信息。中文法律文献最通用的译法是「证据开示」。加入'民事'以区分刑事诉讼。"
+    decided_by: translator
+    decided_at: 2026-06-12
+    reviewed_by: null
+    review_outcome: pending
+
+  - id: D03-018
+    location: "第 13 条 — Record control"
+    type: term-choice
+    decision: "译为「记录控制」与「记录控制者」——与第 1、2 章保持一致"
+    alternatives_considered: []
+    rationale: "这是全书跨章节的分析性术语，第 1-2 章已经建立。保持一致性。"
+    decided_by: translator
+    decided_at: 2026-06-12
+    reviewed_by: null
+    review_outcome: pending
+
+  - id: D03-019
+    location: "第 14 条 — partial interception"
+    type: term-choice
+    decision: "译为「部分拦截」——与第 1 章的同一术语保持译法一致"
+    alternatives_considered: []
+    rationale: "第 1 章结尾「范·德·卢贝法」段落中已使用「部分拦截」。第 3 章多次出现此概念，需要跨章一致性。"
+    decided_by: translator
+    decided_at: 2026-06-12
+    reviewed_by: null
+    review_outcome: pending
+
+  - id: D03-020
+    location: "第 16 条 — 身份为名词短语独立成段的处理"
+    type: style-choice
+    decision: "保留原文名词短语独立成段的修辞格式"
+    alternatives_considered: ["将名词短语合并到段落中"]
+    rationale: "原文此处使用六个短名词短语快速收束段落（「A fire. A foreign communist. A conspiracy. A decree. A law. A new order.」）。这种修辞在第 1 章中也出现过。中文以同样的六个名词判断句保留节奏。"
+    decided_by: translator
+    decided_at: 2026-06-12
+    reviewed_by: null
+    review_outcome: pending
+
+  - id: D03-021
+    location: "第 21 条 — pre-edit-chapter-snapshot.py 和 post-edit-status-check.py"
+    type: style-choice
+    decision: "保留 Python 脚本名称的英文原文"
+    alternatives_considered: []
+    rationale: "这些是项目内部的工具脚本名称，非正文翻译内容，保留原文。"
+    decided_by: translator
+    decided_at: 2026-06-12
+    reviewed_by: null
+    review_outcome: pending
+
+  - id: D03-022
+    location: "第 9 条 — Fraud by negligence"
+    type: term-choice
+    decision: "译为「过失性欺诈」"
+    alternatives_considered: ["疏忽欺诈"]
+    rationale: "德国法院对鲁珀特·施塔德勒（Rupert Stadler）定罪的罪名 Betrug durch Unterlassen。原文英文译为 fraud by negligence。中文刑法学中暂无直接对应，但「过失性欺诈」比「疏忽欺诈」更接近法律术语。此译法标记[TERM-NOTE]以留待审核。"
+    decided_by: translator
+    decided_at: 2026-06-12
+    reviewed_by: null
+    review_outcome: pending
+
+  - id: D03-023
+    location: "第 9 条 — suspended sentence"
+    type: term-choice
+    decision: "译为「缓刑」"
+    alternatives_considered: ["暂缓执行"]
+    rationale: "suspended sentence 在中文刑法学中的标准译法为「缓刑」。」
+    decided_by: translator
+    decided_at: 2026-06-12
+    reviewed_by: null
+    review_outcome: pending
+
+  - id: D03-024
+    location: "第 10 条 — Indictment"
+    type: term-choice
+    decision: "译为「大陪审团起诉书」"
+    alternatives_considered: ["起诉书", "公诉书"]
+    rationale: "indictment 在美国联邦刑事程序中是指大陪审团（grand jury）批准后的正式重罪起诉书。与 information（检察官直接起诉）不同。此处 Martin Winterkorn 等人是 grand jury indictment，故译为「大陪审团起诉书」以准确反映其法律程序性质。后续再次出现时可简化为「起诉书」。"
+    decided_by: translator
+    decided_at: 2026-06-12
+    reviewed_by: null
+    review_outcome: pending
+
+  - id: D03-025
+    location: "第 12 条（福特的段落）— The company absorbed the civil punitive damages"
+    type: prose-choice
+    decision: "absorbed 译为「消化」——保留原文的"吸收/消化"隐喻"
+    alternatives_considered: ["承担", "吸收了"]
+    rationale: "原文 absorb 在此语境下有两层含义：一是福特公司'吸收了'惩罚性赔偿（承受了财务打击），二是公司作为一个容器'吸收'了法律后果，使其不向上传递到个人。译为「消化」保留了这个双层含义的潜在可能。"
+    decided_by: translator
+    decided_at: 2026-06-12
+    reviewed_by: null
+    review_outcome: pending
+
+  - id: D03-026
+    location: "第 11 条 — working accountability"
+    type: prose-choice
+    decision: "译为「运转中的问责」"
+    alternatives_considered: ["有效的问责", "运作的问责"]
+    rationale: "原文 objection 声称：Volkswagen Dieselgate 的罚款和定罪是'working accountability'——问责制在运转。译为「运转中的问责」保留了 working 作为动词的分词含义（正在工作/运转）。"
+    decided_by: translator
+    decided_at: 2026-06-12
+    reviewed_by: null
+    review_outcome: pending
+
+  - id: D03-027
+    location: "第 11 条 — partial interception 和 clean interception"
+    type: term-choice
+    decision: "interception 译为「拦截」（与第 1 章一致）；clean interception 译为「干净的拦截」"
+    alternatives_considered: []
+    rationale: "interception 在本书中不是法律/情报意义上的拦截，而是指制度性机制在洗白模式运行过程中将其截断。第 1 章已建立此译法。本章的「clean interception」添加了「干净的」以强调拦截的完整性和正当性。"
+    decided_by: translator
+    decided_at: 2026-06-12
+    reviewed_by: null
+    review_outcome: pending
