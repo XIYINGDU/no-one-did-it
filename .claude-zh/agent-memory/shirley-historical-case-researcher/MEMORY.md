@@ -1,0 +1,2 @@
+- [第 3 章生产模型](project_chapter3_diagnostic_model.md) — ch-3 是诊断安装章；案例文件必须显式映射全部六个链维度，因为它们就是该章的结构书脊
+- [案例文件模板规范](project_case_file_template.md) — case-card-template.md 字段加上 Bhopal 先例

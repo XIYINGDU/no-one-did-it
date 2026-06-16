@@ -1,0 +1,2 @@
+- [生动化技术](project-vividification-technique.md) — 两种安全形式（渲染记录、读者假设场景）和禁止形式（在真实行动者上编造细节）
+- [ch-5 Davie 铭文开场](project-ch5-davie-epigraph-open.md) — ch-5 Saʿdi 铭文英语对句是 EVIDENCE-NEEDED 标记

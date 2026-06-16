@@ -1,0 +1,15 @@
+- [第 2 章锚点决定](project_ch2_anchors.md) — Sacco/Vanzetti 保留，Bhopal 移至 ch-5
+- [安装章节原则](feedback_installing_chapter_rule.md) — 分类安装章节保持标签干净；混合案例去模式章节
+- [Part III 压力测试排序](project_part3_sequencing.md) — 9→10→8 阅读顺序
+- [下游纯粹替罪羊锚点关卡](project_downstream_pure_scapegoat_gate.md) — ch-5/7/11/13 必须使用 Dreyfus 形锚点
+- [第 7 章架构](project_ch7_architecture.md) — Horizon 锚点 + Therac-25/MH17 层回调
+- [第 4 章 Part II 开场模式](project_ch4_part2_opener.md) — 三案例梯；分析锚点 ≠ 按时间顺序开场
+- [第 9 章架构](project_ch9_architecture.md) — Part III 开场；AEA/Abrego Garcia 锚点
+- [第 11 章架构](project_ch11_architecture.md) — 设计-不对称矩阵
+- [第 12 章架构](project_ch12_architecture.md) — 三条记录纪律规则
+- [第 13 章架构](project_ch13_architecture.md) — 六页形产物，设计为可在脱离书的情况下存续
+- [母题注册表基线](project_motif_registry_baseline.md) — 9 个母题；the-altar 限于 ch-1/10/13
+- [v4 去模板化](project_v4_detemplating.md) — 8 种结尾形态（无相邻两章相同）
+- [工艺经济预算](project_device_economy_budget.md) — 7 种循环手法的有限频次上限
+- [ch8/9/10 结构润色](project_ch8_9_10_structural_polish.md) — 4 项核心架构修复
+- [诊断重新接地模式](project_diagnostic_regrounding_pattern.md) — re-GRIP 固定 8 问工具

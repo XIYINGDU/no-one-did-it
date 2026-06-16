@@ -1,0 +1,1 @@
+- [信条 gloss 必须归因](feedback_doctrinal_gloss_must_be_attributed.md) — 桥接两个相近类别的 IHL/罗马规约 gloss 必须引用并归因，而非断言为来源自身文本

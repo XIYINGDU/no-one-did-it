@@ -1,0 +1,5 @@
+- [研究人员 gloss 归因触发线](feedback_research_gloss_attribution.md) — 接近但不相同的数字/条款/来源陈述必须引用并归因，不可 gloss
+- [Part III 排序已授权](project_part3_sequencing_decision.md) — 2026-05-25：ch-9 → ch-10 → ch-8 阅读顺序
+- [第 2 章提升至 status:ready](project_ch2_status_ready_promotion.md) — 2026-05-25：书中首章达到 ready；13 处修订
+- [书籍章节生产阶段完成](project_book_chapters_complete.md) — 2026-05-26：全部 13 章达到 status:ready
+- [目标 hook 下的 xiaolai-surrogate 替代](project_xiaolai_surrogate_substitution.md) — 替身为 13 章中的 11 章清除了 beat-10
