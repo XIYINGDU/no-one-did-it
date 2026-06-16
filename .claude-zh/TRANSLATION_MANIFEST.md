@@ -38,36 +38,36 @@
 
 ## skills/（29 个文件）
 
-- [ ] `skills/callback-audit/SKILL.md`
-- [ ] `skills/case-file-method/SKILL.md`
-- [ ] `skills/chapter-blueprint/SKILL.md`
-- [ ] `skills/chapter-defect-diagnose/SKILL.md`
-- [ ] `skills/citation-hygiene/SKILL.md`
-- [ ] `skills/cite-density-audit/SKILL.md`
-- [ ] `skills/cognitive-arc-audit/SKILL.md`
-- [ ] `skills/contract-audit/SKILL.md`
-- [ ] `skills/contract-change-control/SKILL.md`
-- [ ] `skills/counter-case-method/SKILL.md`
-- [ ] `skills/counterargument-red-team/SKILL.md`
-- [ ] `skills/defamation-wording/SKILL.md`
-- [ ] `skills/dependency-check/SKILL.md`
-- [ ] `skills/evidence-grading/SKILL.md`
-- [ ] `skills/implication-audit/SKILL.md`
-- [ ] `skills/kdp-epub/SKILL.md`
-- [ ] `skills/motif-audit/SKILL.md`
-- [ ] `skills/primary-source-playbooks/SKILL.md`
-- [ ] `skills/pronoun-discipline-audit/SKILL.md`
-- [ ] `skills/publication-proposal/SKILL.md`
-- [ ] `skills/reader-cold-read/SKILL.md`
-- [ ] `skills/reader-experience-sweep/SKILL.md`
-- [ ] `skills/research-card-pipeline/SKILL.md`
-- [ ] `skills/responsibility-chain-mapping/SKILL.md`
-- [ ] `skills/scene-construction/SKILL.md`
-- [ ] `skills/source-ledger-discipline/SKILL.md`
-- [ ] `skills/taxonomy-classification/SKILL.md`
-- [ ] `skills/vocabulary/registry.yaml`
-- [ ] `skills/vocabulary/SKILL.md`
-- [ ] `skills/voice-register-audit/SKILL.md`
+- [x] `skills/callback-audit/SKILL.md`
+- [x] `skills/case-file-method/SKILL.md`
+- [x] `skills/chapter-blueprint/SKILL.md`
+- [x] `skills/chapter-defect-diagnose/SKILL.md`
+- [x] `skills/citation-hygiene/SKILL.md`
+- [x] `skills/cite-density-audit/SKILL.md`
+- [x] `skills/cognitive-arc-audit/SKILL.md`
+- [x] `skills/contract-audit/SKILL.md`
+- [x] `skills/contract-change-control/SKILL.md`
+- [x] `skills/counter-case-method/SKILL.md`
+- [x] `skills/counterargument-red-team/SKILL.md`
+- [x] `skills/defamation-wording/SKILL.md`
+- [x] `skills/dependency-check/SKILL.md`
+- [x] `skills/evidence-grading/SKILL.md`
+- [x] `skills/implication-audit/SKILL.md`
+- [x] `skills/kdp-epub/SKILL.md`
+- [x] `skills/motif-audit/SKILL.md`
+- [x] `skills/primary-source-playbooks/SKILL.md`
+- [x] `skills/pronoun-discipline-audit/SKILL.md`
+- [x] `skills/publication-proposal/SKILL.md`
+- [x] `skills/reader-cold-read/SKILL.md`
+- [x] `skills/reader-experience-sweep/SKILL.md`
+- [x] `skills/research-card-pipeline/SKILL.md`
+- [x] `skills/responsibility-chain-mapping/SKILL.md`
+- [x] `skills/scene-construction/SKILL.md`
+- [x] `skills/source-ledger-discipline/SKILL.md`
+- [x] `skills/taxonomy-classification/SKILL.md`
+- [x] `skills/vocabulary/registry.yaml`
+- [x] `skills/vocabulary/SKILL.md`
+- [x] `skills/voice-register-audit/SKILL.md`
 
 ## rules/（15 个文件）
 
