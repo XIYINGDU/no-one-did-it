@@ -71,21 +71,21 @@
 
 ## rules/（15 个文件）
 
-- [ ] `rules/00-five-values.md`
-- [ ] `rules/01-case-taxonomy.md`
-- [ ] `rules/02-evidence-grades.md`
-- [ ] `rules/03-no-overlap-role-map.md`
-- [ ] `rules/04-style-guide.md`
-- [ ] `rules/05-overclaim-language.md`
-- [ ] `rules/06-quote-integrity.md`
-- [ ] `rules/07-implication-burden.md`
-- [ ] `rules/08-treatment-class-discipline.md`
-- [ ] `rules/09-rewrite-lifecycle.md`
-- [ ] `rules/12-reader-experience-values.md`
-- [ ] `rules/13-citation-form.md`
-- [ ] `rules/14-authorial-stance.md`
-- [ ] `rules/15-reader-experience-authority.md`
-- [ ] `rules/16-kdp-epub.md`
+- [x] `rules/00-five-values.md`
+- [x] `rules/01-case-taxonomy.md`
+- [x] `rules/02-evidence-grades.md`
+- [x] `rules/03-no-overlap-role-map.md`
+- [x] `rules/04-style-guide.md`
+- [x] `rules/05-overclaim-language.md`
+- [x] `rules/06-quote-integrity.md`
+- [x] `rules/07-implication-burden.md`
+- [x] `rules/08-treatment-class-discipline.md`
+- [x] `rules/09-rewrite-lifecycle.md`
+- [x] `rules/12-reader-experience-values.md`
+- [x] `rules/13-citation-form.md`
+- [x] `rules/14-authorial-stance.md`
+- [x] `rules/15-reader-experience-authority.md`
+- [x] `rules/16-kdp-epub.md`
 
 ## hooks/（9 个文件）
 
