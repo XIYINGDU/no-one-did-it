@@ -7,21 +7,21 @@
 
 ## agents/（15 个文件）
 
-- [ ] `agents/alan-expert-reviewer.md`
-- [ ] `agents/blair-market-strategist.md`
-- [ ] `agents/bonnie-book-architect.md`
-- [ ] `agents/delon-research-director.md`
-- [ ] `agents/jerry-crew-chief.md`
-- [ ] `agents/laura-red-team-editor.md`
-- [ ] `agents/loki-public-law-politics-researcher.md`
-- [ ] `agents/nancy-legal-risk-counsel.md`
-- [ ] `agents/selina-war-statecraft-researcher.md`
-- [ ] `agents/shirley-historical-case-researcher.md`
-- [ ] `agents/stephen-fact-check-director.md`
-- [ ] `agents/the-reader.md`
-- [ ] `agents/warren-ai-technology-researcher.md`
-- [ ] `agents/wayne-narrative-lead.md`
-- [ ] `agents/xiaolai.md`
+- [x] `agents/alan-expert-reviewer.md`
+- [x] `agents/blair-market-strategist.md`
+- [x] `agents/bonnie-book-architect.md`
+- [x] `agents/delon-research-director.md`
+- [x] `agents/jerry-crew-chief.md`
+- [x] `agents/laura-red-team-editor.md`
+- [x] `agents/loki-public-law-politics-researcher.md`
+- [x] `agents/nancy-legal-risk-counsel.md`
+- [x] `agents/selina-war-statecraft-researcher.md`
+- [x] `agents/shirley-historical-case-researcher.md`
+- [x] `agents/stephen-fact-check-director.md`
+- [x] `agents/the-reader.md`
+- [x] `agents/warren-ai-technology-researcher.md`
+- [x] `agents/wayne-narrative-lead.md`
+- [x] `agents/xiaolai.md`
 
 ## commands/（10 个文件）
 
