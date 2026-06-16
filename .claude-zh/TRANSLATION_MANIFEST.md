@@ -25,16 +25,16 @@
 
 ## commands/（10 个文件）
 
-- [ ] `commands/book-status.md`
-- [ ] `commands/case-file.md`
-- [ ] `commands/chapter-brief.md`
-- [ ] `commands/crew-briefing.md`
-- [ ] `commands/figure-spec.md`
-- [ ] `commands/photo-clear.md`
-- [ ] `commands/produce-chapter.md`
-- [ ] `commands/proposal-pack.md`
-- [ ] `commands/red-team.md`
-- [ ] `commands/source-audit.md`
+- [x] `commands/book-status.md`
+- [x] `commands/case-file.md`
+- [x] `commands/chapter-brief.md`
+- [x] `commands/crew-briefing.md`
+- [x] `commands/figure-spec.md`
+- [x] `commands/photo-clear.md`
+- [x] `commands/produce-chapter.md`
+- [x] `commands/proposal-pack.md`
+- [x] `commands/red-team.md`
+- [x] `commands/source-audit.md`
 
 ## skills/（29 个文件）
 
