@@ -101,18 +101,18 @@
 
 ## docs/（12 个文件）
 
-- [ ] `docs/agent-role-map.md`
-- [ ] `docs/agent-tool-grants.md`
-- [ ] `docs/book-production-workflow.md`
-- [ ] `docs/case-card-template.md`
-- [ ] `docs/chapter-template.md`
-- [ ] `docs/crew-operating-manual.md`
-- [ ] `docs/crew-portfolio.md`
-- [ ] `docs/hooks-guide.md`
-- [ ] `docs/reader-value-template.md`
-- [ ] `docs/references.md`
-- [ ] `docs/source-ledger-template.md`
-- [ ] `docs/workflow.md`
+- [x] `docs/agent-role-map.md`
+- [x] `docs/agent-tool-grants.md`
+- [x] `docs/book-production-workflow.md`
+- [x] `docs/case-card-template.md`
+- [x] `docs/chapter-template.md`
+- [x] `docs/crew-operating-manual.md`
+- [x] `docs/crew-portfolio.md`
+- [x] `docs/hooks-guide.md`
+- [x] `docs/reader-value-template.md`
+- [x] `docs/references.md`
+- [x] `docs/source-ledger-template.md`
+- [x] `docs/workflow.md`
 
 ## agent-memory/（47 个文件）
 
