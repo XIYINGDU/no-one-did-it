@@ -3,7 +3,9 @@
 ## 审核历史
 - 第 1 章 review-1（部分，33%）：RETURN — 译文不完整
 - 第 1 章 review-2（全章）：PASS — 0 HARD / 7 SOFT
+- 第 9 章 review-2（复查两个 Chinese Reader HARD 修复）：PASS — 0 HARD / 0 SOFT
 - 报告存档：`translation/reviews/01-the-altar-moves-review-*.md`
+- 报告存档：`translation/reviews/09-the-model-did-it-review-*.md`
 
 ## 跨章节审查要点
 - 道德短句（3-5 词）→ 中文 ≤ 5 字

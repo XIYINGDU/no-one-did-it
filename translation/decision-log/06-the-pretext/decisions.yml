@@ -1,0 +1,123 @@
+chapter: "06-the-pretext"
+chapter_title_zh: "借口"
+translator: "claude"
+glossary_version: "1.0.0-pilot (updated 2026-06-13 with 7 new Ch 6 terms)"
+
+decisions:
+  - id: D6-001
+    location: "Chapter title: 'The Pretext'"
+    type: term-choice
+    decision: "借口"
+    alternatives_considered: ["托辞", "口实", "假托"]
+    rationale: "本章标题是全书分析框架的关键区分。'借口'(pretext) 与已有术语 '托辞'(alibi) 形成精确区隔——alibi 泛指为真正责任承担者提供掩护的叙事/程序/制度，pretext 特指法律权威(法规、程序、条例)被援引为行动原因、实际决策者被从句子中移出的分析框架。'托辞'禁止——与已有术语冲突。"
+    decided_by: translator
+    decided_at: 2026-06-13
+    glossary_master_ruling: "2026-06-13 — 批准。'借口'与既有'alibi→托辞'形成精确区隔。"
+
+  - id: D6-002
+    location: "Epigraph: Aesop, The Wolf and the Lamb"
+    type: prose-choice
+    decision: "伊索寓言《狼和小羊》——题记翻译与注释"
+    alternatives_considered: ["仅翻译引文", "翻译+附加故事梗概说明"]
+    rationale: "题记引用伊索寓言《狼和小羊》——狼在吃羊前为每个行动编造借口(把水搅浑等)。'借口'主题直接呼应本章核心概念。对不熟悉此寓言的读者，正文无需解释——寓言本身足够广为人知。(translation) 标记保留以示这是英译。"
+    decided_by: translator
+    decided_at: 2026-06-13
+    review_outcome: pass
+    review_notes: "cold-read 确认题记与主题呼应在冷读中成立。"
+
+  - id: D6-003
+    location: "'The grammar was the alibi' — 本章转折句"
+    type: prose-choice
+    decision: "「这语法就是托辞」"
+    alternatives_considered: ["语法是托辞（无'这'）", "这种语法就是托辞"]
+    rationale: "'语法'(grammar)在此是隐喻——指把制定法放在主语位置的语法结构本身就是一种托辞(alibi，已有术语)。'这'比'这个'更短、更有力。cold-read SOFT 认为'这'的指代略微模糊，但第二遍阅读时指代('法律要求如此'等三句短句的语法结构)清晰。当前译法保留。"
+    decided_by: translator
+    decided_at: 2026-06-13
+    review_outcome: pass
+
+  - id: D6-004
+    location: "'Three statutes, one grammar' — section header"
+    type: term-choice
+    decision: "三套制定法，同一套语法"
+    alternatives_considered: ["三部制定法，一种语法", "三项制定法，同一语法"]
+    rationale: "'三套'比'三部'更适合宽泛的'三组制定法参照物'的含义。'语法'保留原文 grammar 作为分析框架的隐喻——这里不是在谈语言学，而是指法律论证的形式结构。"
+    decided_by: translator
+    decided_at: 2026-06-13
+    review_outcome: pass
+
+  - id: D6-005
+    location: "Three shells — 'criminal-enforcement shell' / 'administrative-procedure shell' / 'appropriations shell'"
+    type: term-choice
+    decision: "刑事执法的外壳 / 行政程序的外壳 / 拨款的外壳"
+    alternatives_considered: ["刑事执法的壳", "制度外壳"]
+    rationale: "'shell' 与第 4 章 'procedural shell→程序外壳' 的 '外壳' 保持一致。三者的并列显示不同行政法层面的同一形式。前第 4 章 '程序外壳'是技术概念，此处 shell 更接近 '制度性外衣' 但 '外壳' 的译法统一有助于读者识别跨章形式的连续性。"
+    decided_by: translator
+    decided_at: 2026-06-13
+    review_outcome: pass
+
+  - id: D6-006
+    location: "'piercing channels' — 六问框架核心术语"
+    type: term-choice
+    decision: "穿透渠道"
+    alternatives_considered: ["刺穿渠道", "穿透通道"]
+    rationale: "第 4 章已有 'interception→拦截'（制度性机制打断托辞），此处 'piercing channel' 与其互补——侧重制度性场所看穿借口。'刺穿渠道' 禁止——'刺穿'在中文中有'刺穿公司面纱'(piercing the corporate veil)的特定公司法含义。"
+    decided_by: translator
+    decided_at: 2026-06-13
+    glossary_master_ruling: "2026-06-13 — 批准。"
+
+  - id: D6-007
+    location: "'mechanism diversity' — 本章核心结论"
+    type: term-choice
+    decision: "机制多样性"
+    alternatives_considered: ["渠道多样性", "制度多样性"]
+    rationale: "'渠道多样性' 禁止——'渠道'已用于 piercing channel(穿透渠道)。'制度多样性' 也禁止——mechanism 在本书中比 institution 更宽(包括机构、程序和模式)。'机制多样性' 保留原文的精确区分。"
+    decided_by: translator
+    decided_at: 2026-06-13
+    glossary_master_ruling: "2026-06-13 — 批准。"
+
+  - id: D6-008
+    location: "'Six questions for a citation' — 引用块格式"
+    type: prose-choice
+    decision: "六问采用引用块(>)格式，与正文分离"
+    rationale: "与原文一致——引用块标志着这是检测工具本身，正文是对其的阐述。格式区分帮助读者识别工具/应用的关系。"
+    decided_by: translator
+    decided_at: 2026-06-13
+    review_outcome: pass
+
+  - id: D6-009
+    location: "'qualified immunity' — 法律术语"
+    type: term-choice
+    decision: "豁免资格"
+    alternatives_considered: ["资格豁免", "合格豁免"]
+    rationale: "美国法律中保护政府官员免受民事诉讼的原则。'豁免资格'是中文法学文献中使用最广泛的译法。加粗标记为首次出现的重要法律概念。"
+    decided_by: translator
+    decided_at: 2026-06-13
+    review_outcome: pass
+
+  - id: D6-010
+    location: "'the system worked, and did not' — section header"
+    type: prose-choice
+    decision: "制度运作，但又没有"
+    alternatives_considered: ["制度在运作，但又没有", "体系在运作，但又没有"]
+    rationale: "保留原文的悖论式修辞——'运作'(worked)与'又没有'(did not)形成直接对比。'但'字连接比分号更有冲击力。冷读确认该转换在中文中保留力度。"
+    decided_by: translator
+    decided_at: 2026-06-13
+    review_outcome: pass
+
+  - id: D6-011
+    location: "Bold formatting for key terms"
+    type: style-choice
+    decision: "核心术语首次出现时加粗标记。道德转折短句(法律要求如此等)加粗标记。"
+    rationale: "加粗帮助读者识别本章核心诊断框架的关键概念点。道德转折短句的加粗保留原文的节奏权重。第六章术语密集——加粗有助于结构识别。"
+    decided_by: translator
+    decided_at: 2026-06-13
+    review_outcome: pass
+
+  - id: D6-012
+    location: "References section — footnotes in English"
+    type: style-choice
+    decision: "脚注定义保留英文原文"
+    rationale: "脚注(References)包含所有引用标记、URL、归档链接和法律案例引用格式(如 401 U.S. 402)。中文读者需要原文出处以便核查。与第 1-5 章处理方式一致。URL 和归档链接全部保留。"
+    decided_by: translator
+    decided_at: 2026-06-13
+    review_outcome: pass

@@ -270,3 +270,555 @@ terms:
     first_chapter: 2
     note: "原书在分析性语境中使用计算机科学隐喻——托辞(recurse/alibi)可以在制度层级阶梯的任意一层'递归'(以自相似结构反复出现)。'递归'在中文中的首要含义是CS术语，但在本书中作为跨学科隐喻使用，上下文（'制度的层级阶梯'）已提供足够的理解线索。译者应在首次出现的翻译笔记中说明此隐喻用法，正文不需要括号注英文。后续章节如再次出现同一隐喻，需保持同一译法。"
     ruling: "Glossary Master 裁决 2026-06-12 — 批准。上下文中的'层级阶梯'(stack)隐喻已为此铺垫。禁止使用'循环'或'重复'——两者丢失了递归的'自相似结构在不同层级重复'的精确含义。"
+
+  # === 第 4 章新增术语（Glossary Master 裁决 2026-06-13） ===
+
+  - en: "proxy"
+    zh: "代理人"
+    forbidden: ["代理", "代表", "傀儡"]
+    domain: "核心概念"
+    first_chapter: 4
+    note: "本章核心概念之一。proxy 指被置于可见位置的行动者，其真实身份被刻意抹除，而真正的控制者（sponsor/出资人）隐藏在其后。不同于一般意义的'代表'(representative)或'代理'(agency)，强调可见行动者的可替代性和可否认性。'代理人'与'出资人'形成配对术语。"
+    ruling: "Glossary Master 裁决 2026-06-13 — 批准。'代理人'与'出资人'的配对经得起跨案例检验。禁止使用'傀儡'——该词过于贬义且暗示完全无自主性，而原文的 proxy 可能具有真实的操作能力，只是归责链被刻意截断。"
+
+  - en: "sponsor"
+    zh: "出资人"
+    forbidden: ["赞助者", "赞助商", "发起人", "主使人"]
+    domain: "核心概念"
+    first_chapter: 4
+    note: "与 proxy 配对的核心概念。'出资人'强调该实体提供了手段（武器、合同、资金）并控制行为地域，但不以自己名义行事。'出资'在中文中的商业/金融含义在此语境下服务于传达'提供资源但隐身幕后'的关系。"
+    ruling: "Glossary Master 裁决 2026-06-13 — 批准。'赞助商'禁止——其营销/慈善联想会削弱该术语的制度性严肃含义。'主使人'禁止——过度暗示直接下令，原文的 sponsor 可能不直接下令，而是通过提供手段和地域间接控制。"
+
+  - en: "plausible deniability"
+    zh: "可否认性"
+    forbidden: ["合理否认", "貌似可信的否认", "可信推诿"]
+    domain: "政治/军事"
+    first_chapter: 4
+    note: "标准国际关系术语。指通过刻意设计使上级机构或个人能够'可信地否认'对某行为的知情或授权。'可否认性'是中文国际关系/外交学界的约定译法。首次出现时括号附英文。"
+    ruling: "Glossary Master 裁决 2026-06-13 — 批准。标准译法。首次出现时中英对照以保证读者理解该术语的精确含义。"
+
+  - en: "procedural shell"
+    zh: "程序外壳"
+    forbidden: ["程序外衣", "程序壳", "程序掩体"]
+    domain: "核心概念"
+    first_chapter: 4
+    note: "本章分析框架的核心机制术语。指法律/程序/制度性的分类外壳（如'承包商'分类、'非国家武装团体'分类），设计目的是吸收归责，使归责链在到达出资人之前终止。'外壳'在中文中有'表面看起来是...实际上...'的联想。"
+    ruling: "Glossary Master 裁决 2026-06-13 — 批准。'程序外壳'保留了原文 shell 的'容器/空壳'双重含义。禁止'程序掩体'——'掩体'(bunker)在中文中的军事防御联想会误导读者。"
+
+  - en: "record-hardening"
+    zh: "记录固化"
+    forbidden: ["记录硬化", "记录强化"]
+    domain: "分析方法"
+    first_chapter: 4
+    note: "指将事件固定在制度性记录中——法庭判决、联合国决议、调查报告等——使其事实状态不易被撤销或篡改的过程。动词形式'to harden the record'译为'固化记录'。'固化'在中文中有'从液态变为固态→不可逆转'的隐喻，与原文的金属/材料隐喻(harden)恰相对应。"
+    ruling: "Glossary Master 裁决 2026-06-13 — 批准。'固化'合理——保留了原文的物态变化隐喻，且中文读者可自然理解。'硬化'禁止——在中文医学语境中已有独立含义（动脉硬化等），会造成混淆。"
+
+  - en: "territory of the act"
+    zh: "行为地域"
+    forbidden: ["行为领地", "行为领土", "行动区域"]
+    domain: "法律/国际法"
+    first_chapter: 4
+    note: "指出资人控制的行为发生地域。在克里米亚案例中指俄军控制的半岛，在 MH17 案例中指顿涅茨克发射区域，在黑水案例中指巴格达尼苏尔广场。'地域'比'领土'更中性——不暗示主权主张。"
+    ruling: "Glossary Master 裁决 2026-06-13 — 批准。'行为领土'禁止——'领土'在国际法中具有主权含义，而原文的 territory of the act 是分析性框架术语，不是主权主张。"
+
+  - en: "interception"
+    zh: "拦截"
+    forbidden: ["截断", "阻止", "截获"]
+    domain: "分析方法"
+    first_chapter: 4
+    note: "第 4 章'七个拦截通道'分析框架的核心术语。指各种制度和法律机制对托辞(alibi)的'拦截'——打断归责链的中断、在记录中固定事实的行为。注意本书的 interception 不等于日常意义的'截获'或'阻止'——它特指制度性机制对责任洗白过程的打断和记录固化。"
+    ruling: "Glossary Master 裁决 2026-06-13 — 批准。'拦截'在中文中有'中途截住'的动态含义，适合与'通道'(channel)搭配。'截断'禁止——暗示完全切断，而原文的 interception 可能只部分成功。"
+
+  - en: "effective control"
+    zh: "有效控制"
+    forbidden: ["实际控制", "实质性控制"]
+    domain: "法律/国际法"
+    first_chapter: 4
+    note: "国际法标准术语，源自欧洲人权法院判例（如 Loizidou v. Turkey）。'有效控制'是中文国际法学界对 effective control 的约定译法，与事实上的控制(de facto control)和技术性的有效控制(effective control)有精确区分。首次出现时建议括号附英文标准术语。"
+    ruling: "Glossary Master 裁决 2026-06-13 — 批准。'实际控制'禁止——该词在中国国内法语境中有独立含义且与此处的国际法含义不同。必须严格使用'有效控制'。"
+
+  - en: "contractor"
+    zh: "承包商"
+    forbidden: ["承包者", "合同商", "签约方"]
+    domain: "法律/军事"
+    first_chapter: 4
+    note: "在第 4 章指私人军事承包商（private military contractor）。中文军事和法律文献中通用'承包商'。上下文（State Department contract、protective detail）已提供足够区分，无需另行区分民用/军事承包商。"
+    ruling: "Glossary Master 裁决 2026-06-13 — 批准。'合同商'禁止——该词在中国法律语境中指合同相对方，涵义过宽。上下文中的'私人军事承包商'原文搭配已足够提供语境。"
+
+  - en: "alibi collapse"
+    zh: "托辞崩塌"
+    forbidden: ["托辞崩溃", "托辞瓦解"]
+    domain: "核心概念"
+    first_chapter: 4
+    note: "指托辞（alibi，已定义为'托辞'）被打破的时刻。动词形式'the alibi collapses'译为'托辞崩塌'。'崩塌'比'崩溃'更形象——崩溃偏向心理状态，崩塌更接近结构坍塌。与已有术语 alibi → 托辞保持一致。"
+    ruling: "Glossary Master 裁决 2026-06-13 — 批准。动词形式统一处理为'托辞崩塌'/'托辞正在崩塌'。'崩溃'禁止——该词在中文中已过度用于心理语境，会削弱制度分析的冷静语调。"
+
+  - en: "polite people"
+    zh: "礼貌的人（vezhlivye lyudi）"
+    forbidden: []
+    domain: "专有名词/历史"
+    first_chapter: 4
+    note: "俄罗斯官方媒体对克里米亚无标识部队的委婉称呼。英文 polite people 直译。俄文原文 vezhlivye lyudi 首次出现时保留原文并括号附中文翻译。后续出现可用'礼貌的人'。"
+    ruling: "Glossary Master 裁决 2026-06-13 — 批准。处理方式：首次出现用'礼貌的人——vezhlivye lyudi（俄语'礼貌的人'）'；后续用'礼貌的人'。禁止将俄文统一为英文转写——俄文本身的异质感在此案例中有信息价值。"
+
+  - en: "shell corporation"
+    zh: "空壳公司"
+    forbidden: []
+    domain: "法律/商业"
+    first_chapter: 4
+    note: "第 4 章结尾段提及 shell corporation，用于日常场景类比。'空壳公司'是中文法律/商业通用译法。注意与 procedural shell（程序外壳）区分——两者在不同分析层面。"
+    ruling: "Glossary Master 裁决 2026-06-13 — 批准。确保与 procedural shell（程序外壳）在不同语境内清晰区分。禁止混用两者。"
+
+  # === 第 5 章新增术语（Glossary Master 裁决 2026-06-13） ===
+
+  - en: "sabotage"
+    zh: "蓄意破坏"
+    forbidden: ["破坏", "破坏行为"]
+    domain: "法律/化学品安全"
+    first_chapter: 5
+    note: "本章关键术语——Kalelkar 报告提出的'蓄意破坏'理论（disgruntled employee theory）。需与一般意义的'破坏'区分——原文 sabotage 特指蓄意引入水的行为。中文'破坏'过于宽泛——设备故障也可以是'破坏'，而 sabotage 是有意的。"
+    ruling: "Glossary Master 裁决 2026-06-13 — 批准。'蓄意破坏'准确传达了 intent 要素。禁止使用'破坏'或'破坏行动'——两者都丢失了蓄意(intent)要素。"
+
+  - en: "settlement"
+    zh: "和解"
+    forbidden: ["和解协议", "和解金", "庭外和解"]
+    domain: "法律/侵权"
+    first_chapter: 5
+    note: "本章核心法律概念——博帕尔案 4.7 亿美元赔偿和解。指民事赔偿的和解行为/结果本身。禁止'和解协议'（混淆行为与文件）、'和解金'（混淆行为与金额）。"
+    ruling: "Glossary Master 裁决 2026-06-13 — 批准。'和解'在法律语境中含义确切。首次出现时可加括号说明金额和性质。'庭外和解'禁止——该词在中文中有'非正式和解'的含义，而原文 settlement 可能是法庭判决的和解。"
+
+  - en: "forum non conveniens"
+    zh: "不方便法院原则"
+    forbidden: ["不便管辖原则", "非便利法庭", "不便法院"]
+    domain: "法律/国际法"
+    first_chapter: 5
+    note: "国际私法的标准拉丁法律术语。'不方便法院原则'是中文国际私法学界对 forum non conveniens 的通用译法。首次出现时需保留拉丁文原文并括号注中文。"
+    ruling: "Glossary Master 裁决 2026-06-13 — 批准。标准译法。首次出现必须保留拉丁文原文。'不便管辖'不精确——forum 是法院/法庭，不是管辖权(jurisdiction)。"
+
+  - en: "extradition"
+    zh: "引渡"
+    forbidden: ["移交逃犯", "遣返"]
+    domain: "法律/国际法"
+    first_chapter: 5
+    note: "标准国际法术语。Anderson 引渡案（2003-2011）。'引渡'是中文约定译法。禁止'移交逃犯'——该词在香港/英美引渡法中有特定含义且与 surrender (移交) 语境重叠。"
+    ruling: "Glossary Master 裁决 2026-06-13 — 批准。标准译法。无需首次出现中英对照——'引渡'是中文读者熟知的概念。"
+
+  - en: "culpable homicide"
+    zh: "应受惩罚的过失杀人"
+    forbidden: ["过失杀人", "过失致人死亡", "可诉杀人"]
+    domain: "法律/印度刑法"
+    first_chapter: 5
+    note: "印度刑法典(IPC)第304A条罪名。原文对 Anderson 和 UCIL 官员的指控是 culpable homicide not amounting to murder——这是印度刑法的独立罪名。'应受惩罚的过失杀人'反映了 culpable（应受惩罚的）+ homicide（杀人）的双重含义。禁止'过失杀人'——中国刑法中的'过失致人死亡'与印度 IPC §304A 精确含义不同。首次出现必须英文+中文对照。"
+    ruling: "Glossary Master 裁决 2026-06-13 — 批准。'应受惩罚的过失杀人'在首次出现时需括号附英文并说明 IPC 来源。禁止'过失杀人'——中外刑法概念不可直接对应。'可诉杀人'禁止——易与 indictable offence 混淆。"
+
+  - en: "deferred prosecution agreement (DPA)"
+    zh: "暂缓起诉协议"
+    forbidden: ["延后起诉协议", "缓起诉协议", "推迟起诉协议"]
+    domain: "法律/美国刑事"
+    first_chapter: 5
+    note: "美国联邦刑事程序中的暂缓起诉协议。波音案的核心法律机制。中文法律文献中'暂缓起诉协议'是通用译法。首次出现时括号附英文 DPA。"
+    ruling: "Glossary Master 裁决 2026-06-13 — 批准。通用译法。首次出现时括号附英文(Deferred Prosecution Agreement, DPA)。'延后起诉'语气过于随意。"
+
+  - en: "discovery"
+    zh: "证据开示"
+    forbidden: ["发现程序", "证据披露"]
+    domain: "法律/美国民事诉讼"
+    first_chapter: 5
+    note: "美国民事诉讼程序中的证据开示(discovery)制度。在 Sahu v. Union Carbide 案中，discovery 使 UCC 内部工程文件进入美国法庭记录。'证据开示'是中文诉讼法学的标准术语。"
+    ruling: "Glossary Master 裁决 2026-06-13 — 批准。标准法学术语。'发现程序'禁止——'发现'在中文中的一般含义会被误解为'发现新大陆'式的发现。"
+
+  - en: "statute of limitations"
+    zh: "诉讼时效"
+    forbidden: ["追诉时效", "时效法", "时效限制"]
+    domain: "法律/一般"
+    first_chapter: 5
+    note: "标准法律术语。Sahu 案最终因 statute of limitations 被驳回。'诉讼时效'是中文法律术语的通用译法。禁止'追诉时效'——该词专指刑事追诉时效(statute of prosecution)，而本章为民事诉讼语境。"
+    ruling: "Glossary Master 裁决 2026-06-13 — 批准。'诉讼时效'是标准译法。注意与'追诉时效'的精确区分。"
+
+  - en: "type rating"
+    zh: "型别等级"
+    forbidden: ["机型认证", "机型评级", "型号评定"]
+    domain: "航空/航空器认证"
+    first_chapter: 5
+    note: "航空标准术语。原文提到 Boeing 不将 MCAS 列入飞行员训练手册是为了保留 Type Rating 商业差异化优势——即同一机型内无需额外机型认证即可执飞。'型别等级'是中国民航局对 type rating 的官方中译（CCAR-61部）。"
+    ruling: "Glossary Master 裁决 2026-06-13 — 批准。采用中国民航局官方译法。'机型认证'禁止——认证(certification)与评级(rating)是不同的法律概念。"
+
+  - en: "pilot-error framing"
+    zh: "飞行员错误归因框架"
+    forbidden: ["飞行员错误", "飞行员失误论", "飞行员错误框架"]
+    domain: "航空/事故调查"
+    first_chapter: 5
+    note: "本章核心分析术语——Boeing 将 737 MAX 空难归因于飞行员操作错误的叙事框架。'飞行员错误归因框架'的'归因框架'保留了原文 framing 作为分析框架的社会科学含义。"
+    ruling: "Glossary Master 裁决 2026-06-13 — 批准。'归因框架'保留了 framing 的分析方法论含义。'飞行员失误论'禁止——过于口语化，且丢失了 framing 作为分析框架的含义。"
+
+  # === 第 6 章新增术语（Glossary Master 裁决 2026-06-13） ===
+
+  - en: "pretext"
+    zh: "借口"
+    forbidden: ["托辞", "口实", "假托"]
+    domain: "核心概念"
+    first_chapter: 6
+    note: "本章核心概念和标题词。与'alibi'（托辞）的区别：alibi 泛指为真正责任承担者提供掩护的叙事/程序/制度；pretext 特指法律权威（法规、程序、条例）被援引为行动原因，而实际决策者被从句子中移出的分析框架。'借口'在中文中承载'表面原因 vs 实际原因'的语义空间。"
+    ruling: "Glossary Master 裁决 2026-06-13 — 批准。'借口'与既有'alibi→托辞'形成精确区隔。'托辞'禁止——与已有术语冲突。"
+
+  - en: "piercing channel"
+    zh: "穿透渠道"
+    forbidden: ["刺穿渠道", "穿透通道"]
+    domain: "分析方法"
+    first_chapter: 6
+    note: "本章核心分析框架术语——指制度性场所（法院、监察长、国会、政府问责局等）用于'穿透'借口表层、揭示实际动机的渠道。与第4章'interception→拦截'概念互补：拦截侧重制度性机制打断托辞，穿透侧重制度性场所看穿借口。"
+    ruling: "Glossary Master 裁决 2026-06-13 — 批准。'刺穿渠道'禁止——'刺穿'在中文中有'刺穿公司面纱'（piercing the corporate veil）的特定公司法含义，可能造成混淆。"
+
+  - en: "mechanism diversity"
+    zh: "机制多样性"
+    forbidden: ["渠道多样性", "制度多样性"]
+    domain: "分析方法"
+    first_chapter: 6
+    note: "本章核心分析结论术语——借口（pretext）之所以需要机制多样性，是因为单一制度渠道（法院/国会/监察长/GAO）的管辖范围和穿透力各不相同，没有一个渠道能穿透所有三种场景的借口。'渠道多样性'禁止——本章的'渠道'已用于 piercing channel（穿透渠道），需避免与渠道概念的混淆。"
+
+  - en: "documented alternative purpose"
+    zh: "有记载的替代目的"
+    forbidden: ["文件中的替代目的", "记录的替代动机"]
+    domain: "分析方法"
+    first_chapter: 6
+    note: "六问框架第三问的核心术语——指行政记录、内部通讯、监察长报告、审判认定或同期书面记录等文件中所记载的、与公开援引理由不同的实际动机。是检测借口的决定性证据类型。"
+
+  - en: "reasoned explanation"
+    zh: "有理由的解释"
+    forbidden: ["有原因的解释", "合理说明", "理性的解释"]
+    domain: "行政法"
+    first_chapter: 6
+    note: "自 State Farm 案（1983）确立的行政法司法审查原则——行政机关必须提供'有理由的解释'（reasoned explanation），说明'所发现的事实与所做出的选择之间的合理联系'（rational connection between the facts found and the choice made）。本章将其作为穿透借口的司法工具进行分析。"
+
+  - en: "prosecutorial discretion"
+    zh: "起诉裁量权"
+    forbidden: ["公诉裁量权", "检察裁量"]
+    domain: "法律/美国刑事"
+    first_chapter: 6
+    note: "联邦刑事执法基础原则——§1325 允许联邦起诉但并非要求对特定人群以特定强度的起诉。在本章中用于反驳'法律强制了分离'的借口叙事。包括是否起诉、对谁起诉、以什么力度起诉的裁量范围。"
+
+  - en: "arbitrary and capricious"
+    zh: "任意且反复无常"
+    forbidden: ["任意和专横", "随意和任性"]
+    domain: "行政法"
+    first_chapter: 6
+    note: "APA §706(2)(A)中授权法院撤销行政行为的司法审查标准。本章中 Overton Park（1971）和 State Farm（1983）奠定的判例法要求行政机关提供'有理由的解释'（reasoned explanation）来反驳'任意且反复无常'的认定。'任意且反复无常'是中文行政法学界对 arbitrary and capricious 的约定译法。"
+
+  # === 第 7 章新增术语（Glossary Master 裁决 2026-06-13） ===
+
+  - en: "record-control"
+    zh: "记录控制"
+    forbidden: ["记录管控"]
+    domain: "核心概念"
+    first_chapter: 7
+    note: "本章核心分析术语。指通过控制记录（工程日志、审计追踪、源代码、披露文件等）来控制责任归属方向和深度的能力。'记录控制洗白'(record-control laundering)是本章论证的责任洗白子机制——谁控制记录，谁就控制责任归属。与第4章'record-hardening→记录固化'（将事件固定在制度性记录中的事后过程）互补：记录固化是事后固定事实，记录控制是事前控制记录的可访问性和解释权。动词形式'to control the record'译为'控制记录'。"
+    ruling: "Glossary Master 裁决 2026-06-13 — 批准。与第4章'record-hardening→记录固化'形成互补概念对。禁止'管控'——该词在中文中有'监督管理'的含义，会减弱控制权的对抗性(adversarial)含义。"
+
+  - en: "five-role conflation"
+    zh: "五角色融合"
+    forbidden: ["五角色混淆", "五角色合并", "五角色重叠"]
+    domain: "分析方法"
+    first_chapter: 7
+    note: "本章核心分析框架术语——同一机构同时持有部署者(deployer)、审计追踪持有者(audit-trail holder)、投诉人(complainant)、检控方(prosecutor)和披露控制者(disclosure controller)五个记录控制角色时，记录不再是证据，而是武器。'融合'(conflation)强调这些角色在制度层面的不可分性——不是偶然重叠，而是结构性的角色集中。禁止'混淆'——中文'混淆'暗示无意错误，而原文的 conflation 是有意的制度架构。"
+    ruling: "Glossary Master 裁决 2026-06-13 — 批准。'五角色融合'精确传达了 conflation 的结构性（而非意外性）含义。首次出现时建议括号附英文(five-role conflation)。"
+
+  - en: "deployer"
+    zh: "部署者"
+    forbidden: ["实施者", "运用者", "部署方"]
+    domain: "分析方法"
+    first_chapter: 7
+    note: "五角色之一——部署系统（如Horizon）的机构。指购买软件并在每个终端运行的机构。'部署者'在IT/系统语境中是最自然的译法。"
+    ruling: "Glossary Master 裁决 2026-06-13 — 批准。与五角色框架中其他角色名称的'者'字后缀保持一致。"
+
+  - en: "audit-trail holder"
+    zh: "审计追踪持有者"
+    forbidden: ["审计记录持有人", "审核追踪持有人", "审计跟踪持有者"]
+    domain: "分析方法"
+    first_chapter: 7
+    note: "五角色之一——持有系统审计追踪（已知错误日志KEL、源代码、远程访问日志、工程记录等）的机构。'审计追踪'是中文IT/法律审计领域的标准术语。"
+    ruling: "Glossary Master 裁决 2026-06-13 — 批准。翻译策略为直译——该术语的字面含义即是其精确含义。"
+
+  - en: "complainant"
+    zh: "投诉人"
+    forbidden: ["控告人", "告诉人", "申述人"]
+    domain: "法律/英国法"
+    first_chapter: 7
+    note: "五角色之一——在Horizon短款出现时识别并指控副邮政局长的机构。在英国刑事诉讼语境下，complainant指向警方/法院报告犯罪的一方。在本章中，Post Office同时是投诉人和检控方。'投诉人'在中文法律语境中与complainant对应。"
+    ruling: "Glossary Master 裁决 2026-06-13 — 批准。'控告人'禁止——该词在中国刑法语境中意指被害人(victim)，而本章的complaint是机构对自雇人员的指控，非被害人概念。"
+
+  - en: "prosecutor"
+    zh: "检控方"
+    forbidden: ["公诉人", "起诉方", "控方"]
+    domain: "法律/英国法"
+    first_chapter: 7
+    note: "五角色之一——直接提起刑事诉讼的机构。在本章特指Post Office依据英国法自己提起公诉的权力（私人检控）。使用'检控方'而非'公诉人'——因为Post Office不是国家公诉机关(CPS)，而是私人检控主体。'检控方'在中文中既可用于公共检控也可用于私人检控。"
+    ruling: "Glossary Master 裁决 2026-06-13 — 批准。'公诉人'禁止——该词暗示国家公诉机关的角色，Post Office不是公诉机关。'控方'也可接受但不够精确——prosecutor在英国法中是一个特定主体概念。"
+
+  - en: "disclosure controller"
+    zh: "披露控制者"
+    forbidden: ["证据控制者", "开示控制者", "信息披露人"]
+    domain: "法律/英国法"
+    first_chapter: 7
+    note: "五角色之一——负责向辩方披露可能削弱控方案件或协助辩方的材料的机构。根据英国《1996年刑事程序与调查法》(CPIA)，控方有法定披露义务。当披露控制者与检控方是同一机构时，CPIA下的披露义务的履行完全由同体自我监督。"
+    ruling: "Glossary Master 裁决 2026-06-13 — 批准。'证据控制者'禁止——evidence disclosure（证据开示/披露）是CPIA下的特定制度，术语需与该法中文译本保持一致。"
+
+  - en: "private prosecution"
+    zh: "私人检控"
+    forbidden: ["私人起诉", "私人公诉", "自诉"]
+    domain: "法律/英国法"
+    first_chapter: 7
+    note: "英国法律允许非国家机构(如Post Office)在未经皇家检控署(CPS)审查的情况下直接提起刑事诉讼的制度。本章中这是五角色融合的关键支撑层。'私人检控'是香港法律界对private prosecution的标准译法。禁止'自诉'——中国刑事诉讼法中的自诉(self-prosecution)与英国private prosecution的法律基础不同。"
+    ruling: "Glossary Master 裁决 2026-06-13 — 批准。首次出现时括号附英文(private prosecution)并说明英国法背景。'自诉'禁止——中国自诉与英国私人检控是不同法律制度。"
+
+  - en: "sub-postmaster"
+    zh: "副邮政局长"
+    forbidden: ["邮政分局局长", "分局局长", "邮政所长", "邮政支局长"]
+    domain: "角色名/英国邮政"
+    first_chapter: 7
+    note: "英国邮政局系统的分支/代理机构负责人。英国邮政局(Crown Post Office)系统下有Crown Post Offices（直属局）和sub-post offices（代理局），sub-postmaster负责代理局运营。在Horizon丑闻中，sub-postmasters是以自雇(self-employed)身份签署代理合同的。中文媒体对此丑闻的报道中'副邮政局长'是最常用的译法。首次出现建议括号附英文(sub-postmaster)并加注说明。"
+    ruling: "Glossary Master 裁决 2026-06-13 — 批准。首次出现必须括号附英文(sub-postmaster)并加注说明英国邮政系统特点。'分局局长'禁止——中国'分局'的机构含义与英国sub-post office完全不同。"
+
+  - en: "layered lawful-step defense"
+    zh: "分层合法步骤防御"
+    forbidden: ["分层合法防御", "分层辩护", "层次防御机制"]
+    domain: "分析方法"
+    first_chapter: 7
+    note: "本章分析结构术语——指多个独立的合法法律/合同/程序层汇聚为结构性防御的机制。本章列出了五层：(1)个人责任合同条款(2)普通法计算机可靠性推定(3)私人检控(4)受害者地理分散(5)认罪率结构。每一层单独看都不异常，但汇聚产生了记录不可辩驳的效果。"
+    ruling: "Glossary Master 裁决 2026-06-13 — 批准。'分层合法防御'禁止——丢失了'每个步骤本身是合法的'(lawful-step)这层含义。"
+
+  - en: "common-law presumption of computer reliability"
+    zh: "普通法计算机可靠性推定"
+    forbidden: ["计算机可靠性推定", "普通法计算机正常运作推定"]
+    domain: "法律/英国普通法"
+    first_chapter: 7
+    note: "英国普通法原则——正确使用的计算机的输出被推定可靠，质疑者承担推翻该推定的责任。源自Castle v Cross [1984] 1 WLR 1372。在Horizon案中，没有工程记录披露的情况下，个体副邮政局长实际上无法推翻该推定。首次出现时建议附英文。"
+    ruling: "Glossary Master 裁决 2026-06-13 — 批准。'普通法'前缀不可省略——该原则是普通法(common law)的规则，非制定法(statute)。首次出现必须括号附英文。'计算机正常运作推定'禁止——原文是reliability（可靠性），不是proper functioning（正常运作）。"
+
+  - en: "Group Litigation Order (GLO)"
+    zh: "集团诉讼令"
+    forbidden: ["团体诉讼令", "集体诉讼令", "集团诉讼命令"]
+    domain: "法律/英国民事诉讼"
+    first_chapter: 7
+    note: "英国民事诉讼程序中的集团诉讼制度(GLO)。GLO将分散的索赔合并为一项由案件管理法官监督的集体行动。2017年3月，高等法院在Bates and Others v Post Office Ltd案中批准了GLO。注意：英国GLO与美国class action（集团诉讼）不同——GLO是opt-in制度。"
+    ruling: "Glossary Master 裁决 2026-06-13 — 批准。首次出现必须附带英文全称及缩写(Group Litigation Order, GLO)。注意与美国的class action制度区分。"
+
+  - en: "known error log (KEL)"
+    zh: "已知错误日志"
+    forbidden: ["已知错误记录", "已知故障日志"]
+    domain: "技术/IT系统"
+    first_chapter: 7
+    note: "富士通(Fujitsu)维护的Horizon系统已知错误/缺陷记录。在Horizon Issues判决和Bates诉讼的证据开示阶段中成为争议焦点。KEL中记录了可能导致分行账户显示短缺的bug（如Dalmellington bug）。首次出现时附英文缩写(KEL)。"
+    ruling: "Glossary Master 裁决 2026-06-13 — 批准。'已知错误日志'是ITIL/IT服务管理标准术语。建议首次出现使用全称'已知错误日志(known error log, KEL)'，后续可用'已知错误日志(KEL)'或'KEL'。"
+
+  - en: "statutory exoneration"
+    zh: "法定免责"
+    forbidden: ["法定无罪", "法定豁免", "法定平反"]
+    domain: "法律/英国法"
+    first_chapter: 7
+    note: "2024年《邮政局（地平线系统）犯罪法》(Post Office (Horizon System) Offences Act 2024)通过法定方式免除了符合特定标准的定罪，无需个案上诉。与judicial quashing（司法撤销）相对——司法撤销是上诉法院对具体定罪的逐个撤销，法定免责是立法机关对符合条件的一类定罪的一次性免责。"
+    ruling: "Glossary Master 裁决 2026-06-13 — 批准。'法定无罪'禁止——英国法并未认定副邮政局长'无罪'，而是从救济角度免责(exoneration)。首次出现建议括号附英文全称。"
+
+  # === 第 8 章新增术语（Glossary Master 裁决 2026-06-13） ===
+
+  - en: "inversion"
+    zh: "反向归责"
+    forbidden: ["反转", "颠倒", "逆转"]
+    domain: "核心概念"
+    first_chapter: 8
+    note: "本章核心分析术语——指掌握控制权的行为者（power）声称自己是替罪羊（goat）的修辞/制度性反转。原文使用的动词形态：'the system/object alibi turned inside out'。具体机制为：权力将制约它的制度性机制（法院、记录法、正当程序审查）重新框架为'先前的不公'（the prior abuse），并将 dismantle 这些机制称为'纠正'（the correction）。'反向归责'保留了 inversion 的方向性——问责路径被反转：本应向上爬升的责任链，被制度修辞重新定向到制约权力的机制上。"
+    ruling: "Glossary Master 裁决 2026-06-13 — 批准。'反向归责'精确传达了 inversion 的方向性含义——问责路径被反转。'反转'禁止——过于通用，丢失了归责方向的精确含义。"
+
+  - en: "accountability mechanism"
+    zh: "问责机制"
+    forbidden: ["追责机制", "责任机制"]
+    domain: "核心概念"
+    first_chapter: 8
+    note: "本章核心分析概念——指制约权力的制度性机制（法院、记录法、正当程序审查、人事保护制度等）。在 chapter 8 的语境中，这些机制被权力重新框架为'先前的不公'。'问责机制'强调 accountability 的向下追问方向——这些机制的存在是为了使权力'回答/交代'(account for)其行为。"
+    ruling: "Glossary Master 裁决 2026-06-13 — 批准。'问责机制'是标准学术术语，与'追责机制'（更偏向事后追究）和'责任机制'（过于宽泛，与 responsibility 混淆）相区分。"
+
+  - en: "steelman"
+    zh: "全力陈述"
+    forbidden: ["钢铁人", "最强论证", "全力反驳"]
+    domain: "方法术语"
+    first_chapter: 8
+    note: "本书方法术语——以最强版本陈述反对论点（与 strawman 相对）。第 8 章有明显的'Three steelmen'结构。该词在本书规则（rule 00）中已使用。正文语境为 'A serious chapter must take the strongest defenses of the official frame at full strength.' '全力陈述'在中文中暗示'以最有利的版本呈现'——不是反驳，而是让反对观点的最强形态在文中存活。"
+    ruling: "Glossary Master 裁决 2026-06-13 — 批准。'全力陈述'是功能译法——保留了 steelman 的核心含义（以全力呈现反对论点的最强版本），同时避免了'钢铁人'的直译不可读问题。动词形态'to steelman'译为'全力陈述'。正文中首次出现建议括号附英文(steelman)。"
+
+  - en: "per curiam"
+    zh: "per curiam（全体法庭裁定）"
+    forbidden: ["法院意见", "全体法官一致意见", "法院裁定"]
+    domain: "法律/美国最高法院"
+    first_chapter: 8
+    note: "拉丁法律术语，字面含义'by the court'。指最高法院以全体名义（非署名法官个人）发布的裁定/意见。per curiam 不要求全体一致——可能有 concurrence 或 dissent——其核心特征是无署名且以法庭整体名义发布。本章的关键裁定（Trump v. J.G.G., Noem v. Abrego Garcia）均为 per curiam。首次出现时保留拉丁文原文（斜体），括号注中文；后续可用'per curiam裁定'或直接使用'per curiam'。"
+    ruling: "Glossary Master 裁决 2026-06-13 — 批准。注意：严格来说 per curiam 不要求全体一致（可能有 concurrence 或 dissent），其核心特征是无署名且以法庭整体名义发布。'全体法庭裁定'强调'法庭整体'而非'全体一致'的含义。首次出现必须附拉丁文原文。"
+
+  - en: "Alien Enemies Act"
+    zh: "《敌对外侨法》（Alien Enemies Act）"
+    forbidden: ["外侨敌人法", "敌对外国人法"]
+    domain: "法律/美国宪法"
+    first_chapter: 8
+    note: "1798 年生效的美国联邦法律（50 U.S.C. §§ 21-24），授权总统在战时驱逐或拘禁敌国国民。本章核心立法——2025 年 3 月 14 日被援引用于针对 Tren de Aragua 的驱逐行动。首次出现全称中英对照。中文国际法学界多译为'敌对外侨法'（alien 在法律语境中多译为'外侨'——在美有合法居留权的外国人）。"
+    ruling: "Glossary Master 裁决 2026-06-13 — 批准。'敌对外侨法'是中文国际法学界对 Alien Enemies Act 的标准译法。首次出现中英对照。'外侨敌人法'禁止——alien enemies 是独立法律概念（敌国国民），不是'外侨+敌人'。"
+
+  - en: "summary removal"
+    zh: "简易驱逐"
+    forbidden: ["即决驱逐", "快速遣返", "简易遣返"]
+    domain: "法律/移民法"
+    first_chapter: 8
+    note: "美国移民法术语——不经完整移民法庭听证程序的驱逐。本章中 Alien Enemies Act 被用于授权'the summary removal of Venezuelan nationals'。'简易'在中文法律术语中与 summary 对应（如 summary judgment→简易判决、summary proceeding→简易程序）。"
+    ruling: "Glossary Master 裁决 2026-06-13 — 批准。'简易驱逐'与中文法律术语中 summary 的对应译法（简易判决、简易程序）一致。'即决驱逐'禁止——'即决'在中文法律/媒体语境中已有'即决处决'(summary execution)的固定联想。"
+
+  - en: "withholding of removal"
+    zh: "禁止遣返保护"
+    forbidden: ["禁止遣返", "不予遣返", "延迟遣返"]
+    domain: "法律/移民法"
+    first_chapter: 8
+    note: "美国移民法核心保护制度——移民法官认定申请人若被遣返至特定国家将面临迫害时，签发禁止遣返令（withholding of removal）。Abrego Garcia 于 2019 年获得此类保护令。该制度区别于 asylum（庇护）——asylum 是裁量性(discretionary)的，withholding of removal 是强制性(mandatory)的，且标准更高。'禁止遣返保护'强调其保护性质和禁止方向——不是简单地'不遣返'，而是一项法律上的强制保护令。"
+    ruling: "Glossary Master 裁决 2026-06-13 — 批准。'禁止遣返保护'准确传达了三个要素：(1)禁止方向（禁止）、(2)约束对象（遣返）、(3)法律性质（保护）。'禁止遣返'丢失了保护要素。'延迟遣返'错误——withholding 不是临时性的。"
+
+  - en: "Tren de Aragua"
+    zh: "阿拉瓜列车（Tren de Aragua）"
+    forbidden: ["阿拉瓜火车", "阿拉瓜之列"]
+    domain: "专有名词/犯罪组织"
+    first_chapter: 8
+    note: "委内瑞拉跨国犯罪组织，是 Proclamation 10903（Alien Enemies Act 援引）的针对对象。西班牙语名称保留，括号附中文音译。'列车'——tren 在西班牙语中字面义为'火车/列车'，该组织名称源自其发源地阿拉瓜州的铁路线区域。"
+    ruling: "Glossary Master 裁决 2026-06-13 — 批准。'阿拉瓜列车'是中文媒体对该组织的常用译法。首次出现中英对照。'火车'禁止——'列车'在中文中比'火车'更具组织名称的正式感。"
+
+  - en: "CECOT"
+    zh: "恐怖主义监禁中心（CECOT）"
+    forbidden: ["恐怖主义隔离中心", "反恐拘留中心"]
+    domain: "专有名词/拘留设施"
+    first_chapter: 8
+    note: "全称 Centro de Confinamiento del Terrorismo（西班牙语：恐怖主义监禁中心），萨尔瓦多总统 Bukele 运营的最大安全级别监狱。首次出现时给出全称西班牙语（斜体）+ 中文翻译 + 英文缩写 CECOT。后续可用'CECOT'。"
+    ruling: "Glossary Master 裁决 2026-06-13 — 批准。首次出现必须全称西班牙语(斜体)+中文翻译+英文缩写。'隔离中心'禁止——confinamiento 是'监禁'（confinement），不是'隔离'（isolation）。'反恐拘留中心'禁止——丢失了原文'恐怖主义'的修辞色彩。"
+
+  - en: "U.S. DOGE Service"
+    zh: "美国政府效率部（U.S. DOGE Service）"
+    forbidden: ["狗狗部", "效率部"]
+    domain: "专有名词/美国政府"
+    first_chapter: 8
+    note: "Executive Order 14158（2025年1月20日）建立的美国联邦机构，全称'U.S. DOGE Service'。DOGE 为'Department of Government Efficiency'的缩写。'美国政府效率部'的'部'(Service)采用了中文政府对 US Service/agency 机构的译法惯例。DOGE 缩写作为拼写词(acronym)保留英文。"
+    ruling: "Glossary Master 裁决 2026-06-13 — 批准。'美国政府效率部'的'部'对应 Service（如 U.S. Secret Service → 特勤局）。首次出现全称中英对照。'狗狗部'禁止——DOGE 是缩写，不是加密货币。'效率部'禁止——丢失了'政府'的限定。"
+
+	  # === 第 9 章新增术语（Glossary Master 裁决 2026-06-13） ===
+
+	  - en: "input layer"
+	    zh: "输入层"
+	    forbidden: ["数据层", "训练层"]
+	    domain: "AI 分析方法"
+	    first_chapter: 9
+	    note: "AI 技术栈三层分析框架的第一层——训练数据/语料所在的层。与部署层(deployment layer)和评估层(evaluation layer)构成三层框架。'输入层'强调数据的'进入'方位——不是数据本身，而是数据进入模型的位置。"
+	    ruling: "Glossary Master 裁决 2026-06-13 — 批准。三层框架必须保持统一——输入层/部署层/评估层，与全书其他分析框架术语风格一致。"
+
+	  - en: "deployment layer"
+	    zh: "部署层"
+	    forbidden: ["发布层", "应用层"]
+	    domain: "AI 分析方法"
+	    first_chapter: 9
+	    note: "AI 技术栈三层分析框架的第二层——模型部署后的行为层。GPT-4o 谄媚行为是此层主要案例。'部署层'保留了 deployment 在工程语境中的标准含义（将模型部署至生产环境并配置运行时参数）。"
+	    ruling: "Glossary Master 裁决 2026-06-13 — 批准。'发布层'禁止——过于窄化（deployment 包括发布后运行时配置和监控等操作）。"
+
+	  - en: "evaluation layer"
+	    zh: "评估层"
+	    forbidden: ["评测层", "基准层"]
+	    domain: "AI 分析方法"
+	    first_chapter: 9
+	    note: "AI 技术栈三层分析框架的第三层——模型评估/基准评测所在层。Meta Llama 4 LMArena 排行榜争议是此层主要案例。'评估'比'评测'更宽——evaluation 包括基准的透明度规则和提交政策(submission policy)等程序性内容。"
+	    ruling: "Glossary Master 裁决 2026-06-13 — 批准。'基准层'禁止——过于狭窄，evaluation layer 包括基准运营者的程序外壳。'评测层'禁止——过于偏向技术性能侧。"
+
+	  - en: "sycophancy / sycophantic"
+	    zh: "谄媚行为 / 谄媚的"
+	    forbidden: ["奉承", "讨好", "谄媚倾向"]
+	    domain: "AI 行为分析"
+	    first_chapter: 9
+	    note: "GPT-4o 2025年4月更新后表现的系统性行为模式——模型倾向于给出过度支持性(overly supportive)但虚伪(disingenuous)的回应。'谄媚行为'保留了 sycophancy 的贬义判断维度——不是简单的'奉承'，而是有策略性的、不真诚的迎合。名词形式 sycophancy → 谄媚行为；形容词形式 sycophantic → 谄媚的。"
+	    ruling: "Glossary Master 裁决 2026-06-13 — 批准。'谄媚'在中文中的贬义程度与原文 sycophancy 匹配。'奉承'禁止——过于礼貌且丢失了 disingenuous 的虚伪色彩。"
+
+	  - en: "alibi escalation"
+	    zh: "托辞升级"
+	    forbidden: ["托辞升级迭代", "替罪升级"]
+	    domain: "分析方法"
+	    first_chapter: 9
+	    note: "与第4章 alibi collapse→托辞崩塌互补的概念对。当洗白在第 N 层被截获时，它移动到第 N+1 层。第 9 章具体案例：当 Llama 4 '变体表现良好'的托辞(level 1)被戳破后，被命名的责任者升级为'政策不匹配'(level 2)。首次出现建议括号附英文(alibi escalation)。"
+	    ruling: "Glossary Master 裁决 2026-06-13 — 批准。与'alibi→托辞'和'alibi collapse→托辞崩塌'保持 100% 前缀一致。'替罪升级'禁止——'托辞'前缀必须保留。"
+	    translation_strategy: "cs-metaphor-extended"
+
+	  - en: "grammar of system agency"
+	    zh: "系统施事语法"
+	    forbidden: ["系统主语语法", "被动语法", "系统施动语法"]
+	    domain: "分析方法"
+	    first_chapter: 9
+	    note: "本章核心分析概念——一个非人类名词占据动词的施事位置(而非句法主语位置)，从而吸收人类决策的归责。'施事'是语言学对 semantic role 'agent'的标准术语，区别于句法层面的'主语'(subject)。本章核心论证——'The grammar is the laundering'（语法即洗白）。首次出现必须括号附英文并给出简短解释。'系统主语语法'禁止——主语是句法学概念，施事是语义学概念，本章论证的是语义层面。"
+	    ruling: "Glossary Master 裁决 2026-06-13 — 批准。'施事'的语言学精度在此处至关重要——原文的核心洞察是该模式发生在语义角色层面，是施事(agent)而非主语(subject)占据了动词之前的位置。'被动语法'禁止——该模式在英语中可以是主动语态，与被动无关。"
+
+	  - en: "credentialing commons"
+	    zh: "认证公地"
+	    forbidden: ["信任公地", "资质公地", "认证公共资源"]
+	    domain: "分析方法"
+	    first_chapter: 9
+	    note: "指共享的评估基础设施——LMArena/Chatbot Arena 排行榜等基准测试框架——其信号被模型提供者和下游用户共同依赖。'公地'(commons)在中文制度经济学讨论中已有固定对应（如'公地悲剧'tragedy of the commons）。'信任公地'禁止——原文是 credentialing（认证过程），不是 trust。"
+	    ruling: "Glossary Master 裁决 2026-06-13 — 批准。'公地'与制度经济学文献传统的引用是合适的。首次出现建议括号附英文。"
+
+	  - en: "litigation interception triplet"
+	    zh: "诉讼拦截三元组"
+	    forbidden: ["诉讼拦截三件套", "法律拦截三要素"]
+	    domain: "分析方法"
+	    first_chapter: 9
+	    note: "本章拦截分析框架——三个必须同时存在的拦截工具：(1)发现权(discovery power)、(2)技术证据分析(technical-evidence analysis)、(3)愿审理实体的联邦法官(named federal judge willing to engage substance)。三者缺一不可。'三元组'(triplet)暗示三者构成不可分割的最小集合——不是三选一。首次出现建议括号附英文。"
+	    ruling: "Glossary Master 裁决 2026-06-13 — 批准。与已有术语'interception→拦截'（第4章）保持一致。'三件套'禁止——语言风格不对。"
+
+	  - en: "reward-shaping"
+	    zh: "奖励塑造"
+	    forbidden: ["奖励调整", "奖励设计", "奖励工程"]
+	    domain: "AI/机器学习"
+	    first_chapter: 9
+	    note: "AI 训练后优化(post-training optimisation)中的技术操作——调整奖励信号(reward signal)以影响模型输出行为。'奖励塑造'是中文 AI/ML 领域对 reward-shaping 的通用译法。无需首次出现中英对照——在 GPT-4o post-mortem 上下文中已有充分理解线索。"
+	    ruling: "Glossary Master 裁决 2026-06-13 — 批准。标准技术术语。'奖励调整'禁止——reward tuning 为不同概念。"
+
+	  - en: "reward signal"
+	    zh: "奖励信号"
+	    forbidden: ["反馈信号", "奖励数据"]
+	    domain: "AI/机器学习"
+	    first_chapter: 9
+	    note: "强化学习/RLHF 中用于引导模型行为的反馈信号。在 GPT-4o 案例中，奖励信号被'过于偏向'短期用户反馈(reward-shaping 选择的结果)。'反馈信号'禁止——feedback signal 可能是不同的技术概念。"
+	    ruling: "Glossary Master 裁决 2026-06-13 — 批准。标准 AI/ML 术语。"
+
+	  - en: "post-training"
+	    zh: "训练后"
+	    forbidden: ["后期训练", "后训练"]
+	    domain: "AI/机器学习"
+	    first_chapter: 9
+	    note: "在 AI/ML 语境中作复合形容词使用（post-training optimisation → 训练后优化；post-training reward-shaping → 训练后奖励塑造）。'训练后'在中文 AI 文献中通用。作名词短语（'the post-training'）译为'训练后阶段'。禁止'后训练'——该词在中文 AI 术语中已有不同的技术含义（pre-training/post-training 的流程划分）。"
+	    ruling: "Glossary Master 裁决 2026-06-13 — 批准。'后训练'禁止——在不同技术含义已占用的术语不应在此处使用。"
+
+	  - en: "model variant"
+	    zh: "模型变体"
+	    forbidden: ["变种", "衍生模型", "定制版本"]
+	    domain: "AI/模型开发"
+	    first_chapter: 9
+	    note: "同一模型的不同变体——Meta 提交至 LMArena 的 Llama-4-Maverick-03-26-Experimental 是一个对话优化变体(chat-optimized variant)。'变体'在进化生物学和语言学中都表示同一物类的不同形态。禁止'变种'——暗示退化/异常。"
+	    ruling: "Glossary Master 裁决 2026-06-13 — 批准。'变种'禁止——该词暗示退化/异常(variant 是中性描述)。"
+
+	  - en: "acquisition record"
+	    zh: "获取记录"
+	    forbidden: ["获取记录文件", "获取档案", "收购记录"]
+	    domain: "法律/证据"
+	    first_chapter: 9
+	    note: "Alsup 法官在 Bartz v. Anthropic 案中划定界限的核心证据概念——acquisition 指训练语料的获取（下载/购买/扫描），不是公司并购(mergers and acquisitions)。'获取记录'强调其证据功能——记录并证明某物如何/何时/被谁获取。首次出现建议括号附英文(acquisition record)。"
+	    ruling: "Glossary Master 裁决 2026-06-13 — 批准。'收购记录'禁止——该词在中文中已有公司并购的法律含义，与此处 acquisition 的'获取'含义完全不同。"
+
+	  - en: "training corpus"
+	    zh: "训练语料"
+	    forbidden: ["训练数据", "训练文集", "训练资料"]
+	    domain: "AI/机器学习"
+	    first_chapter: 9
+	    note: "用于训练 AI 模型的特定文本/数据集合（如 LibGen、PiLiMi）。与'training data→训练数据'（泛指 AI 训练使用的所有数据）区分：corpus 特指特定集合。'语料'是语料库语言学(corpus linguistics)对 corpus 的标准译法。复数形式 corpora 译为'语料'或'语料库'。首次出现必须括号附英文(training corpus)。翻译笔记中需说明与 training data（训练数据）的区分的重要性。"
+	    ruling: "Glossary Master 裁决 2026-06-13 — 批准。与'training data→训练数据'的区分是本章论证的基础——译者必须确保两个概念在译文中精确区分。'训练数据'禁止用于 training corpus——但译者仍需用'训练数据'翻译原文的 training data（上下文为通用名词时）。"
+
+	  - en: "shadow library"
+	    zh: "影子图书馆（shadow library）"
+	    forbidden: ["暗网图书馆", "地下图书馆", "盗版资源库"]
+	    domain: "法律/版权"
+	    first_chapter: 9
+	    note: "未经授权的数字图书馆——本章指 LibGen(Library Genesis)和 PiLiMi。运行于表面网络(surface web)而非暗网(dark web)。'影子图书馆'是中文学术传播和版权讨论中已有的通用译法。首次出现必须中英对照。翻译笔记中需说明这些图书馆位于表面网络而非暗网。"
+	    ruling: "Glossary Master 裁决 2026-06-13 — 批准。'暗网图书馆'禁止——提供了错误的法律/技术信号。'盗版资源库'禁止——过于宽泛且带有预设刑事标签。"

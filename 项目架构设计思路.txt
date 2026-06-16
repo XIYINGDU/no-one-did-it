@@ -1,0 +1,3164 @@
+ ▐▛███▜▌   Claude Code v2.1.169
+▝▜█████▛▘  deepseek-v4-pro · API Usage Billing
+  ▘▘ ▝▝    ~/Documents/no-one-did-it
+
+
+❯ 这是一个什么项目？                                                            
+
+  Thought for 7s (ctrl+o to expand)
+
+⏺ 这是一个严肃商业非虚构类图书项目，书名暂定为 《No One Did It: Responsibility 
+  Laundering, from the Scapegoat to the 
+  Algorithm》（《无人为之：责任洗钱——从替罪羊到算法》）。
+
+  核心论点
+
+  文明从未停止寻找替罪羊，只是更换了祭坛。"责任洗钱"（Responsibility 
+  Laundering） 是一种反复出现的制度性手法：权力通过将责任转移给更弱的承担者、程
+  序外壳、代理人、机器、市场、委员会、法律实体或记录，来维持控制或利益，同时转移
+  指责、法律责任或公众怀疑。
+
+  书的诊断框架
+
+  对每个案例，书会追问：
+  1. 谁被公开指责？
+  2. 谁拥有控制权？
+  3. 谁从中获益？
+  4. 谁知道或应该知道？
+  5. 谁本可以防止再次发生？
+  6. 谁控制着记录？
+  7. 谁承担了成本？
+
+  案例分类（四种替罪羊）
+
+  - 纯替罪羊：基本无辜的个体被指责以结案
+  - 部分替罪羊：有牵连但追责停在链条底端，保护了更上层的设计者/指挥官/受益者
+  - 系统/物证托辞：机器、算法、公司、委员会、程序成为被指称的"原因"
+  - 成本承担羊：受害人或工人未被告罪，但承受伤害而无人担责
+
+  当前状态
+
+  书籍已完成 13/13 章，均处于 status: ready。当前阶段已从写作转向出版准备：提案
+  包、法律审查、终稿编译和主创作者终读。
+
+  项目使用了一个由 13 个 AI 代理组成的创作团队（架构师、叙事主笔、研究主管、事实
+  核查、法律顾问、市场策略师等）来协作完成研究、写作和审核工作。
+
+✻ Cooked for 14s
+
+❯ 我想从这个项目中，学习agent的使用                                             
+
+  Thought for 2s (ctrl+o to expand)
+
+⏺ 这是个很好的学习机会！这个项目构建了一套相当成熟的多智能体协作系统。让我帮你系
+  统地梳理一下。
+
+  Thought for 1s (ctrl+o to expand)
+
+  Thought for 14s, searched for 1 pattern, read 9 files, listed 4 directories (ctrl+o to expand)
+
+⏺ 现在我已经看完了核心架构。让我写一份学习总结。
+
+  Thought for 2s, read 2 files (ctrl+o to expand)
+
+  Thought for 1s (ctrl+o to expand)
+
+⏺ ---
+  从《No One Did It》项目学习 Agent 体系设计
+
+  这个项目是目前我见过最成熟的 Claude Code 多智能体协作案例。它不是简单地"让 AI
+  帮忙写作"，而是把一本书的完整生产流程——研究、架构、写作、事实核查、法律审查、
+  红队攻击、读者测试、市场策略——拆成了14 个独立 agent + 29 个技能 + 10 个 slash 
+  命令 + 9 个自动化 hook，彼此通过明确的职责边界和交接协议协作。
+
+  下面我按层次拆解，每一层都值得学。
+
+  ---
+  第一层：13+1 Agent 的角色设计
+
+  Agent 定义在 .claude/agents/*.md，每个 agent 都是一个独立的 YAML frontmatter +
+  Markdown 系统提示词。
+
+  核心设计模式
+
+  每个 agent 文件都遵循同一个模板：
+
+  ---
+  name: jerry-crew-chief
+  description: Use when coordinating...    # 触发条件（给调用方看的）
+  tools: Agent(...), Read, Write, Edit...  # 工具白名单
+  model: opus                              # 强制模型
+  memory: project                          # 记忆范围
+  maxTurns: 40                             # 最大轮次限制
+  skills:                                  # 加载的技能
+    - case-file-method
+    - evidence-grading
+  color: purple
+  ---
+  # 角色定义正文
+  ## Role definition — Owns / Does not own
+  ## Output types
+  ## Operating rules (5 条操作规则)
+  ## Default response schema (强制输出格式)
+  ## Hook policy
+  ## Example invocations
+
+  值得学习的设计决策：
+
+  1. tools 字段是白名单——不是所有 agent 都能做任何事。例如 the-reader 只有 Read,
+  Grep, Glob, Write，没有 Bash、没有 Agent
+  调用权、没有网络搜索。laura-red-team-editor 有 WebSearch + 
+  WebFetch（搜对手案例用），但没有 Agent 调用权。所有 agent 都没有 Bash 和
+  TodoWrite——这两个始终在主会话层。
+  2. maxTurns 按职责深度分档：
+    - Jerry（总调度）：40 turns
+    - 核心 lead（Bonnie/Wayne/Stephen/Laura）：25 turns
+    - 法律/市场（Nancy/Blair）：20 turns
+    - 研究员（Shirley/Selina/Warren/Loki）：18 turns
+  3. Owns / Does not own 是每个 agent 
+  的第一段正文——明确"这是我的地盘"和"这不归我管"，防止越界。
+
+  ---
+  第二层：有界调度 DAG（深度 ≤ 2）
+
+  这是整个架构中最核心的设计——scripts/check_agent_graph.py 用代码强制约束：
+
+  Jerry (根节点, depth=0)
+   ├── Bonnie (depth=1, 叶子)
+   ├── Wayne  (depth=1, 叶子)
+   ├── Delon  (depth=1)
+   │    ├── Shirley (depth=2, 叶子)
+   │    ├── Selina  (depth=2, 叶子)
+   │    ├── Warren  (depth=2, 叶子)
+   │    └── Loki    (depth=2, 叶子)
+   ├── Stephen (depth=1)
+   │    └── Alan (depth=2, 叶子)
+   ├── Laura  (depth=1, 叶子)
+   ├── Nancy  (depth=1, 叶子)
+   └── Blair  (depth=1, 叶子)
+
+  关键约束：
+  - 无环（静态检查拒绝任何循环依赖）
+  - 最大深度 2 层（防止调度链失控）
+  - 不允许反向边（子节点不能调父节点）
+  - 叶子 agent 不能生成子 agent——工作产物通过 Handoff: 字段交接
+
+  # check_agent_graph.py 的核心逻辑
+  # 1. 解析所有 agent 的 frontmatter 中的 tools: Agent(...) 声明
+  # 2. 构建有向图
+  # 3. 检测循环（DFS）
+  # 4. 检测深度（BFS 从根节点起）
+  # 5. 检测反向边（子节点 depth > 父节点 depth）
+  # 6. 检测不可达叶子
+
+  ---
+  第三层：异步 Handoff 协议
+
+  Agent 不通过嵌套调用来传递工作——它们通过标准化的输出 schema 来交接：
+
+  Owner: <agent-name> / <agent-title>
+  Task:
+  Inputs reviewed:
+  Output:
+  Evidence grade:
+  Assumptions:            ← 强制非空，由 validator 检查
+  Open questions:
+  Risks:
+  Handoff: <next-agent>  ← 命名下一个负责的人
+
+  这非常像事件溯源（event sourcing）：每个 agent
+  的输出是一份不可变的审计记录，Handoff: 字段决定了工作流的下一个节点。
+
+  设计的精妙之处：
+  - 异步解耦：上一个 agent 输出写完后，Jerry（或人类）决定什么时候调下一个
+  - 可追溯：每个环节的假设、证据等级、未决问题都被记录下来
+  - 不可跳过：scripts/operating_validators.py 检查每个 subagent
+  输出是否包含非空的 Assumptions: 字段
+
+  ---
+  第四层：独立否决权（Independent Veto）
+
+  这是一个非常精巧的治理设计——规则 03-no-overlap-role-map.md 和
+  15-reader-experience-authority.md：
+
+  三个 agent 拥有独立否决权，可以阻止章节推进，且这个否决权不受
+  Jerry（调度者）控制：
+
+  ┌────────────────────┬───────────────────────────────┐
+  │       Agent        │         否决触发条件          │
+  ├────────────────────┼───────────────────────────────┤
+  │ Laura（红队编辑）  │ V1/V3/V8 核心读者体验值退化   │
+  ├────────────────────┼───────────────────────────────┤
+  │ Nancy（法律顾问）  │ Rule-05/07 过度断言或暗示负担 │
+  ├────────────────────┼───────────────────────────────┤
+  │ the-reader（读者） │ HARD 级别的阅读摩擦           │
+  └────────────────────┴───────────────────────────────┘
+
+  否决后只有 xiaolai（主创作者） 可以 override。
+
+  为什么这个设计很重要：Codex 在评审中指出，如果红队和法律审查的"不通过"由推动改
+  写的同一个编排者（Jerry）来决定是否采纳，那就存在 kill-switch
+  被压制的风险。独立否决权让 Laura 和 Nancy 的 halt authority 不受编排者压力——这
+  正是这本书自己诊断的模式（控制权与问责分离），应用到项目自身治理上。
+
+  ---
+  第五层：技能（Skills）作为专业知识模块
+
+  29 个技能位于 .claude/skills/，每个是独立的知识模块，可以被多个 agent 复用：
+
+  case-file-method/        — 案例研究方法论
+  evidence-grading/        — A/B/C/D 证据分级
+  responsibility-chain-mapping/  — 责任链分析
+  counterargument-red-team/      — 最强反方论证
+  defamation-wording/            — 诽谤风险措辞
+  reader-cold-read/              — 冷读测试
+  chapter-blueprint/             — 章节蓝图
+  ...
+
+  Agent 通过 frontmatter 的 skills: 字段声明自己加载哪些技能。技能不是
+  agent——它们不能独立运行，而是给 agent 装载领域知识的模块。
+
+  ---
+  第六层：Slash 命令作为用户入口
+
+  10 个 slash 命令在 .claude/commands/，每个都有 owner:
+  frontmatter，指向执行它的 agent：
+
+  # .claude/commands/crew-briefing.md
+  ---
+  owner: jerry-crew-chief
+  ---
+  /crew-briefing   → 调度 Jerry，产出当前冲刺计划
+  /case-file       → 调度 Delon，做案例研究
+  /chapter-brief   → 调度 Bonnie，做章节架构
+  /source-audit    → 调度 Stephen，审计证据质量
+  /red-team        → 调度 Laura，攻击论点
+  /proposal-pack   → 调度 Blair，出书提案
+  /produce-chapter → 调度 Jerry 编排整章生产流水线
+
+  设计原则：命令暴露给用户的接口很简单，内部自动路由到正确的 agent。
+
+  ---
+  第七层：Hook 系统（自动化质量门）
+
+  9 个 Python hook 在 .claude/hooks/，通过 settings.json 注册：
+
+  {
+    "SessionStart":   ["session-context.py"],        // 注入当前冲刺状态
+    "PreToolUse":     ["guard-destructive-bash.py"],  // Bash 危险操作拦截
+    "PostToolUse":    [
+      "check-agent-frontmatter.py",  // agent 文件编辑后校验
+      "scan-overclaim.py",           // 扫描过度断言词汇
+      "scan-implication.py",         // 扫描结构性暗示过载
+      "scan-cite-density.py",        // 扫描引用格式违规
+      "scan-pronoun-discipline.py",  // 扫描代词违规
+      "scan-kdp-epub-css.py"         // 扫描 EPUB CSS 违规
+    ],
+    "SubagentStop":   ["log-subagent-finish.py"]     // 记录 agent 完成
+  }
+
+  这些 hook 是规则的可执行化——规则写在 .claude/rules/ 里，hook
+  在每次文件编辑后自动扫描违规项。规则与执行之间形成了闭环。
+
+  ---
+  第八层：The Reader——最特别的 Agent
+
+  the-reader 是整个体系里最有创意的设计：
+
+  1. 不在团队中 —— 它是 "deliberately NOT on the crew"
+  2. 冷读 —— 不读 brief、不读 case file、不读规则、不读注册表，只看最终章节文本
+  3. 只报告体验，不提出修改 —— "我在这里丢了线索" 而不是 "加一句过渡句"
+  4. 永远不会错 —— 它的体验是无可辩驳的数据，"我感觉困惑"不需要被论证
+  5. 拥有否决权 —— HARD 发现可以阻止章节发布
+
+  这本质上是把可用性测试（usability testing）引入了 AI
+  写作流程。被测试者不知道设计意图，只知道产品对自己做了什么。
+
+  ---
+  第九层：规则体系（The Constitution）
+
+  .claude/rules/ 下有 16 条规则，形成了项目的 "宪法"：
+
+  00-five-values.md          — 五条最高原则（宪法修正案级别）
+  01-case-taxonomy.md        — 四种替罪羊分类
+  02-evidence-grades.md      — A/B/C/D 证据等级
+  03-no-overlap-role-map.md  — 角色不重叠、否决权
+  04-style-guide.md          — 写作风格
+  05-overclaim-language.md   — 禁止无引用的断言动词
+  06-quote-integrity.md      — 引用完整性
+  07-implication-burden.md   — 结构性暗示 = 断言
+  08-treatment-class-discipline.md  — 改写分类
+  09-rewrite-lifecycle.md    — 改写生命周期
+  12-reader-experience-values.md    — 10 个读者体验值
+  13-citation-form.md        — Chicago 引用格式
+  14-authorial-stance.md     — 作者立场与代词
+  15-reader-experience-authority.md — 读者否决权
+  16-kdp-epub.md             — Kindle 出版格式
+
+  规则之间有层级：00-five-values.md
+  是最高原则，任何其他规则与它冲突时它优先。scripts/sync_five_over_rules.py
+  保证五大原则被字节级同步到所有 agent、所有 skill 和所有规则文件中。
+
+  ---
+  可迁移的核心模式总结
+
+  如果你要在自己的项目中搭建 agent 体系，以下是最值得复用的模式：
+
+  1. Agent 设计检查清单
+
+  - [ ] 每个 agent 有明确的 Owns / Does not own
+  - [ ] tools 是白名单，最小权限原则
+  - [ ] maxTurns 按职责复杂度分档
+  - [ ] 统一输出 schema（Owner/Task/Assumptions/Handoff）
+  - [ ] 包含使用示例（触发条件清晰）
+
+  2. 调度架构
+
+  - [ ] 有向无环图（DAG），深度有限
+  - [ ] 有静态校验脚本
+  - [ ] 叶子节点不能生成子节点
+  - [ ] 异步 Handoff 而非嵌套调用
+
+  3. 治理机制
+
+  - [ ] 独立否决权（检查者不受被检查者控制）
+  - [ ] 最终 override 需要命名的人签名
+  - [ ] 所有否决记录在案
+
+  4. 质量自动化
+
+  - [ ] 规则 = 文档 + 可执行 hook 双重存在
+  - [ ] 每次文件编辑后自动扫描违规
+  - [ ] 测试套件验证所有架构约束
+
+  5. "外行人"视角
+
+  - [ ] 有一个角色故意不看内部信息
+  - [ ] 只报告原始体验，不提修改方案
+  - [ ] 它的体验是不可辩驳的数据
+
+  ---
+  这个项目的 agent
+  体系最厉害的地方不是数量多，而是每个设计决策都在实践这本书自身的论点——责任不能
+  模糊、控制权要清晰、每个决策要签名、检查者不能受被检查者控制。这是一个用 agent
+  架构来论证 agent 架构应该怎样设计的递归案例。
+
+✻ Worked for 1m 19s
+
+※ recap: You were learning how this project's 13-agent AI crew works. I walked through the full architecture — role design, dispatch hierarchy, handoff protocol, veto powers, hooks, and skills. Ready when you have the next question. (disable recaps in /config)
+
+❯ 这几层，我都想深入的学习，应该怎么入手呢？                                    
+
+  Thought for 5s (ctrl+o to expand)
+
+⏺ 好问题。这九层不是"读一遍文档就能学会"的——需要逐层动手。我建议按从简单到复杂、
+  从独立到耦合的顺序来，每层有一个具体的产出目标。
+
+  让我先看看这个项目有没有更基础的学习入口。
+
+  Thought for 6s, read 2 files, listed 2 directories (ctrl+o to expand)
+
+⏺ 这套体系最有价值的学习方式是从最小可运行单元开始，逐层叠加。我设计一条从"写一
+  个 agent"到"理解全部 9 层耦合"的路径，每一步都有具体产出。
+
+  ---
+  学习路线总览
+
+  阶段 1: 单 Agent → 阶段 2: Skill → 阶段 3: Hook → 阶段 4: 双 Agent 调度
+  → 阶段 5: Handoff 协议 → 阶段 6: 否决权 → 阶段 7: The Reader
+  → 阶段 8: 规则体系 → 阶段 9: 完整体系复盘
+
+  建议：建一个平行的 sandbox 目录，用自己的一个小项目来练手（不必是写书，可以是
+  写技术文档、做代码审查、写周报等）。这个项目的文件作为参考实现反复查阅。
+
+  ---
+  阶段 1：看懂并复刻一个 Agent 定义
+
+  目标：理解 agent 文件的 frontmatter 每个字段的含义，能自己写一个。
+
+  参考文件（按这个顺序读）：
+  1. .claude/agents/jerry-crew-chief.md — 最完整的模板，有 tools: Agent(...)
+  调度权
+  2. .claude/agents/laura-red-team-editor.md — 有 WebSearch/WebFetch 但没有
+  Agent 调度权（叶子节点）
+  3. .claude/docs/crew-portfolio.md 的 "Per-agent details" 表格 — 一览所有 agent
+  的配置差异
+
+  要弄懂的关键字段：
+
+  ┌──────────┬──────────────────────┬───────────────────────────────────────┐
+  │   字段   │  在这个项目里的取值  │             要理解的问题              │
+  ├──────────┼──────────────────────┼───────────────────────────────────────┤
+  │          │ Agent(...), Read,    │ 为什么不同 agent                      │
+  │ tools    │ Write, Edit, Grep,   │ 的工具不同？为什么没人有 Bash？       │
+  │          │ Glob                 │                                       │
+  ├──────────┼──────────────────────┼───────────────────────────────────────┤
+  │ model:   │ 全部统一 opus        │ 什么时候该统一模型，什么时候该混用？  │
+  │ opus     │                      │                                       │
+  ├──────────┼──────────────────────┼───────────────────────────────────────┤
+  │ maxTurns │ 18/20/25/40          │ 怎么决定一个 agent 该给多少轮？       │
+  ├──────────┼──────────────────────┼───────────────────────────────────────┤
+  │ skills   │ 每个 agent 加载 3-7  │ skill 和 agent 的关系是什么？         │
+  │          │ 个 skill             │                                       │
+  ├──────────┼──────────────────────┼───────────────────────────────────────┤
+  │ memory:  │ 全部统一             │ project vs user vs session            │
+  │ project  │                      │ 记忆的区别？                          │
+  └──────────┴──────────────────────┴───────────────────────────────────────┘
+
+  动手练习：在你的 sandbox 项目里，创建一个
+  .claude/agents/code-reviewer.md，要求：
+  - tools 只有 Read, Grep, Glob, Write（不能改代码，不能跑 shell）
+  - 写清楚 Owns / Does not own
+  - 写完整 Default response schema
+  - 写至少一个 <example>
+
+  ---
+  阶段 2：理解 Skill 的设计模式
+
+  目标：理解 skill 是怎么给 agent 装载领域知识的。
+
+  参考文件：
+  - .claude/skills/evidence-grading/SKILL.md — 看一个 skill 的结构
+  - .claude/skills/counterargument-red-team/SKILL.md — 看一个方法论 skill
+  - AGENTS.md 中的 "Repository layout → Active workspace" 段 — 理解 skill
+  如何被扫描
+
+  要弄懂的关键点：
+  1. Skill 和 Agent 的关系——Agent 在 skills: 里声明，Skill 本身不知道谁在用
+  2. Skill 不是可调用的 agent——它是注入到 agent 上下文中的知识模块
+  3. 这个项目的 29 个 skill 可以按功能分类：
+    - 方法论类（case-file-method, evidence-grading, counter-case-method）
+    - 审查类（citation-hygiene, defamation-wording, implication-audit）
+    - 读者测试类（reader-cold-read, reader-experience-sweep）
+    - 结构类（chapter-blueprint, scene-construction,
+  responsibility-chain-mapping）
+
+  动手练习：在你的 sandbox 里创建一个
+  .claude/skills/code-review-checklist/SKILL.md，包含：
+  - YAML frontmatter（name, description）
+  - 审查清单（security, performance, readability 等维度）
+  - 在你的 code-reviewer agent 的 skills: 中加载它
+
+  ---
+  阶段 3：掌握 Hook 系统
+
+  目标：理解 hook 是怎么把规则自动化执行的。
+
+  参考文件（按这个顺序读）：
+  1. .claude/hooks/scan-overclaim.py — 最直观的例子：扫描文本中的违规词汇
+  2. .claude/hooks/guard-destructive-bash.py — PreToolUse 的例子：拦截危险命令
+  3. .claude/hooks/log-subagent-finish.py — SubagentStop 的例子：记录 agent 完成
+  4. .claude/settings.json 的完整 hooks 段 — 看所有 hook 的注册方式和 matcher
+  5. .claude/docs/hooks-guide.md — hook 的运作机制
+
+  要弄懂的四个 hook 事件：
+
+  ┌──────────────┬──────────────────────┬──────────────────────┐
+  │     事件     │    这个项目怎么用    │       能做什么       │
+  ├──────────────┼──────────────────────┼──────────────────────┤
+  │ SessionStart │ 注入当前冲刺状态     │ 给每段对话注入上下文 │
+  ├──────────────┼──────────────────────┼──────────────────────┤
+  │ PreToolUse   │ 拦截危险的 Bash 命令 │ 安全防护             │
+  ├──────────────┼──────────────────────┼──────────────────────┤
+  │ PostToolUse  │ 扫描违规措辞/格式    │ 质量门               │
+  ├──────────────┼──────────────────────┼──────────────────────┤
+  │ SubagentStop │ 记录 agent 完成日志  │ 审计追踪             │
+  └──────────────┴──────────────────────┴──────────────────────┘
+
+  动手练习：在你的 sandbox 里创建一个 PostToolUse hook：
+  - 当 Write/Edit 触发时运行
+  - 扫描文件中是否包含 TODO 或 FIXME
+  - 如果有，输出警告但不阻止操作
+
+  ---
+  阶段 4：实现双 Agent 调度
+
+  目标：理解 parent agent 怎样通过 tools: Agent(child) 调度子 agent。
+
+  参考文件：
+  1. .claude/agents/jerry-crew-chief.md frontmatter 中的 tools: Agent(...) 声明
+  2. .claude/agents/delon-research-director.md — 看一个中间层 agent 的定义
+  3. scripts/check_agent_graph.py — 理解图是如何被静态校验的
+
+  要弄懂的关键约束：
+  1. tools: Agent(bonnie, wayne, delon, ...) —— 只声明名字，不在 frontmatter
+  里写配置
+  2. 子 agent 的配置完全由它自己的 .md 文件决定（model, maxTurns, skills）
+  3. 深度 ≤ 2：Jerry → Delon → Shirley 是合法的，Jerry → Delon → Shirley → X
+  不合法
+  4. 叶子节点不能有 Agent(...) 调用
+
+  动手练习：在你的 sandbox 里创建两个 agent：
+  - tech-lead.md：tools: Agent(code-reviewer, doc-writer)，负责接收任务并分派
+  - 让 tech-lead 接收一个"审查这段代码"的请求，调度 code-reviewer 去执行
+  - 跑 python3 scripts/check_agent_graph.py --root-agent tech-lead
+  看看会不会报错
+
+  ---
+  阶段 5：理解 Handoff 协议
+
+  目标：理解异步交接为什么比嵌套调用更优。
+
+  参考文件：
+  1. 任意 agent 文件末尾的 Default response schema 段
+  2. .claude/docs/crew-operating-manual.md 的 Workflow 段（10 步流水线）
+  3. scripts/operating_validators.py（如果存在）或 tests/ 中检查 Assumptions:
+  的测试
+
+  Handoff vs 嵌套调用的区别：
+
+  ❌ 嵌套调用（不可审计）:
+    Jerry 调 Wayne，Wayne 直接调 Nancy，Nancy 直接改 Wayne 的稿子
+    → 最后谁改了什么、基于什么假设改的，完全不可追踪
+
+  ✅ Handoff 协议（可审计）:
+    Wayne 输出 → Handoff: Nancy
+    Jerry 读取 Wayne 的输出，确认无误 → 调 Nancy，把 Wayne 的输出作为输入
+    Nancy 输出 → Handoff: Wayne
+    → 每一步都有 Owner/Assumptions/Evidence grade 的记录
+
+  动手练习：
+  - 修改你的 code-reviewer agent，让它不再直接输出审查结果，而是按 Default 
+  response schema 格式输出
+  - 写一个简单的 Python 脚本 scripts/check_handoff.py，检查给定 agent
+  输出是否包含所有必需字段
+
+  ---
+  阶段 6：实现否决权机制
+
+  目标：理解为什么检查者必须独立于被检查者。
+
+  参考文件：
+  1. .claude/rules/03-no-overlap-role-map.md — "Independent veto authority" 段
+  2. .claude/rules/15-reader-experience-authority.md — Reader veto 的设计理由
+
+  核心设计问题：
+  - 如果 Laura（红队）的"不通过"由
+  Jerry（推动改写的同一个人）决定是否采纳，会有什么问题？
+  - 为什么否决权必须记录在案？为什么 override 需要 xiaolai 签名？
+
+  动手练习：设计一个场景：
+  - Agent A（开发者）写了一段代码
+  - Agent B（安全审查员）发现了 SQL 注入漏洞，标记为 HARD block
+  - Agent C（tech lead）认为风险可接受，想 override
+  - 你需要设计什么记录机制，使得未来出事时可以追溯：谁做的
+  override？基于什么理由？
+
+  ---
+  阶段 7：实现 "The Reader" 模式
+
+  目标：理解"冷读"为什么是质量保证的最后一道防线。
+
+  参考文件：
+  1. .claude/agents/the-reader.md — 完整阅读
+  2. .claude/skills/reader-cold-read/SKILL.md — 冷读的 7 个维度
+  3. .claude/rules/15-reader-experience-authority.md — 为什么 reader 具有否决权
+
+  这个模式最值得学习的三点：
+  1. 故意不给上下文——reader 看到的和别人看到的一样
+  2. 只报告症状，不诊断病因——"我在这丢了线索" vs "你需要加过渡句"
+  3. 它的体验是不可辩驳的数据——你可以不同意它的判断，但你不能说它没体验到自己体
+  验到的东西
+
+  动手练习：在你的 sandbox 里创建 the-user.md agent：
+  - 只读最终文档/代码
+  - 不看设计文档、不看 PR description
+  - 只看最终产品，报告：哪里困惑、哪里不信任、哪里想放弃
+  - 永远不提出修改方案
+
+  ---
+  阶段 8：规则体系——从文档到可执行
+
+  目标：理解规则的双重存在——文档（给人看）+ hook/script（给机器执行）。
+
+  参考文件：
+  1. .claude/rules/00-five-values.md — 宪法级别
+  2. .claude/rules/05-overclaim-language.md — 规则 → hook 的链路：规则定义了
+  banned verbs，scan-overclaim.py 扫描它们
+  3. scripts/sync_five_over_rules.py — 保证宪法在所有文件中字节级一致
+
+  要弄懂的链路：
+  rule 文档 (.claude/rules/05-overclaim-language.md)
+    │  定义了 banned verbs 和 required hedging
+    │
+    ├→ hook (scan-overclaim.py)
+    │    每次 Write/Edit 后自动扫描违规词汇
+    │
+    ├→ agent skill (defamation-wording/SKILL.md)
+    │    Wayne 和 Nancy 写作时参考的措辞指南
+    │
+    └→ 测试 (tests/)
+        验证 hook 逻辑正确、验证 sync 脚本通过
+
+  动手练习：
+  - 为你的项目写一条规则（比如"所有 public API 必须有 docstring"）
+  - 写一个 hook 扫描违规
+  - 写一个测试验证 hook 能正确检测违规
+  - 把规则文本 sync 到所有 agent 的 system prompt 中
+
+  ---
+  阶段 9：完整体系复盘
+
+  目标：从全局视角理解所有 9 层的耦合关系。
+
+  操作：把以下架构图画出来（自己画，别复制）：
+
+  用户 → Slash Command (/produce-chapter)
+    → Jerry (Agent, 有调度权, 40 turns)
+      → 规则体系 (宪法 + 16 条规则, 控制所有 agent 行为)
+      → 技能 (29 个知识模块, 按需装载)
+      → 子 Agent (depth ≤ 2, 叶子不能调 agent)
+        → 每个 agent 输出 Handoff schema
+      → Hook 自动扫描 (7 个 PostToolUse scanner)
+      → 独立否决 (Laura/Nancy/Reader, 不受 Jerry 控制)
+      → 最终产物 → 测试套件验证
+
+  动手练习：用你自己的小项目完整实现：
+  1. 至少 3 个 agent（一个调度者 + 两个执行者）
+  2. 至少 2 个 skill
+  3. 至少 2 个 hook
+  4. 一条规则 + 对应的 scanner
+  5. 一个 Handoff schema
+  6. 一个 "外行人" agent（冷读，只报告不修改）
+  7. 一个 check_agent_graph.py 类似的验证脚本
+  8. 运行 pytest 全部通过
+
+  ---
+  建议的阅读顺序（当参考书查）
+
+  遇到具体问题不知道怎么设计时，查对应的文件：
+
+  ┌───────────────────────┬─────────────────────────────────────────────────┐
+  │      你要设计...      │                    先看这个                     │
+  ├───────────────────────┼─────────────────────────────────────────────────┤
+  │ 一个新 agent          │ .claude/agents/jerry-crew-chief.md（模板最完整  │
+  │                       │ ）                                              │
+  ├───────────────────────┼─────────────────────────────────────────────────┤
+  │ Agent 该有什么权限    │ .claude/docs/agent-tool-grants.md               │
+  ├───────────────────────┼─────────────────────────────────────────────────┤
+  │ 多个 agent 怎么分工   │ .claude/rules/03-no-overlap-role-map.md         │
+  ├───────────────────────┼─────────────────────────────────────────────────┤
+  │ Skill 怎么写          │ .claude/skills/evidence-grading/SKILL.md        │
+  ├───────────────────────┼─────────────────────────────────────────────────┤
+  │ Hook 怎么写           │ .claude/hooks/scan-overclaim.py（最简单）       │
+  ├───────────────────────┼─────────────────────────────────────────────────┤
+  │ 一个完整工作流怎么编  │ .claude/commands/produce-chapter.md             │
+  │ 排                    │                                                 │
+  ├───────────────────────┼─────────────────────────────────────────────────┤
+  │ 规则怎么写成可执行的  │ .claude/rules/05-overclaim-language.md +        │
+  │                       │ scan-overclaim.py                               │
+  ├───────────────────────┼─────────────────────────────────────────────────┤
+  │ 角色体系全貌          │ .claude/docs/crew-portfolio.md                  │
+  └───────────────────────┴─────────────────────────────────────────────────┘
+
+  ---
+  从哪个阶段开始？如果你已经有了一个想练手的小项目，可以从阶段 1
+  直接开始。如果你想我先带你走一遍某个具体阶段的代码，告诉我你想先深入哪个。
+
+✻ Churned for 1m 18s
+
+※ recap: You're learning the 9-layer agent architecture from this book project. We mapped out a progressive learning path from single agent → skills → hooks → dispatch → handoff → veto → reader → rules → full system. Ready to start at Stage 1 when you are. (disable recaps in /config)
+
+❯ 这些内容难道是作者自己写的吗？                                                
+
+  Thought for 3s (ctrl+o to expand)
+
+⏺ 好问题。让我看看 git 历史来回答。
+
+  Thought for 23s, read 4 files, ran 3 shell commands (ctrl+o to expand)
+
+⏺ 现在可以准确回答了。
+
+  不全是作者写的。但关键决策都是。
+
+  作者的注记（book/back-matter/note-from-the-author.md）里说得非常清楚：
+
+  ---
+  作者（李笑来）自己做了什么
+
+  ▎ "The crew had names because giving them names made it possible to keep their
+  ▎ work product accountable."
+
+  - 搭建了整个框架——13 个 agent 的角色定义、16
+  条规则、证据分级体系、四种替罪羊分类、Handoff
+  协议、否决权机制——这些"宪法"级别的东西是他设计的
+  - 做了所有不可委托的判断——书的核心论点、四种分类的边界、Iraq
+  章节的落点、最后一句话用哪个版本——"judgments under uncertainty did not
+  delegate. I made them."
+  - 从头到尾读了终稿——"I read the manuscript end to end before it left this
+  desk."
+
+  AI agent 团队做了什么
+
+  ▎ "The research, fact-checking, source-ledger construction, red-team review, 
+  ▎ legal scan, prose drafting, cross-chapter consistency audit, and citation 
+  ▎ discipline that hold up the manuscript were carried out by a crew of 
+  ▎ thirteen AI agents."
+
+  - Shirley/Selina/Warren/Loki 做了研究——找一手资料、建案例档案
+  - Wayne 写了初稿——把案例档案变成可读的叙事散文
+  - Stephen 做了事实核查——283 张原始文献卡片，逐条验证
+  - Laura 做了红队攻击——找过度断言、分类坍塌、党派偏见
+  - Nancy 做了法律风险扫描——每句涉及活人/公司的措辞都检查了诽谤风险
+  - Alan 做了专家审查——国际人道法、系统安全工程、AI 治理六个专业维度
+  - the-reader 做了冷读测试——作为"不知情的读者"，报告哪里困惑、哪里不信
+
+  ---
+  本质是什么
+
+  这本书的生产方式本身就是论点的实践：
+
+  ▎ "A book that diagnoses the laundering of responsibility into machines, 
+  ▎ committees, and procedures cannot itself launder responsibility into the 
+  ▎ machine that helped it draft."
+
+  李笑来设计了一套"宪法"和 agent 团队，AI
+  执行了可委托的工作（研究、起草、核查、审查），但作者保留了对所有不可委托判断的
+  最终控制权，并且在书里公开声明了这一生产方式。
+
+  所以 README 里说得很准确：
+
+  ▎ "The book was built by a human principal author working with a 13-agent 
+  ▎ crew"
+
+  ——一个人 + 13 个 AI agent，而不是"AI 写了这本书"。
+
+  ---
+  对你学习 agent 的意义
+
+  这个项目恰好展示了 agent 的正确用法：agent 
+  用来做"可以委托但规模太大"的工作，判断权留在人手里。你学习这个项目的 agent
+  体系时，最有价值的不是"怎么让 AI 替你做决定"，而是：
+
+  1. 怎么把工作拆成"可委托"和"不可委托"两层
+  2. 怎么给每个 agent 设定明确的边界（Owns / Does not own）
+  3. 怎么设计检查机制让委托出去的工作可以被验证
+  4. 怎么让最终签名的人仍然对产物负责
+
+✻ Sautéed for 47s
+
+※ recap: You're learning the 9-layer agent architecture from this book project. We covered the full breakdown (agents, skills, hooks, dispatch DAG, handoff protocol, veto power, the reader pattern, rules, slash commands) and the human/AI division of labor.
+
+  Next: pick Stage 1 — read one agent file and build your own in a sandbox project. (disable recaps in /config)
+❯ 这些agent设计工作，由作者做的。AGENT中具体的frontmatter和内容，以及之间的协调 
+  ，这些具体内容，应该不是作者写的吧？                                          
+
+  Thought for 12s (ctrl+o to expand)
+
+⏺ 这个追问很到位。让我找找证据。
+
+  Thought for 15s, searched for 2 patterns, read 1 file (ctrl+o to expand)
+
+⏺ 说对了。我们来算一笔账：
+
+  这个项目的 agent 基础设施大约有 13,000 行内容：
+
+  ┌────────────────────┬────────────────────┬────────┐
+  │        组件        │        数量        │ 总行数 │
+  ├────────────────────┼────────────────────┼────────┤
+  │ Agent 定义         │ 15 个 .md          │ 1,400  │
+  ├────────────────────┼────────────────────┼────────┤
+  │ Skill 定义         │ 29 个 SKILL.md     │ 3,588  │
+  ├────────────────────┼────────────────────┼────────┤
+  │ 规则 + Hook + 脚本 │ 16 + 9 + 19 个文件 │ 7,737  │
+  └────────────────────┴────────────────────┴────────┘
+
+  一个人类作者不可能逐字手写 13,000
+  行这样的内容而不出错、不自相矛盾。证据就在代码里：
+
+  ---
+  实锤：部分内容是自动生成的
+
+  scripts/sync_five_over_rules.py 做的事情很清楚——从 00-five-values.md 读取 5
+  条规则原文，然后自动注入到 46 个文件中：
+
+  15 个 agent 文件  ← 全部有这个块
+  29 个 skill 文件  ← 全部有这个块
+  3  个 doc 文件
+
+  每个文件里的这一段：
+
+  ## Global Five Over-Rules
+
+  <!-- GENERATED:five-over-rules:start -->
+  1. **Evidence before elegance.** Never improve the story by weakening the
+  evidence.
+  2. **Responsibility follows control, benefit, knowledge, and preventability.**
+  ...
+  <!-- GENERATED:five-over-rules:end -->
+
+  不是手写的。是脚本跑的。 改一处（宪法文件），跑一次脚本，全部同步。
+
+  ---
+  那其他内容呢？
+
+  说实话，我们无法从 repo 里确切知道。但有几个线索：
+
+  1. 有明显的模板痕迹。 15 个 agent 文件共享同一个骨架：
+
+  Role definition → Owns / Does not own
+  Output types
+  Operating rules (全是 5 条，措辞高度一致)
+  Default response schema
+  Hook policy
+  Example invocations
+
+  这种一致性有两种可能：作者手工复制粘贴并逐份修改（低效），或者用 AI
+  根据模板批量生成（合理）。
+
+  2. eou-foundry@xiaolai 插件。 README 提到这本书是 eou-foundry
+  插件的一个应用实例。这意味着作者先建了一套可复用的"出版工坊"基础设施，然后用它
+  来生成这个项目的脚手架。脚手架生成本身可能就是 AI 辅助的。
+
+  3. 作者自己的说法。 注记里写 "operating under a framework I built"，"the
+  architecture for the crew is open
+  source."——他只声称自己建了框架（framework/architecture），没有说逐字写了所有
+  agent 文件。
+
+  ---
+  最合理的推测
+
+  这个过程很可能是：
+
+  作者设计架构
+    ↓
+  作者手写核心文件（宪法规则、角色映射、证据分级、关键 agent 模板）
+    ↓
+  用 Claude Code 批量生成其余 agent 的详细 system prompt
+  （按模板 + 角色差异填充 Owns/Does not own/示例）
+    ↓
+  用 Claude Code 生成 hooks 和 scripts
+  （Python 代码，定义好接口后生成实现）
+    ↓
+  作者审查每个输出，修改不符合意图的部分
+    ↓
+  sync_five_over_rules.py 统一注入宪法条款
+
+  这恰好是这本书自己描述的模式：人保留判断，AI 做可委托的规模化执行。连 agent
+  基础设施的"建造"本身都在实践这个模式。
+
+  ---
+  对你学习的启发
+
+  这意味着你不需要手写 13,000 行内容来搭建 agent 体系。你可以：
+
+  1. 先想清楚架构——几个角色？谁调谁？深度几层？（这必须你自己想）
+  2. 手写一个 agent 模板——把 Owns/Does not own、输出 schema、操作规则写清楚
+  3. 让 Claude Code 帮你批量生成——喂给它模板 + 每个角色的差异描述，让它填充其余
+  agent 文件
+  4. 写脚本管理一致性——像 sync_five_over_rules.py 一样，让程序保证不会 drift
+  5. 你审查每个输出——这是不可委托的部分
+
+  所以学习这个项目的正确姿势是：学它架构设计的思路，然后用 AI 
+  帮你做规模化填充，你自己只做判断。
+
+✻ Cogitated for 51s
+
+❯ 这个项目的架构设计的思路，是什么？                                            
+
+  Thought for 15s (ctrl+o to expand)
+
+⏺ 这个问题问到了整个项目最值钱的地方。
+
+  它的架构设计不是从"怎么让多个 agent 协作更高效"出发的，而是从一个统一原则推导
+  出来的。理解了这条原则，每个设计决策就都变得必然。
+
+  ---
+  统一原则：控制权必须可追溯
+
+  这本书的核心论点是：
+
+  ▎ 责任洗钱的发生机制 = 控制权与可见性分离。当一个决策可以被归因于"系统""程序""
+  ▎ 委员会""市场"而不是一个具体的命名的人时，责任就被洗掉了。
+
+  整个 agent 架构的每一个设计决策，都是在防止这个分离发生在项目内部。书的诊断对
+  象和书的生产系统遵循同一套纪律。
+
+  换句话说：架构不是"怎样让 AI 写书更高效"，而是"怎样让 AI 
+  参与写书的同时，控制链不被洗掉"。
+
+  ---
+  从这个原则出发，推导每个设计决策
+
+  决策 1：每个功能只有一个 Owner
+
+  问题：如果两个 agent 都能"决定这个案例该分到哪一类"，
+        出了问题谁负责？→ "那是他的判断" / "我只是建议"
+
+  解决：规则 03-no-overlap-role-map.md 明确规定——
+
+  ┌──────────┬───────────────────┐
+  │   功能   │    唯一 Owner     │
+  ├──────────┼───────────────────┤
+  │ 书的结构 │ Bonnie（只有她）  │
+  ├──────────┼───────────────────┤
+  │ 章节语言 │ Wayne（只有他）   │
+  ├──────────┼───────────────────┤
+  │ 事实判断 │ Stephen（只有他） │
+  ├──────────┼───────────────────┤
+  │ 法律措辞 │ Nancy（只有她）   │
+  └──────────┴───────────────────┘
+
+  没有"共同负责"。共同负责 = 没人负责。
+
+  决策 2：调度图深度 ≤ 2
+
+  问题：如果调度链是 Jerry → A → B → C → D，
+        当 D 出错时，是 D 的问题还是 B 派活不清楚的问题？
+        层数越多，归因越模糊。
+
+  解决：scripts/check_agent_graph.py 强制约束——
+
+  Jerry (depth 0)
+    └── 7 个 cell lead (depth 1)
+          └── 研究员/专家 (depth 2, 必须叶子)
+
+  两层足够分工，但不够隐藏。超过两层的指挥链本身就是洗责任的温床。
+
+  决策 3：异步 Handoff 而非嵌套调用
+
+  问题：如果 Wayne 写稿时直接调 Nancy 改措辞，
+        Nancy 的修改融进了 Wayne 的提交里，
+        事后无法区分"这是 Wayne 写的"还是"Nancy 改的"。
+
+  解决：每个 agent 的输出是独立文件 + 强制 schema：
+
+  Owner: Wayne
+  Assumptions: <必须非空>
+  Handoff: Nancy
+
+  每一步都有签名。每一步的假设都被记录。交接不是发生在代码里（嵌套调用），而是发
+  生在文件系统里（显式记录）。异步不是性能优化，是可审计性设计。
+
+  决策 4：检查者独立于被检查者
+
+  问题：如果推动改写的 Jerry 同时决定 Laura 的红队意见是否采纳，
+        当 Jerry 急于推进时，Laura 的反对可以被"合理忽略"。
+
+  解决：独立否决权——
+
+  - Laura 的 HARD block → Jerry 不能 override
+  - Nancy 的 HARD block → Jerry 不能 override
+  - 只有 xiaolai（人类作者）可以 override，且必须记录理由
+
+  这是三权分立的思想：行政（Jerry）不能否决司法（Laura/Nancy）的判决。检查者和被
+  检查者放在同一条指挥链里，检查就是表演。
+
+  决策 5：The Reader 故意不知道任何内部信息
+
+  问题：如果你知道这段文字想表达什么，你就读不出读者的真实困惑。
+        内部人员永远无法模拟"第一次看到"的体验。
+
+  解决：The Reader——
+
+  - 不读 brief、不读 case file、不读规则
+  - 只读和读者看到的一模一样的最终文本
+  - 只报告体验（"我在这丢了线索"），不提修改方案
+  - 拥有和 Laura/Nancy 同级的否决权
+
+  这是可用性测试的思想移植到了写作流程中。知情 = 污染。冷读是不可替代的数据。
+
+  决策 6：规则双重存在——文档 + 可执行 hook
+
+  问题：如果规则只写在文档里，"遵守"就靠人的记忆和善意。
+        当 deadline 压力大时，规则被选择性忽略。
+
+  解决：每条关键规则都有对应的自动扫描——
+
+  ┌──────────────────────────┬───────────────────────────────────────────────┐
+  │         规则文档         │                   执行 Hook                   │
+  ├──────────────────────────┼───────────────────────────────────────────────┤
+  │ 05-overclaim-language.md │ scan-overclaim.py（每次 Write 后扫描 banned   │
+  │                          │ verbs）                                       │
+  ├──────────────────────────┼───────────────────────────────────────────────┤
+  │ 07-implication-burden.md │ scan-implication.py（扫描结构性暗示）         │
+  ├──────────────────────────┼───────────────────────────────────────────────┤
+  │ 13-citation-form.md      │ scan-cite-density.py（扫描引用格式）          │
+  ├──────────────────────────┼───────────────────────────────────────────────┤
+  │ 14-authorial-stance.md   │ scan-pronoun-discipline.py（扫描 "you" / "the │
+  │                          │  reader"）                                    │
+  └──────────────────────────┴───────────────────────────────────────────────┘
+
+  规则如果没有自动执行，就不是规则，是愿望。
+
+  决策 7：宪法 + 自动同步
+
+  问题：如果每个 agent 文件里都手写了五大原则，
+        改一个措辞需要手动改 46 个文件。
+        必然 drift。必然有人用的是旧版本。
+
+  解决：sync_five_over_rules.py——
+
+  - 宪法源文件只有一个：00-five-values.md
+  - 所有 agent/skill/doc 中的五大原则块都是 <!-- GENERATED --> 标注的
+  - 改源文件 → 跑脚本 → 全部同步
+  - --check 模式在 CI 中跑，drift 直接失败
+
+  一致性不能靠纪律，要靠自动化。
+
+  决策 8：工具白名单 + 无 Bash
+
+  问题：如果一个 agent 可以执行任意 shell 命令，
+        它删除文件后，你怎么追溯是哪个 agent 在什么上下文下做的？
+
+  解决：
+
+  - 所有 agent 都没有 Bash 权限
+  - 所有 agent 都没有 TodoWrite 权限
+  - 工具的分配精确到每个 agent（laura 有 WebSearch，the-reader 没有）
+
+  权限不是按"角色地位"给的，是按"这个角色需要什么才能完成任务"给的。
+  最小权限原则。
+
+  决策 9：跨工具兼容
+
+  问题：如果一个工具（Claude Code）出问题，整个流程锁死。
+
+  解决：AGENTS.md 是唯一真相源——
+
+  CLAUDE.md → @AGENTS.md
+  GEMINI.md  → @AGENTS.md
+  Codex 直接读 AGENTS.md
+
+  三个工具共享同一份上下文，同一个规则体系，同一套 agent 定义（通过 cc-suite
+  插件 bridge）。不绑定单一供应商。
+
+  ---
+  总结：架构 = 论点的递归应用
+
+  用一句话概括这个架构的设计思路：
+
+  ▎ "谁控制了产出，就必须对产出负责——这个原则不仅适用于书里分析的案例，也适用于
+  ▎ 写这本书的流程本身。"
+
+  具体来说：
+
+  ┌────────────────────────┬─────────────────────────────────┐
+  │        书的诊断        │           架构的应对            │
+  ├────────────────────────┼─────────────────────────────────┤
+  │ 责任被洗进"系统"       │ 每个功能只有一个命名的人        │
+  ├────────────────────────┼─────────────────────────────────┤
+  │ 指挥链太长导致归因模糊 │ 调度深度硬限制为 2              │
+  ├────────────────────────┼─────────────────────────────────┤
+  │ 程序替代判断           │ 检查者独立于执行者，有否决权    │
+  ├────────────────────────┼─────────────────────────────────┤
+  │ 内部知识掩盖外部体验   │ The Reader 故意不知情，有否决权 │
+  ├────────────────────────┼─────────────────────────────────┤
+  │ 规则写在纸上等于不存在 │ 每条规则有对应的自动扫描 hook   │
+  ├────────────────────────┼─────────────────────────────────┤
+  │ 文档 drift             │ 宪法自动同步到所有文件          │
+  ├────────────────────────┼─────────────────────────────────┤
+  │ 事后不可追溯           │ Handoff 协议强制每一步签名      │
+  └────────────────────────┴─────────────────────────────────┘
+
+  这不是"怎样更好地用 AI"，而是**"怎样用 AI 的同时不被 AI
+  洗掉你自己的责任"**。这正是这个项目跟其他"multi-agent
+  教程"最根本的区别——它不是在教你怎么指挥 AI，它是在教你怎么在指挥 AI
+  的同时，保证你不会变成自己书里批评的那种人。
+
+✻ Worked for 56s
+
+※ recap: You're learning this project's agent architecture. We just finished unpacking the core design principle — every architectural decision (single owner, depth ≤ 2, independent veto, cold reader, auto-scanned rules, async handoff) derives from one rule: **control must remain traceable to a named person**. Ready to dive into whatever layer you want next.
+
+❯ 除了这9个决策，还有其它值得学习的吗？                                         
+
+  Thought for 12s (ctrl+o to expand)
+
+⏺ 让我再翻翻还没细看的角落。
+
+  Thought for 14s, read 5 files, listed 1 directory (ctrl+o to expand)
+
+⏺ 有。而且有几个设计比前面 9
+  个更"反直觉"——它们解决的恰恰是"看起来没必要，但缺了就出大事"的问题。
+
+  ---
+  决策 10：改写不是二元的——五种治疗等级
+
+  大多数项目的改写只有两种状态：重写 vs 不改。但这个项目有五种：
+
+  ┌─────────────────────────┬────────────────────────┬───────────────────────┐
+  │          等级           │          条件          │         成本          │
+  ├─────────────────────────┼────────────────────────┼───────────────────────┤
+  │ no-change               │ 通过了所有检查，无缺陷 │ 零                    │
+  ├─────────────────────────┼────────────────────────┼───────────────────────┤
+  │ prose-polish            │ 结构好，句子节奏有问题 │ Wayne 1 轮            │
+  ├─────────────────────────┼────────────────────────┼───────────────────────┤
+  │ defamation-safe-tighten │ 法律风险措辞需要收紧   │ Nancy + Wayne 各 1 轮 │
+  ├─────────────────────────┼────────────────────────┼───────────────────────┤
+  │ structural-polish       │ 需要调整场景顺序/视点  │ Bonnie + Wayne +      │
+  │                         │                        │ 跨章审计              │
+  ├─────────────────────────┼────────────────────────┼───────────────────────┤
+  │ full-craft-rewrite      │ 核心价值失败           │ 全流程重来            │
+  └─────────────────────────┴────────────────────────┴───────────────────────┘
+
+  关键设计：
+
+  1. no-change 也需要证据——不能因为"没人看过"就说没问题。必须有 defect-map
+  证明通过了检查。
+  2. 等级是输入不是输出——不是因为"我想重写"就选 full-craft-rewrite，而是因为
+  defect-map 证明核心价值确实失败了。
+  3. 用具体案例说明为什么等级判断不能凭直觉——规则里给了例子：一个章节有 V6 和
+  V10 两个缺陷，"天真读法"会说是
+  full-craft-rewrite，但实际上核心价值全部通过，只需要 structural-polish。
+
+  防止了什么：防止了"我觉得这章不好，全部重写"的资源浪费，和"我觉得这章还行，不
+  改了"的偷懒。
+
+  ---
+  决策 11：改写有生命周期，审计历史不可覆盖
+
+  ready → in-rewrite → in-review → ready
+                ↑_____________|
+                (审计失败时回退)
+
+  关键设计：在覆盖任何审计报告之前，先把旧报告快照存到
+  process/audits/history/<chapter>/<timestamp>/。
+
+  process/audits/history/
+    02/
+      2026-05-27T14-30-00Z/
+        audit-chapter.md
+        evidence-audit.md
+        defamation-wording.md
+        ...
+      2026-06-04T09-15-00Z/
+        ...
+
+  快照永不删除。 改写失败时，可以从快照 + git history 恢复。
+
+  防止了什么：防止了"改写之后发现不如原来的好，但原来的审计记录已经被覆盖了，没
+  法回滚"。
+
+  ---
+  决策 12：每个案例必须配一个"反例"
+
+  这是用 .claude/skills/counter-case-method/SKILL.md 定义的硬要求：
+
+  ▎ 书中的每个替罪羊案例，必须配一个同一洗钱模式中被拦截、逃脱或揭穿的反例。
+
+  反例不是"好结局"。反例是一个有名字、可迁移的拦截机制——举报人、独立调查、技术验
+  证、法庭、持久公民社会压力——而且要诚实记录逃脱的代价（花了多少年、多少代价、在
+  被逆转前吸收了多大伤害）。
+
+  明确禁止三件事：
+  - "靠运气逃脱"不能作为反例（不可迁移）
+  - "公众愤怒"或"媒体关注"不能作为拦截机制（没有命名的制度性行动者）
+  - 反例的洗钱模式必须和配对的替罪羊案例一致（不一致则教训不成立）
+
+  防止了什么：防止了书变成一本"世界很糟糕"的绝望目录。也防止了廉价的乐观——"总会
+  有正义的"不算反例，只有"这个特定的机制在什么条件下起了作用"才算。
+
+  ---
+  决策 13：跨章节登记表——追踪 13 章之间的承诺
+
+  一本书有 13 章，Chapter 1 里埋的线索要在 Chapter 11 里回收。如果各章由不同的
+  agent 在不同时间写，谁负责追踪？
+
+  答案是四个登记表文件 book/registries/：
+
+  callback-graph.yml     — 22 条跨章节呼应（"前面提过的枪，后面必须响"）
+  cognitive-arc.yml      — 50 个概念的引入-发展-回收路径
+  motif-registry.yml     — 9 个贯穿全书的意象（如 "the-altar" 有禁区规则）
+  treatment-classes.yml  — 每章的改写等级
+
+  这本质上是契诃夫法则的执行系统："如果你在第一章展示了一把枪，它必须在第三章开
+  火。"
+
+  Chekhov 验证报告（process/audits/chekhov-verification-2026-05-30.md）就是对这
+  三个登记表的全面审计：
+
+  22 条 callback 边 → 全部双端点存活
+  9 个 motif → 干净，包括高风险禁区 "the-altar" 无泄漏
+  50 个 cognitive-arc 项目 → 49/50 通过
+  11/13 章的 fair clue 测试通过
+
+  防止了什么：防止了"多 agent 异步写 13
+  章"变成"各写各的，前后矛盾，埋的线索没人收"。
+
+  ---
+  决策 14：会话状态持久化——SessionStart Hook + STATUS.md
+
+  每次新开一个 Claude Code
+  会话，模型的上下文是空的。它不知道上次做到哪了。怎么保证连续性？
+
+  SessionStart hook
+    → 读取 .claude/state/current-focus.md
+    → 作为 additionalContext 注入到系统提示词
+    → 每个新会话一打开就直接看到当前冲刺状态
+
+  current-focus.md 里记录了：
+  - 当前冲刺目标
+  - 待办项和 owner
+  - 法律重审的到期时钟（"2026-06-24 Nancy 重审 ch-02"）
+  - 23 个未解决的 [EVIDENCE NEEDED] 标记
+
+  STATUS.md 则是一个更完整的仪表板——13 章的 gate-by-gate 进度表。
+
+  防止了什么：每次新对话都要花半程时间回忆"上次做到哪了"。也防止了"某个到期检查
+  没人记得"。
+
+  ---
+  决策 15：法律审查不是一次性的——到期时钟
+
+  项目里有明确的重审时钟：
+
+  2026-06-24 — Nancy 30-day re-pass on ch-02 slot 8 (Ukrainian children)
+  2026-06-25 — Nancy 30-day re-pass on ch-8 (Iraq WMD), ch-9 (live political
+  content),
+               ch-10 (live AI litigation), ch-12 (FRA / DOGE / live records
+  litigation)
+
+  凡涉及仍在进行的诉讼、在世人物、活跃冲突的章节，法律审查有一个过期时间。30
+  天后必须重新审查，因为法律状态可能已经变了——某个人可能被起诉了、某个案子和解了
+  、某个说法从事后看变成了诽谤。
+
+  防止了什么：防止了"出版时法律审查是通过的，但出版时案件状态已经变了"。
+
+  ---
+  决策 16：三层引用模型——每层服务不同的读者
+
+  规则 13-citation-form.md 定义了三层引用：
+
+  ┌────────┬──────────────┬─────────────────┬───────────────────────────────┐
+  │   层   │     载体     │      读者       │             例子              │
+  ├────────┼──────────────┼─────────────────┼───────────────────────────────┤
+  │        │              │                 │ "The Senate Armed Services    │
+  │ 1.     │ 句子里的来源 │ 读者 +          │ Committee inquiry,            │
+  │ 散文中 │ 身份         │ 有声书听众      │ declassified April 2009,      │
+  │        │              │                 │ concluded that..."            │
+  ├────────┼──────────────┼─────────────────┼───────────────────────────────┤
+  │ 2. 行  │ [CITE:       │ 编译步骤、审阅  │ [CITE: taguba-report-2004]    │
+  │ 内标记 │ card-slug]   │ 者              │                               │
+  ├────────┼──────────────┼─────────────────┼───────────────────────────────┤
+  │ 3.     │ Chicago NB   │ 翻到末尾的读者  │ 完整的作者-标题-出版信息-页码 │
+  │ 尾注   │ 完整引用     │ 、学者          │ -存档链接                     │
+  └────────┴──────────────┴─────────────────┴───────────────────────────────┘
+
+  关键约束：
+  - 行内 [CITE:] 只能包含 slug，不能放 URL、不能放逗号、不能放 "see also"——≤60
+  字符
+  - 第 1 层的来源命名必须保证听有声书的人也能知道信息从哪来
+  - URL 验证是内部质量检查，绝对不印在尾注里（不要 (verified 2026-05-28)
+  这种噪音）
+
+  防止了什么：防止了"引用有，但读者不知道；尾注完整，但听有声书的人完全不知道来
+  源；行内标记变成 200 字符的微型参考文献，打乱阅读节奏"。
+
+  ---
+  决策 17：MaxTurns 不是状态排名，是"这个角色需要多少轮才能完成判断"
+
+  ┌─────────────────────────┬─────────┬─────────────────────────────────────┐
+  │          Agent          │ MaxTurn │                理由                 │
+  │                         │    s    │                                     │
+  ├─────────────────────────┼─────────┼─────────────────────────────────────┤
+  │ Jerry                   │ 40      │ 需要跨 cell                         │
+  │                         │         │ 排序、解决冲突、最终路由            │
+  ├─────────────────────────┼─────────┼─────────────────────────────────────┤
+  │ Bonnie/Wayne/Stephen/La │ 25      │ 多步规划/修订循环                   │
+  │ ura                     │         │                                     │
+  ├─────────────────────────┼─────────┼─────────────────────────────────────┤
+  │ Nancy/Blair             │ 20      │ 中等深度，有明确闸门                │
+  ├─────────────────────────┼─────────┼─────────────────────────────────────┤
+  │ 研究员/Alan             │ 18      │ 需要迭代检索但权限更窄              │
+  ├─────────────────────────┼─────────┼─────────────────────────────────────┤
+  │ xiaolai                 │ 20      │ 判断应该紧凑；如果争论太久，应该升  │
+  │                         │         │ 到真人                              │
+  └─────────────────────────┴─────────┴─────────────────────────────────────┘
+
+  设计思路：MaxTurns
+  不是按"谁更重要"给的。是按**"这个角色的决策需要多少轮来回才能完成"**。研究员
+  18 轮够了，因为检索和建案例文件不需要复杂博弈。Jerry 40 轮，因为协调 7 个 cell
+  lead 需要大量路由判断。xiaolai 只有 20 轮——故意限制，因为"如果这个判断在 20
+  轮内说不清楚，它应该升到真人作者而不是被 AI 争论到天荒地老"。
+
+  ---
+  决策 18："no-change 也需要证据"
+
+  这其实值得单列。规则 08 里有一条：
+
+  ▎ "A chapter cannot be classified no-change because no one looked at it; 
+  ▎ defect-map must exist and show passing values."
+
+  大多数流程里，"不改"是默认状态。但这个项目把不改变成了一个需要论证的决策——你必
+  须证明你看过了，证明了它通过了检查，才能决定不改。
+
+  防止了什么：防止了最隐蔽的责任洗钱——"我们没动它，所以没问题。出事了？那是之前
+  做的，和我们这次 sprint 无关。"
+
+  ---
+  决策 19：反身性——在审计报告里发现自己的洗钱
+
+  Chekhov 验证报告里有一段非常能说明问题：
+
+  ▎ "a placeholder for principal-author judgment was apparently resolved without
+  ▎ an authoring record, and the outstanding-work list still shows it open. 
+  ▎ That is exactly the substitution pattern the book diagnoses — at micro 
+  ▎ scale, inside the book's own production process."
+
+  第 13 章的最后一句话有个占位符 *[FINAL SENTENCE — xiaolai 
+  authors]*，不知被谁默默填充了，没有记录。审计报告没有掩盖这个事实，而是把它标
+  记为"这是这本书自己诊断的模式，在自己内部以微缩版发生"。
+
+  防止了什么：防止了审计体系变成"找别人的问题，不找自己的问题"。一条发现如果对书
+  里分析的案例适用，对生产这本书的系统也必须适用。否则就是 hypocrisy。
+
+  ---
+  汇总
+
+  ┌───────────────────────┬──────────────────────────────────────────────────┐
+  │         决策          │                   解决什么问题                   │
+  ├───────────────────────┼──────────────────────────────────────────────────┤
+  │ 10. 五种治疗等级      │ 防止"全改 or 全不改"的错误二分                   │
+  ├───────────────────────┼──────────────────────────────────────────────────┤
+  │ 11. 审计快照 +        │ 防止改坏了无法回滚                               │
+  │ 生命周期              │                                                  │
+  ├───────────────────────┼──────────────────────────────────────────────────┤
+  │ 12. 反例强制配对      │ 防止书变成绝望目录或廉价乐观                     │
+  ├───────────────────────┼──────────────────────────────────────────────────┤
+  │ 13. 跨章登记表 +      │ 防止 13 章各写各的、前后矛盾                     │
+  │ Chekhov 审计          │                                                  │
+  ├───────────────────────┼──────────────────────────────────────────────────┤
+  │ 14. 会话状态持久化    │ 防止每次新对话失忆                               │
+  ├───────────────────────┼──────────────────────────────────────────────────┤
+  │ 15. 法律重审到期时钟  │ 防止出版时法律状态已过期                         │
+  ├───────────────────────┼──────────────────────────────────────────────────┤
+  │ 16. 三层引用模型      │ 防止有声书听众被剥夺来源信息                     │
+  ├───────────────────────┼──────────────────────────────────────────────────┤
+  │ 17. MaxTurns          │ 防止重要判断被轮次不够截断，或不重要的事争论太久 │
+  │ 按决策深度定          │                                                  │
+  ├───────────────────────┼──────────────────────────────────────────────────┤
+  │ 18. no-change         │ 防止"没看过所以不改"的偷懒                       │
+  │ 也需要证据            │                                                  │
+  ├───────────────────────┼──────────────────────────────────────────────────┤
+  │ 19. 审计体系反身性    │ 防止审计只看别人不看自己                         │
+  └───────────────────────┴──────────────────────────────────────────────────┘
+
+  ---
+  这 19
+  个决策的共同点是什么？每一个都是在防止"看起来没问题，但事后无法追责"的情况。
+  架构不是在优化效率，是在保证：任何时候出了任何问题，你能回答三个问题——谁做的决
+  策？基于什么假设？为什么当时的信息下这个决策是合理的？
+
+✻ Worked for 1m 31s
+
+❯ 除了这19个决策，还有其它值得学习的吗？                                        
+
+  Thought for 43s, read 10 files, listed 2 directories, ran 1 shell command (ctrl+o to expand)
+
+⏺ 有的。再挖一层还有不少。
+
+  ---
+  决策 20：工具授权策略的双重存在
+
+  工具权限不只是写在 agent frontmatter 的 tools: 字段里。它同时存在于两个地方：
+
+  1. Agent frontmatter: tools: Read, Write, Edit, Grep, Glob, WebSearch, 
+  WebFetch
+  2. 策略文档: .claude/docs/agent-tool-grants.md（表格记录每个 agent 的
+  Bash/TodoWrite 策略及理由）
+
+  而且有测试保证两者匹配：
+
+  # test_tool_grants_policy.py
+  # 如果 frontmatter 给了 Bash 但策略文档说 no → FAIL
+  # 如果策略文档说给了 WebSearch 但 frontmatter 没有 → FAIL
+  # 如果 frontmatter 里有一个 agent 但策略文档没有记录 → FAIL
+  # 如果策略文档里列了一个不存在的 agent → FAIL
+
+  防止了什么：防止了"悄悄给某个 agent
+  加了权限，策略文档没更新，审查时看不出变化"。
+
+  ---
+  决策 21：命令契约——owner 必须 dispatch 自己
+
+  test_command_contracts.py 强制执行一条规则：
+
+  ▎ 每个 slash command 的 frontmatter owner: 必须指向一个真实存在的 agent，且 
+  ▎ command 正文必须包含 Dispatch the \{owner}` agent`。
+
+  .claude/commands/red-team.md:
+    owner: laura-red-team-editor  ← 必须对应真实 agent
+    body: "Dispatch the `laura-red-team-editor` agent..." ← 必须显式 dispatch
+
+  防止了什么：防止了"命令的 owner 写了一个名字，但实际执行时调了另一个
+  agent"——或者"owner 写了，但 agent 文件已经被删了/改名了，没人发现"。
+
+  ---
+  决策 22：术语管控——同义词被标记为违规
+
+  .claude/skills/vocabulary/SKILL.md 定义了一个规范词汇表：
+
+  ┌──────────┬───────────────────────────────────────────────────────┐
+  │ 规范动词 │                      废弃同义词                       │
+  ├──────────┼───────────────────────────────────────────────────────┤
+  │ draft    │ compose, pen, author, write                           │
+  ├──────────┼───────────────────────────────────────────────────────┤
+  │ audit    │ check, review（除非输出是 usable/weak/unusable 判定） │
+  ├──────────┼───────────────────────────────────────────────────────┤
+  │ grade    │ rank, score, rate, mark                               │
+  ├──────────┼───────────────────────────────────────────────────────┤
+  │ handoff  │ pass, delegate, transfer, hand off（两词形式已退休）  │
+  ├──────────┼───────────────────────────────────────────────────────┤
+  │ red-team │ attack, stress-test, critique                         │
+  └──────────┴───────────────────────────────────────────────────────┘
+
+  R51 规则在 NLPM 评分时生效——如果 Wayne 在章节里写 "Wayne composed the
+  chapter"，NLPM 会扣分，因为规范动词是 draft。
+
+  为什么重要：13 个 agent 各写各的，如果没有术语管控，同一个概念会出现 5
+  种说法。读者（和 agent 之间）会困惑"red-team 和 stress-test
+  是同一个东西吗？"。
+
+  ---
+  决策 23：Agent 基础设施本身有质量评分
+
+  .nlpm-test/ 目录下有针对每个 cell lead agent 的质量规范（.spec.md），要求
+  min_score 达标。test_nlpm_specs.py 强制检查：
+
+  - 每个 cell lead 有没有 spec 文件？（缺失 → FAIL）
+  - spec 指向的 artifact 文件是否存在？（不存在 → FAIL）
+  - spec 的 type 是否匹配实际文件类型？（不匹配 → FAIL）
+  - min_score 是否在 0-100 范围内？（超出 → FAIL）
+
+  防止了什么：agent 定义文件是"元数据"，通常没人审查它们的质量。NLPM 评分让
+  agent 基础设施本身的措辞、结构、一致性也被量化考核。
+
+  ---
+  决策 24：波浪式生产——并行只在 DAG 允许时使用
+
+  生产不是 13 章一条线做完，也不是全部并行。是四波：
+
+  Wave 1: ch-3 → ch-1（顺序——ch-3 解锁诊断工具，ch-1 最后写以对齐语调）
+  Wave 2: ch-4,5,6,7（并行研究 + 并行 draft，但各自独立走 gate 序列）
+  Wave 3: ch-9 → ch-10 → ch-8（研究并行，但 draft 和 gate 严格按阅读顺序）
+  Wave 4: ch-11 → ch-12 → ch-13（严格顺序——每章消费前一章）
+  Wave 5: 编译 + 提案包
+
+  顺序和并行的选择不是凭直觉，是由章节依赖 DAG 决定的：ch-3
+  是所有后续章的工具箱，所以第一波；Part II 的四章互不依赖，所以可以并行；Part
+  III 有指定的阅读顺序（9→10→8），所以 draft 按顺序。
+
+  ---
+  决策 25：架构即测试——所有约束都可执行
+
+  每个我之前提到的架构决策，都不是"写在文档里希望人们遵守"。每个都有对应的自动化
+  测试：
+
+  ┌───────────────────────────┬─────────────────────────────────────────────┐
+  │         架构约束          │                  测试/脚本                  │
+  ├───────────────────────────┼─────────────────────────────────────────────┤
+  │ Agent 图无环、深度 ≤ 2    │ test_agent_graph.py + check_agent_graph.py  │
+  ├───────────────────────────┼─────────────────────────────────────────────┤
+  │ 工具权限与策略一致        │ test_tool_grants_policy.py +                │
+  │                           │ check_tool_grants.py                        │
+  ├───────────────────────────┼─────────────────────────────────────────────┤
+  │ 所有 agent 用 opus        │ test_model_policy.py                        │
+  ├───────────────────────────┼─────────────────────────────────────────────┤
+  │ 命令 owner 有效且         │ test_command_contracts.py                   │
+  │ dispatch                  │                                             │
+  ├───────────────────────────┼─────────────────────────────────────────────┤
+  │ 五大原则全文同步          │ sync_five_over_rules.py --check             │
+  ├───────────────────────────┼─────────────────────────────────────────────┤
+  │ Agent frontmatter         │ check-agent-frontmatter.py hook             │
+  │ 含必需字段                │                                             │
+  ├───────────────────────────┼─────────────────────────────────────────────┤
+  │ 无 Bash/TodoWrite         │ test_agent_tool_minimums.py                 │
+  ├───────────────────────────┼─────────────────────────────────────────────┤
+  │ 读者报告存在且无 HARD     │ test_check_reader_reports.py                │
+  ├───────────────────────────┼─────────────────────────────────────────────┤
+  │ NLPM 规范覆盖所有 lead    │ test_nlpm_specs.py                          │
+  ├───────────────────────────┼─────────────────────────────────────────────┤
+  │ 来源分类账完整性          │ test_source_ledger.py                       │
+  ├───────────────────────────┼─────────────────────────────────────────────┤
+  │ 图表 artifact 合法性      │ validate_diagram_artifact.py                │
+  ├───────────────────────────┼─────────────────────────────────────────────┤
+  │ 强调标记审计              │ test_audit_emphasis.py                      │
+  └───────────────────────────┴─────────────────────────────────────────────┘
+
+  这就是"规则如果没有自动执行，就不是规则"的实践。
+
+  ---
+  决策 26：双层许可——散文不可商用，基础设施 MIT
+
+  散文 (chapters-v6/)      → CC BY-NC 4.0（可引用，不可转售）
+  基础设施 (.claude/ 等)   → MIT（随意复制改造，用于你自己的书）
+
+  这反映了一个清醒的区分：书是我的产品，但写书的工具是公共品。
+  别人不能用这本书的内容赚钱，但可以用同一套 agent 框架写自己的书。
+
+  ---
+  决策 27：Surrogate 模式——AI 模拟作者思维但不持有作者权力
+
+  xiaolai agent 的定位非常精确：
+
+  ✅ 可以做的：应用六条元价值观判断一个具体的 crew 决策
+  ❌ 不能做的：commit、push、scope 扩展、预算/模型变更、
+              作者个人偏好（风格、品味、封面署名）
+
+  它的默认响应 schema 里有一个特别的字段：
+
+  Surface-to-principal items: <任何超出你权限的事，哪怕只是部分>
+
+  而且它有一条明确的规则："When in doubt: surface, do not decide."
+
+  设计思路：当 AI 能模拟你的判断框架时，最危险的不是它判断错了，而是它替你做了不
+  该替的决定。Surrogate 模式把"推理"和"授权"分开——它帮你推理，但拒绝替你授权。
+
+  ---
+  决策 28：crew_exempt 字段——有人不在指挥链里
+
+  xiaolai agent 的 frontmatter 里有 crew_exempt: true。check_agent_graph.py
+  在检测不可达叶子时，会跳过 crew_exempt 的 agent。
+
+  这意味着 xiaolai 既不从任何人接收委派（Jerry 不能通过 Agent(xiaolai)
+  调它），也不委派给任何人。它在图的外面。这和它的角色一致——它是最终判断者，不在
+  日常调度流里。
+
+  ---
+  决策 29：图表也是证据，走同样的审查门
+
+  规则 03 明确规定，图表、表格、责任链图不是"美术部的免检产品"。一张图表的每个数
+  字都是可评级的 claim，一张照片的标题可以通过并置洗掉责任链。
+
+  所以图表和照片走和散文一样的门：
+
+  图表规格 → Bonnie（架构师）
+  数据/数字 → Stephen（事实核查，每个数字按 rule 02 分级）
+  标题措辞 → Wayne（叙事，受 rule 05/07 约束）
+  法律审查 → Nancy（只有涉及在世人物/公司时需要）
+
+  而且有 scripts/validate_diagram_artifact.py 做确定性验证。
+
+  ---
+  决策 30：[EVIDENCE NEEDED] 不阻塞 ready，但阻塞 galley
+
+  book/STATUS.md 里记录了 23 个未解决的 [EVIDENCE NEEDED] 标记。但所有 13 章都在
+  status: ready。
+
+  这是故意的设计：
+
+  ready ≠ 可以出版
+  ready = 可以进入出版准备流程
+  galley lock = 可以出版
+
+  证据缺口可以容忍在 ready
+  阶段（因为"找到更好的来源"不应该阻塞写作流程），但不能容忍在 galley lock
+  阶段（因为出版时不能有未解决的证据）。
+
+  防止了什么：防止了完美主义瘫痪——"这个来源还不够好，所以这章不能推进"。也防止了
+  反向的偷懒——"反正已经 ready 了，证据缺口就放着吧"。两个门有不同的严格度。
+
+  ---
+  决策 31：反身性审计——在报告里抓住自己的错误
+
+  Chekhov 验证报告发现了一个问题：ch-13 的最后一句话本应是 xiaolai 的占位符
+  *[FINAL SENTENCE — xiaolai authors]*，但在 v6
+  里被默默填充了，没有记录是谁填的、基于什么判断。
+
+  审计报告没有掩盖这件事。而是写道：
+
+  ▎ "This is exactly the substitution pattern the book diagnoses — at micro 
+  ▎ scale, inside the book's own production process."
+
+  审计体系不仅审查章节质量，也审查生产过程本身的完整性。如果一个发现适用于书的分
+  析对象，它也必须适用于书的制作过程。
+
+  ---
+  决策 32：强调标记审计——连斜体和粗体都有纪律
+
+  scripts/audit_emphasis.py 和 test_audit_emphasis.py
+  做了一件很小但很能说明问题的事：审计章节中每一个 <em> 和 <strong> 标记。
+
+  它分类：
+  - logical_table：表头加粗 ✓
+  - logical_publication：书名斜体 ✓
+  - logical_install_first：首次引入术语加粗 ✓
+  - decorative_intensifier：纯粹为了"加重语气"的加粗 ✗
+  - pseudo_install：看起来像引入术语但之前已经出现过的加粗 ✗
+
+  设计思路：如果一本书批评别人用修辞代替证据，那自己的强调标记就不能是修辞性的。
+  每一个斜体和粗体都必须有逻辑理由。
+
+  ---
+  全部 32 个决策的速查表
+
+  ┌─────┬───────────────────────┬───────────────────────────────────────────┐
+  │  #  │         决策          │                  一句话                   │
+  ├─────┼───────────────────────┼───────────────────────────────────────────┤
+  │ 1   │ 单 Owner              │ 每个功能只有一个负责人                    │
+  ├─────┼───────────────────────┼───────────────────────────────────────────┤
+  │ 2   │ 调度深度 ≤ 2          │ 指挥链超过 2 层 = 责任可隐藏              │
+  ├─────┼───────────────────────┼───────────────────────────────────────────┤
+  │ 3   │ 异步 Handoff          │ 交接记录在案，不发生在调用栈里            │
+  ├─────┼───────────────────────┼───────────────────────────────────────────┤
+  │ 4   │ 检查者独立            │ 否决权不受执行者控制                      │
+  ├─────┼───────────────────────┼───────────────────────────────────────────┤
+  │ 5   │ The Reader 不知情     │ 知情 = 污染，冷读数据不可替代             │
+  ├─────┼───────────────────────┼───────────────────────────────────────────┤
+  │ 6   │ 规则 + 自动扫描       │ 没有 hook 的规则 = 愿望                   │
+  ├─────┼───────────────────────┼───────────────────────────────────────────┤
+  │ 7   │ 宪法自动同步          │ 改一处，脚本同步 46 个文件                │
+  ├─────┼───────────────────────┼───────────────────────────────────────────┤
+  │ 8   │ 工具白名单 + 无 Bash  │ 最小权限，按需分配                        │
+  ├─────┼───────────────────────┼───────────────────────────────────────────┤
+  │ 9   │ 跨工具兼容            │ AGENTS.md 是三大工具的唯一真相源          │
+  ├─────┼───────────────────────┼───────────────────────────────────────────┤
+  │ 10  │ 五种治疗等级          │ 防止"全改 or 全不改"                      │
+  ├─────┼───────────────────────┼───────────────────────────────────────────┤
+  │ 11  │ 审计快照 + 生命周期   │ 改坏了可回滚                              │
+  ├─────┼───────────────────────┼───────────────────────────────────────────┤
+  │ 12  │ 反例强制配对          │ 每个洗钱案例配一个有名字的拦截机制        │
+  ├─────┼───────────────────────┼───────────────────────────────────────────┤
+  │ 13  │ 跨章登记表            │ 22 条 callback + 50 个概念 + 9 个 motif   │
+  ├─────┼───────────────────────┼───────────────────────────────────────────┤
+  │ 14  │ SessionStart 状态注入 │ 每次新会话自动加载当前冲刺                │
+  ├─────┼───────────────────────┼───────────────────────────────────────────┤
+  │ 15  │ 法律重审到期时钟      │ 30 天后重审涉活案例                       │
+  ├─────┼───────────────────────┼───────────────────────────────────────────┤
+  │ 16  │ 三层引用模型          │ 散文/标记/尾注各服务不同读者              │
+  ├─────┼───────────────────────┼───────────────────────────────────────────┤
+  │ 17  │ MaxTurns 按决策深度   │ 不是按地位，是按需要多少轮才能判断        │
+  ├─────┼───────────────────────┼───────────────────────────────────────────┤
+  │ 18  │ no-change 也需要证据  │ 不改也需要证明看过且通过                  │
+  ├─────┼───────────────────────┼───────────────────────────────────────────┤
+  │ 19  │ 审计反身性            │ 审计必须审查自己是否洗了责任              │
+  ├─────┼───────────────────────┼───────────────────────────────────────────┤
+  │ 20  │ 工具授权双重存在      │ frontmatter + 策略文档，测试确保一致      │
+  ├─────┼───────────────────────┼───────────────────────────────────────────┤
+  │ 21  │ 命令契约              │ owner 必须存在，命令必须 dispatch owner   │
+  ├─────┼───────────────────────┼───────────────────────────────────────────┤
+  │ 22  │ 术语管控 (R51)        │ 同义词被标记，13 个 agent 用同一套词      │
+  ├─────┼───────────────────────┼───────────────────────────────────────────┤
+  │ 23  │ Agent 质量评分 (NLPM) │ agent 文件本身也有 min_score 要求         │
+  ├─────┼───────────────────────┼───────────────────────────────────────────┤
+  │ 24  │ 波浪式生产            │ 并行 where DAG allows，顺序 where it      │
+  │     │                       │ doesn't                                   │
+  ├─────┼───────────────────────┼───────────────────────────────────────────┤
+  │ 25  │ 架构即测试            │ 每条架构约束都有可执行测试                │
+  ├─────┼───────────────────────┼───────────────────────────────────────────┤
+  │ 26  │ 双层许可              │ 散文禁商用，基础设施 MIT                  │
+  ├─────┼───────────────────────┼───────────────────────────────────────────┤
+  │ 27  │ Surrogate 模式        │ AI 模拟判断但不持有授权                   │
+  ├─────┼───────────────────────┼───────────────────────────────────────────┤
+  │ 28  │ crew_exempt           │ 最终判断者在指挥链之外                    │
+  ├─────┼───────────────────────┼───────────────────────────────────────────┤
+  │ 29  │ 图表走审查门          │ 视觉证据和散文的审查标准一样              │
+  ├─────┼───────────────────────┼───────────────────────────────────────────┤
+  │ 30  │ 双门控（ready ≠       │ 证据缺口不阻塞写作，但阻塞出版            │
+  │     │ galley）              │                                           │
+  ├─────┼───────────────────────┼───────────────────────────────────────────┤
+  │ 31  │ 反身性审计            │ 生产过程被发现洗了责任？记下来，不掩盖    │
+  ├─────┼───────────────────────┼───────────────────────────────────────────┤
+  │ 32  │ 强调标记审计          │ 每个斜体和粗体都要有逻辑理由              │
+  └─────┴───────────────────────┴───────────────────────────────────────────┘
+
+  ---
+  这些决策集合在一起，说明的其实就一件事：这不是一个"用 AI 
+  写书"的项目。这是一个"在 AI 
+  参与下，如何保持人类对产出的完整控制权和可追溯性"的系统设计实验。
+  它之所以值得学，正是因为它把一本书的中心论点变成了一个可运行的、可验证的、不可
+  抵赖的生产系统。
+
+✻ Crunched for 2m 0s
+
+❯ 除了这32个决策，还有其它值得学习的吗？一次性穷举完                            
+
+  Thought for 3m 10s, searched for 1 pattern, read 8 files, listed 6 directories, ran 1 shell command (ctrl+o to expand)
+
+⏺ 好的，穷举到底。
+
+  ---
+  决策 33-38：来源分类账——证据作为数据库
+
+  33. 292 张卡片是数据库，不是参考文献列表
+
+  每张卡片不是"一条引用"，而是一个结构化的证据记录：
+
+  id · source 元数据 · claim 原文 · evidence_grade + grade_rationale
+  verification_log（多步骤，每步有 actor + timestamp + outcome）
+  url_check（primary + Wayback，HTTP 状态码，verifier_checkpoint）
+  defamation（living_subjects, nancy_cleared, 日期, 备注）
+  dispute（contested/uncontested, 具体争议内容, carry-forward 指令）
+  provenance（created_by, created_on, superseded_by）
+  body_sha256（加密哈希）
+
+  292 张卡片，1.3MB 结构化证据元数据。
+
+  34. 每张卡片有 SHA-256 哈希
+
+  body_sha256 字段。证据数据库具有加密级别的完整性。卡片被篡改可以被检测。
+
+  35. 验证日志按 actor 归因
+
+  每一步验证记录：谁做的（stephen）、什么时候、什么结论（PASS/PARTIAL/B）、什么
+  备注。审计追踪精确到单个 agent 的单个操作。
+
+  36. URL 可达性标注验证者位置
+
+  verifier_checkpoint: principal-author-cn——承认 URL
+  可达性取决于验证者的网络位置。证据元数据本身包含验证条件的声明。
+
+  37. 争议追踪带 carry-forward 指令
+
+  dispute.status: contested 不只是标记，还带具体说明（"在 pin-cite 层面
+  contested"）和行动指令（"PACER exhibit lock before final manuscript
+  freeze"）。卡片携带了解决争议所需的具体操作。
+
+  38. 诽谤审查在卡片层面做
+
+  每张卡片有 defamation 块：列出了涉及的活人、Nancy
+  审查日期、是否通过。法律审查不在章节层面，在每张证据卡片层面。
+
+  ---
+  决策 39-47：从源到产品的管道
+
+  39. EPUB 是编译产物，绝不直接编辑
+
+  源是 v6 章节 + spine 配置。EPUB 是构建输出。构建在存在未解析 [CITE:]
+  标记时硬失败。源和产物的分离是绝对的。
+
+  40. 书脊是独立的 YAML 配置
+
+  spine-v6.yml——阅读顺序与章节内容解耦。重排顺序不需要编辑散文。front-matter
+  条目可标记 optional: true（空的 dedication 不生成占位页面）。
+
+  41. 同一源 → 两个版本管道
+
+  v6 规范文本 → 可重排 EPUB（Kindle）+ 固定布局 6×9 打印 PDF（KDP 平装本，446
+  页），通过独立的确定性管道。修复一次，两个版本同时更新。
+
+  42. Kindle Previewer 是 epubcheck 之上的权威关卡
+
+  epubcheck 验证规范一致性；Kindle Previewer 3
+  验证实际设备渲染。"一个文件可以通过 epubcheck 但在 Paperwhite 上崩溃。"
+
+  43. 部分分隔符是 EPUB 中唯一的内页图片
+
+  明确约束：固定布局的 dossier
+  内部页面在可重排中不可存活。限制被承认并接受，不做 hack。
+
+  44. 脚本 ≠ Agent 的明确边界
+
+  确定性转换（构建、编译、验证）用 Python/JS 脚本。需要判断的工作用
+  agent。不会让 agent 做 pandoc 能做的事。
+
+  45. URL 归档作为构建步骤
+
+  verify_card_urls.py + wayback_capture.py
+  主动归档即将消失的页面。验证时间戳只存在于卡片上，绝不印在正文中——"(verified
+  2026-05-28)"对读者是噪音。
+
+  46. EPUB 脚注作为弹出窗口
+
+  要求 epub:type="noteref" / epub:type="footnote"
+  标记，使注释弹出而不是内联渲染。读者体验在标记级别被考虑。
+
+  47. 部分分隔符图片带 alt 文本
+
+  可访问性设计在管道里，不是事后补救。
+
+  ---
+  决策 48-55：读者体验的系统性设计
+
+  48. 读者状态阶梯
+
+  toc.yml 不只是目录，定义了认知进阶：
+
+  S0（可见替罪羊）→ S1（诊断觉醒）→ S2（模式安装）
+  → S2.5（模式压力测试）→ S3（可操作）
+
+  每个 Part 声明 reader_state_in、reader_state_out 和一个 act_reversal（旧信念 →
+  新信念）。这不是"这章写得好不好"，而是"这章完成了读者状态的转换没有"。
+
+  49. 双受众引用设计
+
+  第 1 层（散文内命名来源）为有声书听众服务——他们不能翻到尾注。第 3
+  层（尾注）为学者服务。设计承认不同受众对来源的访问方式不同。
+
+  50. "A Note on Cases" 作为读者-法律合同
+
+  第一章之前明确声明：不是党派的、不是西方中心的、案例选择是因为责任链记录存在。
+  先发制人处理偏见指控。承认"三个章节反复回到 Donald
+  Trump"，解释这不是编辑选择而是公共记录。
+
+  51. "Cases at a Glance" + "Acronyms and Institutions"
+
+  后记中的快速参考工具——读者不必在 13 章中记住每个案例和每个缩写。
+
+  52. 作者的注释放在最后
+
+  ▎ "placed last so the reader earns the right to ask 'why and how' only after 
+  ▎ reading the book."
+
+  AI
+  装置的披露是被赢得的——读者先遇到论点，然后才被告知论点是如何生产的。不前置。
+
+  53. "Note on Sources and Method" 与 "Note from the Author" 分开
+
+  技术性披露（方法论）和个人性披露（动机）是两个文件。不同受众，不同署名，不同语
+  调。
+
+  54. 部分分隔符标语
+
+  每个 Part 有 tagline：
+  - Part I: "Four shapes. Eight questions. One instrument."
+  - Part II: "Pattern, not period. The mechanism is the villain."
+  - Part III: "Modern complexity is the design. The diagnostic still works."
+  - Part IV: "Three rules to carry. The diagnostic, made portable."
+
+  为部分转换增添了叙事分量。
+
+  55. EPUB 封面需求明确到像素
+
+  2,560×1,600 px，1.6:1 比例，RGB/sRGB，≥300 DPI。不模糊、不推测。封面是预发布
+  checklist 中的一项显式阻塞项。
+
+  ---
+  决策 56-63：制度记忆与反熵
+
+  56. Agent 持久化记忆目录
+
+  每个 agent 有 .claude/agent-memory/<name>/。决策跨会话存活。Jerry
+  的记忆存储了章节排序决策；Bonnie 的存储了结构约束。这是 agent 的"制度记忆"。
+
+  57. STATUS.md 自我文档化
+
+  STATUS.md 包含自己的使用说明（"How to use this file"）。任何打开它的 agent
+  都知道如何读取和更新它。元数据文件是自我记录的。
+
+  58. 跨领域项目表
+
+  定时重新审查、组合扫描、galley-pass
+  项目——不属于任何单一章节的项目有独立的跟踪表。没有"不知道该放哪"的项目。
+
+  59. 退出条件作为可检查清单
+
+  书有一个显式的"完成"定义，包含 ✓ 和 open
+  项目。不是主观的。不是"感觉差不多了"。可证伪。
+
+  60. 版本清理作为显式操作
+
+  v6 剪裁时：v1-v5 归档、死脚本退役、过时 hook 移除、settings.json
+  修剪。项目明确管理自己的熵。不让 cruft 积累。
+
+  61. 更正标准与生产标准镜像
+
+  "更正需要至少与书中所载一样好的引用。PR
+  将按照原始章节所经过的相同关卡进行审查。"更正机制的纪律与原始生产相同。
+
+  62. 图表验证器存在性测试
+
+  test_agent_tool_minimums.py 检查 validate_diagram_artifact.py
+  是否存在——因为早期的 agent（Jade）被移除了，但验证能力必须保留。即使相关的
+  agent 消失，能力不能随之消失。
+
+  63. 颜色编码 agent
+
+  每个 agent 有 color: 字段。在终端输出中提供视觉区分。会话中容易追踪谁在说话。
+
+  ---
+  决策 64-70：元级别的纪律
+
+  64. 每张卡片出处追踪
+
+  provenance: created_by, created_on, 
+  superseded_by。谁创建了这张卡片？它是否被替换过？替换链是显式的。
+
+  65. 引用格式：芝加哥基准 + 项目特定覆盖
+
+  芝加哥 NB 是基准，但在芝加哥模糊的地方有项目级覆盖（推文、社交媒体）。权威性与
+  实用主义结合。
+
+  66. NLPM 提交前关卡
+
+  每次提交需要 NLPM 评分通过。质量评分不是偶尔运行的，是集成到提交工作流的。
+
+  67. 侧车 as_of 版本控制
+
+  来源分类账侧车携带 as_of: 日期。章节无法在侧车过期时返回到 status: ready。Hook
+  捕获不匹配。
+
+  68. optional: true 的 front/back-matter
+
+  空的 dedication、epigraph、about-the-author
+  不生成占位页面。构建产物绝不包含未填充的内容。没有"[Coming Soon]"页面。
+
+  69. 案件注释中的聚合披露
+
+  "Three of the live-content chapters do return repeatedly to Donald Trump — the
+  same person, in two presidencies separated by a single term. That recurrence
+  reflects the underlying record."先承认偏见的外观，然后解释为什么不是偏见。
+
+  70. 反身性贯穿始终
+
+  从 Chekhov 审计发现自己的生产过程洗掉了最终句的签字记录，到案件注释承认特朗普
+  的反复出现是公共记录的结果而不是编辑选择——这个项目最根本的设计原则是：书诊断的
+  任何模式，书的生产系统都必须接受同样的审查。
+
+  ---
+  完整的 70 个决策速查
+
+  ┌─────┬────────────────────────────────────────────────────────┐
+  │  #  │                          决策                          │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 1   │ 单 Owner——每个功能只有一个负责人                       │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 2   │ 调度深度 ≤ 2——指挥链短到不可隐藏                       │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 3   │ 异步 Handoff 协议——交接被记录，不在调用栈里            │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 4   │ 独立否决权——检查者不受被检查者控制                     │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 5   │ The Reader 不知情——冷读是不可替代的数据                │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 6   │ 规则 + 自动扫描 hook——不可执行的规则是愿望             │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 7   │ 宪法自动同步——改一处，脚本同步 46 文件                 │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 8   │ 工具白名单 + 无 Bash——最小权限原则                     │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 9   │ 跨工具 AGENTS.md——不绑定单一供应商                     │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 10  │ 五种治疗等级——不是"全改 or 全不改"                     │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 11  │ 审计快照 + 生命周期——改坏了可回滚                      │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 12  │ 反例强制配对——每个案例配一个可迁移的拦截机制           │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 13  │ 跨章登记表——22 callback + 50 概念 + 9 motif            │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 14  │ SessionStart 状态注入——新会话自动加载冲刺              │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 15  │ 法律重审到期时钟——30 天后重审涉活案例                  │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 16  │ 三层引用模型——散文/标记/尾注各服务不同受众             │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 17  │ MaxTurns 按决策深度——不按地位，按需要多少轮            │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 18  │ no-change 也需要证据——不改也需要证明看过               │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 19  │ 审计反身性——审计必须审查自己                           │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 20  │ 工具授权双重存在——frontmatter + 策略文档，测试确保一致 │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 21  │ 命令契约——owner 必须存在，命令必须 dispatch owner      │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 22  │ 术语管控 R51——13 个 agent 用同一套词                   │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 23  │ Agent NLPM 质量评分——agent 文件本身有 min_score        │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 24  │ 波浪式生产——并行只在 DAG 允许时使用                    │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 25  │ 架构即测试——每条约束都有可执行测试                     │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 26  │ 双层许可——散文 CC BY-NC，基础设施 MIT                  │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 27  │ Surrogate 模式——AI 模拟判断但不持有授权                │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 28  │ crew_exempt——最终判断者在指挥链外                      │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 29  │ 图表走同样审查门——视觉证据不是免检产品                 │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 30  │ 双门控——ready ≠ galley，证据缺口不阻塞写作但阻塞出版   │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 31  │ 反身性审计——生产过程被发现洗责任？记下来               │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 32  │ 强调标记审计——每个斜体和粗体都要有逻辑理由             │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 33  │ 292 张卡片是数据库——不是参考文献列表                   │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 34  │ 每张卡片 SHA-256——加密级完整性                         │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 35  │ 验证日志按 actor 归因——每步谁做的、什么时候、什么结论  │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 36  │ URL 可达性标注验证者位置——承认网络限制                 │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 37  │ 争议追踪带 carry-forward 指令——卡片携带解决争议的操作  │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 38  │ 诽谤审查在卡片层面——不是章节层面，是每张证据卡片       │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 39  │ EPUB 是编译产物——源与构建输出绝对分离                  │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 40  │ 书脊是独立 YAML——顺序与内容解耦                        │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 41  │ 同一源 → 两个版本——修复一次，两个格式同时更新          │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 42  │ Kindle Previewer 关卡——epubcheck 不够，设备渲染才算    │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 43  │ 部分分隔符是唯一内页图——限制被承认，不做 hack          │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 44  │ 脚本 ≠ Agent 边界——确定性工作不用 AI                   │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 45  │ URL 归档作为构建步骤——出版前主动存档                   │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 46  │ EPUB 脚注弹出——标记级读者体验                          │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 47  │ 部分分隔符带 alt 文本——可访问性在管道里                │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 48  │ 读者状态阶梯——认知进阶是可测量的规格                   │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 49  │ 双受众引用——有声书听众不被剥夺来源信息                 │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 50  │ 案件注释作为读者-法律合同——先承认、先解释              │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 51  │ 快速参考工具——减轻读者跨章记忆负担                     │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 52  │ 作者注释放在最后——AI 披露被赢得，不前置                │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 53  │ 方法论与动机分开——两个文件，不同署名                   │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 54  │ 部分分隔符标语——叙事分量                               │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 55  │ 封面规格精确到像素——不模糊、不推测                     │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 56  │ Agent 持久化记忆——制度记忆跨会话存活                   │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 57  │ STATUS.md 自我文档化——元数据文件自描述                 │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 58  │ 跨领域项目独立跟踪——不属于任何章节的项目有家           │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 59  │ 退出条件可检查——不是"感觉完成了"                       │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 60  │ 版本清理显式操作——管理自己的熵                         │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 61  │ 更正标准与生产标准镜像——纠错和原创走同一套关卡         │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 62  │ 图表验证器存在性测试——能力不能随 agent 消失            │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 63  │ 颜色编码——终端中的视觉识别                             │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 64  │ 卡片出处追踪——谁创建、是否被替换                       │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 65  │ 芝加哥基准 + 项目覆盖——权威与实用                      │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 66  │ NLPM 提交前关卡——质量评分在提交工作流里                │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 67  │ 侧车 as_of 版本控制——过期侧车阻塞章节推进              │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 68  │ optional: true——不生成占位页面                         │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 69  │ 案件注释聚合披露——先承认偏见外观                       │
+  ├─────┼────────────────────────────────────────────────────────┤
+  │ 70  │ 反身性贯穿始终——书诊断什么，生产系统就接受什么审查     │
+  └─────┴────────────────────────────────────────────────────────┘
+
+  ---
+  这 70 个决策汇聚成一句话："我们要求其他机构保持的记录纪律，首先应用于自己。"
+  每一个决策都是在回答同一个问题——"如果五年后有人质疑这本书的一个 claim，我们能
+  精确追溯到是谁、在什么时候、基于什么证据、在什么假设下做出的判断吗？"
+  答案必须是 yes。
+
+✻ Sautéed for 4m 40s
+
+❯ 太多值得学习的架构设计思路了，主线是什么？我可以根据这个主线去自主学习        
+
+  Thought for 11s (ctrl+o to expand)
+
+⏺ 主线其实只有一句话，但这句话你必须理解透——
+
+  ---
+  主线：可追溯性（Traceability）
+
+  任何时候、任何人（包括五年后的你自己）问：
+
+  "这个结论是谁做的？基于什么证据？在什么假设下？
+   当时有没有人反对？反对意见是怎么被处理的？"
+
+  → 答案必须在文件系统里，不需要问任何人。
+
+  这 70 个决策没有一个是"为了提高效率"。每一个都是在回答：这个环节如果失控了，事
+  后还能不能追溯到谁做的决定？
+
+  ---
+  推导链：从主线到所有决策
+
+  你不需要记 70 个决策。你只需要在每一个设计节点问自己同一个问题：
+
+  关卡 1：这个产出有 Owner 吗？
+
+  问题：如果出了问题，谁知道该找谁？
+
+  → 每个功能只有一个 Owner（决策 1）
+  → 调度深度 ≤ 2，层数多了归因模糊（决策 2）
+  → 每个 agent 明确 Owns / Does not own
+  → 交接必须写在 Handoff: 字段里，不发生在嵌套调用栈里（决策 3）
+  → 每个产出有 Assumptions: 字段，强制非空
+
+  关卡 2：Owner 的决策有能力被推翻吗？（如果不能，Owner 就是独裁者）
+
+  问题：如果 Owner 错了，谁来阻止？
+
+  → 检查者独立于执行者——审查者不能被推动者控制（决策 4）
+  → 独立否决权——Laura/Nancy/Reader 对质量有 halt authority
+  → 否决必须记录在案；override 必须由 xiaolai 签名
+  → 最终判断者（xiaolai surrogate）在指挥链外，有 crew_exempt（决策 28）
+
+  关卡 3：规则怎么保证被遵守？（不能靠人的记忆和善意）
+
+  问题：如果没有自动执行，规则是不是只存在于文档里？
+
+  → 每条关键规则配一个扫描 hook（决策 6）
+  → 宪法改一处，脚本同步所有文件（决策 7）
+  → 每张卡片有 SHA-256 哈希（决策 34）
+  → 每步验证有 actor + timestamp + outcome（决策 35）
+  → 架构约束全部有对应测试（决策 25）
+
+  关卡 4：如果改坏了，能回去吗？
+
+  问题：改写之后发现不如原来的好，怎么办？
+
+  → 审计快照在覆盖前存档，永不删除（决策 11）
+  → 改写有显式状态机：ready → in-rewrite → in-review → ready（决策 11）
+  → 五种治疗等级——不盲目全改或全不改（决策 10）
+  → 章节有版本号（v1-v6），旧版本归档不删除（决策 60）
+  → 侧车 as_of 版本控制——过期侧车阻塞章节推进（决策 67）
+
+  关卡 5："没人看过"是不是被当作"没问题"？
+
+  问题：no-change 是因为通过检查了，还是因为没人看？
+
+  → no-change 也需要证据——defect-map 必须存在且显示通过（决策 18）
+  → The Reader 冷读——故意不知道设计意图，只报告真实体验（决策 5）
+  → Chekhov 审计验证跨章承诺——callback/motif/cognitive-arc 全部审计（决策 13）
+  → 反身性审计——生产系统本身也必须接受同样审查（决策 31）
+
+  关卡 6：证据链完整吗？
+
+  问题：每个 claim 能追溯到原始文档的具体段落吗？
+
+  → 292 张卡片，每张有：claim 原文 / evidence grade / 验证日志 / URL 状态 /
+  争议追踪（决策 33-38）
+  → 三层引用——有声书听众和学者各得其所（决策 16）
+  → 引用格式有芝加哥基准 + 项目覆盖（决策 65）
+  → URL 归档作为构建步骤，防止链接失效（决策 45）
+
+  关卡 7：跨章节的一致性怎么保证？
+
+  问题：13 章各写各的，前后矛盾了谁知道？
+
+  → 四个登记表追踪跨章承诺（决策 13）
+  → Chekhov 验证审计：22 条 callback / 50 个概念 / 9 个 motif（决策 13）
+  → 术语管控 R51——同义词被标记（决策 22）
+  → 读者状态阶梯——每章必须推动读者认知前进（决策 48）
+
+  关卡 8：时间会改变事实，怎么处理？
+
+  问题：出版时涉及活人的案例，法律状态可能已经变了
+
+  → 法律重审到期时钟——30 天后必须重新审查（决策 15）
+  → 争议追踪带 carry-forward 指令（决策 37）
+  → [EVIDENCE NEEDED] 不阻塞 ready 但阻塞 galley（决策 30）
+  → 退出条件可检查——不是"感觉完成了"（决策 59）
+
+  ---
+  用这条主线去读任何文件
+
+  以后你打开这个项目的任何文件，问三个问题就够了：
+
+  1. 这个文件的存在，是为了让什么东西"可追溯"？
+  2. 如果缺了这个文件，什么环节会失去控制？
+  3. 它和主线的关系是什么？（是"保证有
+  Owner"？还是"保证规则被执行"？还是"保证改坏了能回去"？）
+
+  你会发现每个文件都能被归入上面的某个关卡。没有文件是"顺便写的"。没有规则是"以
+  防万一"。
+
+  这就是主线——可追溯性不是附加功能。可追溯性就是架构本身。
+
+✻ Cooked for 39s
+
+※ recap: We were analyzing the agent architecture of this book project. I identified 70 design decisions all serving one core principle: traceability — every claim must be traceable to who decided it, based on what evidence, under what assumptions, without asking anyone. Your next step is to use the 8-checkpoint framework to read any project file and ask: what traceability gap does this file close?
+
+❯ /rename 项目架构设计思路 
+  ⎿  Session renamed to: 项目架构设计思路
+
+❯ 这些架构设计思路，是如何落地实现的呢？                                        
+  Thought for 26s (ctrl+o to expand)
+
+⏺ 这个问题要从"写了什么文档和规则"转到"写了什么代码来强制执行"。我按实现机制来拆
+  解。
+
+  ---
+  实现机制总览
+
+  设计决策（70 条）
+      │
+      ├── 写入 Agent Frontmatter ──→ 被 Python 脚本解析并校验
+      │
+      ├── 写入 YAML 注册表 ──→ 被审计脚本遍历并核对
+      │
+      ├── 写入 Markdown 卡片 ──→ 被 validator 检查完整性
+      │
+      ├── 写入 Python Hook ──→ 被 settings.json 触发，每次 Write/Edit 后执行
+      │
+      └── 写入 pytest 测试 ──→ CI 运行，任何失败阻塞提交
+
+  ---
+  机制 1：Agent Frontmatter 作为可解析的配置
+
+  不是"文档里写了每个 agent 有什么权限"。而是 frontmatter 的 tools: 字段直接被
+  Python 正则解析。
+
+  agent 文件里的声明：
+  # .claude/agents/laura-red-team-editor.md
+  tools: Read, Write, Edit, Grep, Glob, WebSearch, WebFetch
+  model: opus
+  maxTurns: 25
+
+  脚本读取并校验：
+  # scripts/check_tool_grants.py 核心逻辑
+  name, tools = parse_agent_tools(agent_path)
+  policy = load_policy(policy_doc)
+
+  # 检查 1：策略文档说 Bash=no，frontmatter 必须没有 Bash
+  if policy[name].bash == "no" and "Bash" in tools:
+      errors.append(f"{name} has Bash but policy says Bash=no")
+
+  # 检查 2：策略文档说授予了 WebSearch，frontmatter 必须有
+  for tool in policy[name].targeted_additions:
+      if tool not in tools:
+          errors.append(f"{name} promised {tool} but it's absent")
+
+  测试确保校验本身不被绕过：
+  # tests/test_tool_grants_policy.py
+  def test_unexpected_bash_grant_is_flagged(self):
+      # 构造一个 frontmatter 里有 Bash 但策略文档说 no 的场景
+      # 断言 check_tool_grants.check_repo 返回 errors
+
+  同样的模式应用到所有 frontmatter 约束：
+  - test_model_policy.py → 解析 model: 字段，断言全部是 opus
+  - test_command_contracts.py → 解析 owner: 字段，断言指向真实 agent
+  - check_agent_graph.py → 解析 tools: Agent(...) 调用，构建 DAG，查环、查深度
+  - check-agent-frontmatter.py hook → 每次 Write/Edit 后解析 YAML 结构
+
+  ---
+  机制 2：Hook 管道 (settings.json → Python → stdin/stdout)
+
+  Hook 不是"建议"。Hook 是每次文件编辑后自动运行的 Python 进程。
+
+  注册（.claude/settings.json）：
+  {
+    "PostToolUse": [{
+      "matcher": "Write|Edit|MultiEdit",
+      "hooks": [{
+        "type": "command",
+        "command": "python3 
+  ${CLAUDE_PROJECT_DIR}/.claude/hooks/scan-overclaim.py",
+        "timeout": 10
+      }]
+    }]
+  }
+
+  执行（.claude/hooks/scan-overclaim.py）：
+  # 从 stdin 读取 JSON，检查被编辑的文件内容
+  # 搜索 banned verb 模式（knew / deliberately / lied / proves / clearly）
+  # 输出 JSON 到 stdout：{decision: "block"|"warn", ...}
+
+  关键：Hook 脚本是被 Claude Code 的运行时调用的，不是被 agent 调用的。Agent
+  不能跳过 hook。即使 agent 想写一个包含 knew 的句子，hook
+  会在文件写入后立即触发——agent 会看到 hook 的警告输出。
+
+  当前项目有 7 个 PostToolUse hook 同时生效：
+  scan-overclaim.py     → 扫描 banned verbs
+  scan-implication.py   → 扫描结构性暗示
+  scan-cite-density.py  → 扫描引用格式
+  scan-pronoun-discipline.py → 扫描代词违规
+  scan-kdp-epub-css.py  → 扫描 EPUB CSS 违规
+  check-agent-frontmatter.py → 校验 agent 文件 YAML
+
+  每次保存一个章节文件，这 6
+  个扫描器同时运行。任何一个发现问题，输出中都会包含警告。
+
+  ---
+  机制 3：YAML 注册表 + 审计脚本
+
+  跨章节的承诺不靠记忆。靠可被脚本遍历的数据结构。
+
+  注册表（book/registries/callback-graph.yml）：
+  edges:
+    - id: 12
+      plant:
+        chapter: 4
+        section: "The signatures are happening elsewhere"
+        line_anchor: L157
+      payoff:
+        chapter: 10
+        section: "Three documents, no name"
+        line_anchor: L246
+
+  审计脚本读取注册表，逐条打开对应的章节文件，检查两个端点是否在声明的位置存在实
+  际文本。不是检查"edge 在 YAML 里写了"，是检查"edge 在散文里存在"。
+
+  Chekhov
+  验证报告（process/audits/chekhov-verification-2026-05-30.md）就是这样产生的：5
+  个并行验证流各自读注册表 → 各自打开章节 v6 文件 → 各自验证端点是否存活 →
+  汇总报告。零 HARD 发现代表所有注册表中声明的承诺都在实际章节中兑现了。
+
+  同样的模式：
+  - cognitive-arc.yml → /cognitive-arc-audit 遍历 50 个概念的引入-发展-回收
+  - motif-registry.yml → /motif-audit 遍历 9 个全书画面的出现频率和禁区
+  - treatment-classes.yml → /chapter-defect-diagnose
+  读取当前等级并执行对应的审计集
+
+  ---
+  机制 4：来源分类账卡片作为结构化数据
+
+  每张卡片是一个 Markdown 文件，但其 YAML frontmatter
+  的详尽程度足以当作数据库记录：
+
+  ---
+  id: abrego-garcia-2019-withholding-of-removal-order
+  source:
+    title: Withholding-of-removal order (2019)...
+    type: court-order
+    url: https://www.courtlistener.com/docket/...
+    archive:
+      wayback_url: http://web.archive.org/web/...
+      wayback_captured: '2026-05-09'
+  claim:
+    text: In 2019, a U.S. immigration judge issued...
+    page_anchor: 2019 immigration-judge order...
+  verification:
+    evidence_grade: B
+    body_sha256: 02426347002a0eca7f334c858b7c6660...
+    url_check:
+      verified_on: '2026-05-28'
+      primary: {url: ..., status: ok, http_code: 200}
+      archive: {url: ..., status: ok, http_code: 200}
+  verification_log:
+    - step: source-existence
+      actor: stephen
+      timestamp: 2026-05-26
+      outcome: PARTIAL
+    - step: independent-corroboration
+      actor: stephen
+      outcome: PASS
+  defamation:
+    living_subjects: [Kilmar Armando Abrego Garcia]
+    nancy_cleared: true
+    nancy_cleared_on: 2026-05-26
+  dispute:
+    status: contested
+    notes: PIN-cite level; existence not contested
+  provenance:
+    created_by: stephen
+    superseded_by: null
+  ---
+
+  脚本如何消费这些卡片：
+
+  # scripts/validate_source_ledger.py
+  # 遍历所有 292 张卡片，检查：
+  # 1. 必需字段是否存在（id, source, claim, verification）
+  # 2. evidence_grade 是否在 A/B/C/D 内
+  # 3. verification_log 是否包含至少 3 个步骤
+  # 4. url_check 是否有 primary 和 archive
+  # 5. 被章节引用的卡片是否实际存在
+
+  # scripts/verify_card_urls.py
+  # 遍历所有卡片，对每个 URL 做 HTTP HEAD 请求
+  # 记录状态码、重定向、403（反爬）、超时
+  # 写入卡片的 url_check 字段
+
+  ---
+  机制 5：pytest 作为架构宪法的可执行版本
+
+  每一个"架构约束"都有一个对应的测试函数。不是注释，不是 README，是 CI
+  运行的代码。
+
+  tests/
+  ├── test_agent_graph.py          → DAG 无环、深度 ≤ 2
+  ├── test_tool_grants_policy.py   → frontmatter 与策略文档一致
+  ├── test_model_policy.py         → 所有 agent 用 opus
+  ├── test_command_contracts.py    → 每个命令 owner 有效且 dispatch
+  ├── test_agent_tool_minimums.py  → 没有 Bash/TodoWrite，有必需工具
+  ├── test_generated_sync.py       → 五大原则在所有文件中同步
+  ├── test_nlpm_specs.py           → NLPM 规范覆盖所有 cell lead
+  ├── test_source_ledger.py        → 来源分类账完整性
+  ├── test_check_reader_reports.py → 读者报告存在且无 HARD
+  ├── test_scan_overclaim.py       → scanner 本身逻辑正确
+  ├── test_scan_implication_fixtures.py → implication scanner 正确
+  ├── test_scan_cite_density_fixtures.py → cite density scanner 正确
+  ├── test_scan_pronoun_discipline_fixtures.py → pronoun scanner 正确
+  ├── test_kdp_epub.py             → EPUB 构建参数正确
+  └── test_audit_emphasis.py       → 强调标记审计逻辑正确
+
+  关键：不仅仅是"测试 scanner 脚本的逻辑"，也测试"当前 repo
+  的实际状态是否违反约束"。test_live_repo_passes 这种测试直接检查 live
+  repo——不是 mock，不是 fixture，是打开实际 agent 文件检查。
+
+  ---
+  机制 6：STATUS.md + SessionStart hook 作为"保存游戏"
+
+  SessionStart hook
+    → Python 脚本读取 .claude/state/current-focus.md
+    → 注入到新会话的 additionalContext
+    → 任何打开 Claude Code 的人立刻知道进度
+
+  这不是一个 agent 的职责。这是环境层的机制——在 agent 被调用之前就已经执行了。
+
+  ---
+  总结：从设计到实现的映射
+
+  ┌──────────────┬────────────────────────────┬────────────────────────────┐
+  │    设计层    │           实现层           │            例子            │
+  ├──────────────┼────────────────────────────┼────────────────────────────┤
+  │ Agent        │ Frontmatter tools: →       │ check_tool_grants.py       │
+  │ 的权限边界   │ Python 正则解析 → pytest   │                            │
+  ├──────────────┼────────────────────────────┼────────────────────────────┤
+  │              │ Frontmatter tools:         │                            │
+  │ 调度图约束   │ Agent(...) → DFS/BFS →     │ check_agent_graph.py       │
+  │              │ pytest                     │                            │
+  ├──────────────┼────────────────────────────┼────────────────────────────┤
+  │ 法律措辞规则 │ Hook 扫描 banned verbs →   │ scan-overclaim.py          │
+  │              │ PostToolUse 触发           │                            │
+  ├──────────────┼────────────────────────────┼────────────────────────────┤
+  │ 宪法一致性   │ sync_five_over_rules.py +  │ test_generated_sync.py     │
+  │              │ --check → pytest           │                            │
+  ├──────────────┼────────────────────────────┼────────────────────────────┤
+  │ 跨章承诺     │ YAML 注册表 →              │ callback-graph.yml +       │
+  │              │ 审计脚本逐条验证           │ Chekhov audit              │
+  ├──────────────┼────────────────────────────┼────────────────────────────┤
+  │ 证据完整性   │ 卡片 YAML frontmatter →    │ validate_source_ledger.py  │
+  │              │ validator 脚本             │                            │
+  ├──────────────┼────────────────────────────┼────────────────────────────┤
+  │ URL 可达性   │ HTTP HEAD 请求 →           │ verify_card_urls.py        │
+  │              │ 更新卡片字段               │                            │
+  ├──────────────┼────────────────────────────┼────────────────────────────┤
+  │ 会话连续性   │ Python 读 current-focus.md │ session-context.py hook    │
+  │              │  → 注入 context            │                            │
+  ├──────────────┼────────────────────────────┼────────────────────────────┤
+  │ 架构约束     │ 全部上述 → pytest tests/   │ CI 管道                    │
+  │              │ -q 一键验证                │                            │
+  └──────────────┴────────────────────────────┴────────────────────────────┘
+
+  一句话总结实现哲学：设计决策不以文档形式存在，以可执行代码形式存在。文档是给人
+  解释为什么的，代码是给机器执行约束的。两者必须同时存在，且代码必须跑得通。
+
+✻ Worked for 1m 24s
+
+❯ 每一个实现层，都是通过代码来控制的？                                          
+
+  Thought for 15s (ctrl+o to expand)
+
+⏺ 不完全是。分三类。
+
+  ---
+  第一类：代码强制执行（硬约束）
+
+  这类做不好就直接报错、阻塞提交、阻止推进。机器说了算。
+
+  ┌───────────────────────┬──────────────────────────┬─────────────────────┐
+  │         约束          │         执行方式         │      违反后果       │
+  ├───────────────────────┼──────────────────────────┼─────────────────────┤
+  │ Agent 图无环、深度 ≤  │ check_agent_graph.py +   │ 测试失败            │
+  │ 2                     │ pytest                   │                     │
+  ├───────────────────────┼──────────────────────────┼─────────────────────┤
+  │ Agent 全部用 opus     │ test_model_policy.py     │ 测试失败            │
+  ├───────────────────────┼──────────────────────────┼─────────────────────┤
+  │ 没有 Bash/TodoWrite   │ test_agent_tool_minimums │ 测试失败            │
+  │                       │ .py                      │                     │
+  ├───────────────────────┼──────────────────────────┼─────────────────────┤
+  │ 工具权限与策略一致    │ check_tool_grants.py +   │ 测试失败            │
+  │                       │ pytest                   │                     │
+  ├───────────────────────┼──────────────────────────┼─────────────────────┤
+  │ 命令 owner 指向真实   │ test_command_contracts.p │ 测试失败            │
+  │ agent                 │ y                        │                     │
+  ├───────────────────────┼──────────────────────────┼─────────────────────┤
+  │ 五大原则在所有文件中  │ sync_five_over_rules.py  │ 测试失败            │
+  │ 同步                  │ --check                  │                     │
+  ├───────────────────────┼──────────────────────────┼─────────────────────┤
+  │ 章节中存在 banned     │ scan-overclaim.py hook   │ 每次保存文件时输出  │
+  │ verbs                 │                          │ 警告                │
+  ├───────────────────────┼──────────────────────────┼─────────────────────┤
+  │ 代词违规（you/the     │ scan-pronoun-discipline. │ 同上                │
+  │ reader）              │ py hook                  │                     │
+  ├───────────────────────┼──────────────────────────┼─────────────────────┤
+  │ 引用格式违规          │ scan-cite-density.py     │ 同上                │
+  │                       │ hook                     │                     │
+  ├───────────────────────┼──────────────────────────┼─────────────────────┤
+  │ 每张卡片有必需字段    │ validate_source_ledger.p │ 测试失败            │
+  │                       │ y                        │                     │
+  ├───────────────────────┼──────────────────────────┼─────────────────────┤
+  │ URL 可达性            │ verify_card_urls.py      │ 卡片标记为 broken   │
+  ├───────────────────────┼──────────────────────────┼─────────────────────┤
+  │ 读者报告存在且无 HARD │ check_reader_reports.py  │ 测试失败            │
+  ├───────────────────────┼──────────────────────────┼─────────────────────┤
+  │ NLPM 评分达标         │ nlpm:score               │ 无法提交            │
+  └───────────────────────┴──────────────────────────┴─────────────────────┘
+
+  这些都是可自动检测的模式——词汇（knew/lied/clearly）、结构（深度/环）、字段（缺
+  evidence_grade）。机器能判断对错。
+
+  ---
+  第二类：Agent 自治 + 代码抽查（软约束）
+
+  这类机器无法自动判断"对不对"，但可以通过抽查产出物来间接验证。
+
+  ┌───────────────────┬────────────────┬────────────────────────────────────┐
+  │       约束        │    谁在执行    │              抽查机制              │
+  ├───────────────────┼────────────────┼────────────────────────────────────┤
+  │ 每个产出有完整的  │ Agent 自身遵循 │ SubagentStop hook                  │
+  │ Handoff schema    │ 系统提示词     │ 记录日志，人工抽查                 │
+  ├───────────────────┼────────────────┼────────────────────────────────────┤
+  │ Stephen           │                │ validate_source_ledger.py          │
+  │ 确实验证了每个    │ Stephen agent  │ 检查卡片字段完整性，但不检查验证是 │
+  │ claim             │                │ 否真正深入                         │
+  ├───────────────────┼────────────────┼────────────────────────────────────┤
+  │ Laura 确实找了最  │ Laura agent    │ Laura 输出 memo                    │
+  │ 强反方论点        │                │ 文件，人工审查内容质量             │
+  ├───────────────────┼────────────────┼────────────────────────────────────┤
+  │ Wayne             │ Wayne agent    │ scan-overclaim.py                  │
+  │ 遵循风格指南      │                │ 扫描词汇，但不检验叙事质量         │
+  ├───────────────────┼────────────────┼────────────────────────────────────┤
+  │ Bonnie 的架构符合 │ Bonnie agent   │ Chekhov                            │
+  │ 读者状态阶梯      │                │ 审计检查跨章承诺，但不检验建筑质量 │
+  └───────────────────┴────────────────┴────────────────────────────────────┘
+
+  关键区别：代码能检查"Stephen 有没有给每张卡片写
+  evidence_grade"，但不能检查"这个 B 级是否真的应该是 B 而不是 A"。后者依赖
+  agent 自身的纪律和人工审查。
+
+  ---
+  第三类：纯人类判断（不可自动化）
+
+  这类必须由人来做。没有任何代码能代替。
+
+  ┌─────────────────────────────┬─────────────────┬──────────────────────────┐
+  │            约束             │     执行者      │     为什么不能自动化     │
+  ├─────────────────────────────┼─────────────────┼──────────────────────────┤
+  │ 书的论点是否正确            │ xiaolai（人类） │ 这是判断，不是模式       │
+  ├─────────────────────────────┼─────────────────┼──────────────────────────┤
+  │ ch-13 最终句用哪个版本      │ xiaolai（人类） │ 品味问题，不是对错       │
+  ├─────────────────────────────┼─────────────────┼──────────────────────────┤
+  │ 一个案例该分到哪个分类      │ xiaolai（人类） │ 需要判断不确定性         │
+  ├─────────────────────────────┼─────────────────┼──────────────────────────┤
+  │ 伊拉克章节的落点            │ xiaolai（人类） │ 政治/伦理判断            │
+  ├─────────────────────────────┼─────────────────┼──────────────────────────┤
+  │ Laura 的否决是否被 override │ xiaolai（人类） │ 需要签字负责             │
+  ├─────────────────────────────┼─────────────────┼──────────────────────────┤
+  │ 全书终读                    │ xiaolai（人类） │ 唯一能对最终产物负责的人 │
+  └─────────────────────────────┴─────────────────┴──────────────────────────┘
+
+  作者注记里写得很清楚：
+
+  ▎ "What the crew could not do was decide what the book was for. Or what the 
+  ▎ four shapes were. Or whether a given case was a pure scapegoat or a partial 
+  ▎ one. Or whether the chapter on Iraq should land as it does. ... Those were 
+  ▎ judgments under uncertainty, and judgments under uncertainty did not 
+  ▎ delegate. I made them."
+
+  ---
+  所以真正的架构是三层
+
+  第一层（代码）：强制模式匹配的规则
+    → 写错了词、少了字段、图里有环 → 机器拦截
+
+  第二层（Agent 自治 + 代码抽查）：Agent 遵循系统提示词的纪律
+    → 机器检查产出物完整性，但判断质量依赖 agent 本身
+
+  第三层（纯人类）：判断不确定性
+    → 不可委托的决策，人做，人签字
+
+  这三层叠在一起才是完整的体系。第一层省掉了人检查机械性错误的时间，第二层把可委
+  托的智力工作规模化，第三层保证最终签字的人仍然对产物负责。
+
+  代码不是万能的。但凡是能用代码拦截的错误，就不应该让人来发现。 这是这个项目实
+  现哲学的核心——代码守住所有能自动化的关卡，人的注意力留给代码守不住的判断。
+
+✻ Baked for 43s
+
+※ recap: 我们正在拆解《No One Did It》项目如何用70个设计决策搭建一个可追溯的13-agent协作体系。上一轮讲到实现分三层：代码硬约束、agent软约束+抽查、纯人类判断。你可以继续追问任何一层。 (disable recaps in /config)
+
+❯ 这三层架构，是从什么角度得出的结论？                                          
+
+  Thought for 11s (ctrl+o to expand)
+
+⏺ 这个问题是在追问我的推理方法。坦白说，我刚才分类时的思考角度是——
+
+  "谁在做验证？这个验证者有能力验证这类东西吗？"
+
+  ---
+  推导过程
+
+  从你问"每层都是代码控制的吗"那一刻，我意识到你发现了一个矛盾：70
+  个决策，只有一部分有对应的 Python 文件。那没有代码的那些呢？
+
+  于是我反过来推：不是看"有哪些决策"，而是看"验证每个决策需要什么样的验证者"。
+
+  决策："所有 agent 用 opus"
+    → 验证方式：读 frontmatter，匹配字符串 "model: opus"
+    → 验证者：一段 Python 正则
+    → 机器能做 ✓
+
+  决策："Wayne 的散文没有过度断言"
+    → 验证方式：扫描 banned verbs（knew/lied/proves/clearly）
+    → 验证者：一段 Python 模式匹配
+    → 机器能做一部分——但只能抓词汇，抓不了语气和叙事结构
+    → 更深的验证：Agent 自身遵循系统提示词中的纪律
+    → 验证者：Wayne agent（自律）+ Laura agent（红队）
+    → 机器不能完全做 ✗
+
+  决策："伊拉克章节的落点"
+    → 验证方式：？？？
+    → 不存在客观标准
+    → 验证者：只有人类作者
+    → 机器不能做 ✗✗✗
+
+  三个类别不是预设的。是按"能做验证的验证者是谁"自然分出来的：
+
+  ┌────────┬────────────────────────────────┬────────┐
+  │ 验证者 │           能验证什么           │ 对应层 │
+  ├────────┼────────────────────────────────┼────────┤
+  │ 代码   │ 模式、结构、字段完整性、格式   │ 第一层 │
+  ├────────┼────────────────────────────────┼────────┤
+  │ Agent  │ 内容质量、论证强度、措辞适当性 │ 第二层 │
+  ├────────┼────────────────────────────────┼────────┤
+  │ 人类   │ 判断不确定性、品味、伦理落点   │ 第三层 │
+  └────────┴────────────────────────────────┴────────┘
+
+  ---
+  这个角度的来源
+
+  这个角度本质上是这本书自己的诊断工具，应用到验证体系本身：
+
+  ▎ 书的八问诊断第 4 问：Who knew or should have known?
+  ▎ 第 6 问：Who controlled the record?
+
+  翻译到验证体系上就变成了：
+
+  - 这个验证者有能力知道被验证的内容是对是错吗？
+    - 正则表达式能"知道" opus ≠ sonnet，但不能"知道"一个论点是否过度断言
+    - Agent 能"知道"措辞不当，但不能"知道"作者真正想说什么
+  - 验证权和控制权在谁手里？
+    - 如果所有验证都由代码做 → 代码成了最终的真相裁定者（但它不是）
+    - 如果所有验证都靠人 → 人成为瓶颈，规模上不去
+    - 正确的分配：代码做它能做的，Agent 做代码做不了的，人做人不能委托的
+
+  ---
+  换句话说
+
+  这个三层分类不是从"架构设计的角度"得出的。是从**"谁有能力验证什么"这个认知论问
+  题**中自然掉出来的。每种验证者有自己的能力上限，上限决定了它该守哪道门。
+
+  而认知论问题本身，就是这个项目最根基的设计直觉——可追溯性的前提是，每一步的验证
+  者有能力验证它声称能验证的东西。
+  把验证权交给没有验证能力的验证者，就是这本书自己诊断的洗钱模式。
+
+✻ Churned for 32s
+
+❯ 如果从0开始做这个项目，应该先做什么，后做什么？                               
+
+  Thought for 13s (ctrl+o to expand)
+
+⏺ 有个反直觉的答案：不是先建架构。是先做一章。
+
+  ---
+  正确的构建顺序
+
+  Phase 1: 冷启动（一个人，零 agent）
+    ├── 1. 写出论点的一句话版本
+    ├── 2. 用手工方法做完一个完整案例的分析
+    ├── 3. 从案例中提炼出规则
+    └── 4. 写出第一条无法容忍的错误
+
+  Phase 2: 单 Agent 验证（一个人 + 一个 agent）
+    ├── 5. 把规则写成 agent 可执行的系统提示词
+    ├── 6. 让一个 agent 重做同一个案例
+    ├── 7. 人对比例子的输出和 agent 的输出
+    └── 8. 找到 agent 犯的错误 → 加到规则里
+
+  Phase 3: 第一条 Pipeline（多 agent 串联）
+    ├── 9. 加第二个 agent（核查第一个 agent 的产出）
+    ├── 10. 人对比两个 agent 各自看到的问题
+    ├── 11. 定义 Handoff schema
+    └── 12. 跑通一整章
+
+  Phase 4: 规模化（从一章到全书）
+    ├── 13. 从第二章中发现哪些规则是全局的 → 提炼为宪法
+    ├── 14. 根据第三章的需求加新 agent 类型
+    ├── 15. 写第一个 hook（当手工检查发现自己总是抓同一种错误时）
+    └── 16. 写第一个测试（当 hook 逻辑变复杂需要验证时）
+
+  Phase 5: 收尾
+    ├── 17. 编译、出版、法律审查
+    └── 18. 清理、归档、版本剪裁
+
+  ---
+  为什么不是先建架构？
+
+  因为架构是在做具体案例的过程中长出来的，不是先画好再填充的。
+
+  证据就在这个项目的时间线里：
+
+  2026-05-25  冷启动包生成——先有论点、分类、案例矩阵
+  2026-05-27  五大原则被提炼并同步到所有文件
+  2026-05-28  第二章完成并达到 ready（proof-of-shape）
+  2026-05-30  v6 剪裁，13 章全部 ready
+
+  从冷启动到 proof-of-shape 只花了 3 天。但在此之前有
+  dev-docs/04_ARCHIVE_SUPERSEDED_OR_REFERENCE/——一个更早的 workspace，"different
+  crew names, different rule numbering"。说明架构被推倒重来过。
+
+  如果你一开始就建了完整的 15 agent + 29 skill + 16 rule
+  架构，你会花两周建一个你还没验证过是否正确的系统。然后发现第一个案例就暴露了架
+  构的致命缺陷，全部推倒重来。
+
+  先做一章，让架构从那一章里长出来。
+
+  ---
+  Phase 1：冷启动——最关键的四步
+
+  第 1 步：写出论点的一句话版本（30 分钟）
+
+  不能是"我要写一本关于 XX 的书"。必须是：
+
+  ▎ "文明没有停止牺牲替罪羊，只是换了祭坛。从祭司到官僚到算法，每次转移，宣布'这
+  ▎ 个替我们承担'的部分就更隐蔽了一层。我称之为责任洗钱。这本书是诊断工具。"
+
+  如果一句话说不清楚，那后面的一切都没有锚点。作者在注记里说："I did not set out
+  to write about it. I mentioned the noticing to people I trusted, and learned
+  that most of them had noticed it
+  too."——论点是先被反复口述、反复测试，才变成书的。
+
+  第 2 步：用手工方法做完一个完整案例（2-3 天）
+
+  不用任何 AI。 自己查资料、自己分析、自己写。
+
+  对这本书来说，最早的案例可能是阿布格莱布（Abu
+  Ghraib）——一个清晰的"追责停在低层士兵，不爬上指挥链"的案例。
+
+  你要做的：
+  - 找到原始文件（Taguba 报告、Fay-Jones 报告、参议院军事委员会调查）
+  - 自己回答八问诊断
+  - 自己判断这个案例属于四种分类中的哪一种
+  - 自己写一份分析
+
+  为什么不用 AI？ 因为你必须自己先搞清楚"做好是什么样的"，才能判断 agent
+  有没有做对。如果你自己都不知道正确答案，agent 的输出你看不出问题。
+
+  第 3 步：从案例中提炼出规则（1 天）
+
+  做完第一个案例后，你会自然发现一些问题。比如：
+
+  - "我写这句话的时候，我确定我知道来源吗？" → 证据分级规则
+  - "这个动词会不会太强了？" → 过度断言规则
+  - "我倾向于把责任全给 A，但 B 其实也有角色" → 分类规则
+
+  把这些写成规则。不是 16 条，是 3-5 条。每条一句话。这些就是你最初的宪法。
+
+  第 4 步：写出第一条"无法容忍的错误"（10 分钟）
+
+  回顾你手工做的案例，问自己：如果我的书里出现这类错误，我会觉得这本书不值得出版
+  。 把它写下来。
+
+  对这本书来说，可能是："一句话里断言了一个人'knowingly'做了某事，但我没有证据证
+  明他知道。"
+
+  这就是你的第一条规则。也是你第一个 hook 的扫描目标。
+
+  ---
+  Phase 2：单 Agent 验证——检验你的规则
+
+  第 5 步：把规则写成 Agent 的系统提示词（1 小时）
+
+  把你的 3-5 条规则写成一个 agent 文件。不是 15 个。一个。
+
+  ---
+  name: researcher
+  description: 分析案例，输出结构化分析报告
+  tools: Read, Write, Grep, Glob, WebSearch, WebFetch
+  model: opus
+  ---
+  # Role
+  你分析责任洗钱案例。必须遵循以下规则：
+  1. 每一条事实性断言必须标注证据等级（A/B/C/D）和来源
+  2. 不允许使用 knew/deliberately/lied/proves/clearly 等动词
+     除非引用了明确证明该状态的来源
+  3. ...
+
+  用 Claude Code 调这个 agent，让它分析你手工做过的同一个案例。
+
+  第 6 步：人对比（最重要的一步）
+
+  把 agent 的输出和你的手工输出并列对比。Agent 在哪里比你强？在哪里犯了你会避免
+  的错误？在哪里看起来不错但仔细读发现过度断言了？
+
+  这一步决定了你后续所有规则的质量。 你会发现 agent
+  犯的错误类型，而这些错误类型就是你需要加更多规则的原因。
+
+  第 7 步：迭代规则
+
+  把 agent 犯的错加到系统提示词里。再跑。再对比。直到 agent
+  的输出在关键维度上不差于你自己的输出。
+
+  ---
+  Phase 3：第一条 Pipeline——两个 Agent 串联
+
+  第 8 步：加第二个 Agent（审查者）
+
+  第一个 agent 做分析。第二个 agent 只做一件事：找问题。
+
+  ---
+  name: checker
+  description: 审查研究者的输出，找过度断言、证据缺口、分类错误
+  tools: Read, Write, Grep, Glob
+  ---
+
+  给 checker 一个明确的输出格式：
+
+  Found issues:
+    - [Location] [Severity: HARD/SOFT] [Description]
+  Verdict: PASS / REVISE / BLOCK
+
+  这就是 Laura 的雏形。 不是一开始就有 13 个 agent。是第二个 agent
+  自然地要求存在——因为你自己对比 agent 输出和你的手工输出太累了，需要一个 agent
+  帮你做。
+
+  第 9 步：定义 Handoff schema（30 分钟）
+
+  两个 agent 之间怎么交接？你发现如果 researcher
+  不在输出末尾写明"我的假设是什么"和"我建议下一步做什么"，checker
+  就不知道该以什么标准审查。
+
+  于是你定义：
+
+  Owner: ...
+  Assumptions: ...
+  Handoff: ...
+
+  规则 5（Handoff cleanly）就是从这里来的。 不是因为"设计原则"，是因为你运行两个
+  agent 时发现缺了这个字段就跑不通。
+
+  第 10 步：跑通一整章（1-2 天）
+
+  从案例 → 分析 → 核查 →
+  初稿，跑通一整章的完整流程。不需要完美。但需要跑通。跑通意味着你找到了
+  pipeline 的瓶颈和断点。
+
+  这个项目自己管这叫"proof-of-shape"——第二章是 proof-of-shape。做完第二章证明了
+  pipeline 可行，然后才并行推其他 12 章。
+
+  ---
+  Phase 4：规模化——从一章到全书
+
+  第 11 步：从多章中发现全局规则
+
+  做完第二章、开始做第三章时，你会发现有些规则是跨章的：
+
+  - "第二章里讲过的一个概念，第三章用的时候变了味" → 术语管控 R51
+  - "第三章引用的一个证据卡片，第二章也引用了但用了不同的措辞" → vocabulary
+  registry
+  - "第二章埋了一个伏笔，第三章需要回收" → callback 注册表
+
+  全局规则不是事先设计的。是做到跨章时才发现需要的。
+
+  第 12 步：写第一个 Hook
+
+  当你在审查 agent 输出时，第 10 次手动搜索 knew 这个单词的时候——你就该写 hook
+  了。
+
+  # scan-overclaim.py 的第一个版本
+  # 只扫描一个词：knew
+  import sys, json
+  data = json.load(sys.stdin)
+  content = data.get("content", "")
+  if "knew" in content.lower():
+      print(json.dumps({"decision": "warn", "message": "banned verb: knew"}))
+
+  Hook 来自痛苦。 每次你发现自己在手动做重复检查，就该写 hook。
+
+  第 13 步：写第一个测试
+
+  当 hook 逻辑变复杂，或者有多个 hook 同时运行时，你开始不确定"改了 A 会不会破坏
+  B"。这时写第一个测试。
+
+  先测试 hook 本身——给它一个包含 banned verb 的输入，断言它 flag 了。
+
+  再测试 live repo——打开实际 agent 文件，断言 frontmatter 符合约束。
+
+  ---
+  Phase 5：收尾
+
+  第 14-16 步：编译、法律、清理
+
+  这些都是具体操作。关键是每一步都在 Phase 1-4 
+  建立的纪律框架内执行，不引入新的原则。
+
+  ---
+  核心教训
+
+  这 16 步可以归结为三个原则：
+
+  1. 先做具体工作，让架构从工作中长出来。
+     不是先设计 15 个 agent 的蓝图，
+     而是先做一章，发现你需要第二个 agent。
+
+  2. 先用手工建立"好"的标准，再让 agent 去复制。
+     自己不知道正确答案的事，
+     交给 agent 你也看不出它错在哪里。
+
+  3. Hook 和测试来自痛苦，不来自远见。
+     每次手动重复检查同样的东西 → 写 hook。
+     每次不确定改了会不会破坏东西 → 写测试。
+
+  这个项目经历了一次推倒重来（dev-docs/04 里的早期 workspace），经历了 6
+  个版本迭代（v1→v6），经历了从 21 个 agent 精简到 13 个，经历了从"把 rule
+  写进每个文件"到"写脚本自动同步"。
+
+  所有这些重构，没有一个是在开始设计时就预见到的。都是在具体工作中撞了墙才改的。
+
+  所以从 0 开始的正确做法是：今天就做第 1 步。 30
+  分钟后你就有了一句论点。然后做第 2 步。架构是后面的事。
+
+✻ Cogitated for 1m 15s
+
+❯ dev-docs/04 在哪里呢？                                                        
+
+  Thought for 20s, listed 2 directories (ctrl+o to expand)
+
+⏺ 不存在。这个公开 repo 里，dev-docs/ 只有这些：
+
+  00_START_HERE/
+  02_RESEARCH_PACKAGES/
+  05_SPINE_DISCUSSION/
+  ai-sweep/
+  codex-plans/
+
+  01_BOOK_PREPARATION_DECKS/、03_CLAUDE_AI_CREW_WORKSPACE/、04_ARCHIVE_SUPERSEDE
+  D_OR_REFERENCE/ 都没有。
+
+  ---
+  AGENTS.md 里确实引用了它们：
+
+  ▎ dev-docs/04_ARCHIVE_SUPERSEDED_OR_REFERENCE/ — earlier workspace variant 
+  ▎ with different crew names and rule numbering. Reference only.
+
+  STATUS.md 也记录了"v1-v5 章节归档到
+  dev-docs/04_ARCHIVE_SUPERSEDED_OR_REFERENCE/"。
+
+  ---
+  说明两件事：
+
+  1. 作者的完整工作目录里有这些文件，但公开 release 时把它们剥离了。01
+  是内部策略和审计 Deck，03 是旧的 AI crew workspace 快照，04
+  是被废弃的早期架构——这些可能包含敏感信息、内部讨论、或者只是太乱不适合公开。
+  2. 我之前说"这个项目经历过一次推倒重来，证据在 dev-docs/04"，证据不在这个 repo
+  里。我只能从 AGENTS.md 的描述（"different crew names, different rule
+  numbering"）推断它存在过，但看不到实际内容。这是一个合理的推断，但不是一个可验
+  证的事实——我应该早说清楚这一点。
+
+  这个 repo 本身就是一个"清理过的公开版本"——只保留了最终状态，没有保留完整的演进
+  痕迹。这也是为什么 git log 只有 4 个
+  commit：整个开发过程在私有仓库里完成，最后 squash 成一个 initial commit
+  推出来。
+
+✻ Sautéed for 30s
+
+※ recap: 你正在从《No One Did It》项目学习 agent 架构设计。我们刚梳理完 70 个设计决策的主线、三层实现机制、从零开始的构建顺序，并发现 dev-docs/04 不在公开 repo 里。下一步建议：选一个你自己的小项目，做 Phase 1 第一步——写出论点的一句话版本。 (disable recaps in /config)
+
+❯ 把这18步，通用化为可以在其它项目中也能用的                                    
+
+  Thought for 12s (ctrl+o to expand)
+
+⏺ 目标是提炼出一个领域无关的通用方法论。先看原来的 18
+  步里哪些是变量、哪些是不变量。
+
+  ---
+  不变量（适用于任何项目）
+
+  1. 先做具体工作，再建架构
+  2. 先手工建立"好"的标准，再委托给 agent
+  3. 规则来自实际错误，不来自远见
+  4. 自动化来自重复痛苦，不来自提前规划
+  5. 一个人做完 → 两个人串联 → 多个人并行
+
+  ---
+  通用五阶段
+
+  阶段 1：冷启动 —— 一个人，零 Agent
+
+  目标：建立"做好是什么样的"——用你自己的手。
+
+  步骤: 1
+  通用操作: 定义产出——一句话说清楚要交付什么
+  书的例子: 责任洗钱的诊断工具
+  你的项目该做什么: 你的项目的一句话定义
+  ────────────────────────────────────────
+  步骤: 2
+  通用操作: 手工完成一个完整单位——最小的可用产出
+  书的例子: 分析阿布格莱布案，写一份案例文件
+  你的项目该做什么: 写一个完整的功能 / 一篇完整的分析 / 一个完整的 PR
+  ────────────────────────────────────────
+  步骤: 3
+  通用操作: 提炼规则——从手工过程中发现"我反复提醒自己的事"
+  书的例子: "每个断言要有来源""不能说我确定不知道的事"
+  你的项目该做什么: 手工过程中你反复检查了什么？
+  ────────────────────────────────────────
+  步骤: 4
+  通用操作: 定义第一条致命错误——什么错误出现时这个产出不值得交付
+  书的例子: "一句话说某人 knew 但没有证据"
+  你的项目该做什么: 一条错误就能让产出报废
+
+  判断标准：阶段 1 不完成的标准 =
+  你无法用一句话说清楚产出的定义，或者你无法手工做出一个合格的版本。
+
+  ---
+  阶段 2：单 Agent —— 一个人 + 一个 Agent
+
+  目标：用 Agent 复现你的手工产出，找到差距。
+
+  ┌─────┬────────────────────────┬───────────────────────────────────────────┐
+  │ 步  │        通用操作        │                 注意事项                  │
+  │ 骤  │                        │                                           │
+  ├─────┼────────────────────────┼───────────────────────────────────────────┤
+  │     │ 写第一个 Agent         │                                           │
+  │ 5   │ 文件——把阶段 1 提炼的  │ 只写一个 agent。不要现在就设计 5 个角色。 │
+  │     │ 规则编码为系统提示词   │                                           │
+  ├─────┼────────────────────────┼───────────────────────────────────────────┤
+  │     │ 同一任务，Agent        │                                           │
+  │ 6   │ 重做——给它和手工阶段完 │ 输入必须相同，否则无法对比                │
+  │     │ 全相同的输入           │                                           │
+  ├─────┼────────────────────────┼───────────────────────────────────────────┤
+  │ 7   │ 人对比——两个输出并列比 │ Agent 哪里比你好？哪里犯了你会避免的错？  │
+  │     │ 较                     │ 哪里看起来没问题但经不起推敲？            │
+  ├─────┼────────────────────────┼───────────────────────────────────────────┤
+  │     │ 迭代规则——把 agent     │ 重复直到 agent                            │
+  │ 8   │ 犯的错加到系统提示词， │ 在关键维度上不输给你的手工版              │
+  │     │ 再跑，再比             │                                           │
+  └─────┴────────────────────────┴───────────────────────────────────────────┘
+
+  判断标准：阶段 2 完成 = agent
+  的输出让你满意到"如果有人匿名给我这个输出，我不会因为它来自 AI 而拒绝它"。
+
+  ---
+  阶段 3：第一条 Pipeline —— 两个 Agent 串联
+
+  目标：让第二个 Agent 检查第一个 Agent 的产出。
+
+  ┌─────┬────────────────────────────────────┬───────────────────────────────┐
+  │ 步  │              通用操作              │           注意事项            │
+  │ 骤  │                                    │                               │
+  ├─────┼────────────────────────────────────┼───────────────────────────────┤
+  │     │ 加第二个                           │ 不是完整的"审查团队"，是一个  │
+  │ 9   │ Agent——只做一件事：检查第一个      │ 有明确任务的                  │
+  │     │ agent 的产出                       │ agent。它的输出必须是结构化的 │
+  │     │                                    │ （HARD/SOFT/PASS）。          │
+  ├─────┼────────────────────────────────────┼───────────────────────────────┤
+  │ 10  │ 对比两人各自发现的问题——检查者发现 │ 这告诉你审查规则该怎么写      │
+  │     │ 了你没发现的吗？漏了什么？         │                               │
+  ├─────┼────────────────────────────────────┼───────────────────────────────┤
+  │     │                                    │ Owner / Assumptions / Handoff │
+  │ 11  │ 定义 Handoff schema——两个 agent    │  / Evidence                   │
+  │     │ 之间传递什么信息                   │ grade——这些字段不是预先设计的 │
+  │     │                                    │ ，是你发现缺了就跑不通        │
+  ├─────┼────────────────────────────────────┼───────────────────────────────┤
+  │ 12  │ 跑通一个完整单位——从输入到最终产出 │ 不追求完美。追求"跑完"。proof │
+  │     │ ，全流程走通                       │ -of-shape。                   │
+  └─────┴────────────────────────────────────┴───────────────────────────────┘
+
+  判断标准：阶段 3 完成 = 从头到尾跑完一个单位的完整流程，产出达到了你手工做的质
+  量标准，且没有你在过程中手动介入。
+
+  ---
+  阶段 4：规模化 —— 从一个单位到多个单位
+
+  目标：扩展到多个单位，提炼全局规则，自动化。
+
+  ┌─────┬─────────────────┬─────────────────────────────────────────────────┐
+  │ 步  │    通用操作     │              触发条件（不是计划）               │
+  │ 骤  │                 │                                                 │
+  ├─────┼─────────────────┼─────────────────────────────────────────────────┤
+  │ 13  │ 区分局部规则和  │ 做到第二个单位时，发现有些规则只在第一个单位适  │
+  │     │ 全局规则        │ 用，有些规则是跨单位的                          │
+  ├─────┼─────────────────┼─────────────────────────────────────────────────┤
+  │ 14  │ 按需加 Agent    │ 不要提前设计。当一个具体任务出现、且现有 agent  │
+  │     │ 类型            │ 都不适合时，才加新的                            │
+  ├─────┼─────────────────┼─────────────────────────────────────────────────┤
+  │ 15  │ 写第一个 Hook   │ 当你第 N 次手动检查同一类错误时——N 通常 ≥ 5     │
+  ├─────┼─────────────────┼─────────────────────────────────────────────────┤
+  │ 16  │ 写第一个测试    │ 当 hook 逻辑变复杂、或多个 hook                 │
+  │     │                 │ 同时存在、你开始不确定"改 A 会不会破坏 B"时     │
+  └─────┴─────────────────┴─────────────────────────────────────────────────┘
+
+  判断标准：
+  - 加新 agent 的正确时机 = 一个任务出现，分配给任何现有 agent
+  都感觉是在突破它的角色边界
+  - 写 hook 的正确时机 = 你已经重复做同样的手动检查至少 3-5
+  次，且你能明确写出检查规则
+  - 写测试的正确时机 = 你开始担心"改了这里会不会破坏别的地方"
+
+  ---
+  阶段 5：收尾
+
+  目标：交付、清理、归档。
+
+  ┌──────┬──────────────────────────────────────────────────────┐
+  │ 步骤 │                       通用操作                       │
+  ├──────┼──────────────────────────────────────────────────────┤
+  │ 17   │ 最终验证——跑完所有测试、审计、检查，确认所有关卡通过 │
+  ├──────┼──────────────────────────────────────────────────────┤
+  │ 18   │ 清理归档——旧版本归档，死代码退役，记录当前状态       │
+  └──────┴──────────────────────────────────────────────────────┘
+
+  ---
+  通用决策时机表
+
+  不是"什么时候做计划"，而是"什么时候出现了一个你无法忽视的信号"：
+
+  ┌─────────────────────────────────────────────────┬───────────────────────┐
+  │                      信号                       │         动作          │
+  ├─────────────────────────────────────────────────┼───────────────────────┤
+  │ 你手工做了一个产出，觉得"可以了"                │ → 开始阶段 2          │
+  ├─────────────────────────────────────────────────┼───────────────────────┤
+  │ Agent 的输出让你愿意用自己的名字署名            │ → 开始阶段 3          │
+  ├─────────────────────────────────────────────────┼───────────────────────┤
+  │ 两个 agent 之间的信息传递出现了误解             │ → 定义 Handoff schema │
+  ├─────────────────────────────────────────────────┼───────────────────────┤
+  │ 一个完整单位的全流程跑通了                      │ → 开始阶段 4          │
+  ├─────────────────────────────────────────────────┼───────────────────────┤
+  │ 做到第二个单位时发现规则在跨单位冲突            │ → 拆分局部/全局规则   │
+  ├─────────────────────────────────────────────────┼───────────────────────┤
+  │ 出现了一个任务，分配给任何现有 agent 都觉得别扭 │ → 加新 agent 类型     │
+  ├─────────────────────────────────────────────────┼───────────────────────┤
+  │ 你已经重复手动检查同一类错误 ≥ 5 次             │ → 写 hook             │
+  ├─────────────────────────────────────────────────┼───────────────────────┤
+  │ 你开始不确定改一个东西会不会破坏别的            │ → 写测试              │
+  ├─────────────────────────────────────────────────┼───────────────────────┤
+  │ 所有单位都通过所有关卡                          │ → 开始阶段 5          │
+  └─────────────────────────────────────────────────┴───────────────────────┘
+
+  ---
+  反模式——不要做的事
+
+  ┌───────────────────┬─────────────────────────────────────────────────────┐
+  │      反模式       │                       为什么                        │
+  ├───────────────────┼─────────────────────────────────────────────────────┤
+  │ ❌ 先设计 10 个   │ 你不知道需要哪 10                                   │
+  │ agent 的架构图    │ 个。在做具体工作之前，你画的图是基于想象的          │
+  ├───────────────────┼─────────────────────────────────────────────────────┤
+  │ ❌ 先写 20 条规则 │ 规则应该来自错误。没有错误就没有规则。空中写的规则  │
+  │                   │ 会在第一个案例面前崩溃                              │
+  ├───────────────────┼─────────────────────────────────────────────────────┤
+  │ ❌ 第一个 agent   │ 一个。先证明一个 agent 能完成任务，再考虑分工       │
+  │ 设 5 个角色       │                                                     │
+  ├───────────────────┼─────────────────────────────────────────────────────┤
+  │ ❌ 在没有手工做过 │                                                     │
+  │ 的情况下让 agent  │ 你不知道正确答案，agent 错了你也看不出来            │
+  │ 做                │                                                     │
+  ├───────────────────┼─────────────────────────────────────────────────────┤
+  │ ❌ 在没有重复痛苦 │ Hook 维护有成本。只自动化的确反复出现的问题         │
+  │ 的情况下写 hook   │                                                     │
+  ├───────────────────┼─────────────────────────────────────────────────────┤
+  │ ❌ 追求第一个版本 │ proof-of-shape 的目的是证明流程可行，不是证明流程完 │
+  │ 就完美            │ 美。不完美才能告诉你哪里需要改                      │
+  └───────────────────┴─────────────────────────────────────────────────────┘
+
+  ---
+  一句话版本
+
+  手工做一个 → 让一个 agent 复现 → 对比找到差距 → 加第二个 agent 审查
+  → 跑通一个完整流程 → 扩展到更多 → 痛苦到 N 次时自动化 →
+  不确定性无法处理时停下来清理
+
+✻ Cogitated for 52s

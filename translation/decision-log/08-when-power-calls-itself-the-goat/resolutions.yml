@@ -1,0 +1,77 @@
+resolutions:
+  - id: R8-1
+    source_review: 08-when-power-calls-itself-the-goat-review-1.md
+    source_finding: "'forensic walk' 译为'法医式的步程'略显生硬，建议'取证式步程'"
+    severity: SOFT
+    found_by: reviewer
+    found_at: 2026-06-13
+    assigned_to: translator
+    status: fixed
+    fix_description: "双语稿中接受建议。ready 文件中已使用'取证式步程'的修正版本。决策日志 D8-8 记录该修订。"
+    verified_by: reviewer
+
+  - id: R8-2
+    source_review: 08-when-power-calls-itself-the-goat-review-1.md
+    source_finding: "'plenary'在宪法语境不够精确，建议'无限制的'"
+    severity: SOFT
+    found_by: reviewer
+    found_at: 2026-06-13
+    assigned_to: translator
+    status: fixed
+    fix_description: "ready 文件中已使用'无限制的赦免权'。决策日志 D8-9 记录该修订。"
+    verified_by: reviewer
+
+  - id: R8-3
+    source_review: 08-when-power-calls-itself-the-goat-review-1.md
+    source_finding: "'commuted to time served'的翻译可更精确为'减为已服刑期'"
+    severity: SOFT
+    found_by: reviewer
+    found_at: 2026-06-13
+    assigned_to: translator
+    status: accepted_as_is
+    fix_description: "ready 文件中已包含此措辞——'将十四名被点名的个人的刑期减为已服刑期'——与建议措辞一致。"
+    verified_by: reviewer
+
+  - id: R8-4
+    source_review: 08-when-power-calls-itself-the-goat-review-1.md
+    source_finding: "REFERENCES 脚注部分完整性问题——需在 ready 文件中包含全部 57 条脚注"
+    severity: SOFT
+    found_by: reviewer
+    found_at: 2026-06-13
+    assigned_to: translator
+    status: fixed
+    fix_description: "ready 文件包含完整的 57 条脚注定义（[^424]-[^306]），来自原文 References 部分。"
+    verified_by: reviewer
+
+  - id: R8-5
+    source_review: 08-when-power-calls-itself-the-goat-chinese-reader-1.md
+    source_finding: "'plenary'在宪法语境的精确度问题——与 R8-2 同一发现"
+    severity: SOFT
+    found_by: chinese-reader
+    found_at: 2026-06-13
+    assigned_to: translator
+    status: fixed
+    fix_description: "已在 ready 文件中修正为'无限制的赦免权'。"
+    verified_by: translation-director
+
+  - id: R8-6
+    source_review: 08-when-power-calls-itself-the-goat-chinese-reader-1.md
+    source_finding: "八问代价问的句子略长，读者可能需要重读"
+    severity: SOFT
+    found_by: chinese-reader
+    found_at: 2026-06-13
+    assigned_to: translation-director
+    status: accepted_as_is
+    fix_description: "该句（'禁止遣返保护裁定本身的制度记录，被证明在操作上可以被推翻'）是三个平行名词短语在中文中的自然压缩。拆分为多个句子会丢失原文的平行结构。认知代价在可接受范围内。保留。"
+    verified_by: translation-director
+
+  - id: R8-7
+    source_review: 08-when-power-calls-itself-the-goat-chinese-reader-1.md
+    source_finding: "'被重新塑造成了'略显冗余"
+    severity: SOFT
+    found_by: chinese-reader
+    found_at: 2026-06-13
+    assigned_to: translator
+    status: fixed
+    fix_description: "ready 文件中已简化为'被重新塑造成了犯错者'——保留'重新'以强调 framing/reframing 的分析概念，去掉冗余措辞。"
+    verified_by: translation-director

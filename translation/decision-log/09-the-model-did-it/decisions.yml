@@ -1,0 +1,131 @@
+# 翻译决策日志 — 第 9 章
+#
+# 本章翻译中非显而易见的翻译决策记录。
+
+chapter: "09-the-model-did-it"
+chapter_title_zh: "模型干了它"
+translator: "claude (Translator agent)"
+glossary_version: "1.0.0-pilot (ch-09 terms approved 2026-06-13)"
+
+decisions:
+  - id: D09-001
+    location: "标题"
+    type: style-choice
+    decision: "\"模型干了它\""
+    alternatives_considered: ["模型做了决定", "模型干的", "模型是原因"]
+    rationale: "\"模型干了它\"保留了原文口语化的及物力度——'The Model Did It'中的'did it'不是正式的分析措辞，而是故意的口语化表达'它干的'。'干了'在中文中比'做了'更有口语力和归咎力度。且与第 8 章标题'当权力自称替罪羊'的语域形成对比。"
+    decided_by: translator
+    decided_at: 2026-06-13
+    reviewed_by: null
+    review_outcome: pending
+
+  - id: D09-002
+    location: "第 15 行"
+    type: prose-choice
+    decision: "\"动词的主语是一个东西\""
+    alternatives_considered: ["动词的主语是一个事物", "动词的主语是物", "动词的主语是非人类实体"]
+    rationale: "\"东西\"保留了原文'thing'的直白和异质性——这是一个诊断性判断句，不是修辞。'thing'在本章中具有分析上的精确性（非人类、非具名），不应被优雅化。"
+    decided_by: translator
+    decided_at: 2026-06-13
+    reviewed_by: null
+    review_outcome: pending
+
+  - id: D09-003
+    location: "第 41 行"
+    type: prose-choice
+    decision: "\"语法即洗白\""
+    alternatives_considered: ["语法就是洗白", "语法本身就是洗白机制", "语法即责任洗白"]
+    rationale: "极简的系词结构('A即B')保留了原文'X is Y'的分析性判断力。不添加'本身'、'机制'等解释性词。这是本章最核心的论证句。"
+    decided_by: translator
+    decided_at: 2026-06-13
+    reviewed_by: null
+    review_outcome: pending
+
+  - id: D09-004
+    location: "第 73 行"
+    type: prose-choice
+    decision: "保留四个短句递进：不是新的 → 规模是新的 → 技术栈深度是新的 → 语法不是新的"
+    alternatives_considered: ["合并为长句"]
+    rationale: "保留原文短句节奏——四个'something is new/is not new'的节奏是本章修辞特征之一。中文以相同的短句结构和并列否定/肯定来保留。"
+    decided_by: translator
+    decided_at: 2026-06-13
+    reviewed_by: null
+    review_outcome: pending
+
+  - id: D09-005
+    location: "第 95 行"
+    type: prose-choice
+    decision: "\"快速回滚的制度性外壳可以按设计运行...却仍然产生一种结构性的个体问责缺失\""
+    alternatives_considered: ["制度性外壳按设计运行...但/然而"]
+    rationale: "\"却仍然\"比\"但\"或\"然而\"更有对比张力——强调即使系统'正常工作'，结构性缺陷仍然存在。"
+    decided_by: translator
+    decided_at: 2026-06-13
+    reviewed_by: null
+    review_outcome: pending
+
+  - id: D09-006
+    location: "第 97 行"
+    type: prose-choice
+    decision: "\"责任形状的空洞\""
+    alternatives_considered: ["责任空洞", "问责空缺", "责任的黑洞"]
+    rationale: "保留原文的精确措辞'responsibility-shaped hole'。'责任形状的空洞'强调这是一个有形状的、可见的空洞——不是简单的'缺失'。'黑洞'添加了原文没有的物理学隐喻。"
+    decided_by: translator
+    decided_at: 2026-06-13
+    reviewed_by: null
+    review_outcome: pending
+
+  - id: D09-007
+    location: "第 107 行"
+    type: prose-choice
+    decision: "\"托辞没有失败。它在程序外壳上向上移动了一级。\""
+    alternatives_considered: ["托辞在更高层重新出现"]
+    rationale: "保留原文的两短句结构。'托辞没有失败'是颠覆性断言——读者期待'托辞被戳破'，实际是'托辞升级了'。"
+    decided_by: translator
+    decided_at: 2026-06-13
+    reviewed_by: null
+    review_outcome: pending
+
+  - id: D09-008
+    location: "第 141 行"
+    type: prose-choice
+    decision: "三层施事者列表以平行结构呈现"
+    rationale: "每一层施事者的列举（数据→语料→影子图书馆→市场 / 模型→奖励信号→发布流程 / 变体→政策→基准）在中文中以相同句式呈现，保留原文的平行分析结构。"
+    decided_by: translator
+    decided_at: 2026-06-13
+    reviewed_by: null
+    review_outcome: pending
+
+  - id: D09-009
+    location: "第 193 行"
+    type: prose-choice
+    decision: "四个短斜体句：\"模型决定了。算法标记了。数据显示了。基准评了分。\""
+    alternatives_considered: ["模型做了决定/算法做了标记..."]
+    rationale: "保留原文的极简短句节奏——每个句子 5 个字符左右，与英语原文的节奏匹配。"
+    decided_by: translator
+    decided_at: 2026-06-13
+    reviewed_by: null
+    review_outcome: pending
+
+  - id: D09-010
+    location: "第 213 行"
+    type: prose-choice
+    decision: "\"签名是模型的托辞变得个人化\""
+    alternatives_considered: ["签名使得模型的托辞个人化了", "签名使模型的托辞个人化"]
+    rationale: "被动式'made personal'译为'变得个人化'——强调过程的自发性（托辞本身具有个人化的属性），而非被外力的驱使。"
+    decided_by: translator
+    decided_at: 2026-06-13
+    reviewed_by: null
+    review_outcome: pending
+
+  - id: D09-011
+    location: "第 215 行"
+    type: prose-choice
+    decision: "\"当自主行动系统（agents）到达我们的工作中时\""
+    alternatives_considered: ["当 agents 到达我们的工作中时（裸英文）", "当智能体到达我们的工作中时"]
+    rationale: "Chinese Reader HARD 发现：裸英文'agents'打断中文阅读沉浸。修正为'自主行动系统（agents）'——与同一句前半部分的'自主行动系统'保持一致，括号附英文保留技术精确性。"
+    decided_by: translator
+    decided_at: 2026-06-13
+    revised_at: 2026-06-13
+    revision_reason: "Chinese Reader HARD finding #2 — bare English word broke reader immersion"
+    reviewed_by: null
+    review_outcome: pending

@@ -1,0 +1,123 @@
+decisions:
+  - id: D8-1
+    location: "第39行 — 'system/object alibi turned inside out'"
+    type: term-choice
+    decision: "系统/对象托辞的翻面（turned inside out）"
+    alternatives_considered:
+      - "系统/对象托辞的反转"
+      - "系统/对象托辞的颠倒"
+      - "系统/对象托辞的里外翻转"
+    rationale: "'翻面'比'反转/颠倒'更精确——turn inside out 是将口袋翻出、内面变成外面。中文'翻面'保留了这一形象：不是位置对调（反转），而是结构性的内外面交换。括号保留英文原文以确保读者可回溯源表述。"
+    decided_by: translator
+    decided_at: 2026-06-13
+    reviewed_by: reviewer
+    review_outcome: pass
+
+  - id: D8-2
+    location: "第39行 — 'goat-bearing reformer'"
+    type: term-choice
+    decision: "承载山羊角色的改革者"
+    alternatives_considered:
+      - "扮演替罪羊的改革者"
+      - "自己充当替罪羊的改革者"
+      - "自称山羊的改革者"
+    rationale: "'承载山羊角色'的'承载'延续了第2章 cost-bearing goat（承担代价的山羊）中的'承担/承载'语义线索。'山羊角色'保留了标题'当权力自称山羊'的隐喻一致性——权力自己声称是受害者。不使用'替罪羊'（太具体/已安装为正式分类术语），不使用'扮演'（暗示虚假表演，而原文的 framing 是制度性的）。"
+    decided_by: translator
+    decided_at: 2026-06-13
+    reviewed_by: reviewer
+    review_outcome: pass
+
+  - id: D8-3
+    location: "第95行 — al-Aulaqi 段落长句"
+    type: style-choice
+    decision: "拆分为中文三个并列分句"
+    alternatives_considered:
+      - "保持英文原句结构（极长中文句）"
+      - "完全重新组织信息顺序"
+    rationale: "原文第95行的复合句包含 OLC 备忘录的三个法律推理路径（AUMF授权、公共权力正当性、正当程序分析）。按 [SPLIT] 规则拆分：保持原文信息顺序，不合并相邻句子。中文以分号连接三个平行从句。"该备忘录的推理是：(1)...；(2)...；(3)..."的句型保留了三个推理路径的平行结构。"
+    decided_by: translator
+    decided_at: 2026-06-13
+    reviewed_by: reviewer
+    review_outcome: pass
+
+  - id: D8-4
+    location: "第39行 — 'the prosecution recast as the persecution'"
+    type: prose-choice
+    decision: "将检控重新框架为迫害"
+    alternatives_considered:
+      - "将起诉视为迫害（丢失了recast/reframe的框架概念）"
+      - "用'检控'对'迫害'的英文字母游戏"
+    rationale: "原文 prosecution/persecution 的英文字母修辞游戏在中文中不可保留。选择'检控/迫害'保留了两者在发音和拼写上的部分相似性，同时不失含义。'重新框架为'保留了本章核心的 reframing 分析概念。丢失了字母游戏是可行的——本书的核心不是修辞游戏而是分析框架。"
+    decided_by: translator
+    decided_at: 2026-06-13
+    reviewed_by: reviewer
+    review_outcome: pass
+
+  - id: D8-5
+    location: "第197行 — 反洗钱规则句"
+    type: prose-choice
+    decision: "问责机制不是洗白。把机制称为洗白，本身就是洗白。"
+    alternatives_considered:
+      - "问责机制不是洗白，但把机制称为洗白，就是洗白"
+      - "问责机制不是洗白。把机制称为洗白就是洗白。"
+      - "问责机制不是洗白。将机制称为洗白，这本身就是洗白。"
+    rationale: "严格的短句+句号节奏。原文'...IS the laundering'的大写强调通过'本身就是'来传达。不使用逗号连接两个句子——句号停顿重建了原文的节奏。'机制称为'而非'机制叫做'——更符合制度的正式语调。"
+    decided_by: translator
+    decided_at: 2026-06-13
+    reviewed_by: reviewer
+    review_outcome: pass
+
+  - id: D8-6
+    location: "第139行 — 'two-column timeline'"
+    type: style-choice
+    decision: "双栏时间线"
+    alternatives_considered:
+      - "双列时间表"
+      - "两栏对照时间线"
+    rationale: "'双栏时间线'——'栏'(column)在中文排版中对应图表的列。'时间线'而非'时间表'——后者偏向日程。alt text 翻译使用'左栏/右栏'的平行句式对应原文的'on the left/on the right'。"
+    decided_by: translator
+    decided_at: 2026-06-13
+    reviewed_by: reviewer
+    review_outcome: pass
+
+  - id: D8-7
+    location: "第233行 — 'the test has been put down'"
+    type: prose-choice
+    decision: "这个测试已经被放下了"
+    alternatives_considered:
+      - "这个测试已经被废弃"
+      - "这个测试已经失效"
+      - "这个测试已被搁置"
+    rationale: "'放下'直译保留了原文的'工具放下'隐喻——如同放下一个不再可信的工具。不译为'废弃'或'失效'——两者暗示不可逆的破坏，而'放下'暗示使用者的主动选择，更符合原文的伦理含义。"
+    decided_by: translator
+    decided_at: 2026-06-13
+    reviewed_by: reviewer
+    review_outcome: pass
+
+  - id: D8-8
+    location: "第44行 — 'forensic walk'"
+    type: term-choice
+    decision: "取证式步程"
+    alternatives_considered:
+      - "法医式的步程（双语稿初版）"
+      - "证据调查步程"
+      - "鉴证步程"
+    rationale: "Reviewer 发现'法医式'在中文中偏向医学法医(forensic pathology)含义。改为'取证式步程'——'取证'(evidence gathering)更准确对应原文 forensic 的含义（based on evidence/investigation）。'步程'保留原文 walk 的'逐步过程'隐喻，而非'步调/步伐'(pace)。"
+    decided_by: translator (revised per reviewer SOFT finding)
+    decided_at: 2026-06-13
+    reviewed_by: reviewer
+    review_outcome: accepted_pending
+
+  - id: D8-9
+    location: "第155行 — 'plenary power'"
+    type: term-choice
+    decision: "无限制的赦免权"
+    alternatives_considered:
+      - "完整的赦免权（双语稿初版）"
+      - "全权的赦免权"
+      - "充分完整的赦免权"
+    rationale: "Reviewer 指出'完整的'在宪法语境中不够精确。plenary power 是宪法学术语，指'不受限制的权力'。'无限制的'准确传达了这一含义，且与宪法学界的术语使用一致。"
+    decided_by: translator (revised per reviewer SOFT finding)
+    decided_at: 2026-06-13
+    reviewed_by: reviewer
+    review_outcome: accepted_pending

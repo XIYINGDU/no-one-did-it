@@ -1,0 +1,35 @@
+# 审核结论追踪 — 第 9 章
+#
+# 每条 Reviewer 或 Chinese Reader 的发现均追踪至修复闭环。
+
+chapter: "09-the-model-did-it"
+chapter_title_zh: "模型干了它"
+
+resolutions:
+  - id: R09-001
+    source_review: "09-the-model-did-it-review-1 (Chinese Reader)"
+    source_finding: "反洗钱装置 → 反洗白装置：'第一个反洗钱装置仍然是记录'中的'反洗钱'（money laundering）与全书核心术语'洗白'（responsibility laundering）不一致"
+    severity: HARD
+    found_by: chinese-reader
+    found_at: 2026-06-13
+    assigned_to: translator
+    status: fixed
+    fix_description: "将'反洗钱装置'修正为'反洗白装置'。已确认（grep）全文件零处残留'反洗钱'。"
+    verified_by: reviewer
+    verified_at: 2026-06-13
+    override_by: null
+    override_reason: null
+
+  - id: R09-002
+    source_review: "09-the-model-did-it-review-1 (Chinese Reader)"
+    source_finding: "裸英文'agents'打断中文阅读沉浸：'当 agents 到达我们的工作中时'中的'agents'未译成中文"
+    severity: HARD
+    found_by: chinese-reader
+    found_at: 2026-06-13
+    assigned_to: translator
+    status: fixed
+    fix_description: "将裸英文'agents'替换为'自主行动系统（agents）'，与同句前半部分的'自主行动系统'保持一致，括号附英文保留技术精确性。已确认全文中'agents'仅以括号注释形式出现在中文术语之后。"
+    verified_by: reviewer
+    verified_at: 2026-06-13
+    override_by: null
+    override_reason: null

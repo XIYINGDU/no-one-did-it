@@ -1,0 +1,88 @@
+chapter: "05-the-guilty-goat"
+chapter_title_zh: "有罪的山羊"
+translator: "claude"
+glossary_version: "1.0.0-pilot (updated 2026-06-13 with 10 new Ch 5 terms)"
+
+decisions:
+  - id: D5-001
+    location: "Chapter title: 'The Guilty Goat'"
+    type: term-choice
+    decision: "有罪的山羊"
+    alternatives_considered: ["有罪的替罪羊", "有罪的山羊"]
+    rationale: "本章标题 The Guilty Goat 是双关——goat 既指替罪羊(scapegoat)又指本文实际被归责的安德森。'有罪的山羊'保留了双关(替罪羊的'羊')和实际含义(有罪的)的双重层面。'有罪的替罪羊'语义重叠(替罪羊本身可能有罪或无罪)。"
+    decided_by: translator
+    decided_at: 2026-06-13
+
+  - id: D5-002
+    location: "Saʿdi epigraph"
+    type: prose-choice
+    decision: "古风二联句 + 波斯诗人介绍"
+    alternatives_considered: ["现代白话翻译", "保持古风二联句"]
+    rationale: "原文为 1882 年英译，语言古雅。中文采用略带古风但不过度晦涩的二联句。译者信息补充萨迪和《果园》的简要介绍。"
+    decided_by: translator
+    decided_at: 2026-06-13
+
+  - id: D5-003
+    location: "Multiple — 'named actor' translation strategy"
+    type: prose-choice
+    decision: "被指名的行动者"
+    alternatives_considered: ["被指名的人", "被点名者", "被指涉的行动者"]
+    rationale: "chapter 5 中 named actor 出现约 20 次，是全文分析骨架术语。'被指名的行动者'准确翻译了 named（被指名的，含公开指认的含义）和 actor（行动者，含制度性角色含义）。'被指名的人'丢失了 actor 的分析性维度。'被点名者'过于口语化。统一译法确保术语一致性。"
+    decided_by: translator
+    decided_at: 2026-06-13
+
+  - id: D5-004
+    location: "Multiple — 'floor' / 'layer' / 'level' as stack metaphor"
+    type: prose-choice
+    decision: "统一译为'层'"
+    alternatives_considered: ["floor→楼层/layer→层面/layer→层级", "统一译为'层'"]
+    rationale: "原文交替使用 floor / layer / level 来指代责任链的不同层次。中文统一译为'层'——避免了'楼层'(过于建筑化)和'层面'(过于抽象)的交替混乱。必要时用'上一层'/'该层'/'不同层面'来区别。"
+    decided_by: translator
+    decided_at: 2026-06-13
+
+  - id: D5-005
+    location: "Section 'But Anderson was charged' — six-step argument structure"
+    type: style-choice
+    decision: "为六步论证增加 [ARG-STEPS: N/6] 标注"
+    alternatives_considered: ["不标注，让论证自然流动", "增加标注并编号"]
+    rationale: "节84--96 是本章最难的论证段落——反对论点→承认→回应→检验→平行反对→解决。六步标注帮助 Reviewer 和 Chinese Reader 跟踪论证逻辑。这些标注在 ready 文件的纯文本中应移除。"
+    decided_by: translator
+    decided_at: 2026-06-13
+
+  - id: D5-006
+    location: "Section 'Sabotage, subsidiary, chairman' — 'three official stories'"
+    type: prose-choice
+    decision: "三个官方叙事"
+    alternatives_considered: ["三种官方说法", "三个官方故事", "三个官方叙事"]
+    rationale: "story 在本书中不是虚构的'故事'，而是制度性叙事/框架(framing)。'官方叙事'在中文新闻分析/社会科学语域中是标准术语。'官方说法'过于口语化。'官方故事'可能在中文中暗示'编造的故事'，过于贬义。"
+    decided_by: translator
+    decided_at: 2026-06-13
+
+  - id: D5-007
+    location: "Multiple — 'culpability' / 'culpable' / 'guilt' distinction"
+    type: term-choice
+    decision: "culpability → 可责性 / culpable → 应受惩罚的 / guilty → 有罪的"
+    alternatives_considered: ["所有词统一用'有罪'", "culpability → 可归责性"]
+    rationale: "原文在三个不同层面使用这三个词：guilty 是法律意义的有罪判决；culpable 是刑法意义上的可归责性(culpable homicide)；culpability 是分析性概念(归责链中的可责性)。中文需要分别翻译：有罪(guilty)/应受惩罚的(culpable)/可责性(culpability)。注意：'可责性'与'可归责性'的选择——'可归责性'偏制度性(谁可以被归责)，而'可责性'更接近 moral blameworthiness。选择了'可责性'。"
+    decided_by: translator
+    decided_at: 2026-06-13
+    reviewed_by: (pending)
+    review_outcome: pending
+
+  - id: D5-008
+    location: "Multiple — 'Parent corporation' / 'subsidiary'"
+    type: term-choice
+    decision: "母公司 / 子公司"
+    alternatives_considered: []
+    rationale: "标准商业/法律译法。本章关于 UCC-UCIL 母子公司关系的分析大量使用此配对。无替代方案。"
+    decided_by: translator
+    decided_at: 2026-06-13
+
+  - id: D5-009
+    location: "Section references — English footnote preservation"
+    type: style-choice
+    decision: "References [^N] 脚注全部保留英文原文"
+    alternatives_considered: ["翻译脚注中的引用标题", "部分翻译"]
+    rationale: "与第 1-4 章一致。脚注中的法律引用、URL、归档链接和文献出处保留英文。仅 HTML 注释和说明句之前缀翻译。确保与 back-matter/references.md 的合并兼容。"
+    decided_by: translator
+    decided_at: 2026-06-13
