@@ -89,15 +89,15 @@
 
 ## hooks/（9 个文件）
 
-- [ ] `hooks/check-agent-frontmatter.py`
-- [ ] `hooks/guard-destructive-bash.py`
-- [ ] `hooks/log-subagent-finish.py`
-- [ ] `hooks/scan-cite-density.py`
-- [ ] `hooks/scan-implication.py`
-- [ ] `hooks/scan-kdp-epub-css.py`
-- [ ] `hooks/scan-overclaim.py`
-- [ ] `hooks/scan-pronoun-discipline.py`
-- [ ] `hooks/session-context.py`
+- [x] `hooks/check-agent-frontmatter.py`
+- [x] `hooks/guard-destructive-bash.py`
+- [x] `hooks/log-subagent-finish.py`
+- [x] `hooks/scan-cite-density.py`
+- [x] `hooks/scan-implication.py`
+- [x] `hooks/scan-kdp-epub-css.py`
+- [x] `hooks/scan-overclaim.py`
+- [x] `hooks/scan-pronoun-discipline.py`
+- [x] `hooks/session-context.py`
 
 ## docs/（12 个文件）
 
