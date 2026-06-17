@@ -1,0 +1,18 @@
+# Agent memory
+
+This directory stores per-agent memory files. Each agent gets a subdirectory
+with a `MEMORY.md` index and individual memory files.
+
+## Memory types
+
+- **`project_*`** — project-level decisions and knowledge (e.g., ordering decisions, design rationales)
+- **`feedback_*`** — corrective feedback the agent received (e.g., "gloss attribution errors")
+
+## How it works
+
+When an agent is activated, its `MEMORY.md` is loaded into context. The index
+links to individual memory files. When an agent makes a mistake, the
+Orchestrator records it as a `feedback_*` memory. Next activation, the memory
+loads and the error does not repeat.
+
+This is not prompt optimization — it is the system accumulating immune memory.

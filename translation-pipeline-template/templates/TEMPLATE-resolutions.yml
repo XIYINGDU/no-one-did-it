@@ -1,0 +1,22 @@
+# 翻译审核结论追踪 — 模板
+#
+# 复制到 translation/decision-log/<章节号>-<slug>/resolutions.yml
+
+chapter: "<chapter-id>"
+chapter_title_zh: ""
+
+resolutions:
+  - id: ""
+    source_review: ""
+    source_finding: ""
+    severity: HARD | SOFT
+    found_by: reviewer | chinese-reader
+    found_at: ""
+    assigned_to: translator | glossary-master | translation-director
+    status: open | fixed | accepted_as_is | disputed | overridden
+    fix_description: ""
+    fixed_at: ""
+    verified_by: ""
+    verified_at: ""
+    override_by: ""
+    override_reason: ""
